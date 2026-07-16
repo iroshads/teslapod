@@ -617,7 +617,7 @@
       };
       gFareStart = now;
       markFare();
-      if (ghFare) ghFare.innerHTML = "<b>" + esc(gFare.guest) + "</b> needs a ride — pick up at <b>" + esc(lmShort(from)) + "</b> (green)";
+      if (ghFare) ghFare.innerHTML = "<b>" + esc(gFare.guest) + "</b> wants on the show — board them at <b>" + esc(lmShort(from)) + "</b> (green)";
     }
     function updateHud(now) {
       if (ghScore) ghScore.textContent = gScore;
@@ -638,7 +638,7 @@
         gFare.stage = "drop";
         gFareStart = now;
         markFare();
-        if (ghFare) ghFare.innerHTML = "Picked up <b>" + esc(gFare.guest) + "</b> — studio drop at <b>" + esc(lmShort(gFare.to)) + "</b> (red)";
+        if (ghFare) ghFare.innerHTML = "Recording with <b>" + esc(gFare.guest) + "</b> — wrap the episode at <b>" + esc(lmShort(gFare.to)) + "</b> (red)";
       } else if (gFare.stage === "drop" && lm === gFare.to) {
         var secs = (now - gFareStart) / 1000;
         var km = gFare.from.ll.distanceTo(gFare.to.ll) / 1000;
@@ -649,13 +649,14 @@
         gDelivered++;
         gStreak = tip > 60 ? gStreak + 1 : 0;
         gBatt = Math.min(100, gBatt + 10);
-        if (ghFare) ghFare.innerHTML = "<b>" + esc(gFare.guest) + "</b> delivered · +" + pts + " pts" + (tip > 60 ? " · streak up" : " · too slow, streak reset");
+        if (ghFare) ghFare.innerHTML = "<b>" + esc(gFare.guest) + "</b>'s episode wrapped · +" + pts + " pts" + (tip > 60 ? " · streak up" : " · slow record, streak reset");
         gFare = null;
         clearFareMarks();
         setTimeout(function () { if (gameOn && !gFare) spawnFare(performance.now()); }, 1200);
       } else {
         var want = gFare.stage === "pickup" ? gFare.from : gFare.to;
-        if (ghFare) ghFare.innerHTML = "Wrong stop — head to <b>" + esc(lmShort(want)) + "</b>";
+        var verb = gFare.stage === "pickup" ? "board them" : "wrap the episode";
+        if (ghFare) ghFare.innerHTML = "Wrong stop — " + verb + " at <b>" + esc(lmShort(want)) + "</b>";
       }
       updateHud(now);
     }
@@ -673,6 +674,7 @@
       gEndAt = performance.now() + GAME_MS;
       if (hudEl) hudEl.hidden = false;
       if (overEl) overEl.hidden = true;
+      if (mapEl.parentElement) mapEl.parentElement.classList.add("playing");
       if (gameBtn) { gameBtn.textContent = "End Run"; gameBtn.classList.add("on"); }
       if (passingEl) passingEl.innerHTML = "<b>PICKUP RUN</b> · click landmarks to dispatch the pod";
       map.fitBounds(allBounds, { padding: [24, 24] });
@@ -685,6 +687,7 @@
       gFare = null;
       clearFareMarks();
       if (hudEl) hudEl.hidden = true;
+      if (mapEl.parentElement) mapEl.parentElement.classList.remove("playing");
       if (gameBtn) { gameBtn.textContent = "▶ Pickup Run"; gameBtn.classList.remove("on"); }
       var best = 0;
       try { best = +localStorage.getItem("tp-best") || 0; } catch (e) {}
@@ -699,7 +702,7 @@
       var goMeta = document.getElementById("goMeta"), goRank = document.getElementById("goRank");
       if (goReason) goReason.textContent = reasonTxt;
       if (goScore) goScore.textContent = gScore;
-      if (goMeta) goMeta.textContent = gDelivered + (gDelivered === 1 ? " founder" : " founders") + " delivered · best " + best + (isBest ? " — new record!" : "");
+      if (goMeta) goMeta.textContent = gDelivered + (gDelivered === 1 ? " founder booked" : " founders booked") + " · best " + best + (isBest ? " — new record!" : "");
       if (goRank) goRank.textContent = "“" + rank + "”";
       if (overEl) overEl.hidden = false;
       if (passingEl) passingEl.innerHTML = "<b>CRUISING</b> · San Francisco";

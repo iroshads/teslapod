@@ -407,11 +407,16 @@ body.map-full .nav, body.map-full .scroll-progress { display: none; }
 .ctl-game.on { color: #fff; background: var(--accent); border-color: var(--accent); }
 
 .game-hud {
-  border-top: 1px solid var(--line-soft);
-  padding: 11px 18px;
-  display: flex; flex-direction: column; gap: 7px;
+  position: absolute; top: 0; left: 0; right: 0; z-index: 900;
+  padding: 9px 16px;
+  display: flex; flex-direction: column; gap: 5px;
+  background: var(--glass);
+  -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line);
 }
 .game-hud[hidden] { display: none; }
+/* nudge the zoom control below the HUD while a run is on */
+.map-stage.playing .leaflet-top { top: 62px; }
 .gh-stats { display: flex; flex-wrap: wrap; gap: 8px 22px; }
 .gh-stat {
   font-family: var(--font-mono); font-size: 9.5px; letter-spacing: 0.18em;
@@ -432,17 +437,18 @@ body.map-full .nav, body.map-full .scroll-progress { display: none; }
 .game-over {
   position: absolute; inset: 0; z-index: 1100;
   display: grid; place-items: center; padding: 20px;
-  background: rgba(251, 250, 248, 0.72);
-  -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
+  pointer-events: none;   /* the map & the pod stay visible and live behind it */
 }
 .game-over[hidden] { display: none; }
-[data-theme="dark"] .game-over { background: rgba(16, 16, 18, 0.72); }
 .go-panel {
+  pointer-events: auto;
   background: var(--surface); border: 1px solid var(--line);
-  border-radius: 14px; padding: 30px 34px;
-  text-align: center; max-width: 340px;
-  box-shadow: var(--card-shadow-hover);
+  border-radius: 14px; padding: 26px 30px;
+  text-align: center; max-width: 320px;
+  box-shadow: 0 20px 60px rgba(15, 20, 40, 0.28), 0 0 0 6px rgba(15, 20, 40, 0.04);
+  animation: go-in 0.35s var(--ease);
 }
+@keyframes go-in { from { opacity: 0; transform: translateY(10px) scale(0.97); } }
 .go-kicker {
   font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.24em;
   text-transform: uppercase; color: var(--accent); margin-bottom: 8px;

@@ -91,7 +91,7 @@
           </div>
           <a class="hero-game reveal" href="#about" id="heroGameHook" aria-label="Play Pickup Run — the pod dispatch game">
             <span class="hg-badge">Game</span>
-            <span class="hg-txt">Think you can dispatch the pod? Deliver founders across SF in <b>Pickup&nbsp;Run</b></span>
+            <span class="hg-txt">Think you can run the show? Get founders into the Pod in <b>Pickup&nbsp;Run</b></span>
             <span class="hg-go">Play →</span>
           </a>
           <div class="hero-meta reveal" aria-label="Show stats">
@@ -186,6 +186,17 @@
               </div>
             </div>
 
+            <!-- game HUD — floats on the map so the ride stays visible -->
+            <div class="game-hud" id="gameHud" hidden>
+              <div class="gh-stats">
+                <span class="gh-stat">Score <b id="ghScore">0</b></span>
+                <span class="gh-stat">Time <b id="ghTime">3:00</b></span>
+                <span class="gh-stat">Battery <b id="ghBatt">100%</b></span>
+                <span class="gh-stat">Tips <b id="ghStreak">×1</b></span>
+              </div>
+              <div class="gh-fare" id="ghFare"></div>
+            </div>
+
             <!-- game over -->
             <div class="game-over" id="gameOver" hidden>
               <div class="go-panel">
@@ -200,17 +211,6 @@
                 </div>
               </div>
             </div>
-          </div>
-
-          <!-- game HUD -->
-          <div class="game-hud" id="gameHud" hidden>
-            <div class="gh-stats">
-              <span class="gh-stat">Score <b id="ghScore">0</b></span>
-              <span class="gh-stat">Time <b id="ghTime">3:00</b></span>
-              <span class="gh-stat">Battery <b id="ghBatt">100%</b></span>
-              <span class="gh-stat">Tips <b id="ghStreak">×1</b></span>
-            </div>
-            <div class="gh-fare" id="ghFare"></div>
           </div>
 
           <div class="map-card-foot">
