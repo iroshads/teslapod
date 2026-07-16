@@ -1,0 +1,402 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Tesla Pod — Conversations from the Autonomous Future</title>
+  <meta name="description" content="Conversations from the autonomous future. Unfiltered dialogue in motion. Founders riding Tesla FSD through San Francisco." />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.theteslapod.com/" />
+  <meta property="og:title" content="The Tesla Pod" />
+  <meta property="og:description" content="Conversations from the autonomous future. Unfiltered dialogue in motion." />
+  <meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/marketrix-ai.firebasestorage.app/o/tesla-pod%2Fteslapodimg.png?alt=media&token=3f7b9c1a-2bd3-496c-b1fd-5b48c988f825" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:title" content="The Tesla Pod" />
+  <meta property="twitter:description" content="Conversations from the autonomous future. Unfiltered dialogue in motion." />
+  <meta property="twitter:image" content="https://firebasestorage.googleapis.com/v0/b/marketrix-ai.firebasestorage.app/o/tesla-pod%2Fteslapodimg.png?alt=media&token=3f7b9c1a-2bd3-496c-b1fd-5b48c988f825" />
+
+  <link rel="icon" type="image/png" href="assets/brand/teslapod-og.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700&family=Inter:wght@400;500;600&family=Instrument+Serif:ital@1&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- progress bar -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- NAV -->
+  <header class="nav" id="nav">
+    <a class="nav-logo" href="#home" aria-label="The Tesla Pod — home">
+      <span class="logo-dot" aria-hidden="true"></span>
+      THE TESLA POD
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#episodes">Episodes</a>
+      <a href="#passengers">Passengers</a>
+      <a href="#about">The Map</a>
+      <a href="#apply" class="nav-cta">Be a Guest</a>
+    </nav>
+    <div class="nav-actions">
+      <a class="nav-yt" href="https://www.youtube.com/@TeslaPod" target="_blank" rel="noopener" aria-label="The Tesla Pod on YouTube">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31.3 31.3 0 0 0 0 12a31.3 31.3 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31.3 31.3 0 0 0 24 12a31.3 31.3 0 0 0-.5-5.8zM9.6 15.6V8.4L15.8 12l-6.2 3.6z"/></svg>
+      </a>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle light / dark theme">
+        <span class="theme-icon" aria-hidden="true"></span>
+      </button>
+      <button class="nav-burger" id="navBurger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#episodes">Episodes</a>
+    <a href="#passengers">Passengers</a>
+    <a href="#about">The Map</a>
+    <a href="#apply">Be a Guest</a>
+    <a href="https://www.youtube.com/@TeslaPod" target="_blank" rel="noopener">YouTube ↗</a>
+  </div>
+
+  <main>
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="home">
+      <div class="hero-bg" aria-hidden="true">
+        <div class="hero-video-wrap" id="heroVideoWrap"></div>
+        <div class="hero-grid"></div>
+        <div class="hero-vignette"></div>
+      </div>
+
+      <div class="hero-inner">
+        <div class="hero-copy">
+          <p class="hero-kicker reveal"><span class="rec-dot"></span> The Tesla Pod &nbsp;·&nbsp; San Francisco</p>
+          <h1 class="hero-title">
+            <span class="line"><span>Conversations from</span></span>
+            <span class="line"><span>the <em>autonomous</em> future.</span></span>
+          </h1>
+          <p class="hero-sub reveal">Founders, side by side in a self-driving Tesla through San Francisco. No studio. No script. Nobody watching the road.</p>
+          <div class="hero-ctas reveal">
+            <button class="btn btn-primary" id="watchLatestBtn">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+              Watch the latest ride
+            </button>
+            <a class="btn btn-ghost" href="#apply">Request a seat</a>
+          </div>
+          <div class="hero-meta reveal" aria-label="Show stats">
+            <span class="fsd-badge"><svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M12 5.362l2.475-3.026s4.245.09 8.471 2.054c-1.082 1.636-3.231 2.438-3.231 2.438-.146-1.439-1.154-1.79-4.354-1.79L12 24 8.619 5.034c-3.18 0-4.188.354-4.335 1.792 0 0-2.146-.795-3.229-2.43C5.28 2.431 9.525 2.34 9.525 2.34L12 5.362l-.004.002H12v-.002zm0-3.899c3.415-.03 7.326.528 11.328 2.28.535-.968.672-1.395.672-1.395C19.625.612 15.528.015 12 0 8.472.015 4.375.61 0 2.349c0 0 .195.525.672 1.396C4.674 1.989 8.585 1.435 12 1.46v.003z"/></svg> Runs on Tesla FSD</span>
+            <span id="heroMeta"></span>
+          </div>
+        </div>
+
+        <aside class="latest-card reveal" id="latestCard" aria-label="Latest episode">
+          <!-- filled by app.js -->
+        </aside>
+      </div>
+
+      <!-- Telemetry HUD -->
+      <div class="telemetry" aria-label="Telemetry data">
+        <div class="tel-item"><span class="tel-label">SYS</span><span class="tel-value">FSD (SUPERVISED) V14.3.2</span></div>
+        <div class="tel-item"><span class="tel-label">SPEED</span><span class="tel-value"><span id="speedVal">0</span> MPH</span></div>
+        <div class="tel-item"><span class="tel-label">COORD</span><span class="tel-value" id="coordVal">37.7749° N · 122.4194° W</span></div>
+        <div class="tel-item"><span class="tel-label">CABIN</span><span class="tel-value tel-ok" id="cabinVal">RECORDING</span></div>
+      </div>
+    </section>
+
+    <!-- marquee -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track" id="marqueeTrack">
+        <span>NO STUDIO</span><i>◆</i><span>NO STEERING WHEEL</span><i>◆</i><span>NO MEDIA TRAINING</span><i>◆</i><span>CONVERSATIONS IN MOTION</span><i>◆</i><span>SAN FRANCISCO → BAY AREA</span><i>◆</i>
+      </div>
+    </div>
+
+    <!-- ============ EPISODES ============ -->
+    <section class="episodes" id="episodes">
+      <div class="section-head reveal">
+        <p class="eyebrow">Recent Rides</p>
+        <h2>Every episode, every mile</h2>
+        <p class="section-sub">Founders, builders and operators riding Tesla FSD through San Francisco — synced live from <a href="https://www.youtube.com/@TeslaPod" target="_blank" rel="noopener">@TeslaPod</a>.</p>
+      </div>
+      <div class="episode-featured reveal" id="episodeFeatured"><!-- app.js --></div>
+      <div class="episode-grid" id="episodeGrid"><!-- app.js --></div>
+    </section>
+
+    <!-- ============ PASSENGERS ============ -->
+    <section class="passengers" id="passengers">
+      <div class="section-head reveal">
+        <p class="eyebrow">The Passengers</p>
+        <h2>Who's ridden shotgun</h2>
+        <p class="section-sub">Founders, builders, and operators shaping the autonomous future.</p>
+      </div>
+      <div class="host-card reveal" id="hostCard"><!-- app.js --></div>
+      <div class="people-grid" id="peopleGrid"><!-- app.js --></div>
+    </section>
+
+    <!-- ============ THE RIDE: why we drive + request a seat ============ -->
+    <section class="apply" id="apply">
+      <div class="section-head reveal">
+        <p class="eyebrow">Next Departure</p>
+        <h2>Let's go for a ride.</h2>
+        <p class="section-sub">The road is open. The car is driving itself. Step inside the Tesla Pod and share the future you're building with the world.</p>
+      </div>
+      <div class="apply-inner">
+        <div class="map-card reveal" id="about" aria-label="Live map of the pod driving through San Francisco">
+          <div class="map-card-head">
+            <span class="mc-title"><span class="rec-dot"></span> The Pod · Live Position</span>
+            <span class="mc-cursor" id="mapCursor">37.7749° N · 122.4194° W</span>
+            <button type="button" class="mc-max" id="ctlMax" aria-label="Maximize map" title="Maximize">
+              <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg>
+            </button>
+          </div>
+
+          <!-- real map: Leaflet + CARTO Voyager tiles; app.js drives the pod -->
+          <div class="map-stage">
+            <div class="sf-map" id="liveMap" role="img" aria-label="Live map of San Francisco with the pod's position"></div>
+
+            <!-- floating HUD controls, on the map next to the zoom buttons -->
+            <div class="map-console" id="mapConsole" aria-label="Pod controls">
+              <div class="mcn-row">
+                <span class="mcn-tag">FSD</span>
+                <div class="seg" role="radiogroup" aria-label="Speed profile" id="speedSeg">
+                  <button type="button" data-speed="sloth" aria-pressed="false">Sloth</button>
+                  <button type="button" data-speed="chill" aria-pressed="false">Chill</button>
+                  <button type="button" data-speed="standard" class="on" aria-pressed="true">Standard</button>
+                  <button type="button" data-speed="hurry" aria-pressed="false">Hurry</button>
+                  <button type="button" data-speed="madmax" aria-pressed="false">Mad&nbsp;Max</button>
+                </div>
+              </div>
+              <div class="mcn-row mcn-btns">
+                <button type="button" class="ctl-toggle on" id="ctlStudio" aria-pressed="true">Studio</button>
+                <button type="button" class="ctl-toggle" id="ctlFollow" aria-pressed="false">Follow</button>
+                <button type="button" class="ctl-btn" id="ctlPark">Park</button>
+                <button type="button" class="ctl-btn" id="ctlShuffle">Shuffle</button>
+                <button type="button" class="ctl-btn" id="ctlRecenter">Recenter</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="map-card-foot">
+            <span class="mc-passing" id="mapPassing"><b>CRUISING</b> · San Francisco</span>
+            <span class="mc-hint">Click a landmark to reroute the pod</span>
+          </div>
+        </div>
+
+        <!-- the guest form, presented as the Tesla center screen -->
+        <div class="tesla-screen reveal" aria-label="Request a seat">
+          <div class="ts-statusbar">
+            <div class="ts-gears" id="tsGears" aria-hidden="true">
+              <span class="on">P</span><span>R</span><span>N</span><span>D</span>
+            </div>
+            <div class="ts-brand" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="11" height="11" fill="currentColor"><path d="M12 5.362l2.475-3.026s4.245.09 8.471 2.054c-1.082 1.636-3.231 2.438-3.231 2.438-.146-1.439-1.154-1.79-4.354-1.79L12 24 8.619 5.034c-3.18 0-4.188.354-4.335 1.792 0 0-2.146-.795-3.229-2.43C5.28 2.431 9.525 2.34 9.525 2.34L12 5.362l-.004.002H12v-.002zm0-3.899c3.415-.03 7.326.528 11.328 2.28.535-.968.672-1.395.672-1.395C19.625.612 15.528.015 12 0 8.472.015 4.375.61 0 2.349c0 0 .195.525.672 1.396C4.674 1.989 8.585 1.435 12 1.46v.003z"/></svg>
+              POD OS 14.3
+            </div>
+            <div class="ts-status-r">
+              <span id="tsClock">--:--</span>
+              <span id="tsTemp">68°F</span>
+              <span class="ts-batt" aria-label="Battery 84%"><i style="width:84%"></i></span>
+            </div>
+          </div>
+
+          <div class="ts-body">
+            <!-- app: guest boarding (default) -->
+            <div class="ts-app on" data-app="boarding">
+              <div class="ts-app-head">
+                <span class="ts-app-title">Guest Boarding</span>
+                <span class="ts-app-sub">Request a seat on the next ride</span>
+              </div>
+              <form class="apply-form" action="https://formsubmit.co/irosha@marketrix.ai" method="POST" id="guestForm">
+                <input type="hidden" name="_subject" value="Tesla Pod — Guest Pitch" />
+                <input type="hidden" name="_captcha" value="false" />
+                <div class="field">
+                  <label for="f-name">Name</label>
+                  <input id="f-name" name="name" type="text" required autocomplete="name" placeholder="Ada Lovelace" />
+                </div>
+                <div class="field">
+                  <label for="f-email">Email</label>
+                  <input id="f-email" name="email" type="email" required autocomplete="email" placeholder="you@company.com" />
+                </div>
+                <div class="field">
+                  <label for="f-link">LinkedIn / Twitter / Website</label>
+                  <input id="f-link" name="link" type="text" placeholder="https://" />
+                </div>
+                <div class="field">
+                  <label for="f-pitch">Guest pitch</label>
+                  <textarea id="f-pitch" name="pitch" rows="4" required placeholder="What are you building and why should we talk about it?"></textarea>
+                </div>
+                <button class="btn btn-primary btn-block ts-submit" type="submit" id="formSubmitBtn">Request a Seat</button>
+                <p class="form-fineprint" id="formFineprint">We read every pitch. If it's a fit, we'll send pickup coordinates.</p>
+              </form>
+            </div>
+
+            <!-- app: the pod (live vehicle status) -->
+            <div class="ts-app" data-app="car">
+              <div class="ts-app-head">
+                <span class="ts-app-title">The Pod</span>
+                <span class="ts-app-sub">Live vehicle status</span>
+              </div>
+              <div class="ts-stat-grid">
+                <div class="ts-stat"><small>Status</small><b id="tscStatus">—</b></div>
+                <div class="ts-stat"><small>Position</small><b id="tscCoords">—</b></div>
+                <div class="ts-stat"><small>FSD profile</small><b id="tscProfile">Standard</b></div>
+                <div class="ts-stat"><small>Speed</small><b id="tscSpeed">—</b></div>
+              </div>
+              <div class="ts-actions">
+                <button type="button" class="ts-chip" id="tscLocate">Locate on map</button>
+                <button type="button" class="ts-chip" id="tscSummon">Summon · new stop</button>
+              </div>
+              <p class="ts-note">Telemetry mirrors the live map — profile and camera controls are on the map console.</p>
+            </div>
+
+            <!-- app: climate -->
+            <div class="ts-app" data-app="climate">
+              <div class="ts-app-head">
+                <span class="ts-app-title">Climate</span>
+                <span class="ts-app-sub">Cabin comfort</span>
+              </div>
+              <div class="ts-climate">
+                <button type="button" class="ts-round" id="tsTempDown" aria-label="Cooler">−</button>
+                <span class="ts-temp-big" id="tsTempBig">68°</span>
+                <button type="button" class="ts-round" id="tsTempUp" aria-label="Warmer">+</button>
+              </div>
+              <div class="ts-fan-row">
+                <span class="ts-fan-label">Fan</span>
+                <div class="ts-fan" id="tsFan">
+                  <button type="button" class="on">1</button><button type="button" class="on">2</button><button type="button">3</button><button type="button">4</button><button type="button">5</button>
+                </div>
+              </div>
+              <p class="ts-note">Cabin overheat protection on · Mic-safe airflow while recording.</p>
+            </div>
+
+            <!-- app: on air (music) -->
+            <div class="ts-app" data-app="music">
+              <div class="ts-app-head">
+                <span class="ts-app-title">On Air</span>
+                <span class="ts-app-sub">Latest from the pod</span>
+              </div>
+              <div class="ts-nowplaying" id="tsNowPlaying"><!-- app.js --></div>
+            </div>
+
+            <!-- app: phone -->
+            <div class="ts-app" data-app="phone">
+              <div class="ts-app-head">
+                <span class="ts-app-title">Phone</span>
+                <span class="ts-app-sub">Recents</span>
+              </div>
+              <div class="ts-list">
+                <a class="ts-row" href="mailto:irosha@marketrix.ai">
+                  <span class="ts-row-main"><b>Irosha de Silva</b><small>Host · The Tesla Pod</small></span>
+                  <span class="ts-row-go">Email ↗</span>
+                </a>
+                <a class="ts-row" href="mailto:irosha@marketrix.ai?subject=Tesla%20Pod%20Sponsorship">
+                  <span class="ts-row-main"><b>Sponsorships</b><small>Put your brand in the pod</small></span>
+                  <span class="ts-row-go">Email ↗</span>
+                </a>
+                <a class="ts-row" href="https://www.youtube.com/@TeslaPod" target="_blank" rel="noopener">
+                  <span class="ts-row-main"><b>@TeslaPod</b><small>YouTube channel</small></span>
+                  <span class="ts-row-go">Open ↗</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- app: settings -->
+            <div class="ts-app" data-app="settings">
+              <div class="ts-app-head">
+                <span class="ts-app-title">Settings</span>
+                <span class="ts-app-sub">Display &amp; software</span>
+              </div>
+              <div class="ts-list">
+                <div class="ts-row">
+                  <span class="ts-row-main"><b>Site display</b><small>Applies to the whole page</small></span>
+                  <span class="ts-seg" id="tsThemeSeg">
+                    <button type="button" data-theme-set="light">Light</button>
+                    <button type="button" data-theme-set="dark">Dark</button>
+                  </span>
+                </div>
+                <div class="ts-row">
+                  <span class="ts-row-main"><b>Software</b><small>POD OS 14.3 · FSD (Supervised)</small></span>
+                  <span class="ts-row-go ts-ok">Up to date ✓</span>
+                </div>
+                <div class="ts-row">
+                  <span class="ts-row-main"><b>About</b><small>A Marketrix AI production</small></span>
+                  <span class="ts-row-go">theteslapod.com</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="ts-dock" role="tablist" aria-label="Screen apps">
+            <button type="button" class="ts-dock-icon" data-app="car" aria-label="The Pod"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l1.5-4.5A2 2 0 018.4 7h7.2a2 2 0 011.9 1.5L19 13M5 13h14M5 13v5h1.8v-1.4h10.4V18H19v-5"/><circle cx="7.8" cy="15" r="0.6"/><circle cx="16.2" cy="15" r="0.6"/></svg></button>
+            <button type="button" class="ts-dock-icon" data-app="climate" aria-label="Climate"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M12 5v3M12 16v3M5 12h3M16 12h3M7 7l2 2M15 15l2 2M17 7l-2 2M9 15l-2 2"/><circle cx="12" cy="12" r="2.4"/></svg></button>
+            <button type="button" class="ts-dock-icon ts-active" data-app="boarding" aria-label="Guest boarding"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11.5a6.5 6.5 0 0013 0M12 18v3"/></svg></button>
+            <button type="button" class="ts-dock-icon" data-app="music" aria-label="On air"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V6l10-2v11"/><circle cx="6.5" cy="18" r="2.5"/><circle cx="16.5" cy="15" r="2.5"/></svg></button>
+            <button type="button" class="ts-dock-icon" data-app="phone" aria-label="Phone"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6.6 3h3l1.6 4.2-2 1.6a12 12 0 005.9 5.9l1.6-2 4.3 1.6v3a2 2 0 01-2.2 2A17 17 0 014.6 5.2 2 2 0 016.6 3z"/></svg></button>
+            <button type="button" class="ts-dock-icon" data-app="settings" aria-label="Settings"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="3"/><path d="M12 2.5v3M12 18.5v3M2.5 12h3M18.5 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M19.1 4.9L17 7M7 17l-2.1 2.1"/></svg></button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <a class="footer-cta" href="#episodes">
+      <span class="fc-kicker">Every other week, a new ride</span>
+      <span class="fc-line">Watch the <em>conversations</em> everyone else edits out<span class="fc-arrow">→</span></span>
+    </a>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a class="nav-logo" href="#home"><span class="logo-dot"></span> THE TESLA POD</a>
+        <p>Conversations from the autonomous future.<br />Recorded on the move, somewhere in the Bay Area.</p>
+        <a class="mx-badge" href="https://marketrix.ai" target="_blank" rel="noopener" aria-label="Marketrix AI">
+          <img src="assets/brand/marketrix-icon.png" alt="Marketrix AI logo" width="40" height="40" />
+          <span class="mx-text"><small>A production of</small><b>Marketrix AI</b></span>
+        </a>
+      </div>
+      <div class="footer-col">
+        <h4>Ride along</h4>
+        <a href="#episodes">Episodes</a>
+        <a href="#passengers">Passengers</a>
+        <a href="#about">Where we drive</a>
+        <a href="#apply">Be a guest</a>
+      </div>
+      <div class="footer-col">
+        <h4>Elsewhere</h4>
+        <a href="https://www.youtube.com/@TeslaPod" target="_blank" rel="noopener">YouTube ↗</a>
+        <a href="mailto:irosha@marketrix.ai?subject=Tesla%20Pod%20Sponsorship">Sponsorships</a>
+        <a href="mailto:irosha@marketrix.ai">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>On the road</h4>
+        <span class="footer-fsd"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M12 5.362l2.475-3.026s4.245.09 8.471 2.054c-1.082 1.636-3.231 2.438-3.231 2.438-.146-1.439-1.154-1.79-4.354-1.79L12 24 8.619 5.034c-3.18 0-4.188.354-4.335 1.792 0 0-2.146-.795-3.229-2.43C5.28 2.431 9.525 2.34 9.525 2.34L12 5.362l-.004.002H12v-.002zm0-3.899c3.415-.03 7.326.528 11.328 2.28.535-.968.672-1.395.672-1.395C19.625.612 15.528.015 12 0 8.472.015 4.375.61 0 2.349c0 0 .195.525.672 1.396C4.674 1.989 8.585 1.435 12 1.46v.003z"/></svg> Tesla FSD (Supervised)</span>
+        <span class="footer-road">San Francisco → Bay Area</span>
+        <span class="footer-road">37.7749° N · 122.4194° W</span>
+      </div>
+    </div>
+    <div class="footer-bar">
+      <span>© <span id="year"></span> The Tesla Pod. All rides supervised.</span>
+      <span class="footer-tel">Not affiliated with Tesla, Inc.</span>
+    </div>
+  </footer>
+
+  <!-- EPISODE MODAL -->
+  <div class="modal" id="modal" role="dialog" aria-modal="true" aria-label="Episode player" hidden>
+    <div class="modal-backdrop" data-close></div>
+    <div class="modal-card">
+      <button class="modal-close" data-close aria-label="Close player">✕</button>
+      <div class="modal-video" id="modalVideo"></div>
+      <div class="modal-meta" id="modalMeta"></div>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
