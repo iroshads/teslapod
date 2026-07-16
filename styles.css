@@ -378,6 +378,15 @@ body.map-full .nav, body.map-full .scroll-progress { display: none; }
   100% { transform: scale(1.1); opacity: 0; }
 }
 
+/* the pod's route: dots flow toward the destination, trail fades behind */
+.pod-route-ahead {
+  animation: pod-flow 0.9s linear infinite;
+  filter: drop-shadow(0 1px 1px rgba(200, 16, 46, 0.25));
+}
+@keyframes pod-flow { to { stroke-dashoffset: -11.1; } }
+.pod-route-behind { stroke-dasharray: none; }
+@media (prefers-reduced-motion: reduce) { .pod-route-ahead { animation: none; } }
+
 /* dark theme: dark tiles + light labels */
 [data-theme="dark"] .lmm-dot { background: #f4f2ed; border-color: #1a1a1e; }
 [data-theme="dark"] .lmm-txt {

@@ -308,7 +308,35 @@
     });
     var carPos = nodeLL.FERRY;
     var car = L.marker(carPos, { icon: carIcon, interactive: false, keyboard: false }).addTo(map);
-    var plan = L.polyline([], { color: "#c8102e", weight: 2, opacity: 0.65, dashArray: "3 7", interactive: false }).addTo(map);
+
+    /* ---- the route: a faded trail already driven + a flowing dotted line ahead ---- */
+    var routeBehind = L.polyline([], {
+      className: "pod-route-behind", color: "#c8102e", weight: 2.5, opacity: 0.28,
+      lineCap: "round", lineJoin: "round", interactive: false
+    }).addTo(map);
+    var routeAhead = L.polyline([], {
+      className: "pod-route-ahead", color: "#c8102e", weight: 3, opacity: 0.95,
+      dashArray: "0.1 11", lineCap: "round", lineJoin: "round", interactive: false
+    }).addTo(map);
+
+    // never mutate polyline geometry mid zoom/pan animation — that's what makes it
+    // "fly all over"; freeze during animations, redraw once when they settle.
+    var isAnimating = false;
+    function redrawRoute() {
+      if (isAnimating) return;
+      if (!path.length || dist >= pathLen) { routeAhead.setLatLngs([]); routeBehind.setLatLngs([]); return; }
+      var behind = [], ahead = [carPos];
+      for (var i = 0; i < path.length; i++) {
+        if (cum[i] <= dist) behind.push(path[i]);
+        else ahead.push(path[i]);
+      }
+      behind.push(carPos);
+      routeBehind.setLatLngs(behind.length > 1 ? behind : []);
+      routeAhead.setLatLngs(ahead);
+    }
+    function clearRoute() { routeAhead.setLatLngs([]); routeBehind.setLatLngs([]); }
+    map.on("zoomstart movestart", function () { isAnimating = true; });
+    map.on("zoomend moveend", function () { isAnimating = false; redrawRoute(); });
 
     /* ---- FSD speed profiles (map m/s + the plausible mph shown in the hero) ---- */
     var PROFILES = {
@@ -328,14 +356,14 @@
 
     var path = [], cum = [0], pathLen = 0, dist = 0, curSpd = 0;
     var dwellUntil = 0, passingUntil = 0;
-    var lastUi = 0, lastTick = performance.now();
+    var lastUi = 0, lastRoute = 0, lastTick = performance.now();
 
     function setPath(latlngs) {
       path = latlngs; cum = [0];
       for (var i = 1; i < path.length; i++) cum.push(cum[i - 1] + path[i - 1].distanceTo(path[i]));
       pathLen = cum[cum.length - 1] || 0;
       dist = 0;
-      plan.setLatLngs(path);
+      redrawRoute();
     }
     function pointAt(d) {
       if (!path.length) return carPos;
@@ -402,7 +430,7 @@
         btn.classList.toggle("on", on);
       }
       if (on) {
-        plan.setLatLngs([]);
+        clearRoute();
         path = []; pathLen = 0; dist = 0;
         target = null; targetLm = null;
         var at = nearestLmName(carPos, 900);
@@ -559,7 +587,7 @@
           if (passingEl) passingEl.innerHTML = "<b>ARRIVED</b> · " + esc(name);
           carPos = path.length ? path[path.length - 1] : carPos;
           car.setLatLng(carPos);
-          plan.setLatLngs([]);
+          clearRoute();
           var lmEl = target.marker.getElement();
           if (lmEl) {
             (function (el) { setTimeout(function () { el.classList.remove("lm-target"); }, 2600); })(lmEl);
@@ -585,6 +613,8 @@
         dist += curSpd / 1000 * dt;
         carPos = pointAt(dist);
         car.setLatLng(carPos);
+        // keep the trail tracking the pod, but never during a zoom/pan animation
+        if (now - lastRoute > 200) { lastRoute = now; redrawRoute(); }
       }
 
       if (now - lastUi > 1200) {
@@ -601,12 +631,8 @@
           parked: parked || now < dwellUntil || !path.length
         };
         setGear(parked || now < dwellUntil || !path.length || dist >= pathLen ? "P" : "D");
-        // trim the plan line to what's left of the trip
+        // passing note when cruising by a landmark that isn't the destination
         if (path.length && dist < pathLen) {
-          var rest = [carPos];
-          for (var i = 1; i < path.length; i++) if (cum[i] > dist) rest.push(path[i]);
-          plan.setLatLngs(rest);
-          // passing note when cruising by a landmark that isn't the destination
           if (target && !fastMode && now > passingUntil) {
             for (var j = 0; j < landmarks.length; j++) {
               var lm = landmarks[j];
