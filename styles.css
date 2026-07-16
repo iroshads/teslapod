@@ -378,6 +378,104 @@ body.map-full .nav, body.map-full .scroll-progress { display: none; }
   100% { transform: scale(1.1); opacity: 0; }
 }
 
+/* ---------- Pickup Run: the game ---------- */
+.hero-game {
+  display: inline-flex; align-items: center; gap: 12px;
+  margin-top: 18px; padding: 10px 16px 10px 10px;
+  border: 1px solid var(--line); border-radius: 999px;
+  transition: border-color 0.2s, transform 0.2s var(--ease), box-shadow 0.2s;
+  max-width: 100%;
+}
+.hero-game:hover { border-color: var(--accent); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(200, 16, 46, 0.1); }
+.hg-badge {
+  flex: none;
+  font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.2em;
+  text-transform: uppercase; color: #fff; background: var(--accent);
+  padding: 5px 10px; border-radius: 999px;
+}
+.hg-txt { font-size: 13px; color: var(--text-dim); line-height: 1.4; }
+.hg-txt b { color: var(--ink); font-weight: 600; }
+.hg-go {
+  flex: none; font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.16em;
+  text-transform: uppercase; color: var(--accent);
+  transition: transform 0.2s var(--ease);
+}
+.hero-game:hover .hg-go { transform: translateX(3px); }
+
+.ctl-game { color: var(--accent); border-color: rgba(200, 16, 46, 0.4); }
+.ctl-game:hover { color: #fff; background: var(--accent); border-color: var(--accent); }
+.ctl-game.on { color: #fff; background: var(--accent); border-color: var(--accent); }
+
+.game-hud {
+  border-top: 1px solid var(--line-soft);
+  padding: 11px 18px;
+  display: flex; flex-direction: column; gap: 7px;
+}
+.game-hud[hidden] { display: none; }
+.gh-stats { display: flex; flex-wrap: wrap; gap: 8px 22px; }
+.gh-stat {
+  font-family: var(--font-mono); font-size: 9.5px; letter-spacing: 0.18em;
+  text-transform: uppercase; color: var(--text-faint);
+}
+.gh-stat b {
+  color: var(--ink); font-weight: 500; margin-left: 6px;
+  font-variant-numeric: tabular-nums;
+}
+.gh-stat b.crit { color: var(--accent); animation: blink 0.9s infinite; }
+.gh-fare {
+  font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em;
+  color: var(--text-dim);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.gh-fare b { color: var(--accent); font-weight: 500; }
+
+.game-over {
+  position: absolute; inset: 0; z-index: 1100;
+  display: grid; place-items: center; padding: 20px;
+  background: rgba(251, 250, 248, 0.72);
+  -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
+}
+.game-over[hidden] { display: none; }
+[data-theme="dark"] .game-over { background: rgba(16, 16, 18, 0.72); }
+.go-panel {
+  background: var(--surface); border: 1px solid var(--line);
+  border-radius: 14px; padding: 30px 34px;
+  text-align: center; max-width: 340px;
+  box-shadow: var(--card-shadow-hover);
+}
+.go-kicker {
+  font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.24em;
+  text-transform: uppercase; color: var(--accent); margin-bottom: 8px;
+}
+.go-score { font-family: var(--font-display); font-weight: 600; font-size: 46px; letter-spacing: -0.03em; color: var(--ink); line-height: 1; }
+.go-score b { font-weight: 600; }
+.go-meta { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-faint); margin-top: 10px; }
+.go-rank {
+  font-family: var(--font-serif); font-style: italic; font-size: 21px;
+  color: var(--ink); margin-top: 6px;
+}
+.go-actions { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-top: 20px; }
+
+/* fare markers: green = pickup, red = drop-off */
+.lm-fare .lmm-dot {
+  background: #2fae74 !important; transform: scale(1.55);
+  animation: fare-pulse 1.4s var(--ease) infinite;
+}
+.lm-fare .lmm-txt { opacity: 1 !important; color: #1f7a52 !important; }
+.lm-dest .lmm-dot {
+  background: var(--accent) !important; transform: scale(1.55);
+  animation: fare-pulse-red 1.4s var(--ease) infinite;
+}
+.lm-dest .lmm-txt { opacity: 1 !important; color: var(--accent) !important; }
+@keyframes fare-pulse {
+  0% { box-shadow: 0 0 0 0 rgba(47, 174, 116, 0.55); }
+  70%, 100% { box-shadow: 0 0 0 12px rgba(47, 174, 116, 0); }
+}
+@keyframes fare-pulse-red {
+  0% { box-shadow: 0 0 0 0 rgba(200, 16, 46, 0.5); }
+  70%, 100% { box-shadow: 0 0 0 12px rgba(200, 16, 46, 0); }
+}
+
 /* the pod's route: dots flow toward the destination, trail fades behind */
 .pod-route-ahead {
   animation: pod-flow 0.9s linear infinite;

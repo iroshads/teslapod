@@ -356,7 +356,7 @@
 
     var path = [], cum = [0], pathLen = 0, dist = 0, curSpd = 0;
     var dwellUntil = 0, passingUntil = 0;
-    var lastUi = 0, lastRoute = 0, lastTick = performance.now();
+    var lastUi = 0, lastRoute = 0, lastGameUi = 0, lastTick = performance.now();
 
     function setPath(latlngs) {
       path = latlngs; cum = [0];
@@ -402,8 +402,13 @@
       dwellUntil = 0;
       userTouched = true;
       setParked(false);
-      planTripTo(lm, true);
-      if (passingEl) passingEl.innerHTML = "<b>REROUTING</b> · to " + esc(lm.name);
+      // in the game the FSD profile IS the speed — no reroute boost
+      planTripTo(lm, !gameOn);
+      if (passingEl) {
+        passingEl.innerHTML = gameOn
+          ? "<b>DISPATCHED</b> · " + esc(lm.name.replace(/^the /, ""))
+          : "<b>REROUTING</b> · to " + esc(lm.name);
+      }
     }
     landmarks.forEach(function (lm) {
       lm.marker.on("click", function () { goTo(lm); });
@@ -478,9 +483,10 @@
     if (followBtn) followBtn.addEventListener("click", function () { setFollow(!follow); });
     map.on("dragstart", function () { if (follow) setFollow(false); });
     var parkBtn = document.getElementById("ctlPark");
-    if (parkBtn) parkBtn.addEventListener("click", function () { setParked(!parked); });
+    if (parkBtn) parkBtn.addEventListener("click", function () { if (!gameOn) setParked(!parked); });
     var shuffleBtn = document.getElementById("ctlShuffle");
     if (shuffleBtn) shuffleBtn.addEventListener("click", function () {
+      if (gameOn) return;
       setParked(false);
       dwellUntil = 0;
       target = null; targetLm = null;
@@ -550,6 +556,7 @@
         map.flyTo(carPos, 14, { duration: 1.6 });
       },
       shuffle: function () {
+        if (gameOn) return;
         setParked(false);
         dwellUntil = 0;
         target = null; targetLm = null;
@@ -560,6 +567,160 @@
     function setGear(g) {
       gearEls.forEach(function (s) { s.classList.toggle("on", s.textContent === g); });
     }
+
+    /* ============ PICKUP RUN — the game ============
+       Founders request rides at landmarks. Click landmarks to dispatch the pod:
+       pick them up, drop them off, beat the clock. FSD profile = speed vs battery. */
+    var gameOn = false, gScore = 0, gStreak = 0, gBatt = 100, gEndAt = 0;
+    var gFare = null, gFareStart = 0, gDelivered = 0;
+    var GAME_MS = 180000;
+    var DRAIN = { sloth: 1.1, chill: 2, standard: 3.4, hurry: 6.5, madmax: 11.5 }; // % battery per km
+    var GUESTS = (typeof people !== "undefined" ? people : [])
+      .filter(function (p) { return !p.isHost; })
+      .map(function (p) { return p.name; });
+    if (!GUESTS.length) GUESTS = ["A founder"];
+
+    var ghScore = document.getElementById("ghScore"), ghTime = document.getElementById("ghTime");
+    var ghBatt = document.getElementById("ghBatt"), ghStreak = document.getElementById("ghStreak");
+    var ghFare = document.getElementById("ghFare"), hudEl = document.getElementById("gameHud");
+    var overEl = document.getElementById("gameOver");
+    var gameBtn = document.getElementById("ctlGame");
+
+    function lmShort(lm) { return lm.name.replace(/^the /, ""); }
+    function fmtClock(ms) {
+      var s = Math.max(0, Math.ceil(ms / 1000));
+      return Math.floor(s / 60) + ":" + String(s % 60).padStart(2, "0");
+    }
+    function tipMult() { return 1 + Math.min(gStreak, 8) * 0.25; }
+    function clearFareMarks() {
+      landmarks.forEach(function (l) {
+        var el = l.marker.getElement();
+        if (el) el.classList.remove("lm-fare", "lm-dest");
+      });
+    }
+    function markFare() {
+      clearFareMarks();
+      if (!gFare) return;
+      var lm = gFare.stage === "pickup" ? gFare.from : gFare.to;
+      var el = lm.marker.getElement();
+      if (el) el.classList.add(gFare.stage === "pickup" ? "lm-fare" : "lm-dest");
+    }
+    function spawnFare(now) {
+      var hereNode = nearestNode(carPos);
+      var froms = landmarks.filter(function (l) { return l.node !== hereNode; });
+      var from = froms[Math.floor(Math.random() * froms.length)];
+      var tos = landmarks.filter(function (l) { return l !== from && l.node !== from.node; });
+      var to = tos[Math.floor(Math.random() * tos.length)];
+      gFare = {
+        guest: GUESTS[Math.floor(Math.random() * GUESTS.length)],
+        from: from, to: to, stage: "pickup"
+      };
+      gFareStart = now;
+      markFare();
+      if (ghFare) ghFare.innerHTML = "<b>" + esc(gFare.guest) + "</b> needs a ride — pick up at <b>" + esc(lmShort(from)) + "</b> (green)";
+    }
+    function updateHud(now) {
+      if (ghScore) ghScore.textContent = gScore;
+      if (ghStreak) ghStreak.textContent = "×" + String(tipMult()).replace(/(\.\d\d)\d+$/, "$1");
+      if (ghBatt) {
+        ghBatt.textContent = Math.max(0, Math.round(gBatt)) + "%";
+        ghBatt.classList.toggle("crit", gBatt < 22);
+      }
+      if (ghTime) {
+        var left = gEndAt - now;
+        ghTime.textContent = fmtClock(left);
+        ghTime.classList.toggle("crit", left < 30000);
+      }
+    }
+    function gameArrival(lm, now) {
+      if (!gFare) return;
+      if (gFare.stage === "pickup" && lm === gFare.from) {
+        gFare.stage = "drop";
+        gFareStart = now;
+        markFare();
+        if (ghFare) ghFare.innerHTML = "Picked up <b>" + esc(gFare.guest) + "</b> — studio drop at <b>" + esc(lmShort(gFare.to)) + "</b> (red)";
+      } else if (gFare.stage === "drop" && lm === gFare.to) {
+        var secs = (now - gFareStart) / 1000;
+        var km = gFare.from.ll.distanceTo(gFare.to.ll) / 1000;
+        var base = Math.round(km * 55);
+        var tip = Math.max(0, Math.round(300 - secs * 6));
+        var pts = Math.round((base + tip) * tipMult());
+        gScore += pts;
+        gDelivered++;
+        gStreak = tip > 60 ? gStreak + 1 : 0;
+        gBatt = Math.min(100, gBatt + 10);
+        if (ghFare) ghFare.innerHTML = "<b>" + esc(gFare.guest) + "</b> delivered · +" + pts + " pts" + (tip > 60 ? " · streak up" : " · too slow, streak reset");
+        gFare = null;
+        clearFareMarks();
+        setTimeout(function () { if (gameOn && !gFare) spawnFare(performance.now()); }, 1200);
+      } else {
+        var want = gFare.stage === "pickup" ? gFare.from : gFare.to;
+        if (ghFare) ghFare.innerHTML = "Wrong stop — head to <b>" + esc(lmShort(want)) + "</b>";
+      }
+      updateHud(now);
+    }
+    function startGame() {
+      if (gameOn || reduced) return;
+      gameOn = true;
+      gScore = 0; gStreak = 0; gBatt = 100; gDelivered = 0; gFare = null;
+      userTouched = true;
+      setFollow(false);
+      setParked(false);
+      target = null; targetLm = null;
+      path = []; pathLen = 0; dist = 0; curSpd = 0;
+      dwellUntil = 0;
+      clearRoute(); clearFareMarks();
+      gEndAt = performance.now() + GAME_MS;
+      if (hudEl) hudEl.hidden = false;
+      if (overEl) overEl.hidden = true;
+      if (gameBtn) { gameBtn.textContent = "End Run"; gameBtn.classList.add("on"); }
+      if (passingEl) passingEl.innerHTML = "<b>PICKUP RUN</b> · click landmarks to dispatch the pod";
+      map.fitBounds(allBounds, { padding: [24, 24] });
+      spawnFare(performance.now());
+      updateHud(performance.now());
+    }
+    function endGame(reason) {
+      if (!gameOn) return;
+      gameOn = false;
+      gFare = null;
+      clearFareMarks();
+      if (hudEl) hudEl.hidden = true;
+      if (gameBtn) { gameBtn.textContent = "▶ Pickup Run"; gameBtn.classList.remove("on"); }
+      var best = 0;
+      try { best = +localStorage.getItem("tp-best") || 0; } catch (e) {}
+      var isBest = gScore > best;
+      if (isBest) { best = gScore; try { localStorage.setItem("tp-best", String(best)); } catch (e) {} }
+      var rank = gScore < 800 ? "Sunday Cruiser"
+        : gScore < 2000 ? "City Chauffeur"
+        : gScore < 3800 ? "FSD Operator"
+        : gScore < 6000 ? "Route Legend" : "Mad Max Dispatcher";
+      var reasonTxt = reason === "battery" ? "Battery dead" : reason === "time" ? "Time's up" : "Run ended";
+      var goReason = document.getElementById("goReason"), goScore = document.getElementById("goScore");
+      var goMeta = document.getElementById("goMeta"), goRank = document.getElementById("goRank");
+      if (goReason) goReason.textContent = reasonTxt;
+      if (goScore) goScore.textContent = gScore;
+      if (goMeta) goMeta.textContent = gDelivered + (gDelivered === 1 ? " founder" : " founders") + " delivered · best " + best + (isBest ? " — new record!" : "");
+      if (goRank) goRank.textContent = "“" + rank + "”";
+      if (overEl) overEl.hidden = false;
+      if (passingEl) passingEl.innerHTML = "<b>CRUISING</b> · San Francisco";
+      // the pod quietly resumes its wander behind the scorecard
+      target = null; path = []; pathLen = 0; dist = 0;
+      dwellUntil = performance.now() + 2500;
+    }
+    if (gameBtn) gameBtn.addEventListener("click", function () {
+      if (gameOn) endGame("ended"); else startGame();
+    });
+    var goAgain = document.getElementById("goAgain"), goExit = document.getElementById("goExit"), goSeat = document.getElementById("goSeat");
+    if (goAgain) goAgain.addEventListener("click", function () { if (overEl) overEl.hidden = true; startGame(); });
+    if (goExit) goExit.addEventListener("click", function () { if (overEl) overEl.hidden = true; });
+    if (goSeat) goSeat.addEventListener("click", function () {
+      if (overEl) overEl.hidden = true;
+      var mic = document.querySelector('.ts-dock-icon[data-app="boarding"]');
+      if (mic) mic.click();
+      var screen = document.querySelector(".tesla-screen");
+      if (screen) screen.scrollIntoView({ behavior: "smooth", block: "center" });
+    });
+    window.__startPodGame = startGame;
 
     function fmtGeo(ll) {
       return ll.lat.toFixed(4) + "° N · " + Math.abs(ll.lng).toFixed(4) + "° W";
@@ -583,22 +744,28 @@
       } else if (!path.length || dist >= pathLen) {
         if (target) {
           // arrival
-          var name = target.name.replace(/^the /, "");
-          if (passingEl) passingEl.innerHTML = "<b>ARRIVED</b> · " + esc(name);
+          var arrived = target;
           carPos = path.length ? path[path.length - 1] : carPos;
           car.setLatLng(carPos);
           clearRoute();
-          var lmEl = target.marker.getElement();
+          var lmEl = arrived.marker.getElement();
           if (lmEl) {
             (function (el) { setTimeout(function () { el.classList.remove("lm-target"); }, 2600); })(lmEl);
           }
           target = null; targetLm = null;
           path = []; pathLen = 0; dist = 0;
-          dwellUntil = now + 3500;
           curSpd = 0;
-          // camera glance at the arrival if the visitor hasn't taken the wheel
-          if (introRan && !userTouched && !follow) map.panTo(carPos, { duration: 1.2 });
-        } else {
+          if (gameOn) {
+            dwellUntil = now + 650;
+            gameArrival(arrived, now);
+          } else {
+            var name = arrived.name.replace(/^the /, "");
+            if (passingEl) passingEl.innerHTML = "<b>ARRIVED</b> · " + esc(name);
+            dwellUntil = now + 3500;
+            // camera glance at the arrival if the visitor hasn't taken the wheel
+            if (introRan && !userTouched && !follow) map.panTo(carPos, { duration: 1.2 });
+          }
+        } else if (!gameOn) {
           pickNextTrip();
         }
       } else {
@@ -610,11 +777,22 @@
         var accel = PROFILES[profile].cruise * (fastMode ? 2.2 : 0.9); // m/s per s
         if (curSpd < targetSpd) curSpd = Math.min(targetSpd, curSpd + accel * dt / 1000);
         else curSpd = Math.max(targetSpd, curSpd - accel * 2 * dt / 1000);
-        dist += curSpd / 1000 * dt;
+        var step = curSpd / 1000 * dt;
+        dist += step;
         carPos = pointAt(dist);
         car.setLatLng(carPos);
         // keep the trail tracking the pod, but never during a zoom/pan animation
         if (now - lastRoute > 200) { lastRoute = now; redrawRoute(); }
+        // game: driving drains the battery, faster profiles drain much faster
+        if (gameOn) {
+          gBatt -= (step / 1000) * DRAIN[profile];
+          if (gBatt <= 0) { gBatt = 0; endGame("battery"); }
+        }
+      }
+
+      if (gameOn) {
+        if (now >= gEndAt) endGame("time");
+        else if (now - lastGameUi > 300) { lastGameUi = now; updateHud(now); }
       }
 
       if (now - lastUi > 1200) {
@@ -632,7 +810,7 @@
         };
         setGear(parked || now < dwellUntil || !path.length || dist >= pathLen ? "P" : "D");
         // passing note when cruising by a landmark that isn't the destination
-        if (path.length && dist < pathLen) {
+        if (!gameOn && path.length && dist < pathLen) {
           if (target && !fastMode && now > passingUntil) {
             for (var j = 0; j < landmarks.length; j++) {
               var lm = landmarks[j];
@@ -996,6 +1174,15 @@
     set();
     setInterval(set, 20000);
   })();
+
+  /* ---------- hero hook → jump into Pickup Run ---------- */
+  var gameHook = document.getElementById("heroGameHook");
+  if (gameHook) gameHook.addEventListener("click", function () {
+    // the anchor handles the scroll; start the run once we've arrived
+    setTimeout(function () {
+      if (window.__startPodGame) window.__startPodGame();
+    }, 900);
+  });
 
   /* ---------- guest form: inline submit, no redirect ---------- */
   var guestForm = $("#guestForm");
