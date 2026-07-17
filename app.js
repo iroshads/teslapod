@@ -988,6 +988,7 @@
     var grid = $("#episodeGrid");
     grid.innerHTML = "";
     episodes.slice(1).forEach(function (ep, i) {
+      var co = roleCompanyHTML(ep.guestRole);
       var card = el(
         '<article class="ep-card reveal" style="transition-delay:' + (i % 3) * 70 + 'ms" tabindex="0" aria-label="Play ' + esc(ep.fullTitle) + '">' +
         '<div class="ep-thumb">' +
@@ -999,7 +1000,7 @@
         '<div class="ep-body">' +
         '<span class="ep-num">' + esc(epNum(ep)) + " · " + esc(ep.releaseDate) + "</span>" +
         "<h3>" + esc(ep.title) + "</h3>" +
-        '<div class="ep-guest">with <b>' + esc(ep.guest) + "</b></div>" +
+        '<div class="ep-guest">with <b>' + esc(ep.guest) + "</b>" + (co ? " · " + co : "") + "</div>" +
         "</div></article>"
       );
       function go() { openEpisode(ep); }
@@ -1020,7 +1021,8 @@
     "Retriever AI": { about: "Agentic browsing: an AI that navigates and acts on the web for you.", url: "https://rtrvr.ai" },
     "Peazy Labs": { about: "An AI concierge that guides users through complex enterprise software, right inside the app.", url: "https://peazylabs.com" },
     "Silver Surf": { about: "Turns an owner's know-how into SOPs and AI so the business runs without them — and exits for more.", url: "https://silversurf.co" },
-    "Manicule": { about: "AI-native technical documentation for developer tools — “DevRel for agents.”", url: "https://manicule.dev" }
+    "Manicule": { about: "AI-native technical documentation for developer tools — “DevRel for agents.”", url: "https://manicule.dev" },
+    "Marketrix AI": { about: "The user simulation platform — AI-simulated users that test and validate your product before real ones ever do.", url: "https://marketrix.ai" }
   };
   function baseCompany(name) { return String(name || "").replace(/\s*\([^)]*\)\s*$/, "").trim(); }
   function infoIcon(base) {
@@ -1030,6 +1032,12 @@
     var base = baseCompany(company);
     if (!COMPANIES[base]) return esc(company);
     return '<span class="co">' + esc(company) + infoIcon(base) + "</span>";
+  }
+  // pull just the company chip out of a guest-role like "Cofounders @ Ontora (YC P26)"
+  function roleCompanyHTML(role) {
+    var at = String(role || "").indexOf("@ ");
+    if (at === -1) return "";
+    return companyHTML(String(role).slice(at + 2));
   }
   // a guest-role string like "Cofounders @ Ontora (YC P26)" → add the icon after the company
   function roleHTML(role) {
