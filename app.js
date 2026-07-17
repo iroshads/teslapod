@@ -766,7 +766,7 @@
           } else {
             var name = arrived.name.replace(/^the /, "");
             if (passingEl) passingEl.innerHTML = "<b>ARRIVED</b> · " + esc(name);
-            dwellUntil = now + 3500;
+            dwellUntil = now + 1500;   // brief pause, then straight back on the road
             // camera glance at the arrival if the visitor hasn't taken the wheel
             if (introRan && !userTouched && !follow) map.panTo(carPos, { duration: 1.2 });
           }
@@ -843,6 +843,12 @@
       return;
     }
     pickNextTrip();
+    // start already underway so the pod is visibly in motion the moment the map is seen
+    dist = pathLen * 0.28;
+    curSpd = PROFILES[profile].cruise * 0.7;
+    carPos = pointAt(dist);
+    car.setLatLng(carPos);
+    redrawRoute();
     // interval instead of rAF so the car keeps driving in background tabs too
     setInterval(tick, 33);
 

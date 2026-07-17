@@ -1123,27 +1123,25 @@ a.ts-row:hover { border-color: var(--ts-dim); }
 .footer-brand p { color: var(--text-faint); font-size: 13.5px; margin-top: 16px; }
 
 .mx-badge {
-  display: inline-flex; align-items: center; gap: 12px;
-  margin-top: 22px; padding: 10px 14px 10px 10px;
+  display: inline-flex; flex-direction: column; align-items: flex-start; gap: 8px;
+  margin-top: 22px; padding: 14px 16px;
   border: 1px solid var(--line); border-radius: 10px;
   transition: border-color 0.2s, transform 0.2s var(--ease);
 }
 .mx-badge:hover { border-color: var(--ink); transform: translateY(-2px); }
-.mx-icon { width: 40px; height: 40px; border-radius: 9px; display: block; flex: none; }
-.mx-text { display: flex; flex-direction: column; line-height: 1.3; gap: 4px; }
-.mx-text small {
+.mx-kicker {
   font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.2em;
   text-transform: uppercase; color: var(--text-faint);
 }
-/* the real wordmark (black-on-transparent) reads cleanly in light mode */
-.mx-wordmark { height: 18px; width: auto; display: block; }
+/* the full Marketrix wordmark (black-on-transparent) reads cleanly in light mode */
+.mx-wordmark { height: 26px; width: auto; display: block; }
 .mx-wordmark-fallback { display: none; }
 /* dark mode: the black artwork disappears on a dark surface, so fall back
    to the theme-aware text label instead */
 [data-theme="dark"] .mx-wordmark { display: none; }
 [data-theme="dark"] .mx-wordmark-fallback {
   display: block;
-  font-family: var(--font-display); font-weight: 600; font-size: 14.5px;
+  font-family: var(--font-display); font-weight: 600; font-size: 15.5px;
   letter-spacing: -0.01em; color: var(--ink);
 }
 
