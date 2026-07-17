@@ -111,7 +111,7 @@ const PEOPLE = [
     "name": "Jason Jin",
     "role": "Founder",
     "company": "Funky",
-    "photo": null,
+    "photo": "assets/people/jason-jin.jpg",
     "episodeId": "4FtPxcSjpF8"
   },
   {

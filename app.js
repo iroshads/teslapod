@@ -347,7 +347,8 @@
       madmax: { cruise: 250, mph: [45, 58] }
     };
     var profile = "standard";
-    var FAST_MULT = 3.8;   // reroute boost on top of the profile
+    var FAST_MULT = 3.8;    // reroute boost on top of the profile
+    var GAME_SPEED_MULT = 4.5;  // the game runs brisk; ambient wander stays calm
     window.__speedRange = PROFILES[profile].mph;
     var fastMode = false;
     var parked = false;
@@ -574,7 +575,8 @@
     var gameOn = false, gScore = 0, gStreak = 0, gBatt = 100, gEndAt = 0;
     var gFare = null, gFareStart = 0, gDelivered = 0;
     var GAME_MS = 180000;
-    var DRAIN = { sloth: 1.1, chill: 2, standard: 3.4, hurry: 6.5, madmax: 11.5 }; // % battery per km
+    // % battery per km — slow profiles are sustainable, fast ones burn out over a run
+    var DRAIN = { sloth: 0.9, chill: 1.4, standard: 2.1, hurry: 3.1, madmax: 4.3 };
     var GUESTS = (typeof people !== "undefined" ? people : [])
       .filter(function (p) { return !p.isHost; })
       .map(function (p) { return p.name; });
@@ -773,11 +775,12 @@
         }
       } else {
         // driving physics: accelerate toward the profile speed, brake into stops
-        var targetSpd = PROFILES[profile].cruise * (fastMode ? FAST_MULT : 1);
+        var cruise = PROFILES[profile].cruise * (gameOn ? GAME_SPEED_MULT : 1);
+        var targetSpd = cruise * (fastMode ? FAST_MULT : 1);
         var remaining = pathLen - dist;
-        var brakeCap = Math.max(10, remaining / 2.6);   // slow smoothly into the stop
+        var brakeCap = Math.max(10, remaining / 2.2);   // slow smoothly into the stop
         if (brakeCap < targetSpd) targetSpd = brakeCap;
-        var accel = PROFILES[profile].cruise * (fastMode ? 2.2 : 0.9); // m/s per s
+        var accel = cruise * (fastMode ? 2.2 : 1.1); // m/s per s
         if (curSpd < targetSpd) curSpd = Math.min(targetSpd, curSpd + accel * dt / 1000);
         else curSpd = Math.max(targetSpd, curSpd - accel * 2 * dt / 1000);
         var step = curSpd / 1000 * dt;
