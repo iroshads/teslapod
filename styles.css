@@ -882,6 +882,48 @@ body.map-full .nav, body.map-full .scroll-progress { display: none; }
 }
 .person-card:hover .person-play { opacity: 1; transform: translateY(0); }
 
+/* company info tooltip — a tiny "i" next to a guest's company */
+.co { white-space: nowrap; }
+.co-i {
+  display: inline-grid; place-items: center;
+  width: 14px; height: 14px; margin-left: 5px; padding: 0;
+  border-radius: 50%; border: 1px solid var(--line);
+  background: none; color: var(--text-faint);
+  font-family: var(--font-serif); font-style: italic;
+  font-size: 10px; line-height: 1; cursor: pointer;
+  text-transform: none; vertical-align: middle;
+  position: relative; top: -1px;
+  transition: color 0.2s, border-color 0.2s, background 0.2s;
+}
+.co-i:hover, .co-i:focus-visible { color: var(--accent); border-color: var(--accent); outline: none; }
+.ep-guest .co-i { top: 0; }
+
+.co-pop {
+  position: fixed; left: 0; top: 0; z-index: 2000;
+  width: max-content; max-width: 250px;
+  padding: 13px 15px; border-radius: 11px;
+  background: var(--surface); border: 1px solid var(--line);
+  box-shadow: 0 14px 40px rgba(20, 20, 20, 0.18);
+  display: flex; flex-direction: column; gap: 5px;
+  opacity: 0; transform: translateY(5px);
+  transition: opacity 0.18s var(--ease), transform 0.18s var(--ease);
+  pointer-events: none;
+}
+.co-pop.on { opacity: 1; transform: none; pointer-events: auto; }
+.co-pop-name {
+  font-family: var(--font-display); font-weight: 600; font-size: 13.5px;
+  letter-spacing: -0.01em; color: var(--ink); text-transform: none;
+}
+.co-pop-about {
+  font-family: var(--font-body); font-size: 12px; line-height: 1.5;
+  letter-spacing: 0; text-transform: none; color: var(--text-dim);
+}
+.co-pop-link {
+  font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.08em;
+  text-transform: none; color: var(--accent); margin-top: 2px; white-space: nowrap;
+}
+.co-pop-link:hover { text-decoration: underline; }
+
 /* ---------- apply ---------- */
 .apply {
   padding: clamp(80px, 10vw, 140px) clamp(20px, 4vw, 56px);

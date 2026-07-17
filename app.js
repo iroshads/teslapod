@@ -876,7 +876,7 @@
       '<span class="ep-chip">' + esc(ep.duration) + "</span></div>" +
       "<h3>" + esc(ep.fullTitle) + "</h3>" +
       '<p class="ep-desc">' + esc(ep.description) + "</p>" +
-      '<div class="modal-links"><div class="ep-guest">with <b>' + esc(ep.guest) + "</b> · " + esc(ep.guestRole) + "</div>" +
+      '<div class="modal-links"><div class="ep-guest">with <b>' + esc(ep.guest) + "</b> · " + roleHTML(ep.guestRole) + "</div>" +
       '<a class="modal-yt" href="https://www.youtube.com/watch?v=' + esc(ep.id) + '" target="_blank" rel="noopener">Open on YouTube ↗</a></div>' +
       '<div class="modal-nav">' +
       '<button type="button" id="modalPrev" ' + (prev ? "" : "disabled") + ">← " + (prev ? esc(epNum(prev)) + " · " + esc(prev.title) : "First ride") + "</button>" +
@@ -942,7 +942,7 @@
       '<div class="latest-body">' +
       '<p class="latest-tag">Latest Ride · ' + esc(latest.releaseDate) + "</p>" +
       "<h3>" + esc(latest.fullTitle) + "</h3>" +
-      "<p>with " + esc(latest.guest) + " — " + esc(latest.guestRole) + "</p>" +
+      "<p>with " + esc(latest.guest) + " — " + roleHTML(latest.guestRole) + "</p>" +
       "</div>" +
       (upNextRows ? '<div class="up-next"><div class="up-next-label">Up next</div>' + upNextRows + "</div>" : "");
     var thumb = $(".latest-thumb", card);
@@ -980,7 +980,7 @@
       '<span class="ep-chip">' + esc(latest.releaseDate) + '</span><span class="ep-chip">' + esc(latest.duration) + "</span></div>" +
       "<h3>" + esc(latest.title) + "</h3>" +
       '<p class="ep-desc">' + esc(latest.description) + "</p>" +
-      '<div class="ep-guest">with <b>' + esc(latest.guest) + "</b> · " + esc(latest.guestRole) + "</div>" +
+      '<div class="ep-guest">with <b>' + esc(latest.guest) + "</b> · " + roleHTML(latest.guestRole) + "</div>" +
       "</div></article>"
     ));
     $(".feat-card").addEventListener("click", function () { openEpisode(latest); });
@@ -1011,6 +1011,107 @@
   }
 
   /* ---------- render: passengers ---------- */
+  /* ---------- company info tooltips ---------- */
+  // guests' companies (not the host's Marketrix) → a one-line "about" + a link.
+  var COMPANIES = {
+    "Funky": { about: "One API call spins up hundreds of sandboxed AI agents. Built by Jason Jin (ex-Google).", url: "https://funky.dev" },
+    "Ontora": { about: "AI agents that interview every employee to map how work actually gets done — in days, not months.", url: "https://ontora.com" },
+    "Logical": { about: "A proactive desktop copilot — Clippy, but actually good — that helps before you ask.", url: "https://trylogical.ai" },
+    "Retriever AI": { about: "Agentic browsing: an AI that navigates and acts on the web for you.", url: "https://rtrvr.ai" },
+    "Peazy Labs": { about: "An AI concierge that guides users through complex enterprise software, right inside the app.", url: "https://peazylabs.com" },
+    "Silver Surf": { about: "Turns an owner's know-how into SOPs and AI so the business runs without them — and exits for more.", url: "https://silversurf.co" },
+    "Manicule": { about: "AI-native technical documentation for developer tools — “DevRel for agents.”", url: "https://manicule.dev" }
+  };
+  function baseCompany(name) { return String(name || "").replace(/\s*\([^)]*\)\s*$/, "").trim(); }
+  function infoIcon(base) {
+    return '<button type="button" class="co-i" data-co="' + esc(base) + '" aria-label="About ' + esc(base) + '">i</button>';
+  }
+  function companyHTML(company) {
+    var base = baseCompany(company);
+    if (!COMPANIES[base]) return esc(company);
+    return '<span class="co">' + esc(company) + infoIcon(base) + "</span>";
+  }
+  // a guest-role string like "Cofounders @ Ontora (YC P26)" → add the icon after the company
+  function roleHTML(role) {
+    role = String(role || "");
+    var at = role.indexOf("@ ");
+    if (at === -1) return esc(role);
+    var before = role.slice(0, at + 2), rest = role.slice(at + 2);
+    var base = baseCompany(rest);
+    if (!COMPANIES[base]) return esc(role);
+    var idx = rest.indexOf(base);
+    var suffix = rest.slice(idx + base.length);
+    return esc(before) + '<span class="co">' + esc(base) + infoIcon(base) + "</span>" + esc(suffix);
+  }
+
+  (function companyPopover() {
+    var pop = document.createElement("div");
+    pop.className = "co-pop"; pop.setAttribute("role", "tooltip");
+    pop.innerHTML = '<b class="co-pop-name"></b><span class="co-pop-about"></span><a class="co-pop-link" target="_blank" rel="noopener"></a>';
+    document.body.appendChild(pop);
+    var nameEl = pop.querySelector(".co-pop-name"), aboutEl = pop.querySelector(".co-pop-about"), linkEl = pop.querySelector(".co-pop-link");
+    var hideTimer = null, currentBtn = null;
+
+    function place(btn) {
+      var r = btn.getBoundingClientRect();
+      var pw = pop.offsetWidth, ph = pop.offsetHeight;
+      var left = Math.max(10, Math.min(r.left + r.width / 2 - pw / 2, innerWidth - pw - 10));
+      var top = r.top - ph - 10;
+      if (top < 10) top = r.bottom + 10;
+      pop.style.left = left + "px"; pop.style.top = top + "px";
+    }
+    function show(btn) {
+      clearTimeout(hideTimer);
+      var c = COMPANIES[btn.getAttribute("data-co")];
+      if (!c) return;
+      nameEl.textContent = btn.getAttribute("data-co");
+      aboutEl.textContent = c.about;
+      linkEl.textContent = c.url.replace(/^https?:\/\//, "").replace(/\/$/, "") + " ↗";
+      linkEl.href = c.url;
+      currentBtn = btn;
+      place(btn);
+      pop.classList.add("on");
+    }
+    function hide() {
+      hideTimer = setTimeout(function () { pop.classList.remove("on"); currentBtn = null; }, 130);
+    }
+    document.addEventListener("mouseover", function (e) {
+      var btn = e.target.closest && e.target.closest(".co-i");
+      if (btn) show(btn);
+    });
+    document.addEventListener("mouseout", function (e) {
+      var btn = e.target.closest && e.target.closest(".co-i");
+      if (!btn) return;
+      var to = e.relatedTarget;
+      if (to && to.closest && to.closest(".co-pop")) return;
+      hide();
+    });
+    pop.addEventListener("mouseenter", function () { clearTimeout(hideTimer); });
+    pop.addEventListener("mouseleave", hide);
+    // capture phase so the click never reaches the card's episode handler
+    document.addEventListener("click", function (e) {
+      var btn = e.target.closest && e.target.closest(".co-i");
+      if (btn) {
+        e.preventDefault(); e.stopPropagation();
+        if (currentBtn === btn && pop.classList.contains("on")) hide(); else show(btn);
+      } else if (!e.target.closest(".co-pop")) {
+        pop.classList.remove("on"); currentBtn = null;
+      }
+    }, true);
+    document.addEventListener("keydown", function (e) {
+      var btn = e.target.closest && e.target.closest(".co-i");
+      if (btn && (e.key === "Enter" || e.key === " ")) {
+        e.preventDefault(); e.stopPropagation();
+        if (currentBtn === btn && pop.classList.contains("on")) hide(); else show(btn);
+      }
+    }, true);
+    document.addEventListener("focusin", function (e) { var b = e.target.closest && e.target.closest(".co-i"); if (b) show(b); });
+    document.addEventListener("focusout", function (e) { var b = e.target.closest && e.target.closest(".co-i"); if (b) hide(); });
+    ["scroll", "resize"].forEach(function (ev) {
+      addEventListener(ev, function () { if (currentBtn && pop.classList.contains("on")) place(currentBtn); }, { passive: true });
+    });
+  })();
+
   function renderPeople() {
     var host = people.find(function (p) { return p.isHost; });
     $("#hostCard").innerHTML =
@@ -1034,7 +1135,7 @@
         '<article class="person-card reveal" style="transition-delay:' + (i % 4) * 60 + 'ms" tabindex="0" aria-label="' + esc(p.name) + (ep ? " — play their episode" : "") + '">' +
         '<div class="person-photo">' + photo + "</div>" +
         (ep ? '<span class="person-play">▶ ' + esc(epNum(ep)) + "</span>" : "") +
-        '<div class="person-body"><h3>' + esc(p.name) + "</h3><p>" + esc(p.role) + " · " + esc(p.company) + "</p></div>" +
+        '<div class="person-body"><h3>' + esc(p.name) + "</h3><p>" + esc(p.role) + " · " + companyHTML(p.company) + "</p></div>" +
         "</article>"
       );
       if (ep) {
