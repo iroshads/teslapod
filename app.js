@@ -1127,7 +1127,7 @@
       '<div class="host-body">' +
       '<span class="host-label">The Host</span>' +
       "<h3>" + esc(host.name) + "</h3>" +
-      '<p class="host-role">' + esc(host.role) + " · " + esc(host.company) + "</p>" +
+      '<p class="host-role">' + esc(host.role) + " · " + companyHTML(host.company) + "</p>" +
       '<p class="host-bio">No studio. No steering wheel. Irosha rides Tesla FSD through San Francisco with the founders building the autonomous future — and asks the questions that only get answered when nobody’s watching the road.</p>' +
       '<a class="modal-yt host-sub" href="https://www.youtube.com/@TeslaPod?sub_confirmation=1" target="_blank" rel="noopener">Subscribe on YouTube ↗</a>' +
       "</div>";
