@@ -160,7 +160,7 @@ const PEOPLE = [
     "name": "Kushal Murthy",
     "role": "Cofounder & CTO",
     "company": "Peazy Labs",
-    "photo": "assets/people/kushal-murthy.png",
+    "photo": "assets/people/kushal-murthy.jpg",
     "episodeId": "p7eUWZtrq-0"
   },
   {
@@ -174,7 +174,7 @@ const PEOPLE = [
     "name": "Shreyans Jain",
     "role": "Co-founder",
     "company": "Manicule (YC P26)",
-    "photo": "assets/people/shreyans-jain.png",
+    "photo": "assets/people/shreyans-jain.jpg",
     "episodeId": "EMmH7ECJ-IQ"
   },
   {

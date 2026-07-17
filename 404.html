@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>404 — The Tesla Pod</title>
+  <meta name="robots" content="noindex" />
+  <link rel="icon" type="image/png" sizes="64x64" href="/assets/brand/favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@600&family=Inter:wght@400;500&family=Instrument+Serif:ital@1&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #fbfaf8; color: #1a1a1a;
+      font-family: "Inter", system-ui, sans-serif;
+      min-height: 100svh; display: grid; place-items: center;
+      padding: 24px; text-align: center;
+    }
+    .kicker {
+      font-family: "IBM Plex Mono", monospace; font-size: 11px;
+      letter-spacing: 0.24em; text-transform: uppercase; color: #98948b;
+      display: inline-flex; align-items: center; gap: 10px; margin-bottom: 20px;
+    }
+    .dot { width: 6px; height: 6px; border-radius: 50%; background: #c8102e; }
+    h1 {
+      font-family: "Inter Tight", sans-serif; font-weight: 600;
+      font-size: clamp(34px, 6vw, 56px); letter-spacing: -0.03em;
+      color: #141414; line-height: 1.08; margin-bottom: 14px;
+    }
+    h1 em { font-family: "Instrument Serif", serif; font-style: italic; font-weight: 400; }
+    p { color: #57544e; font-size: 15.5px; max-width: 44ch; margin: 0 auto 30px; }
+    a.btn {
+      display: inline-block; background: #141414; color: #fbfaf8;
+      text-decoration: none; font-weight: 500; font-size: 14px;
+      padding: 13px 26px; border-radius: 999px;
+    }
+    .coords {
+      margin-top: 40px;
+      font-family: "IBM Plex Mono", monospace; font-size: 10.5px;
+      letter-spacing: 0.14em; color: #98948b;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <p class="kicker"><span class="dot"></span> Route not found</p>
+    <h1>The pod took a <em>wrong</em> turn.</h1>
+    <p>This street doesn't exist on our map. The car is rerouting — or you can head straight back to the show.</p>
+    <a class="btn" href="/">← Back to The Tesla Pod</a>
+    <p class="coords">404 · 37.7749° N · 122.4194° W</p>
+  </main>
+</body>
+</html>

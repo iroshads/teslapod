@@ -5,9 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>The Tesla Pod — Conversations from the Autonomous Future</title>
   <meta name="description" content="Conversations from the autonomous future. Unfiltered dialogue in motion. Founders riding Tesla FSD through San Francisco." />
+  <link rel="canonical" href="https://www.theteslapod.com/" />
+  <meta name="theme-color" content="#fbfaf8" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#101012" media="(prefers-color-scheme: dark)" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="The Tesla Pod" />
   <meta property="og:url" content="https://www.theteslapod.com/" />
   <meta property="og:title" content="The Tesla Pod" />
   <meta property="og:description" content="Conversations from the autonomous future. Unfiltered dialogue in motion." />
@@ -21,12 +25,147 @@
   <meta property="twitter:description" content="Conversations from the autonomous future. Unfiltered dialogue in motion." />
   <meta property="twitter:image" content="https://firebasestorage.googleapis.com/v0/b/marketrix-ai.firebasestorage.app/o/tesla-pod%2Fteslapodimg.png?alt=media&token=3f7b9c1a-2bd3-496c-b1fd-5b48c988f825" />
 
-  <link rel="icon" type="image/png" href="assets/brand/teslapod-og.png" />
+  <link rel="icon" type="image/png" sizes="64x64" href="assets/brand/favicon.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/brand/apple-touch-icon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://a.basemaps.cartocdn.com" />
+  <link rel="preconnect" href="https://b.basemaps.cartocdn.com" />
+  <link rel="dns-prefetch" href="https://img.youtube.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700&family=Inter:wght@400;500;600&family=Instrument+Serif:ital@1&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
   <link rel="stylesheet" href="styles.css" />
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "PodcastSeries",
+  "name": "The Tesla Pod",
+  "url": "https://www.theteslapod.com/",
+  "description": "Conversations from the autonomous future. Founders riding Tesla FSD through San Francisco — no studio, no script, nobody watching the road.",
+  "image": "https://firebasestorage.googleapis.com/v0/b/marketrix-ai.firebasestorage.app/o/tesla-pod%2Fteslapodimg.png?alt=media&token=3f7b9c1a-2bd3-496c-b1fd-5b48c988f825",
+  "inLanguage": "en",
+  "author": {
+    "@type": "Person",
+    "name": "Irosha de Silva",
+    "jobTitle": "Host"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Marketrix AI",
+    "url": "https://marketrix.ai"
+  },
+  "sameAs": [
+    "https://www.youtube.com/@TeslaPod"
+  ],
+  "workExample": [
+    {
+      "@type": "PodcastEpisode",
+      "episodeNumber": 8,
+      "name": "He Left Google to Build Agent Swarms | Riding Through SF in a Self-Driving Tesla",
+      "description": "Jason Jin spent six years at Google — where he built a logs system processing over an exabyte of data a day — before leaving to build Funky: one API call to spin up hundreds of AI agents, each in its own sandbox. Includes a live demo of attacker agents trying to trick a guarded agent into wiring money out.",
+      "datePublished": "2026-07-06",
+      "timeRequired": "PT45M24S",
+      "url": "https://www.youtube.com/watch?v=4FtPxcSjpF8",
+      "partOfSeries": {
+        "@type": "PodcastSeries",
+        "name": "The Tesla Pod"
+      }
+    },
+    {
+      "@type": "PodcastEpisode",
+      "episodeNumber": 7,
+      "name": "They're automating the $1 trillion consulting industry | Riding Through SF in a Self-Driving Tesla",
+      "description": "When a Fortune 500 wants to understand how it actually works, it pays McKinsey millions and waits months for a deck. David, Max and Leon built Ontora — an AI agent that interviews every employee, maps how work really gets done, and delivers it in 24 hours.",
+      "datePublished": "2026-06-14",
+      "timeRequired": "PT28M30S",
+      "url": "https://www.youtube.com/watch?v=UkzjHmqDMiY",
+      "partOfSeries": {
+        "@type": "PodcastSeries",
+        "name": "The Tesla Pod"
+      }
+    },
+    {
+      "@type": "PodcastEpisode",
+      "episodeNumber": 6,
+      "name": "He Dropped Out of His PhD to Get Into YC | Riding Through SF in a Self-Driving Tesla",
+      "description": "Anushka Idamekorala dropped out of his PhD when his childhood friend Sam called with an idea. Now they're building Logical — a proactive desktop copilot that watches how you work, learns your patterns, and helps before you ask.",
+      "datePublished": "2026-06-08",
+      "timeRequired": "PT31M50S",
+      "url": "https://www.youtube.com/watch?v=7_k8UR_5aDc",
+      "partOfSeries": {
+        "@type": "PodcastSeries",
+        "name": "The Tesla Pod"
+      }
+    },
+    {
+      "@type": "PodcastEpisode",
+      "episodeNumber": 5,
+      "name": "Your Browser Is About to Drive Itself | Riding Through SF in a Self-Driving Tesla",
+      "description": "Arjun Chintapalli and Bhavani Kalisetty, co-founders of Retriever AI (rtrvr.ai), on how your browser is about to drive itself.",
+      "datePublished": "2026-05-31",
+      "timeRequired": "PT41M55S",
+      "url": "https://www.youtube.com/watch?v=ChwI4UyEGqM",
+      "partOfSeries": {
+        "@type": "PodcastSeries",
+        "name": "The Tesla Pod"
+      }
+    },
+    {
+      "@type": "PodcastEpisode",
+      "episodeNumber": 4,
+      "name": "AI Just Ate Customer Success | Riding Through SF in a Self-Driving Tesla",
+      "description": "Komala Chenna and Kushal Murthy, co-founders of Peazy Labs, on how AI is transforming customer success.",
+      "datePublished": "2026-05-23",
+      "timeRequired": "PT39M14S",
+      "url": "https://www.youtube.com/watch?v=p7eUWZtrq-0",
+      "partOfSeries": {
+        "@type": "PodcastSeries",
+        "name": "The Tesla Pod"
+      }
+    },
+    {
+      "@type": "PodcastEpisode",
+      "episodeNumber": 3,
+      "name": "The $5 Trillion Problem Nobody in Tech is Working On | Riding Through SF in a Self-Driving Tesla",
+      "description": "Laila Gamaleldin, founder of Silver Surf, on the $5 trillion problem nobody in tech is working on.",
+      "datePublished": "2026-05-17",
+      "timeRequired": "PT27M51S",
+      "url": "https://www.youtube.com/watch?v=VVFp6FDn5KM",
+      "partOfSeries": {
+        "@type": "PodcastSeries",
+        "name": "The Tesla Pod"
+      }
+    },
+    {
+      "@type": "PodcastEpisode",
+      "episodeNumber": 2,
+      "name": "They Raised $500K from YC at 18 | Riding Through SF in a Self-Driving Tesla",
+      "description": "Shreyans Jain and Naman Bansal raised $500K from Y Combinator at 18. The young founders behind Manicule on betting on themselves early.",
+      "datePublished": "2026-05-11",
+      "timeRequired": "PT46M30S",
+      "url": "https://www.youtube.com/watch?v=EMmH7ECJ-IQ",
+      "partOfSeries": {
+        "@type": "PodcastSeries",
+        "name": "The Tesla Pod"
+      }
+    },
+    {
+      "@type": "PodcastEpisode",
+      "episodeNumber": 1,
+      "name": "Self Driving Cars and Self Driving software",
+      "description": "Driving along the coast with Yasith Jayawardana — the journey of building Marketrix, the technical challenges, and the vision for the future.",
+      "datePublished": "2026-05-03",
+      "timeRequired": "PT6M56S",
+      "url": "https://www.youtube.com/watch?v=kl8JXv2KIfc",
+      "partOfSeries": {
+        "@type": "PodcastSeries",
+        "name": "The Tesla Pod"
+      }
+    }
+  ]
+}
+  </script>
 </head>
 <body>
 
