@@ -684,24 +684,6 @@ body.map-full .nav, body.map-full .scroll-progress { display: none; }
   animation: blink 1.6s infinite;
 }
 
-/* ---------- marquee — quiet ticker ---------- */
-.marquee {
-  border-block: 1px solid var(--line-soft);
-  overflow: hidden; padding: 13px 0;
-  background: var(--bg);
-}
-.marquee-track {
-  display: inline-flex; align-items: center; gap: 48px;
-  white-space: nowrap;
-  font-family: var(--font-mono); font-weight: 400; font-size: 10.5px;
-  letter-spacing: 0.3em;
-  color: var(--text-faint);
-  animation: marquee 48s linear infinite;
-}
-.marquee-track i { color: var(--text-faint); font-style: normal; font-size: 8px; }
-.marquee:hover .marquee-track { animation-play-state: paused; }
-@keyframes marquee { to { transform: translateX(-50%); } }
-
 /* ---------- global focus + interaction cues ---------- */
 :focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; border-radius: 2px; }
 .ep-card, .person-card, .feat-card { position: relative; }
@@ -1350,10 +1332,36 @@ a.ts-row:hover { border-color: var(--ts-dim); }
     border-bottom: 1px solid var(--line-soft);
   }
   .mobile-menu a:last-child { border-bottom: 0; }
-  .tel-item { flex: 1 1 50%; }
+
+  /* hero — tighten vertical rhythm, top-align, size down for small screens */
+  .hero {
+    min-height: auto;
+    justify-content: flex-start;
+    padding-top: calc(var(--nav-h) + 26px);
+    padding-bottom: 8px;
+  }
+  .hero-inner { flex: none; gap: 32px; }
+  .hero-kicker { margin-bottom: 18px; }
+  .hero-title { font-size: clamp(33px, 9vw, 46px); margin-bottom: 18px; }
+  .hero-sub { font-size: 15px; line-height: 1.6; max-width: none; }
+  .hero-ctas { margin-top: 26px; }
+  .hero-game { margin-top: 22px; }
+  .hero-meta { margin-top: 24px; }
+  .latest-card { max-width: 100%; }
+
+  .telemetry { margin-top: 36px; }
+  .tel-item { flex: 1 1 50%; padding: 14px 16px 16px 0; }
   .tel-item:nth-child(3) { border-left: 0; padding-left: 0; }
+  .tel-value { white-space: normal; }
+
   .footer-inner { grid-template-columns: 1fr; }
   .hero-map { opacity: 0.55; }
+}
+
+@media (max-width: 560px) {
+  /* full-width, easy-to-tap CTAs */
+  .hero-ctas { flex-direction: column; align-items: stretch; gap: 10px; }
+  .hero-ctas .btn { width: 100%; justify-content: center; }
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -856,10 +856,6 @@
     setTimeout(function () { map.invalidateSize(); }, 900);
   })();
 
-  /* ---------- marquee duplication ---------- */
-  var track = $("#marqueeTrack");
-  track.innerHTML += track.innerHTML;
-
   /* ---------- modal player with prev/next navigation ---------- */
   var modal = $("#modal"), modalVideo = $("#modalVideo"), modalMeta = $("#modalMeta");
   var modalIndex = -1;
