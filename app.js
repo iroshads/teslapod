@@ -969,7 +969,7 @@
     $("#episodeFeatured").innerHTML = "";
     $("#episodeFeatured").appendChild(el(
       '<article class="feat-card" tabindex="0" aria-label="Play ' + esc(latest.fullTitle) + '">' +
-      '<div class="feat-thumb"><img src="' + esc(latest.thumb) + '" alt="" ' +
+      '<div class="feat-thumb"><img src="' + esc(latest.thumb) + '" alt="' + esc(latest.fullTitle) + ' — The Tesla Pod episode thumbnail" ' +
       "onerror=\"this.src='https://img.youtube.com/vi/" + esc(latest.id) + "/hqdefault.jpg'\" /></div>" +
       '<div class="feat-body">' +
       '<div class="ep-meta"><span class="ep-chip hot">Latest · ' + esc(epNum(latest)) + "</span>" +
@@ -988,7 +988,7 @@
       var card = el(
         '<article class="ep-card reveal" style="transition-delay:' + (i % 3) * 70 + 'ms" tabindex="0" aria-label="Play ' + esc(ep.fullTitle) + '">' +
         '<div class="ep-thumb">' +
-        '<img loading="lazy" src="' + esc(ep.thumb) + '" alt="" ' +
+        '<img loading="lazy" src="' + esc(ep.thumb) + '" alt="' + esc(ep.fullTitle) + ' — The Tesla Pod episode thumbnail" ' +
         "onerror=\"this.src='https://img.youtube.com/vi/" + esc(ep.id) + "/hqdefault.jpg'\" />" +
         '<span class="dur">' + esc(ep.duration) + "</span>" +
         '<div class="play-hover"><span><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></div>' +
