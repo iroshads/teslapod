@@ -873,6 +873,7 @@
       "<h3>" + esc(ep.fullTitle) + "</h3>" +
       '<p class="ep-desc">' + esc(ep.description) + "</p>" +
       '<div class="modal-links"><div class="ep-guest">with <b>' + esc(ep.guest) + "</b> · " + roleHTML(ep.guestRole) + "</div>" +
+      (INSIGHT_SLUGS[ep.id] ? '<a class="modal-yt" href="/insights/' + INSIGHT_SLUGS[ep.id] + '">Read the insights →</a>' : "") +
       '<a class="modal-yt" href="https://www.youtube.com/watch?v=' + esc(ep.id) + '" target="_blank" rel="noopener">Open on YouTube ↗</a></div>' +
       '<div class="modal-nav">' +
       '<button type="button" id="modalPrev" ' + (prev ? "" : "disabled") + ">← " + (prev ? esc(epNum(prev)) + " · " + esc(prev.title) : "First ride") + "</button>" +
@@ -1010,6 +1011,18 @@
   /* ---------- render: passengers ---------- */
   /* ---------- company info tooltips ---------- */
   // guests' companies (not the host's Marketrix) → a one-line "about" + a link.
+  // episode id → insights article slug (see tools/build-insights.mjs)
+  var INSIGHT_SLUGS = {
+    "4FtPxcSjpF8": "ai-agent-swarms-security-jason-jin",
+    "UkzjHmqDMiY": "automating-consulting-with-ai-ontora",
+    "7_k8UR_5aDc": "proactive-ai-copilots-phd-to-yc-logical",
+    "ChwI4UyEGqM": "agentic-browsing-self-driving-browser-retriever-ai",
+    "p7eUWZtrq-0": "ai-customer-success-peazy-labs",
+    "VVFp6FDn5KM": "5-trillion-small-business-succession-silver-surf",
+    "EMmH7ECJ-IQ": "raising-yc-at-18-manicule",
+    "kl8JXv2KIfc": "self-driving-software-marketrix-yasith"
+  };
+
   var COMPANIES = {
     "Funky": { about: "One API call spins up hundreds of sandboxed AI agents. Built by Jason Jin (ex-Google).", url: "https://funky.dev" },
     "Ontora": { about: "AI agents that interview every employee to map how work actually gets done — in days, not months.", url: "https://ontora.com" },

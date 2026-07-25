@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FM2TFSZ32V"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-FM2TFSZ32V');
+  </script>
+  <title>AI Agent Swarms &amp; Agent Security — Insights from Jason Jin (ex-Google) | The Tesla Pod</title>
+  <meta name="description" content="Why the next platform shift is hundreds of sandboxed AI agents per API call — and why agent-vs-agent security becomes the defining problem. Insights from Jason Jin of Funky on The Tesla Pod, the Tesla podcast." />
+  <meta name="keywords" content="AI agent swarms, sandboxed AI agents, AI agent security, Funky API, Jason Jin, ex-Google founder, multi-agent systems, prompt injection defense" />
+  <link rel="canonical" href="https://www.theteslapod.com/insights/ai-agent-swarms-security-jason-jin" />
+
+  <meta name="author" content="Irosha de Silva" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+  <meta name="theme-color" content="#fbfaf8" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#101012" media="(prefers-color-scheme: dark)" />
+  <link rel="icon" type="image/svg+xml" href="/assets/brand/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/brand/favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/brand/favicon-16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/brand/apple-touch-icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700&family=Inter:wght@400;500;600&family=Instrument+Serif:ital@1&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="The Tesla Pod" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:url" content="https://www.theteslapod.com/insights/ai-agent-swarms-security-jason-jin" />
+  <meta property="og:title" content="Agent Swarms, Sandboxes, and the Coming Security War for AI agents — The Tesla Pod Insights" />
+  <meta property="og:description" content="Hundreds of agents from one API call — and attacker agents already probing them." />
+  <meta property="og:image" content="https://teslapod.vercel.app/assets/thumbs/4FtPxcSjpF8.jpg" />
+  <meta property="og:image:alt" content="Episode 08 of The Tesla Pod — Agent Swarms, Sandboxes, and the Coming Security War for AI agents" />
+  <meta property="article:published_time" content="2026-07-06" />
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:title" content="Agent Swarms, Sandboxes, and the Coming Security War for AI agents — The Tesla Pod Insights" />
+  <meta property="twitter:description" content="Hundreds of agents from one API call — and attacker agents already probing them." />
+  <meta property="twitter:image" content="https://teslapod.vercel.app/assets/thumbs/4FtPxcSjpF8.jpg" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Agent Swarms, Sandboxes, and the Coming Security War for AI agents","description":"Why the next platform shift is hundreds of sandboxed AI agents per API call — and why agent-vs-agent security becomes the defining problem. Insights from Jason Jin of Funky on The Tesla Pod, the Tesla podcast.","image":"https://teslapod.vercel.app/assets/thumbs/4FtPxcSjpF8.jpg","datePublished":"2026-07-06","dateModified":"2026-07-24","author":{"@type":"Person","name":"Irosha de Silva","jobTitle":"Host, The Tesla Pod"},"publisher":{"@type":"Organization","name":"The Tesla Pod","url":"https://www.theteslapod.com/"},"mainEntityOfPage":"https://www.theteslapod.com/insights/ai-agent-swarms-security-jason-jin","keywords":"AI agent swarms, sandboxed AI agents, AI agent security, Funky API, Jason Jin, ex-Google founder, multi-agent systems, prompt injection defense","about":{"@type":"PodcastEpisode","episodeNumber":8,"name":"Agent Swarms, Sandboxes, and the Coming Security War for AI agents","url":"https://www.youtube.com/watch?v=4FtPxcSjpF8","partOfSeries":{"@type":"PodcastSeries","name":"The Tesla Pod","url":"https://www.theteslapod.com/"}}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"The Tesla Pod","item":"https://www.theteslapod.com/"},{"@type":"ListItem","position":2,"name":"Insights","item":"https://www.theteslapod.com/insights/"},{"@type":"ListItem","position":3,"name":"Agent Swarms, Sandboxes, and the Coming Security War for AI agents","item":"https://www.theteslapod.com/insights/ai-agent-swarms-security-jason-jin"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is an AI agent swarm?","acceptedAnswer":{"@type":"Answer","text":"An AI agent swarm is many narrow, single-purpose AI agents running in parallel on a shared task — instead of one large agent trying to do everything. Each agent gets a small job and its own sandbox, so failures stay contained and the work composes reliably."}},{"@type":"Question","name":"Why do AI agents need sandboxes?","acceptedAnswer":{"@type":"Answer","text":"Agents take real actions — calling APIs, writing files, moving data. A sandbox limits what each agent can touch, so a compromised or malfunctioning agent has a small blast radius. It's the same reason cloud workloads moved to containers."}},{"@type":"Question","name":"What is Funky?","acceptedAnswer":{"@type":"Answer","text":"Funky is a developer platform founded by ex-Google engineer Jason Jin: one API call spins up hundreds of AI agents, each in its own sandbox. It treats agents as a scalable workload — like serverless functions, but for autonomous AI work."}}]}</script>
+</head>
+<body>
+
+  <header class="nav" id="nav">
+    <a class="nav-logo" href="/" aria-label="The Tesla Pod — home">
+      <span class="nav-word"><em>The</em> Tesla Pod</span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="/#episodes">Episodes</a>
+      <a href="/insights/">Insights</a>
+      <a href="/#passengers">Passengers</a>
+      <a href="/#apply" class="nav-cta">Be a Guest</a>
+    </nav>
+    <div class="nav-actions">
+      <a class="nav-yt" href="https://www.youtube.com/@TeslaPod" target="_blank" rel="noopener" aria-label="The Tesla Pod on YouTube">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31.3 31.3 0 0 0 0 12a31.3 31.3 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31.3 31.3 0 0 0 24 12a31.3 31.3 0 0 0-.5-5.8zM9.6 15.6V8.4L15.8 12l-6.2 3.6z"/></svg>
+      </a>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle light / dark theme">
+        <span class="theme-icon" aria-hidden="true"></span>
+      </button>
+      <button class="nav-burger" id="navBurger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="/#episodes">Episodes</a>
+    <a href="/insights/">Insights</a>
+    <a href="/#passengers">Passengers</a>
+    <a href="/#apply">Be a Guest</a>
+    <a href="https://www.youtube.com/@TeslaPod" target="_blank" rel="noopener">YouTube ↗</a>
+  </div>
+  <main class="in-main">
+    <nav class="in-crumbs" aria-label="Breadcrumb"><a href="/">The Tesla Pod</a><span>/</span><a href="/insights/">Insights</a><span>/</span><span>EP 08</span></nav>
+    <div class="in-hero">
+      <h1>Agent Swarms, Sandboxes, and the Coming Security War for <em>AI agents</em></h1>
+      <p class="in-sub">Jason Jin spent six years at Google building a logs system that processed over an exabyte of data a day. Then he left to build Funky — one API call that spins up hundreds of AI agents, each in its own sandbox. This ride covers what changes when agents stop being a demo and start being infrastructure.</p>
+      <div class="in-meta">
+        <span>EPISODE <b>08</b></span>
+        <span>WITH <b>Jason Jin</b></span>
+        <span><b>Funky</b></span>
+        <span>JUL 6, 2026</span>
+        <span>45:24</span>
+      </div>
+    </div>
+    <article class="in-article">
+      <h2>The big idea</h2>
+      <p>The conversation lands on a simple inversion: today developers think of an AI agent as a feature you add to an app. Jason's bet is that agents become the workload itself — spun up in swarms, isolated in sandboxes, and orchestrated the way we orchestrate containers today. The unit of compute shifts from "a model call" to "an agent with a job."</p>
+      <p>The most striking part of the episode is the live demo: attacker agents trying to socially engineer a guarded agent into wiring money out of an account. It's a preview of a world where both sides of a fraud attempt are automated — and where defense has to be designed into the agent runtime, not bolted on.</p>
+      <h2>Why this matters now</h2>
+      <p>Every major lab shipped agent frameworks this year, and enterprises are moving from pilots to production fleets. The winners of that shift won't be decided by model quality — every team has the same models — but by who solves orchestration, isolation, and deception-resistance first. That's exactly the layer this conversation maps.</p>
+      <h2>Key takeaways</h2>
+      <ul class="in-takeaways">
+        <li><b>Swarms beat single agents for real work.</b> One agent hits context and reliability walls; hundreds of narrow agents, each sandboxed with a small job, compose into something dependable.</li>
+        <li><b>Isolation is the primitive that matters.</b> Giving every agent its own sandbox does for agents what containers did for services — it makes failure, abuse, and blast radius manageable.</li>
+        <li><b>Agent-vs-agent security is already here.</b> The wire-transfer demo shows adversarial agents probing a guarded agent in real time. Guardrails have to survive automated, persistent social engineering.</li>
+        <li><b>Big-company scale teaches small-company speed.</b> An exabyte-a-day logs pipeline at Google taught Jason where infrastructure actually breaks — knowledge he now compresses into a single API.</li>
+        <li><b>The leap isn't reckless if the foundation is boring.</b> Leaving Google works when what you're building is the plumbing everyone will need, not a feature someone will copy.</li>
+      </ul>
+      <h2>Inside the conversation</h2>
+      <h3>From model calls to agent fleets</h3>
+      <p>The episode frames the shift the way early cloud people framed VMs → containers: the interesting question stops being "how smart is the model" and becomes "how do you launch, watch, and kill ten thousand of them safely." Funky's one-call swarm API is a bet that developers want that abstraction, not another chat wrapper.</p>
+      <h3>Security as the defining constraint</h3>
+      <p>If agents can move money, file tickets, and touch production systems, then tricking an agent becomes the new phishing. The ride digs into why deception-resistance — not benchmark scores — will decide which agent platforms enterprises trust.</p>
+      <h3>The ex-Google founder playbook</h3>
+      <p>Six years inside Google's infrastructure taught a specific lesson: the hard problems are operational, not algorithmic. The conversation is a case study in taking scale scars from big tech and turning them into a startup's unfair advantage.</p>
+      <h2>About Funky</h2>
+      <p>Funky lets developers spin up hundreds of sandboxed AI agents with a single API call. Jason Jin founded it after six years at Google, where he built logging infrastructure processing over an exabyte of data per day.</p>
+      <h2>Questions this episode answers</h2>
+      <h3>What is an AI agent swarm?</h3>
+      <p>An AI agent swarm is many narrow, single-purpose AI agents running in parallel on a shared task — instead of one large agent trying to do everything. Each agent gets a small job and its own sandbox, so failures stay contained and the work composes reliably.</p>
+      <h3>Why do AI agents need sandboxes?</h3>
+      <p>Agents take real actions — calling APIs, writing files, moving data. A sandbox limits what each agent can touch, so a compromised or malfunctioning agent has a small blast radius. It's the same reason cloud workloads moved to containers.</p>
+      <h3>What is Funky?</h3>
+      <p>Funky is a developer platform founded by ex-Google engineer Jason Jin: one API call spins up hundreds of AI agents, each in its own sandbox. It treats agents as a scalable workload — like serverless functions, but for autonomous AI work.</p>
+      <div class="in-watch">
+        <span>Watch the full ride — Episode 08 of The Tesla Pod, the Tesla podcast recorded in a self-driving Tesla.</span>
+        <a class="btn btn-primary" href="https://www.youtube.com/watch?v=4FtPxcSjpF8" target="_blank" rel="noopener">▶ Watch on YouTube</a>
+      </div>
+      <nav class="in-prevnext" aria-label="More insights">
+        <a href="/insights/automating-consulting-with-ai-ontora">← EP 07 · Automating the $1 Trillion Consulting Industry in 24 Hours</a>
+        <span></span>
+      </nav>
+    </article>
+    <section class="in-related">
+      <h2>More insights from the pod</h2>
+      <div class="insights-grid">
+        <a class="in-card" href="/insights/automating-consulting-with-ai-ontora">
+        <div class="in-card-thumb"><img loading="lazy" src="/assets/thumbs/UkzjHmqDMiY.jpg" alt="Automating the $1 Trillion Consulting Industry in 24 Hours — The Tesla Pod episode 07" onerror="this.src='https://img.youtube.com/vi/UkzjHmqDMiY/hqdefault.jpg'" /></div>
+        <div class="in-card-body">
+          <span class="in-card-kicker">EP 07 · Ontora</span>
+          <h3>Automating the $1 Trillion Consulting Industry in 24 Hours</h3>
+          <span class="in-card-go">Read the insights →</span>
+        </div>
+      </a>
+        <a class="in-card" href="/insights/proactive-ai-copilots-phd-to-yc-logical">
+        <div class="in-card-thumb"><img loading="lazy" src="/assets/thumbs/7_k8UR_5aDc.jpg" alt="Dropping a PhD for YC — and Building a Copilot That Helps Before You Ask — The Tesla Pod episode 06" onerror="this.src='https://img.youtube.com/vi/7_k8UR_5aDc/hqdefault.jpg'" /></div>
+        <div class="in-card-body">
+          <span class="in-card-kicker">EP 06 · Logical</span>
+          <h3>Dropping a PhD for YC — and Building a Copilot That Helps Before You Ask</h3>
+          <span class="in-card-go">Read the insights →</span>
+        </div>
+      </a>
+        <a class="in-card" href="/insights/agentic-browsing-self-driving-browser-retriever-ai">
+        <div class="in-card-thumb"><img loading="lazy" src="/assets/thumbs/ChwI4UyEGqM.jpg" alt="Your Browser Is About to Drive Itself — The Tesla Pod episode 05" onerror="this.src='https://img.youtube.com/vi/ChwI4UyEGqM/hqdefault.jpg'" /></div>
+        <div class="in-card-body">
+          <span class="in-card-kicker">EP 05 · Retriever AI</span>
+          <h3>Your Browser Is About to Drive Itself</h3>
+          <span class="in-card-go">Read the insights →</span>
+        </div>
+      </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a class="nav-logo" href="/" aria-label="The Tesla Pod — home">
+          <span class="nav-word"><em>The</em> Tesla Pod</span>
+        </a>
+        <p>The Tesla podcast — conversations from the autonomous future.<br />Recorded on the move, somewhere in the Bay Area.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Ride along</h4>
+        <a href="/#episodes">Episodes</a>
+        <a href="/insights/">Insights</a>
+        <a href="/#passengers">Passengers</a>
+        <a href="/#apply">Be a guest</a>
+      </div>
+      <div class="footer-col">
+        <h4>Elsewhere</h4>
+        <a href="https://www.youtube.com/@TeslaPod" target="_blank" rel="noopener">YouTube ↗</a>
+        <a href="mailto:irosha@marketrix.ai?subject=Tesla%20Pod%20Sponsorship">Sponsorships</a>
+        <a href="mailto:irosha@marketrix.ai">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>On the road</h4>
+        <span class="footer-road">San Francisco → Bay Area</span>
+        <span class="footer-road">37.7749° N · 122.4194° W</span>
+      </div>
+    </div>
+    <div class="footer-bar">
+      <span>© <span id="year"></span> The Tesla Pod. All rides supervised.</span>
+      <span class="footer-tel">Not affiliated with Tesla, Inc. (Yet)</span>
+    </div>
+  </footer>
+
+  <script>
+  (function () {
+    var root = document.documentElement, saved = null;
+    try { saved = localStorage.getItem("tp-theme"); } catch (e) {}
+    if (saved === "light" || saved === "dark") root.setAttribute("data-theme", saved);
+    document.getElementById("themeToggle").addEventListener("click", function () {
+      var next = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
+      root.setAttribute("data-theme", next);
+      try { localStorage.setItem("tp-theme", next); } catch (e) {}
+    });
+    var burger = document.getElementById("navBurger"), menu = document.getElementById("mobileMenu");
+    burger.addEventListener("click", function () {
+      var open = menu.classList.toggle("open");
+      burger.setAttribute("aria-expanded", open ? "true" : "false");
+    });
+    document.getElementById("year").textContent = new Date().getFullYear();
+  })();
+  </script>
+</body>
+</html>

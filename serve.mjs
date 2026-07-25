@@ -5,7 +5,7 @@ import { extname, join, normalize } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const root = fileURLToPath(new URL(".", import.meta.url));
-const port = Number(process.argv[2] || 4173);
+const port = Number(process.argv[2] || process.env.PORT || 4173);
 const types = {
   ".html": "text/html", ".css": "text/css", ".js": "text/javascript",
   ".json": "application/json", ".png": "image/png", ".jpg": "image/jpeg",
@@ -16,7 +16,8 @@ const types = {
 createServer(async (req, res) => {
   try {
     let path = decodeURIComponent(new URL(req.url, "http://x").pathname);
-    if (path === "/") path = "/index.html";
+    if (path.endsWith("/")) path += "index.html";
+    if (!extname(path)) path += ".html"; // clean URLs, like production
     const file = normalize(join(root, path));
     if (!file.startsWith(root)) throw new Error("traversal");
     const body = await readFile(file);

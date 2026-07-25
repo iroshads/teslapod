@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FM2TFSZ32V"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-FM2TFSZ32V');
+  </script>
+  <title>Self-Driving Cars and Self-Driving Software — Marketrix AI's Simulation Thesis | The Tesla Pod</title>
+  <meta name="description" content="The ride that started The Tesla Pod: Yasith Jayawardana on why software should be tested the way autonomy is — with simulated users, at scale, before launch. Insights from the Tesla podcast's first episode." />
+  <meta name="keywords" content="AI simulated users, software testing simulation, Marketrix AI, Yasith Jayawardana, user simulation platform, self-driving software, product validation AI, Tesla podcast first episode" />
+  <link rel="canonical" href="https://www.theteslapod.com/insights/self-driving-software-marketrix-yasith" />
+
+  <meta name="author" content="Irosha de Silva" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+  <meta name="theme-color" content="#fbfaf8" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#101012" media="(prefers-color-scheme: dark)" />
+  <link rel="icon" type="image/svg+xml" href="/assets/brand/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/brand/favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/brand/favicon-16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/brand/apple-touch-icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700&family=Inter:wght@400;500;600&family=Instrument+Serif:ital@1&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="The Tesla Pod" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:url" content="https://www.theteslapod.com/insights/self-driving-software-marketrix-yasith" />
+  <meta property="og:title" content="Self-Driving Cars and Self-Driving Software — The Tesla Pod Insights" />
+  <meta property="og:description" content="The founding ride: why software should earn trust the way FSD does — in simulation first." />
+  <meta property="og:image" content="https://teslapod.vercel.app/assets/thumbs/kl8JXv2KIfc.jpg" />
+  <meta property="og:image:alt" content="Episode 01 of The Tesla Pod — Self-Driving Cars and Self-Driving Software" />
+  <meta property="article:published_time" content="2026-05-03" />
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:title" content="Self-Driving Cars and Self-Driving Software — The Tesla Pod Insights" />
+  <meta property="twitter:description" content="The founding ride: why software should earn trust the way FSD does — in simulation first." />
+  <meta property="twitter:image" content="https://teslapod.vercel.app/assets/thumbs/kl8JXv2KIfc.jpg" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Self-Driving Cars and Self-Driving Software","description":"The ride that started The Tesla Pod: Yasith Jayawardana on why software should be tested the way autonomy is — with simulated users, at scale, before launch. Insights from the Tesla podcast's first episode.","image":"https://teslapod.vercel.app/assets/thumbs/kl8JXv2KIfc.jpg","datePublished":"2026-05-03","dateModified":"2026-07-24","author":{"@type":"Person","name":"Irosha de Silva","jobTitle":"Host, The Tesla Pod"},"publisher":{"@type":"Organization","name":"The Tesla Pod","url":"https://www.theteslapod.com/"},"mainEntityOfPage":"https://www.theteslapod.com/insights/self-driving-software-marketrix-yasith","keywords":"AI simulated users, software testing simulation, Marketrix AI, Yasith Jayawardana, user simulation platform, self-driving software, product validation AI, Tesla podcast first episode","about":{"@type":"PodcastEpisode","episodeNumber":1,"name":"Self-Driving Cars and Self-Driving Software","url":"https://www.youtube.com/watch?v=kl8JXv2KIfc","partOfSeries":{"@type":"PodcastSeries","name":"The Tesla Pod","url":"https://www.theteslapod.com/"}}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"The Tesla Pod","item":"https://www.theteslapod.com/"},{"@type":"ListItem","position":2,"name":"Insights","item":"https://www.theteslapod.com/insights/"},{"@type":"ListItem","position":3,"name":"Self-Driving Cars and Self-Driving Software","item":"https://www.theteslapod.com/insights/self-driving-software-marketrix-yasith"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What are AI-simulated users?","acceptedAnswer":{"@type":"Answer","text":"AI-simulated users are agents that behave like real people inside your product — they click, wander, misread labels, lose patience, and pursue goals — surfacing usability problems and bugs before launch, at a scale scripted tests can't reach."}},{"@type":"Question","name":"What is Marketrix AI?","acceptedAnswer":{"@type":"Answer","text":"Marketrix AI is the user-simulation platform: AI-simulated users test and validate your product before real ones ever do. Co-founded by Yasith Jayawardana (CTO), it applies the autonomy industry's simulation-first playbook to software products."}},{"@type":"Question","name":"How is software testing like self-driving cars?","acceptedAnswer":{"@type":"Answer","text":"Autonomy earned trust through billions of simulated miles before real ones. The episode's thesis: software should work the same way — validate against thousands of simulated users before the first real user arrives, instead of discovering failure modes in production."}}]}</script>
+</head>
+<body>
+
+  <header class="nav" id="nav">
+    <a class="nav-logo" href="/" aria-label="The Tesla Pod — home">
+      <span class="nav-word"><em>The</em> Tesla Pod</span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="/#episodes">Episodes</a>
+      <a href="/insights/">Insights</a>
+      <a href="/#passengers">Passengers</a>
+      <a href="/#apply" class="nav-cta">Be a Guest</a>
+    </nav>
+    <div class="nav-actions">
+      <a class="nav-yt" href="https://www.youtube.com/@TeslaPod" target="_blank" rel="noopener" aria-label="The Tesla Pod on YouTube">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31.3 31.3 0 0 0 0 12a31.3 31.3 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31.3 31.3 0 0 0 24 12a31.3 31.3 0 0 0-.5-5.8zM9.6 15.6V8.4L15.8 12l-6.2 3.6z"/></svg>
+      </a>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle light / dark theme">
+        <span class="theme-icon" aria-hidden="true"></span>
+      </button>
+      <button class="nav-burger" id="navBurger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="/#episodes">Episodes</a>
+    <a href="/insights/">Insights</a>
+    <a href="/#passengers">Passengers</a>
+    <a href="/#apply">Be a Guest</a>
+    <a href="https://www.youtube.com/@TeslaPod" target="_blank" rel="noopener">YouTube ↗</a>
+  </div>
+  <main class="in-main">
+    <nav class="in-crumbs" aria-label="Breadcrumb"><a href="/">The Tesla Pod</a><span>/</span><a href="/insights/">Insights</a><span>/</span><span>EP 01</span></nav>
+    <div class="in-hero">
+      <h1>Self-Driving Cars and <em>Self-Driving Software</em></h1>
+      <p class="in-sub">The episode that started it all. Driving along the coast, Marketrix co-founder and CTO Yasith Jayawardana connects the two ideas that became this show: cars that drive themselves, and software that should test itself the same way — with simulated users, at scale, before a real one ever touches it.</p>
+      <div class="in-meta">
+        <span>EPISODE <b>01</b></span>
+        <span>WITH <b>Yasith Jayawardana</b></span>
+        <span><b>Marketrix AI</b></span>
+        <span>MAY 3, 2026</span>
+        <span>6:56</span>
+      </div>
+    </div>
+    <article class="in-article">
+      <h2>The big idea</h2>
+      <p>Autonomy earned public trust through simulation: billions of virtual miles driven before and alongside every real one. This first ride asks the obvious-in-hindsight question — why doesn't software work that way? Products still launch on the strength of a QA checklist and a prayer, then discover their failure modes on live users.</p>
+      <p>Marketrix's answer is the user-simulation platform: AI-simulated users that click, wander, misunderstand, and rage-tap through your product the way real ones will — so the thousandth user's experience is validated before the first user arrives. It's the FSD development loop, ported to product engineering.</p>
+      <h2>Why this matters now</h2>
+      <p>Product teams are shipping faster than QA can keep up — AI code generation has made building cheap while validation stayed expensive. Simulation closes that gap: the same approach that let autonomy teams iterate safely at speed is now available to every software team, and the teams that adopt it first ship with fewer surprises.</p>
+      <h2>Key takeaways</h2>
+      <ul class="in-takeaways">
+        <li><b>Simulation is how autonomy got safe — and software skipped it.</b> Virtual miles preceded real ones; virtual users should precede real ones too.</li>
+        <li><b>Real users are your most expensive test suite.</b> Every bug discovered in production was paid for with someone's trust. Simulated users move that cost to before launch.</li>
+        <li><b>Simulated users find what scripts can't.</b> Scripted tests check the paths you thought of; AI users behave like humans — distracted, confused, creative — and surface the paths you didn't.</li>
+        <li><b>Demo throughput is a growth lever.</b> When validation is simulated, showing and shipping product stops being gated on human QA cycles.</li>
+        <li><b>The show's thesis in one ride.</b> Autonomy as a lens on every kind of building — that's the premise this six-minute episode set for everything after it.</li>
+      </ul>
+      <h2>Inside the conversation</h2>
+      <h3>The FSD development loop, applied to product</h3>
+      <p>Perception, simulation, deployment, telemetry, repeat — the episode maps each stage of the autonomy playbook onto how software teams could validate products before and after launch.</p>
+      <h3>What an AI-simulated user actually is</h3>
+      <p>Not a script and not a monkey test: an agent with goals, patience limits, and human-like misunderstanding. The conversation explores what it takes to make synthetic users behave real enough to matter.</p>
+      <h3>Origin story of the pod</h3>
+      <p>Recorded along the coast with the show's own CTO in the passenger seat — the ride where 'conversations from the autonomous future' stopped being a tagline and became a format.</p>
+      <h2>About Marketrix AI</h2>
+      <p>Marketrix AI is the user-simulation platform — AI-simulated users that test and validate your product before real ones ever do. Yasith Jayawardana is co-founder &amp; CTO.</p>
+      <h2>Questions this episode answers</h2>
+      <h3>What are AI-simulated users?</h3>
+      <p>AI-simulated users are agents that behave like real people inside your product — they click, wander, misread labels, lose patience, and pursue goals — surfacing usability problems and bugs before launch, at a scale scripted tests can't reach.</p>
+      <h3>What is Marketrix AI?</h3>
+      <p>Marketrix AI is the user-simulation platform: AI-simulated users test and validate your product before real ones ever do. Co-founded by Yasith Jayawardana (CTO), it applies the autonomy industry's simulation-first playbook to software products.</p>
+      <h3>How is software testing like self-driving cars?</h3>
+      <p>Autonomy earned trust through billions of simulated miles before real ones. The episode's thesis: software should work the same way — validate against thousands of simulated users before the first real user arrives, instead of discovering failure modes in production.</p>
+      <div class="in-watch">
+        <span>Watch the full ride — Episode 01 of The Tesla Pod, the Tesla podcast recorded in a self-driving Tesla.</span>
+        <a class="btn btn-primary" href="https://www.youtube.com/watch?v=kl8JXv2KIfc" target="_blank" rel="noopener">▶ Watch on YouTube</a>
+      </div>
+      <nav class="in-prevnext" aria-label="More insights">
+        <span></span>
+        <a href="/insights/raising-yc-at-18-manicule" style="text-align:right">EP 02 · They Raised $500K from YC at 18 →</a>
+      </nav>
+    </article>
+    <section class="in-related">
+      <h2>More insights from the pod</h2>
+      <div class="insights-grid">
+        <a class="in-card" href="/insights/ai-agent-swarms-security-jason-jin">
+        <div class="in-card-thumb"><img loading="lazy" src="/assets/thumbs/4FtPxcSjpF8.jpg" alt="Agent Swarms, Sandboxes, and the Coming Security War for AI agents — The Tesla Pod episode 08" onerror="this.src='https://img.youtube.com/vi/4FtPxcSjpF8/hqdefault.jpg'" /></div>
+        <div class="in-card-body">
+          <span class="in-card-kicker">EP 08 · Funky</span>
+          <h3>Agent Swarms, Sandboxes, and the Coming Security War for AI agents</h3>
+          <span class="in-card-go">Read the insights →</span>
+        </div>
+      </a>
+        <a class="in-card" href="/insights/automating-consulting-with-ai-ontora">
+        <div class="in-card-thumb"><img loading="lazy" src="/assets/thumbs/UkzjHmqDMiY.jpg" alt="Automating the $1 Trillion Consulting Industry in 24 Hours — The Tesla Pod episode 07" onerror="this.src='https://img.youtube.com/vi/UkzjHmqDMiY/hqdefault.jpg'" /></div>
+        <div class="in-card-body">
+          <span class="in-card-kicker">EP 07 · Ontora</span>
+          <h3>Automating the $1 Trillion Consulting Industry in 24 Hours</h3>
+          <span class="in-card-go">Read the insights →</span>
+        </div>
+      </a>
+        <a class="in-card" href="/insights/proactive-ai-copilots-phd-to-yc-logical">
+        <div class="in-card-thumb"><img loading="lazy" src="/assets/thumbs/7_k8UR_5aDc.jpg" alt="Dropping a PhD for YC — and Building a Copilot That Helps Before You Ask — The Tesla Pod episode 06" onerror="this.src='https://img.youtube.com/vi/7_k8UR_5aDc/hqdefault.jpg'" /></div>
+        <div class="in-card-body">
+          <span class="in-card-kicker">EP 06 · Logical</span>
+          <h3>Dropping a PhD for YC — and Building a Copilot That Helps Before You Ask</h3>
+          <span class="in-card-go">Read the insights →</span>
+        </div>
+      </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a class="nav-logo" href="/" aria-label="The Tesla Pod — home">
+          <span class="nav-word"><em>The</em> Tesla Pod</span>
+        </a>
+        <p>The Tesla podcast — conversations from the autonomous future.<br />Recorded on the move, somewhere in the Bay Area.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Ride along</h4>
+        <a href="/#episodes">Episodes</a>
+        <a href="/insights/">Insights</a>
+        <a href="/#passengers">Passengers</a>
+        <a href="/#apply">Be a guest</a>
+      </div>
+      <div class="footer-col">
+        <h4>Elsewhere</h4>
+        <a href="https://www.youtube.com/@TeslaPod" target="_blank" rel="noopener">YouTube ↗</a>
+        <a href="mailto:irosha@marketrix.ai?subject=Tesla%20Pod%20Sponsorship">Sponsorships</a>
+        <a href="mailto:irosha@marketrix.ai">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>On the road</h4>
+        <span class="footer-road">San Francisco → Bay Area</span>
+        <span class="footer-road">37.7749° N · 122.4194° W</span>
+      </div>
+    </div>
+    <div class="footer-bar">
+      <span>© <span id="year"></span> The Tesla Pod. All rides supervised.</span>
+      <span class="footer-tel">Not affiliated with Tesla, Inc. (Yet)</span>
+    </div>
+  </footer>
+
+  <script>
+  (function () {
+    var root = document.documentElement, saved = null;
+    try { saved = localStorage.getItem("tp-theme"); } catch (e) {}
+    if (saved === "light" || saved === "dark") root.setAttribute("data-theme", saved);
+    document.getElementById("themeToggle").addEventListener("click", function () {
+      var next = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
+      root.setAttribute("data-theme", next);
+      try { localStorage.setItem("tp-theme", next); } catch (e) {}
+    });
+    var burger = document.getElementById("navBurger"), menu = document.getElementById("mobileMenu");
+    burger.addEventListener("click", function () {
+      var open = menu.classList.toggle("open");
+      burger.setAttribute("aria-expanded", open ? "true" : "false");
+    });
+    document.getElementById("year").textContent = new Date().getFullYear();
+  })();
+  </script>
+</body>
+</html>
