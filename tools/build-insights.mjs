@@ -316,7 +316,7 @@ const NAV = `
     </a>
     <nav class="nav-links" aria-label="Primary">
       <a href="/#episodes">Episodes</a>
-      <a href="/insights/">Insights</a>
+      <a href="/insights">Insights</a>
       <a href="/#passengers">Passengers</a>
       <a href="/#apply" class="nav-cta">Be a Guest</a>
     </nav>
@@ -334,7 +334,7 @@ const NAV = `
   </header>
   <div class="mobile-menu" id="mobileMenu">
     <a href="/#episodes">Episodes</a>
-    <a href="/insights/">Insights</a>
+    <a href="/insights">Insights</a>
     <a href="/#passengers">Passengers</a>
     <a href="/#apply">Be a Guest</a>
     <a href="https://www.youtube.com/@TeslaPod" target="_blank" rel="noopener">YouTube ↗</a>
@@ -352,7 +352,7 @@ const FOOTER = `
       <div class="footer-col">
         <h4>Ride along</h4>
         <a href="/#episodes">Episodes</a>
-        <a href="/insights/">Insights</a>
+        <a href="/insights">Insights</a>
         <a href="/#passengers">Passengers</a>
         <a href="/#apply">Be a guest</a>
       </div>
@@ -427,7 +427,7 @@ function articlePage(it, i) {
     "@type": "BreadcrumbList",
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "The Tesla Pod", item: `${SITE}/` },
-      { "@type": "ListItem", position: 2, name: "Insights", item: `${SITE}/insights/` },
+      { "@type": "ListItem", position: 2, name: "Insights", item: `${SITE}/insights` },
       { "@type": "ListItem", position: 3, name: plain(it.title), item: url }
     ]
   };
@@ -472,7 +472,7 @@ ${HEAD_COMMON}
 <body>
 ${NAV}
   <main class="in-main">
-    <nav class="in-crumbs" aria-label="Breadcrumb"><a href="/">The Tesla Pod</a><span>/</span><a href="/insights/">Insights</a><span>/</span><span>EP ${String(it.ep).padStart(2, "0")}</span></nav>
+    <nav class="in-crumbs" aria-label="Breadcrumb"><a href="/">The Tesla Pod</a><span>/</span><a href="/insights">Insights</a><span>/</span><span>EP ${String(it.ep).padStart(2, "0")}</span></nav>
     <div class="in-hero">
       <h1>${it.title}</h1>
       <p class="in-sub">${it.sub}</p>
@@ -530,7 +530,7 @@ ${PAGE_JS}
 }
 
 function landingPage() {
-  const url = `${SITE}/insights/`;
+  const url = `${SITE}/insights`;
   const ld = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
