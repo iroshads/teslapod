@@ -1077,7 +1077,9 @@
       if (top < 10) top = r.bottom + 10;
       pop.style.left = left + "px"; pop.style.top = top + "px";
     }
-    function show(btn) {
+    // hover = transient peek; click/Enter = pinned open until dismissed
+    var pinned = false;
+    function show(btn, pin) {
       clearTimeout(hideTimer);
       var c = COMPANIES[btn.getAttribute("data-co")];
       if (!c) return;
@@ -1085,16 +1087,36 @@
       aboutEl.textContent = c.about;
       linkEl.textContent = c.url.replace(/^https?:\/\//, "").replace(/\/$/, "") + " ↗";
       linkEl.href = c.url;
+      if (currentBtn && currentBtn !== btn) currentBtn.classList.remove("on");
       currentBtn = btn;
+      if (pin) pinned = true;
+      btn.classList.toggle("on", pinned);
+      btn.setAttribute("aria-expanded", "true");
       place(btn);
       pop.classList.add("on");
+      pop.classList.toggle("pinned", pinned);
+    }
+    function close() {
+      clearTimeout(hideTimer);
+      pinned = false;
+      pop.classList.remove("on", "pinned");
+      if (currentBtn) {
+        currentBtn.classList.remove("on");
+        currentBtn.setAttribute("aria-expanded", "false");
+      }
+      currentBtn = null;
     }
     function hide() {
-      hideTimer = setTimeout(function () { pop.classList.remove("on"); currentBtn = null; }, 130);
+      if (pinned) return; // a pinned popover only closes on click-away / Esc
+      hideTimer = setTimeout(close, 130);
+    }
+    function toggle(btn) {
+      if (pinned && currentBtn === btn) close();
+      else show(btn, true);
     }
     document.addEventListener("mouseover", function (e) {
       var btn = e.target.closest && e.target.closest(".co-i");
-      if (btn) show(btn);
+      if (btn && !pinned) show(btn, false);
     });
     document.addEventListener("mouseout", function (e) {
       var btn = e.target.closest && e.target.closest(".co-i");
@@ -1110,19 +1132,22 @@
       var btn = e.target.closest && e.target.closest(".co-i");
       if (btn) {
         e.preventDefault(); e.stopPropagation();
-        if (currentBtn === btn && pop.classList.contains("on")) hide(); else show(btn);
+        toggle(btn);
       } else if (!e.target.closest(".co-pop")) {
-        pop.classList.remove("on"); currentBtn = null;
+        close();
       }
     }, true);
     document.addEventListener("keydown", function (e) {
       var btn = e.target.closest && e.target.closest(".co-i");
       if (btn && (e.key === "Enter" || e.key === " ")) {
         e.preventDefault(); e.stopPropagation();
-        if (currentBtn === btn && pop.classList.contains("on")) hide(); else show(btn);
+        toggle(btn);
+      } else if (e.key === "Escape" && pop.classList.contains("on")) {
+        if (currentBtn && currentBtn.focus) currentBtn.focus();
+        close();
       }
     }, true);
-    document.addEventListener("focusin", function (e) { var b = e.target.closest && e.target.closest(".co-i"); if (b) show(b); });
+    document.addEventListener("focusin", function (e) { var b = e.target.closest && e.target.closest(".co-i"); if (b && !pinned) show(b, false); });
     document.addEventListener("focusout", function (e) { var b = e.target.closest && e.target.closest(".co-i"); if (b) hide(); });
     ["scroll", "resize"].forEach(function (ev) {
       addEventListener(ev, function () { if (currentBtn && pop.classList.contains("on")) place(currentBtn); }, { passive: true });
