@@ -1172,9 +1172,12 @@
     grid.innerHTML = "";
     people.filter(function (p) { return !p.isHost; }).forEach(function (p, i) {
       var ep = episodes.find(function (e) { return e.id === p.episodeId; });
+      // a missing/failed photo falls back to initials rather than a broken image
+      var fallback = '<div class=\'person-initials\' aria-hidden=\'true\'>' + esc(initials(p.name)) + "</div>";
       var photo = p.photo
-        ? '<img loading="lazy" src="' + esc(p.photo) + '" alt="' + esc(p.name) + '" />'
-        : '<div class="person-initials" aria-hidden="true">' + esc(initials(p.name)) + "</div>";
+        ? '<img loading="lazy" src="' + esc(p.photo) + '" alt="' + esc(p.name) + '"' +
+          " onerror=\"this.parentElement.innerHTML='" + fallback + "'\" />"
+        : fallback;
       var card = el(
         '<article class="person-card reveal" style="transition-delay:' + (i % 4) * 60 + 'ms" tabindex="0" aria-label="' + esc(p.name) + (ep ? " — play their episode" : "") + '">' +
         '<div class="person-photo">' + photo + "</div>" +

@@ -123,7 +123,7 @@ const PEOPLE = [
     "name": "Sanket Agarwal",
     "role": "Cofounder",
     "company": "Fleek (YC W22)",
-    "photo": null,
+    "photo": "assets/people/sanket-agarwal.jpg",
     "episodeId": "AR18l-xBY6Q"
   },
   {
