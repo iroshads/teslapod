@@ -1305,15 +1305,6 @@
     setInterval(set, 20000);
   })();
 
-  /* ---------- hero hook → jump into Pickup Run ---------- */
-  var gameHook = document.getElementById("heroGameHook");
-  if (gameHook) gameHook.addEventListener("click", function () {
-    // the anchor handles the scroll; start the run once we've arrived
-    setTimeout(function () {
-      if (window.__startPodGame) window.__startPodGame();
-    }, 900);
-  });
-
   /* ---------- guest form: inline submit, no redirect ---------- */
   var guestForm = $("#guestForm");
   guestForm.addEventListener("submit", function (e) {
