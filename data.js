@@ -1,6 +1,18 @@
 // The Tesla Pod — baked content snapshot (auto-generated from live site + YouTube channel, Jul 15 2026)
 const EPISODES = [
   {
+    "id": "AR18l-xBY6Q",
+    "num": 9,
+    "title": "Fleek Raised $25M to Fix What Happens to Your Old Clothes",
+    "fullTitle": "Fleek Raised $25M to Fix What Happens to Your Old Clothes | A Self-Driving Tesla Podcast",
+    "guest": "Sanket Agarwal",
+    "guestRole": "Cofounder @ Fleek (YC W22)",
+    "duration": "59:24",
+    "releaseDate": "Jul 26, 2026",
+    "thumb": "assets/thumbs/AR18l-xBY6Q.jpg",
+    "description": "Most people have no idea where their donated clothes actually go. Sanket Agarwal left Google to build Fleek — the AI infrastructure behind the global secondhand clothing trade, with a vision-language model that grades and prices a used garment from a single photo. Fleek just closed a $25M Series B led by Burda, with eBay, FJ Labs, a16z and Y Combinator backing it."
+  },
+  {
     "id": "4FtPxcSjpF8",
     "num": 8,
     "title": "He Left Google to Build Agent Swarms",
@@ -106,6 +118,13 @@ const PEOPLE = [
     "photo": "assets/people/irosha-de-silva.png",
     "episodeId": null,
     "isHost": true
+  },
+  {
+    "name": "Sanket Agarwal",
+    "role": "Cofounder",
+    "company": "Fleek (YC W22)",
+    "photo": null,
+    "episodeId": "AR18l-xBY6Q"
   },
   {
     "name": "Jason Jin",

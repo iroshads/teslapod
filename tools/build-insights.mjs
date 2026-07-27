@@ -11,6 +11,43 @@ const IMG_HOST = "https://teslapod.vercel.app"; // resolvable today; canonical d
 
 const INSIGHTS = [
   {
+    slug: "ai-secondhand-clothing-supply-chain-fleek",
+    ep: 9, id: "AR18l-xBY6Q", date: "2026-07-26", dateHuman: "Jul 26, 2026", duration: "59:24",
+    guest: "Sanket Agarwal", role: "Cofounder @ Fleek (YC W22)", company: "Fleek",
+    title: "The $25M Bet on What Happens to Your <em>Old Clothes</em>",
+    seoTitle: "How Fleek's AI Is Rebuilding the Secondhand Clothing Trade — Sanket Agarwal | The Tesla Pod",
+    seoDesc: "Fleek raised $25M to fix what happens to donated clothes. Sanket Agarwal on the offline global secondhand supply chain, and teaching a vision model to grade used garments from one photo. Insights from The Tesla Pod, the Tesla podcast.",
+    keywords: "secondhand clothing supply chain, Fleek, Sanket Agarwal, AI clothing grading, vision language model resale, B2B secondhand marketplace, textile waste AI, circular fashion technology, Fleek Series B",
+    hook: "A donated t-shirt crosses continents by hand. Fleek is teaching AI to grade it.",
+    sub: "Most people have no idea where their donated clothes actually go. Sanket Agarwal spent his early career at Google before co-founding Fleek — the AI infrastructure behind the global secondhand clothing trade. This ride follows a single t-shirt from a London donation bin to a vintage rack in New York, and asks what happens when you point modern AI at one of the world's largest offline supply chains.",
+    bigIdea: [
+      "The journey is the revelation: a shirt dropped in a London donation bin can travel thousands of miles, get sorted by hand in a warehouse in Karachi or Dubai, and — if it's lucky — end up on a rack in a New York vintage store. Billions of garments a year move through this system, and almost all of it runs on human judgment, phone calls, and paper. It's one of the largest physical supply chains on earth with almost no software in it.",
+      "Fleek's insight is that the marketplace isn't the hard part — the grading is. Deciding what a used garment is, what condition it's in, and what it's worth has always required a trained human eye. Fleek Sort, their custom vision-language model, does it from a single photo. Own the grading layer and you own the primitive the entire trade depends on."
+    ],
+    takeaways: [
+      "<b>The world's biggest offline markets are the real AI opportunity.</b> Secondhand clothing moves billions of items a year on human judgment alone — a bigger prize than another SaaS category.",
+      "<b>Grading beats the marketplace.</b> Marketplaces get commoditized; the hard, defensible layer is the model that can identify, grade, and price a garment from one photo.",
+      "<b>Teaching AI expert taste is the core technical problem.</b> Fleek Sort has to replicate what a veteran sorter knows by feel — brand, era, condition, resale value — from pixels.",
+      "<b>Liquidity is the product for both sides.</b> 2,000+ suppliers matched to 50,000+ buyers across 100+ countries turns a fragmented trade into something that clears.",
+      "<b>Efficiency and sustainability aren't the same thing.</b> The episode presses on whether better routing genuinely reduces textile waste — or just moves it faster.",
+      "<b>Google-scale engineering, applied to warehouses.</b> Sanket's bet is that the leverage is no longer in more digital infrastructure, but in bringing it to industries that never had any."
+    ],
+    themes: [
+      { h: "Where your donated clothes actually go", p: "The ride traces the real path — donation bin, baler, container ship, hand-sorting floor in Karachi or Dubai, wholesaler, vintage store — and explains why so much value evaporates at each undocumented handoff." },
+      { h: "Teaching a model to grade like a 20-year veteran", p: "What it takes to build Fleek Sort: capturing expert judgment as training signal, handling infinite long-tail brands and defects, and earning enough trust that wholesalers will price real inventory on a model's word." },
+      { h: "Does technology fix waste, or just accelerate it?", p: "The most uncomfortable question in the episode. Better matching means fewer garments landfilled for want of a buyer — but a more efficient resale engine also sustains the volume that created the problem. Sanket doesn't dodge it." },
+      { h: "A $25M Series B in an unglamorous market", p: "Burda led, with eBay, FJ Labs, Andreessen Horowitz and Y Combinator behind it, taking Fleek to $45M total. The conversation covers why investors who normally chase software got interested in bales of used clothing." }
+    ],
+    about: "Fleek is the AI infrastructure powering the global secondhand clothing trade: a B2B marketplace connecting used-clothing wholesalers and graders with vintage stores and resellers, plus Fleek Sort — a custom vision-language model that identifies, grades, and prices a used garment from a single photo. Co-founded by Sanket Agarwal (ex-Google), Fleek raised a $25M Series B led by Burda with eBay, FJ Labs, Andreessen Horowitz and Y Combinator participating, bringing total funding to $45M. It connects over 2,000 suppliers with more than 50,000 buyers across 100-plus countries.",
+    whyNow: "Vision-language models only recently got good enough to judge messy physical goods from a single photo — which is exactly what a used-garment grader does. At the same time, resale is the fastest-growing part of fashion and regulators are tightening textile-waste rules. The capability and the demand arrived in the same window, and whoever builds the grading standard now sets it for the whole trade.",
+    faq: [
+      { q: "What happens to clothes after you donate them?", a: "Most donated clothing doesn't stay local. It's baled and shipped abroad — often to hand-sorting warehouses in places like Karachi or Dubai — where workers grade it by quality. The best pieces are resold to vintage stores and resellers worldwide; the rest is downcycled into rags or landfilled." },
+      { q: "What is Fleek?", a: "Fleek is the AI infrastructure behind the global secondhand clothing trade. It runs a B2B marketplace connecting used-clothing wholesalers and graders with vintage stores and resellers, and built Fleek Sort, a vision-language model that grades and prices used garments from a photo. Co-founded by Sanket Agarwal, it raised a $25M Series B in 2026." },
+      { q: "How does AI grade used clothing?", a: "A vision-language model trained on expert human grading learns to read a garment from a single image — identifying brand and era, spotting wear and defects, assigning a condition grade, and estimating resale price. It replaces judgment that previously existed only in experienced sorters' heads." },
+      { q: "Who invested in Fleek's $25M Series B?", a: "Fleek's $25M Series B was led by Burda, with participation from eBay, FJ Labs, Andreessen Horowitz, and Y Combinator. It brought the company's total funding to $45M." }
+    ]
+  },
+  {
     slug: "ai-agent-swarms-security-jason-jin",
     ep: 8, id: "4FtPxcSjpF8", date: "2026-07-06", dateHuman: "Jul 6, 2026", duration: "45:24",
     guest: "Jason Jin", role: "Founder @ Funky (ex-Google)", company: "Funky",

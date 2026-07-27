@@ -17,10 +17,15 @@ createServer(async (req, res) => {
   try {
     let path = decodeURIComponent(new URL(req.url, "http://x").pathname);
     if (path.endsWith("/")) path += "index.html";
-    if (!extname(path)) path += ".html"; // clean URLs, like production
-    const file = normalize(join(root, path));
-    if (!file.startsWith(root)) throw new Error("traversal");
-    const body = await readFile(file);
+    // clean URLs like production: /foo → foo.html, falling back to foo/index.html
+    const candidates = extname(path) ? [path] : [path + ".html", path + "/index.html"];
+    let body, file;
+    for (const c of candidates) {
+      file = normalize(join(root, c));
+      if (!file.startsWith(root)) throw new Error("traversal");
+      try { body = await readFile(file); break; } catch { /* try next */ }
+    }
+    if (!body) throw new Error("not found");
     res.writeHead(200, { "content-type": types[extname(file)] || "application/octet-stream" });
     res.end(body);
   } catch {

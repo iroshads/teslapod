@@ -1013,6 +1013,7 @@
   // guests' companies (not the host's Marketrix) → a one-line "about" + a link.
   // episode id → insights article slug (see tools/build-insights.mjs)
   var INSIGHT_SLUGS = {
+    "AR18l-xBY6Q": "ai-secondhand-clothing-supply-chain-fleek",
     "4FtPxcSjpF8": "ai-agent-swarms-security-jason-jin",
     "UkzjHmqDMiY": "automating-consulting-with-ai-ontora",
     "7_k8UR_5aDc": "proactive-ai-copilots-phd-to-yc-logical",
@@ -1024,6 +1025,7 @@
   };
 
   var COMPANIES = {
+    "Fleek": { about: "The AI infrastructure powering the global secondhand clothing trade — a B2B marketplace plus a vision model that grades and prices used garments from a photo.", url: "https://joinfleek.com" },
     "Funky": { about: "One API call spins up hundreds of sandboxed AI agents. Built by Jason Jin (ex-Google).", url: "https://funky.dev" },
     "Ontora": { about: "AI agents that interview every employee to map how work actually gets done — in days, not months.", url: "https://ontora.com" },
     "Logical": { about: "A proactive desktop copilot — Clippy, but actually good — that helps before you ask.", url: "https://trylogical.ai" },
