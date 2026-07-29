@@ -1192,6 +1192,9 @@ a.ts-row:hover { border-color: var(--ts-dim); }
   padding: 18px clamp(20px, 4vw, 56px);
   font-family: var(--font-mono); font-size: 10.5px; color: var(--text-faint); letter-spacing: 0.1em;
 }
+.footer-made a { color: var(--text-dim); border-bottom: 1px solid var(--line); transition: color 0.2s, border-color 0.2s; }
+.footer-made a:hover { color: var(--accent); border-color: var(--accent); }
+.footer-heart { font-size: 9.5px; letter-spacing: 0; vertical-align: 1px; }
 
 /* ---------- modal ---------- */
 .modal { position: fixed; inset: 0; z-index: 300; display: grid; place-items: center; padding: 20px; }
