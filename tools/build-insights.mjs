@@ -40,6 +40,19 @@ const INSIGHTS = [
     ],
     about: "Fleek is the AI infrastructure powering the global secondhand clothing trade: a B2B marketplace connecting used-clothing wholesalers and graders with vintage stores and resellers, plus Fleek Sort — a custom vision-language model that identifies, grades, and prices a used garment from a single photo. Co-founded by Sanket Agarwal (ex-Google), Fleek raised a $25M Series B led by Burda with eBay, FJ Labs, Andreessen Horowitz and Y Combinator participating, bringing total funding to $45M. It connects over 2,000 suppliers with more than 50,000 buyers across 100-plus countries.",
     whyNow: "Vision-language models only recently got good enough to judge messy physical goods from a single photo — which is exactly what a used-garment grader does. At the same time, resale is the fastest-growing part of fashion and regulators are tightening textile-waste rules. The capability and the demand arrived in the same window, and whoever builds the grading standard now sets it for the whole trade.",
+    numbers: [
+      { n: "$25M", l: "Series B, led by Burda" },
+      { n: "$45M", l: "total funding to date" },
+      { n: "2,000+", l: "suppliers on the marketplace" },
+      { n: "50,000+", l: "buyers across the trade" },
+      { n: "100+", l: "countries connected" },
+      { n: "1", l: "photo to grade a garment" }
+    ],
+    autonomyLens: "Strip away the fashion and Fleek is solving the same problem as the car this conversation was recorded in. Grading a used garment from a photo is perception → judgment → action: read a messy real-world scene, classify it against expert priors, commit to a decision with money on the line. FSD had to replicate a driver's trained intuition from pixels; Fleek Sort has to replicate a veteran sorter's. And like autonomy, the moat isn't the model — it's the years of expert-labeled edge cases nobody else has.",
+    counter: {
+      claim: "Secondhand clothing is a low-margin, hopelessly fragmented physical trade. Software companies have died in markets like this — you can't code your way around bales, customs, and hand-sorting warehouses.",
+      response: "The episode's answer is that Fleek isn't trying to digitize the logistics — it's digitizing the judgment. Grading is the one step where value concentrates: it decides what every garment is worth before it moves. Own that layer with a model, and the fragmented physical trade organizes itself around your standard, the way shipping organized around the container. The $25M Series B, from investors who normally avoid physical trades, is a bet that the grading layer has software margins even if the garments never do."
+    },
     faq: [
       { q: "What happens to clothes after you donate them?", a: "Most donated clothing doesn't stay local. It's baled and shipped abroad — often to hand-sorting warehouses in places like Karachi or Dubai — where workers grade it by quality. The best pieces are resold to vintage stores and resellers worldwide; the rest is downcycled into rags or landfilled." },
       { q: "What is Fleek?", a: "Fleek is the AI infrastructure behind the global secondhand clothing trade. It runs a B2B marketplace connecting used-clothing wholesalers and graders with vintage stores and resellers, and built Fleek Sort, a vision-language model that grades and prices used garments from a photo. Co-founded by Sanket Agarwal, it raised a $25M Series B in 2026." },
@@ -75,6 +88,17 @@ const INSIGHTS = [
     ],
     about: "Funky lets developers spin up hundreds of sandboxed AI agents with a single API call. Jason Jin founded it after six years at Google, where he built logging infrastructure processing over an exabyte of data per day.",
     whyNow: "Every major lab shipped agent frameworks this year, and enterprises are moving from pilots to production fleets. The winners of that shift won't be decided by model quality — every team has the same models — but by who solves orchestration, isolation, and deception-resistance first. That's exactly the layer this conversation maps.",
+    numbers: [
+      { n: "1", l: "API call to launch a swarm" },
+      { n: "100s", l: "of sandboxed agents per call" },
+      { n: "6", l: "years inside Google infrastructure" },
+      { n: "1EB+", l: "of logs processed daily on his last system" }
+    ],
+    autonomyLens: "One self-driving car is a demo; a fleet is a business — and everything hard about autonomy shows up at fleet scale: monitoring thousands of independent actors, containing the one that misbehaves, learning from every disengagement. Jason's argument lands the same way for agents. A single agent in a chat window is the demo. Funky is building for the fleet era: launch hundreds, watch them all, and treat every sandbox breach attempt the way an AV company treats an intervention — as the signal that improves the whole system.",
+    counter: {
+      claim: "Swarms are a workaround for weak models. Once frontier models get smart and reliable enough, one capable agent will replace a hundred narrow ones, and the orchestration layer becomes plumbing nobody needs.",
+      response: "The ride's rebuttal is that isolation is an operational requirement, not an intelligence gap. Even a superhuman agent needs a blast radius when it's compromised — and the wire-transfer demo shows compromise is an adversarial inevitability, not a capability problem. Companies didn't stop using containers when servers got faster. The smarter agents get, the more they're allowed to touch, and the more the sandbox — not the model — becomes the thing you trust."
+    },
     faq: [
       { q: "What is an AI agent swarm?", a: "An AI agent swarm is many narrow, single-purpose AI agents running in parallel on a shared task — instead of one large agent trying to do everything. Each agent gets a small job and its own sandbox, so failures stay contained and the work composes reliably." },
       { q: "Why do AI agents need sandboxes?", a: "Agents take real actions — calling APIs, writing files, moving data. A sandbox limits what each agent can touch, so a compromised or malfunctioning agent has a small blast radius. It's the same reason cloud workloads moved to containers." },
@@ -109,6 +133,17 @@ const INSIGHTS = [
     ],
     about: "Ontora (YC P26) deploys AI agents that interview every employee in a company and deliver a map of how work actually gets done — in days, not months. Founded by David Korn, Leon Iwanowitsch, and Max.",
     whyNow: "Consulting is a trillion-dollar industry whose core deliverable — understanding how an organization actually works — just became automatable. Meanwhile every Fortune 500 is under pressure to restructure around AI, which means demand for org clarity is spiking at the exact moment the cost of producing it is collapsing.",
+    numbers: [
+      { n: "$1T", l: "consulting market being attacked" },
+      { n: "24h", l: "to map an organization" },
+      { n: "100%", l: "of employees interviewed, in parallel" },
+      { n: "~20", l: "interviews a traditional engagement samples" }
+    ],
+    autonomyLens: "A consultant mapping a company works like a car with two cameras and a guess: sparse observations, heavy extrapolation. Ontora's approach is full-sensor coverage — interview every employee and build the map from complete data, the way an AV fuses lidar, radar, and vision instead of trusting one glimpse. And like the maps under FSD, an org map decays: teams reorganize, workflows drift. A 24-hour, repeatable scan turns org understanding from a one-time survey into a live map that stays current.",
+    counter: {
+      claim: "Fortune 500s don't pay McKinsey for data — they pay for political cover and a brand the board trusts. An AI's org map, however accurate, doesn't give an executive anyone to blame.",
+      response: "The founders concede the cover business survives — and argue it's not the business they're taking. The months of associate labor that produce the deck's underlying picture are what's automatable, and firms themselves would rather buy that substrate than staff it. Better: full-coverage candor changes the product. Twenty interviews collected under a partner's letterhead get you the org chart people perform; every employee talking to a neutral AI gets you the org that actually exists. Eventually the cover needs Ontora's map to be credible."
+    },
     faq: [
       { q: "Can AI replace management consultants?", a: "AI is replacing the data-collection layer of consulting first: interviewing employees, mapping workflows, and assembling the picture of how a company operates. Judgment and change management stay human for now — but the months of associate work behind a McKinsey deck are already automatable." },
       { q: "What is Ontora?", a: "Ontora (YC P26) is an AI agent that interviews every employee in a company and delivers a map of how work actually gets done — in about 24 hours, versus the months a consulting engagement takes. It was founded by David Korn, Leon Iwanowitsch, and Max." },
@@ -143,6 +178,17 @@ const INSIGHTS = [
     ],
     about: "Logical (YC F25) is a proactive desktop copilot — it watches how you work, learns your patterns, and helps before you ask. Founded by Anushka Idamekorala and his childhood friend Sam.",
     whyNow: "Chat-based AI has hit an interface ceiling: the model is capable, but it only acts when prompted, and most of your context never makes it into the prompt box. Desktop-level, always-on assistance is the obvious next layer — and the race to own it is happening now, before the platforms lock it down themselves.",
+    numbers: [
+      { n: "0", l: "prompts needed before it helps" },
+      { n: "2", l: "childhood friends, one company" },
+      { n: "1", l: "PhD walked away from" },
+      { n: "F25", l: "Y Combinator batch" }
+    ],
+    autonomyLens: "The prompt box is a steering wheel: the AI does nothing until you turn it. Logical's bet is the same one Tesla made about driving — that the machine watching continuously can act better than the human commanding intermittently. And the trust model transfers too. FSD earned autonomy in stages: first it watched, then it assisted, then it drove with supervision. A desktop copilot has to climb the identical ladder — observe your patterns, suggest, then act — with every good intervention buying permission for the next level.",
+    counter: {
+      claim: "Nobody wants software watching their screen all day. The privacy objection killed ambient assistants before, and 'Clippy but good' still means an interruption engine.",
+      response: "Anushka's response is that the objection is about trust architecture, not observation itself — people already let keyboards, browsers, and IDEs watch everything they type in exchange for autocomplete. The bar is that watching must produce obvious, immediate value, and that what's observed stays legible and controllable. As for interruption: Clippy failed because it guessed from nothing. A copilot that has genuinely learned your patterns interrupts the way a great chief of staff does — rarely, and about the thing you were about to need."
+    },
     faq: [
       { q: "What is a proactive AI copilot?", a: "A proactive AI copilot acts before you ask. Instead of waiting for a prompt, it observes your work context — the apps, documents, and patterns of your day — and prepares drafts, suggestions, and next steps at the moment you need them." },
       { q: "Is it worth dropping out of a PhD for a startup?", a: "Anushka Idamekorala's framing on the episode: a PhD can be resumed; a platform shift can't be deferred. When a rare market window opens and you have a cofounder you trust completely, the risk calculus favors the startup — especially early in life, when downside is smallest." },
@@ -177,6 +223,16 @@ const INSIGHTS = [
     ],
     about: "Retriever AI (rtrvr.ai) builds agentic browsing — an AI that navigates and acts on the web for you. Founded by Arjun Chintapalli (CEO) and Bhavani Kalisetty (CTO).",
     whyNow: "Browsers are the most contested territory in AI right now — every major lab and browser vendor is racing to put an agent behind the address bar. The web's chore layer (booking, comparing, form-filling) is enormous, measurable, and monetizable, which makes agentic browsing one of the clearest land-grabs of the platform shift.",
+    numbers: [
+      { n: "1", l: "stated goal — the agent does the rest" },
+      { n: "2", l: "technical cofounders, CEO + CTO" },
+      { n: "0", l: "hands on the wheel — in the car or the browser" }
+    ],
+    autonomyLens: "This is the episode where the show's premise stops being a metaphor and becomes the agenda: an agent that drives the web, discussed inside a car that drives the road. The founders push the mapping all the way down. Perception is reading the DOM; planning is choosing the next click; a CAPTCHA is a construction zone; a broken checkout flow is black ice. Even the safety economics rhyme — an AV is judged by interventions per mile, and a browsing agent will be judged by how many errands finish without a human grabbing the wheel.",
+    counter: {
+      claim: "The web will fight back. Sites monetize human attention — ads, upsells, dark patterns — and an agent that skips all of it breaks their business model. They'll block agents the way they block bots.",
+      response: "The ride's answer is that the same standoff had a precedent: sites once fought search crawlers too, until being crawlable became existential. When a meaningful share of purchasing flows through agents, being agent-hostile means being invisible at the moment of transaction. The founders expect a split web — experience pages built for humans, structured interfaces negotiated with agents — and note that merchants don't actually sell attention. They sell things. Agents arrive with intent and a payment method, which is the traffic sites fight for."
+    },
     faq: [
       { q: "What is agentic browsing?", a: "Agentic browsing is an AI operating your web browser for you: reading pages, clicking, filling forms, and completing multi-step tasks like comparisons or bookings. You state the goal; the agent drives the web — the way FSD drives the car while you supervise." },
       { q: "What is Retriever AI?", a: "Retriever AI (rtrvr.ai) is a startup building agentic browsing — an AI that navigates and acts on the web on your behalf. It was founded by Arjun Chintapalli (CEO) and Bhavani Kalisetty (CTO)." },
@@ -211,6 +267,17 @@ const INSIGHTS = [
     ],
     about: "Peazy Labs builds an AI concierge that guides users through complex enterprise software from right inside the app. Founded by Komala Chenna (CEO) and Kushal Murthy (CTO).",
     whyNow: "SaaS vendors are under margin pressure and customer success is usually their largest post-sales cost. At the same time, churn is decided in the first weeks of product adoption — exactly where human CS coverage is thinnest. An AI layer that guides every user in-app attacks both problems at once, which is why the category is moving so fast.",
+    numbers: [
+      { n: "100%", l: "of users covered, not just the big accounts" },
+      { n: "0", l: "the target number of support tickets" },
+      { n: "1", l: "concierge living inside the app" },
+      { n: "2", l: "cofounders — CEO + CTO" }
+    ],
+    autonomyLens: "Enterprise software today is a manual-transmission truck with no signage: powerful, and hostile to anyone who hasn't driven it for years. Peazy's concierge is driver-assist for that truck. It doesn't redesign the vehicle — it watches the road (where you are in the app), anticipates the turn (what you're trying to do), and nudges before you stall. Escalations to human CS become the disengagement reports: each one marks a moment the assist wasn't enough, and each one trains the system to need fewer.",
+    counter: {
+      claim: "Support chatbots already exist and users despise them. An 'AI concierge' is a chatbot with better marketing — it will deflect users who need help and infuriate the rest.",
+      response: "The distinction the episode draws is context and timing. A support chatbot sits outside the product, answering FAQs after frustration has already peaked. Peazy's concierge sees the screen state — which page, which half-completed workflow — and intervenes at the moment of confusion with the specific next step, not a help-center link. Deflection bots exist to absorb complaints; an in-app guide exists to prevent them. The proof metric is the difference: not tickets closed faster, but tickets that never got filed."
+    },
     faq: [
       { q: "Will AI replace customer success?", a: "AI is absorbing the repetitive layer of customer success — onboarding walkthroughs, how-do-I questions, in-app guidance. Human CS shifts up-stack to strategy, relationships, and expansion. The function doesn't disappear; it gets unbundled." },
       { q: "What is an in-app AI concierge?", a: "An in-app AI concierge lives inside a software product and guides users at the moment of confusion — it sees where you are in the app and walks you through the task, replacing the confusion → support ticket → call loop with instant, contextual help." },
@@ -245,6 +312,16 @@ const INSIGHTS = [
     ],
     about: "Silver Surf turns a retiring owner's know-how into SOPs and AI-assisted operations so the business runs — and sells — without them. Founded by Laila Gamaleldin.",
     whyNow: "Baby boomers own millions of American small businesses, and the retirement wave is cresting this decade — with most owners having no succession plan. Every year of delay means more profitable businesses quietly shutting down instead of changing hands. AI finally makes knowledge extraction cheap enough to work at small-business prices.",
+    numbers: [
+      { n: "$5T", l: "in businesses that must change hands" },
+      { n: "Millions", l: "of boomer-owned companies" },
+      { n: "1", l: "head where the operating knowledge lives" }
+    ],
+    autonomyLens: "A business that only runs when its owner is present is a car that only its owner can drive. Silver Surf is building the autonomy retrofit: record how the expert drives (interview the owner), turn instinct into policy (SOPs and AI-assisted operations), then hand over control with supervision. Succession stops being a cliff and becomes a handoff — and the exit check is the safety report. Buyers pay a premium for a business that demonstrably drives itself, exactly the way trust in autonomy is priced on evidence, not promises.",
+    counter: {
+      claim: "SMB owners are the hardest customers in software — skeptical, busy, and cheap. A retiring 68-year-old HVAC owner is not going to sit through AI interviews about how he prices jobs.",
+      response: "Laila's answer is to sell the check, not the software. Owners won't buy 'knowledge management,' but every one of them cares about what their life's work sells for — and the difference between a key-person-dependent business and a systematized one is often the difference between no sale and a real exit. Framed as exit-value engineering, extraction isn't homework; it's the highest-leverage hours of the owner's final years. And AI drops the cost of capturing it from consultant-months to conversations."
+    },
     faq: [
       { q: "What is the silver tsunami in small business?", a: "The 'silver tsunami' is the wave of baby-boomer business owners hitting retirement age — millions of profitable small businesses that must be sold, passed down, or shut within the decade, representing trillions in value with no modern tooling to handle the transition." },
       { q: "Why do small businesses fail to sell?", a: "Because the business is the owner: pricing instincts, vendor relationships, and daily operations live in one person's head. Buyers discount or walk away from key-person risk. Businesses with documented systems and processes sell more often and at higher multiples." },
@@ -279,6 +356,17 @@ const INSIGHTS = [
     ],
     about: "Manicule (YC P26) builds AI-native technical documentation for developer tools — \"DevRel for agents.\" Founded by Shreyans Jain and Naman Bansal, who raised $500K from Y Combinator at 18.",
     whyNow: "Two curves are crossing: AI agents are becoming the primary readers of technical documentation, and the age of credible founders keeps dropping as building gets cheaper. This episode sits at the intersection — teenagers funded by YC to rebuild docs for machine readers, both trends compounding each other.",
+    numbers: [
+      { n: "$500K", l: "raised from Y Combinator" },
+      { n: "18", l: "years old when they raised it" },
+      { n: "2", l: "founders betting on themselves" },
+      { n: "P26", l: "YC batch" }
+    ],
+    autonomyLens: "Self-driving cars don't read street signs the way tourists do — they run on HD maps built for machines, precise to the centimeter. Manicule's thesis is that APIs need the same split. Human docs are street signs: prose, screenshots, vibes. An agent integrating your API at 2 a.m. needs the HD map — deterministic structure, testable examples, no ambiguity about which lane the endpoint is in. 'DevRel for agents' is the mapping company for that world, and the docs that agents can navigate are the roads that get the traffic.",
+    counter: {
+      claim: "Frontier models read human documentation just fine — they were trained on all of it. By the time 'AI-native docs' matter, agents will parse messy prose better than junior developers do.",
+      response: "The founders' rebuttal is about reliability, not ability. An agent can usually infer the right call from prose — and 'usually' is exactly the problem when the integration runs unattended in production. Deterministic, testable docs turn inference into lookup, which is the difference between a demo that works and an integration you never think about again. The road analogy holds: a capable driver can navigate from landmarks, but nobody ships autonomy on landmarks. When agents choose which API to build on, they'll route toward the one with the map."
+    },
     faq: [
       { q: "Can you get into Y Combinator at 18?", a: "Yes — Shreyans Jain and Naman Bansal did it, raising $500K from YC at 18 with Manicule. YC funds trajectory over credentials: shipped products and demonstrated learning speed matter more than degrees or work history." },
       { q: "What is Manicule?", a: "Manicule (YC P26) builds AI-native technical documentation for developer tools — docs structured for AI agents that integrate APIs, not just human readers. The founders describe it as 'DevRel for agents.'" },
@@ -313,6 +401,16 @@ const INSIGHTS = [
     ],
     about: "Marketrix AI is the user-simulation platform — AI-simulated users that test and validate your product before real ones ever do. Yasith Jayawardana is co-founder & CTO.",
     whyNow: "Product teams are shipping faster than QA can keep up — AI code generation has made building cheap while validation stayed expensive. Simulation closes that gap: the same approach that let autonomy teams iterate safely at speed is now available to every software team, and the teams that adopt it first ship with fewer surprises.",
+    numbers: [
+      { n: "6:56", l: "the ride that started the show" },
+      { n: "1,000s", l: "of simulated users before user #1" },
+      { n: "Billions", l: "of simulated miles behind autonomy's trust" }
+    ],
+    autonomyLens: "Every later episode borrows this one's lens, so here it runs at full strength. Yasith maps the entire autonomy development loop onto product engineering: simulation before deployment (synthetic users before launch), telemetry after it (watching how real users diverge from the sim), and a disengagement report for products — every rage-click and abandoned flow logged as an intervention that feeds the next simulation run. The claim isn't that software is like driving. It's that autonomy discovered the correct way to earn trust in any complex system, and software just hasn't adopted it yet.",
+    counter: {
+      claim: "Simulated users aren't real users. Real people are irrational in ways no model captures — the sim-to-real gap means simulation gives you confidence in exactly the wrong places.",
+      response: "The episode's answer is that autonomy faced the identical objection and resolved it: simulation never replaced real roads — it moved failure discovery earlier and made every real mile more informative. Same here. Simulated users don't need to be perfectly human to be useful; they need to be human enough to trip over the confusing label, the dead-end flow, the button nobody finds. Catch those thousand cheap failures pre-launch, and your real users spend their scarce, expensive attention revealing the failures only humans can."
+    },
     faq: [
       { q: "What are AI-simulated users?", a: "AI-simulated users are agents that behave like real people inside your product — they click, wander, misread labels, lose patience, and pursue goals — surfacing usability problems and bugs before launch, at a scale scripted tests can't reach." },
       { q: "What is Marketrix AI?", a: "Marketrix AI is the user-simulation platform: AI-simulated users test and validate your product before real ones ever do. Co-founded by Yasith Jayawardana (CTO), it applies the autonomy industry's simulation-first playbook to software products." },
@@ -447,7 +545,7 @@ function articlePage(it, i) {
     description: it.seoDesc,
     image: img,
     datePublished: it.date,
-    dateModified: "2026-07-24",
+    dateModified: "2026-07-30",
     author: { "@type": "Person", name: "Irosha de Silva", jobTitle: "Host, The Tesla Pod" },
     publisher: { "@type": "Organization", name: "The Tesla Pod", url: `${SITE}/` },
     mainEntityOfPage: url,
@@ -527,12 +625,21 @@ ${NAV}
       ${it.bigIdea.map((p) => `<p>${p}</p>`).join("\n      ")}
       <h2>Why this matters now</h2>
       <p>${it.whyNow}</p>
+      <h2>By the numbers</h2>
+      <div class="in-numbers">
+        ${it.numbers.map((s) => `<div class="in-num"><b>${esc(s.n)}</b><span>${esc(s.l)}</span></div>`).join("\n        ")}
+      </div>
       <h2>Key takeaways</h2>
       <ul class="in-takeaways">
         ${it.takeaways.map((t) => `<li>${t}</li>`).join("\n        ")}
       </ul>
       <h2>Inside the conversation</h2>
       ${it.themes.map((t) => `<h3>${esc(t.h)}</h3>\n      <p>${t.p}</p>`).join("\n      ")}
+      <h2>Through the autonomy lens</h2>
+      <p>${it.autonomyLens}</p>
+      <h2>The counterargument</h2>
+      <div class="in-counter">“${it.counter.claim}”</div>
+      <p>${it.counter.response}</p>
       <h2>About ${esc(it.company)}</h2>
       <p>${esc(it.about)}</p>
       <h2>Questions this episode answers</h2>
