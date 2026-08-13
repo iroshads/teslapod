@@ -1531,3 +1531,18 @@ a.ts-row:hover { border-color: var(--ts-dim); }
 .channel.x:hover .channel-go { color: var(--ink); }
 
 @media (max-width: 860px) { .channels-row { grid-template-columns: 1fr; } }
+
+/* ---------- small social icon row (hero + footer) ---------- */
+.social-mini { display: flex; align-items: center; gap: 8px; }
+.social-mini a {
+  width: 30px; height: 30px; border-radius: 50%;
+  display: grid; place-items: center;
+  border: 1px solid var(--line); color: var(--text-dim);
+  transition: color 0.2s, border-color 0.2s, background 0.2s, transform 0.2s var(--ease);
+}
+.social-mini a:hover { transform: translateY(-2px); }
+.social-mini a.sm-yt:hover { background: #ff0000; border-color: #ff0000; color: #fff; }
+.social-mini a.sm-li:hover { background: #0a66c2; border-color: #0a66c2; color: #fff; }
+.social-mini a.sm-x:hover { background: var(--ink); border-color: var(--ink); color: var(--bg); }
+.hero-social { margin-top: 20px; transition-delay: 0.22s; }
+.footer-social { margin-top: 18px; }
