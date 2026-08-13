@@ -91,20 +91,21 @@
         <span>46:30</span>
       </div>
     </div>
+    <div class="in-layout">
     <article class="in-article">
-      <h2>The big idea</h2>
+      <h2 id="big-idea">The big idea</h2>
       <p>The traditional sequence — degree, big-tech job, then maybe a startup at 28 — assumes credentials are the scarce asset. This episode argues the opposite: in a field moving this fast, the scarce asset is uncommitted years. At 18, the downside of a failed startup rounds to zero and the learning rate is the highest it will ever be. YC writing the check just formalizes that math.</p>
       <p>Their product thesis is just as contrarian: documentation has always been written for human developers, but increasingly the reader is an AI agent integrating your API. Docs become a machine interface — 'DevRel for agents' — and the tools for writing them need rebuilding from scratch.</p>
-      <h2>Why this matters now</h2>
+      <h2 id="why-now">Why this matters now</h2>
       <p>Two curves are crossing: AI agents are becoming the primary readers of technical documentation, and the age of credible founders keeps dropping as building gets cheaper. This episode sits at the intersection — teenagers funded by YC to rebuild docs for machine readers, both trends compounding each other.</p>
-      <h2>By the numbers</h2>
+      <h2 id="numbers">By the numbers</h2>
       <div class="in-numbers">
         <div class="in-num"><b>$500K</b><span>raised from Y Combinator</span></div>
         <div class="in-num"><b>18</b><span>years old when they raised it</span></div>
         <div class="in-num"><b>2</b><span>founders betting on themselves</span></div>
         <div class="in-num"><b>P26</b><span>YC batch</span></div>
       </div>
-      <h2>Key takeaways</h2>
+      <h2 id="takeaways">Key takeaways</h2>
       <ul class="in-takeaways">
         <li><b>Youth is asymmetric upside.</b> No mortgage, no reputation to protect, maximum plasticity — the conversation makes the case that 18 is rationally the best age to take startup risk.</li>
         <li><b>YC funds slope, not pedigree.</b> $500K at 18 is Y Combinator pricing trajectory over track record — proof that demonstrated building beats credentials earlier than most people think.</li>
@@ -112,21 +113,21 @@
         <li><b>DevRel is becoming machine-to-machine.</b> The developer-relations function — examples, guides, advocacy — gets a parallel track aimed at agents choosing which API to call.</li>
         <li><b>Betting on yourself is a skill.</b> The founders describe conviction as trainable: ship, get signal, raise the stakes, repeat.</li>
       </ul>
-      <h2>Inside the conversation</h2>
+      <h2 id="conversation">Inside the conversation</h2>
       <h3>The case for starting at 18</h3>
       <p>A frank accounting of what they gave up (college normalcy) versus what they got (a decade head start), and why the 'wait until you're ready' advice mostly protects the advisor.</p>
       <h3>Docs for a post-human-reader world</h3>
       <p>If agents read your documentation more often than people do, what changes? Structure, determinism, testability — the ride sketches what AI-native docs actually look like.</p>
       <h3>Surviving YC as teenagers</h3>
       <p>Batch dynamics, being the youngest in every room, and turning 'aren't you too young?' from an objection into the reason people remember you.</p>
-      <h2>Through the autonomy lens</h2>
+      <h2 id="autonomy-lens">Through the autonomy lens</h2>
       <p>Self-driving cars don't read street signs the way tourists do — they run on HD maps built for machines, precise to the centimeter. Manicule's thesis is that APIs need the same split. Human docs are street signs: prose, screenshots, vibes. An agent integrating your API at 2 a.m. needs the HD map — deterministic structure, testable examples, no ambiguity about which lane the endpoint is in. 'DevRel for agents' is the mapping company for that world, and the docs that agents can navigate are the roads that get the traffic.</p>
-      <h2>The counterargument</h2>
+      <h2 id="counterargument">The counterargument</h2>
       <div class="in-counter">“Frontier models read human documentation just fine — they were trained on all of it. By the time 'AI-native docs' matter, agents will parse messy prose better than junior developers do.”</div>
       <p>The founders' rebuttal is about reliability, not ability. An agent can usually infer the right call from prose — and 'usually' is exactly the problem when the integration runs unattended in production. Deterministic, testable docs turn inference into lookup, which is the difference between a demo that works and an integration you never think about again. The road analogy holds: a capable driver can navigate from landmarks, but nobody ships autonomy on landmarks. When agents choose which API to build on, they'll route toward the one with the map.</p>
-      <h2>About Manicule</h2>
+      <h2 id="about">About Manicule</h2>
       <p>Manicule (YC P26) builds AI-native technical documentation for developer tools — &quot;DevRel for agents.&quot; Founded by Shreyans Jain and Naman Bansal, who raised $500K from Y Combinator at 18.</p>
-      <h2>Questions this episode answers</h2>
+      <h2 id="faq">Questions this episode answers</h2>
       <h3>Can you get into Y Combinator at 18?</h3>
       <p>Yes — Shreyans Jain and Naman Bansal did it, raising $500K from YC at 18 with Manicule. YC funds trajectory over credentials: shipped products and demonstrated learning speed matter more than degrees or work history.</p>
       <h3>What is Manicule?</h3>
@@ -142,6 +143,20 @@
         <a href="/insights/5-trillion-small-business-succession-silver-surf" style="text-align:right">EP 03 · The $5 Trillion Problem Nobody in Tech Is Working On →</a>
       </nav>
     </article>
+    <aside class="in-toc" aria-label="On this page">
+      <span class="in-toc-label">On this page</span>
+      <a href="#big-idea">The big idea</a>
+      <a href="#why-now">Why this matters now</a>
+      <a href="#numbers">By the numbers</a>
+      <a href="#takeaways">Key takeaways</a>
+      <a href="#conversation">Inside the conversation</a>
+      <a href="#autonomy-lens">Through the autonomy lens</a>
+      <a href="#counterargument">The counterargument</a>
+      <a href="#about">About Manicule</a>
+      <a href="#faq">Q&amp;A</a>
+      <a class="in-toc-watch" href="https://www.youtube.com/watch?v=EMmH7ECJ-IQ" target="_blank" rel="noopener">▶ Watch the episode</a>
+    </aside>
+    </div>
     <section class="in-related">
       <h2>More insights from the pod</h2>
       <div class="insights-grid">
@@ -223,6 +238,23 @@
       burger.setAttribute("aria-expanded", open ? "true" : "false");
     });
     document.getElementById("year").textContent = new Date().getFullYear();
+    // scrollspy for the article table of contents
+    var tocLinks = document.querySelectorAll(".in-toc a[href^='#']");
+    if (tocLinks.length && "IntersectionObserver" in window) {
+      var map = {};
+      tocLinks.forEach(function (a) { map[a.getAttribute("href").slice(1)] = a; });
+      var current = null;
+      var obs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) {
+          if (en.isIntersecting && map[en.target.id]) {
+            if (current) current.classList.remove("on");
+            current = map[en.target.id];
+            current.classList.add("on");
+          }
+        });
+      }, { rootMargin: "-15% 0px -70% 0px" });
+      document.querySelectorAll(".in-article h2[id]").forEach(function (h) { obs.observe(h); });
+    }
   })();
   </script>
 </body>

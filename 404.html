@@ -46,6 +46,13 @@
       text-decoration: none; font-weight: 500; font-size: 14px;
       padding: 13px 26px; border-radius: 999px;
     }
+    a.ghost {
+      display: inline-block; background: none; color: #57544e;
+      text-decoration: none; font-weight: 500; font-size: 14px;
+      padding: 13px 26px; border-radius: 999px; border: 1px solid #e4e1db;
+      margin-left: 8px;
+    }
+    a.ghost:hover { border-color: #141414; color: #141414; }
     .coords {
       margin-top: 40px;
       font-family: "IBM Plex Mono", monospace; font-size: 10.5px;
@@ -58,7 +65,7 @@
     <p class="kicker"><span class="dot"></span> Route not found</p>
     <h1>The pod took a <em>wrong</em> turn.</h1>
     <p>This street doesn't exist on our map. The car is rerouting — or you can head straight back to the show.</p>
-    <a class="btn" href="/">← Back to The Tesla Pod</a>
+    <a class="btn" href="/">← Back to The Tesla Pod</a><a class="ghost" href="/insights">Browse the insights</a>
     <p class="coords">404 · 37.7749° N · 122.4194° W</p>
   </main>
 </body>

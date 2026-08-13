@@ -91,20 +91,21 @@
         <span>31:50</span>
       </div>
     </div>
+    <div class="in-layout">
     <article class="in-article">
-      <h2>The big idea</h2>
+      <h2 id="big-idea">The big idea</h2>
       <p>Every mainstream AI assistant today is reactive: it does nothing until you type a prompt. This episode makes the case that the real interface unlock is proactivity — software that observes your workflow long enough to predict the next fifteen minutes and quietly does the prep work. "Clippy, but actually good" is the joke; ambient competence is the product.</p>
       <p>The other thread is a life decision: what makes it rational to abandon a PhD mid-stream? Anushka's answer is about timing and people — the window for desktop-level AI assistance is open now, and the cofounder who calls you is a childhood friend you already trust. Credentials can wait; windows don't.</p>
-      <h2>Why this matters now</h2>
+      <h2 id="why-now">Why this matters now</h2>
       <p>Chat-based AI has hit an interface ceiling: the model is capable, but it only acts when prompted, and most of your context never makes it into the prompt box. Desktop-level, always-on assistance is the obvious next layer — and the race to own it is happening now, before the platforms lock it down themselves.</p>
-      <h2>By the numbers</h2>
+      <h2 id="numbers">By the numbers</h2>
       <div class="in-numbers">
         <div class="in-num"><b>0</b><span>prompts needed before it helps</span></div>
         <div class="in-num"><b>2</b><span>childhood friends, one company</span></div>
         <div class="in-num"><b>1</b><span>PhD walked away from</span></div>
         <div class="in-num"><b>F25</b><span>Y Combinator batch</span></div>
       </div>
-      <h2>Key takeaways</h2>
+      <h2 id="takeaways">Key takeaways</h2>
       <ul class="in-takeaways">
         <li><b>Proactive beats reactive.</b> The prompt box is a bottleneck — a copilot that sees your screen context can act on intent you never had to articulate.</li>
         <li><b>Patterns are the product.</b> Logical's moat is longitudinal: the longer it watches how you work, the better its anticipation — a data flywheel no fresh chatbot session can match.</li>
@@ -112,21 +113,21 @@
         <li><b>Leave when the window opens, not when the thesis ends.</b> A PhD restarts; a platform shift doesn't. Anushka framed dropping out as choosing the education you can't defer.</li>
         <li><b>Found with someone you've known forever.</b> A childhood-friend cofounder means conflict resolution is pre-built — the rarest startup asset.</li>
       </ul>
-      <h2>Inside the conversation</h2>
+      <h2 id="conversation">Inside the conversation</h2>
       <h3>The post-prompt interface</h3>
       <p>The ride explores what UI even means when the assistant initiates: suggestions that appear mid-task, drafts that exist before you open the doc, context switches it smooths over. The bet is that the winning copilot will feel less like chat and more like a great chief of staff.</p>
       <h3>Risk, credentials, and the dropout calculus</h3>
       <p>A candid look at trading a doctorate for YC F25 — how the decision actually got made, what the advisor said, and why "you can always go back" is both true and beside the point.</p>
       <h3>Building on the desktop, not in the browser tab</h3>
       <p>Owning the OS-level view of a user's day is technically harder and strategically stronger than another web app — the conversation digs into that trade-off.</p>
-      <h2>Through the autonomy lens</h2>
+      <h2 id="autonomy-lens">Through the autonomy lens</h2>
       <p>The prompt box is a steering wheel: the AI does nothing until you turn it. Logical's bet is the same one Tesla made about driving — that the machine watching continuously can act better than the human commanding intermittently. And the trust model transfers too. FSD earned autonomy in stages: first it watched, then it assisted, then it drove with supervision. A desktop copilot has to climb the identical ladder — observe your patterns, suggest, then act — with every good intervention buying permission for the next level.</p>
-      <h2>The counterargument</h2>
+      <h2 id="counterargument">The counterargument</h2>
       <div class="in-counter">“Nobody wants software watching their screen all day. The privacy objection killed ambient assistants before, and 'Clippy but good' still means an interruption engine.”</div>
       <p>Anushka's response is that the objection is about trust architecture, not observation itself — people already let keyboards, browsers, and IDEs watch everything they type in exchange for autocomplete. The bar is that watching must produce obvious, immediate value, and that what's observed stays legible and controllable. As for interruption: Clippy failed because it guessed from nothing. A copilot that has genuinely learned your patterns interrupts the way a great chief of staff does — rarely, and about the thing you were about to need.</p>
-      <h2>About Logical</h2>
+      <h2 id="about">About Logical</h2>
       <p>Logical (YC F25) is a proactive desktop copilot — it watches how you work, learns your patterns, and helps before you ask. Founded by Anushka Idamekorala and his childhood friend Sam.</p>
-      <h2>Questions this episode answers</h2>
+      <h2 id="faq">Questions this episode answers</h2>
       <h3>What is a proactive AI copilot?</h3>
       <p>A proactive AI copilot acts before you ask. Instead of waiting for a prompt, it observes your work context — the apps, documents, and patterns of your day — and prepares drafts, suggestions, and next steps at the moment you need them.</p>
       <h3>Is it worth dropping out of a PhD for a startup?</h3>
@@ -142,6 +143,20 @@
         <a href="/insights/automating-consulting-with-ai-ontora" style="text-align:right">EP 07 · Automating the $1 Trillion Consulting Industry in 24 Hours →</a>
       </nav>
     </article>
+    <aside class="in-toc" aria-label="On this page">
+      <span class="in-toc-label">On this page</span>
+      <a href="#big-idea">The big idea</a>
+      <a href="#why-now">Why this matters now</a>
+      <a href="#numbers">By the numbers</a>
+      <a href="#takeaways">Key takeaways</a>
+      <a href="#conversation">Inside the conversation</a>
+      <a href="#autonomy-lens">Through the autonomy lens</a>
+      <a href="#counterargument">The counterargument</a>
+      <a href="#about">About Logical</a>
+      <a href="#faq">Q&amp;A</a>
+      <a class="in-toc-watch" href="https://www.youtube.com/watch?v=7_k8UR_5aDc" target="_blank" rel="noopener">▶ Watch the episode</a>
+    </aside>
+    </div>
     <section class="in-related">
       <h2>More insights from the pod</h2>
       <div class="insights-grid">
@@ -223,6 +238,23 @@
       burger.setAttribute("aria-expanded", open ? "true" : "false");
     });
     document.getElementById("year").textContent = new Date().getFullYear();
+    // scrollspy for the article table of contents
+    var tocLinks = document.querySelectorAll(".in-toc a[href^='#']");
+    if (tocLinks.length && "IntersectionObserver" in window) {
+      var map = {};
+      tocLinks.forEach(function (a) { map[a.getAttribute("href").slice(1)] = a; });
+      var current = null;
+      var obs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) {
+          if (en.isIntersecting && map[en.target.id]) {
+            if (current) current.classList.remove("on");
+            current = map[en.target.id];
+            current.classList.add("on");
+          }
+        });
+      }, { rootMargin: "-15% 0px -70% 0px" });
+      document.querySelectorAll(".in-article h2[id]").forEach(function (h) { obs.observe(h); });
+    }
   })();
   </script>
 </body>

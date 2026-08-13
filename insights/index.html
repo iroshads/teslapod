@@ -219,6 +219,23 @@
       burger.setAttribute("aria-expanded", open ? "true" : "false");
     });
     document.getElementById("year").textContent = new Date().getFullYear();
+    // scrollspy for the article table of contents
+    var tocLinks = document.querySelectorAll(".in-toc a[href^='#']");
+    if (tocLinks.length && "IntersectionObserver" in window) {
+      var map = {};
+      tocLinks.forEach(function (a) { map[a.getAttribute("href").slice(1)] = a; });
+      var current = null;
+      var obs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) {
+          if (en.isIntersecting && map[en.target.id]) {
+            if (current) current.classList.remove("on");
+            current = map[en.target.id];
+            current.classList.add("on");
+          }
+        });
+      }, { rootMargin: "-15% 0px -70% 0px" });
+      document.querySelectorAll(".in-article h2[id]").forEach(function (h) { obs.observe(h); });
+    }
   })();
   </script>
 </body>

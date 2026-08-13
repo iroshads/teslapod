@@ -91,19 +91,20 @@
         <span>6:56</span>
       </div>
     </div>
+    <div class="in-layout">
     <article class="in-article">
-      <h2>The big idea</h2>
+      <h2 id="big-idea">The big idea</h2>
       <p>Autonomy earned public trust through simulation: billions of virtual miles driven before and alongside every real one. This first ride asks the obvious-in-hindsight question — why doesn't software work that way? Products still launch on the strength of a QA checklist and a prayer, then discover their failure modes on live users.</p>
       <p>Marketrix's answer is the user-simulation platform: AI-simulated users that click, wander, misunderstand, and rage-tap through your product the way real ones will — so the thousandth user's experience is validated before the first user arrives. It's the FSD development loop, ported to product engineering.</p>
-      <h2>Why this matters now</h2>
+      <h2 id="why-now">Why this matters now</h2>
       <p>Product teams are shipping faster than QA can keep up — AI code generation has made building cheap while validation stayed expensive. Simulation closes that gap: the same approach that let autonomy teams iterate safely at speed is now available to every software team, and the teams that adopt it first ship with fewer surprises.</p>
-      <h2>By the numbers</h2>
+      <h2 id="numbers">By the numbers</h2>
       <div class="in-numbers">
         <div class="in-num"><b>6:56</b><span>the ride that started the show</span></div>
         <div class="in-num"><b>1,000s</b><span>of simulated users before user #1</span></div>
         <div class="in-num"><b>Billions</b><span>of simulated miles behind autonomy's trust</span></div>
       </div>
-      <h2>Key takeaways</h2>
+      <h2 id="takeaways">Key takeaways</h2>
       <ul class="in-takeaways">
         <li><b>Simulation is how autonomy got safe — and software skipped it.</b> Virtual miles preceded real ones; virtual users should precede real ones too.</li>
         <li><b>Real users are your most expensive test suite.</b> Every bug discovered in production was paid for with someone's trust. Simulated users move that cost to before launch.</li>
@@ -111,21 +112,21 @@
         <li><b>Demo throughput is a growth lever.</b> When validation is simulated, showing and shipping product stops being gated on human QA cycles.</li>
         <li><b>The show's thesis in one ride.</b> Autonomy as a lens on every kind of building — that's the premise this six-minute episode set for everything after it.</li>
       </ul>
-      <h2>Inside the conversation</h2>
+      <h2 id="conversation">Inside the conversation</h2>
       <h3>The FSD development loop, applied to product</h3>
       <p>Perception, simulation, deployment, telemetry, repeat — the episode maps each stage of the autonomy playbook onto how software teams could validate products before and after launch.</p>
       <h3>What an AI-simulated user actually is</h3>
       <p>Not a script and not a monkey test: an agent with goals, patience limits, and human-like misunderstanding. The conversation explores what it takes to make synthetic users behave real enough to matter.</p>
       <h3>Origin story of the pod</h3>
       <p>Recorded along the coast with the show's own CTO in the passenger seat — the ride where 'conversations from the autonomous future' stopped being a tagline and became a format.</p>
-      <h2>Through the autonomy lens</h2>
+      <h2 id="autonomy-lens">Through the autonomy lens</h2>
       <p>Every later episode borrows this one's lens, so here it runs at full strength. Yasith maps the entire autonomy development loop onto product engineering: simulation before deployment (synthetic users before launch), telemetry after it (watching how real users diverge from the sim), and a disengagement report for products — every rage-click and abandoned flow logged as an intervention that feeds the next simulation run. The claim isn't that software is like driving. It's that autonomy discovered the correct way to earn trust in any complex system, and software just hasn't adopted it yet.</p>
-      <h2>The counterargument</h2>
+      <h2 id="counterargument">The counterargument</h2>
       <div class="in-counter">“Simulated users aren't real users. Real people are irrational in ways no model captures — the sim-to-real gap means simulation gives you confidence in exactly the wrong places.”</div>
       <p>The episode's answer is that autonomy faced the identical objection and resolved it: simulation never replaced real roads — it moved failure discovery earlier and made every real mile more informative. Same here. Simulated users don't need to be perfectly human to be useful; they need to be human enough to trip over the confusing label, the dead-end flow, the button nobody finds. Catch those thousand cheap failures pre-launch, and your real users spend their scarce, expensive attention revealing the failures only humans can.</p>
-      <h2>About Marketrix AI</h2>
+      <h2 id="about">About Marketrix AI</h2>
       <p>Marketrix AI is the user-simulation platform — AI-simulated users that test and validate your product before real ones ever do. Yasith Jayawardana is co-founder &amp; CTO.</p>
-      <h2>Questions this episode answers</h2>
+      <h2 id="faq">Questions this episode answers</h2>
       <h3>What are AI-simulated users?</h3>
       <p>AI-simulated users are agents that behave like real people inside your product — they click, wander, misread labels, lose patience, and pursue goals — surfacing usability problems and bugs before launch, at a scale scripted tests can't reach.</p>
       <h3>What is Marketrix AI?</h3>
@@ -141,6 +142,20 @@
         <a href="/insights/raising-yc-at-18-manicule" style="text-align:right">EP 02 · They Raised $500K from YC at 18 →</a>
       </nav>
     </article>
+    <aside class="in-toc" aria-label="On this page">
+      <span class="in-toc-label">On this page</span>
+      <a href="#big-idea">The big idea</a>
+      <a href="#why-now">Why this matters now</a>
+      <a href="#numbers">By the numbers</a>
+      <a href="#takeaways">Key takeaways</a>
+      <a href="#conversation">Inside the conversation</a>
+      <a href="#autonomy-lens">Through the autonomy lens</a>
+      <a href="#counterargument">The counterargument</a>
+      <a href="#about">About Marketrix AI</a>
+      <a href="#faq">Q&amp;A</a>
+      <a class="in-toc-watch" href="https://www.youtube.com/watch?v=kl8JXv2KIfc" target="_blank" rel="noopener">▶ Watch the episode</a>
+    </aside>
+    </div>
     <section class="in-related">
       <h2>More insights from the pod</h2>
       <div class="insights-grid">
@@ -222,6 +237,23 @@
       burger.setAttribute("aria-expanded", open ? "true" : "false");
     });
     document.getElementById("year").textContent = new Date().getFullYear();
+    // scrollspy for the article table of contents
+    var tocLinks = document.querySelectorAll(".in-toc a[href^='#']");
+    if (tocLinks.length && "IntersectionObserver" in window) {
+      var map = {};
+      tocLinks.forEach(function (a) { map[a.getAttribute("href").slice(1)] = a; });
+      var current = null;
+      var obs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) {
+          if (en.isIntersecting && map[en.target.id]) {
+            if (current) current.classList.remove("on");
+            current = map[en.target.id];
+            current.classList.add("on");
+          }
+        });
+      }, { rootMargin: "-15% 0px -70% 0px" });
+      document.querySelectorAll(".in-article h2[id]").forEach(function (h) { obs.observe(h); });
+    }
   })();
   </script>
 </body>

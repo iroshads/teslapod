@@ -527,6 +527,23 @@ const PAGE_JS = `
       burger.setAttribute("aria-expanded", open ? "true" : "false");
     });
     document.getElementById("year").textContent = new Date().getFullYear();
+    // scrollspy for the article table of contents
+    var tocLinks = document.querySelectorAll(".in-toc a[href^='#']");
+    if (tocLinks.length && "IntersectionObserver" in window) {
+      var map = {};
+      tocLinks.forEach(function (a) { map[a.getAttribute("href").slice(1)] = a; });
+      var current = null;
+      var obs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) {
+          if (en.isIntersecting && map[en.target.id]) {
+            if (current) current.classList.remove("on");
+            current = map[en.target.id];
+            current.classList.add("on");
+          }
+        });
+      }, { rootMargin: "-15% 0px -70% 0px" });
+      document.querySelectorAll(".in-article h2[id]").forEach(function (h) { obs.observe(h); });
+    }
   })();
   </script>`;
 
@@ -620,29 +637,30 @@ ${NAV}
         <span>${esc(it.duration)}</span>
       </div>
     </div>
+    <div class="in-layout">
     <article class="in-article">
-      <h2>The big idea</h2>
+      <h2 id="big-idea">The big idea</h2>
       ${it.bigIdea.map((p) => `<p>${p}</p>`).join("\n      ")}
-      <h2>Why this matters now</h2>
+      <h2 id="why-now">Why this matters now</h2>
       <p>${it.whyNow}</p>
-      <h2>By the numbers</h2>
+      <h2 id="numbers">By the numbers</h2>
       <div class="in-numbers">
         ${it.numbers.map((s) => `<div class="in-num"><b>${esc(s.n)}</b><span>${esc(s.l)}</span></div>`).join("\n        ")}
       </div>
-      <h2>Key takeaways</h2>
+      <h2 id="takeaways">Key takeaways</h2>
       <ul class="in-takeaways">
         ${it.takeaways.map((t) => `<li>${t}</li>`).join("\n        ")}
       </ul>
-      <h2>Inside the conversation</h2>
+      <h2 id="conversation">Inside the conversation</h2>
       ${it.themes.map((t) => `<h3>${esc(t.h)}</h3>\n      <p>${t.p}</p>`).join("\n      ")}
-      <h2>Through the autonomy lens</h2>
+      <h2 id="autonomy-lens">Through the autonomy lens</h2>
       <p>${it.autonomyLens}</p>
-      <h2>The counterargument</h2>
+      <h2 id="counterargument">The counterargument</h2>
       <div class="in-counter">“${it.counter.claim}”</div>
       <p>${it.counter.response}</p>
-      <h2>About ${esc(it.company)}</h2>
+      <h2 id="about">About ${esc(it.company)}</h2>
       <p>${esc(it.about)}</p>
-      <h2>Questions this episode answers</h2>
+      <h2 id="faq">Questions this episode answers</h2>
       ${it.faq.map((f) => `<h3>${esc(f.q)}</h3>\n      <p>${esc(f.a)}</p>`).join("\n      ")}
       <div class="in-watch">
         <span>Watch the full ride — Episode ${String(it.ep).padStart(2, "0")} of The Tesla Pod, the Tesla podcast recorded in a self-driving Tesla.</span>
@@ -653,6 +671,20 @@ ${NAV}
         ${next ? `<a href="/insights/${next.slug}" style="text-align:right">EP ${String(next.ep).padStart(2, "0")} · ${esc(plain(next.title))} →</a>` : "<span></span>"}
       </nav>
     </article>
+    <aside class="in-toc" aria-label="On this page">
+      <span class="in-toc-label">On this page</span>
+      <a href="#big-idea">The big idea</a>
+      <a href="#why-now">Why this matters now</a>
+      <a href="#numbers">By the numbers</a>
+      <a href="#takeaways">Key takeaways</a>
+      <a href="#conversation">Inside the conversation</a>
+      <a href="#autonomy-lens">Through the autonomy lens</a>
+      <a href="#counterargument">The counterargument</a>
+      <a href="#about">About ${esc(it.company)}</a>
+      <a href="#faq">Q&amp;A</a>
+      <a class="in-toc-watch" href="https://www.youtube.com/watch?v=${it.id}" target="_blank" rel="noopener">▶ Watch the episode</a>
+    </aside>
+    </div>
     <section class="in-related">
       <h2>More insights from the pod</h2>
       <div class="insights-grid">

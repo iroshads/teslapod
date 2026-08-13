@@ -986,6 +986,9 @@
     grid.innerHTML = "";
     episodes.slice(1).forEach(function (ep, i) {
       var co = roleCompanyHTML(ep.guestRole);
+      var insight = INSIGHT_SLUGS[ep.id]
+        ? '<a class="ep-insight" href="/insights/' + INSIGHT_SLUGS[ep.id] + '" aria-label="Read the insights from ' + esc(ep.title) + '">Insights →</a>'
+        : "";
       var card = el(
         '<article class="ep-card reveal" style="transition-delay:' + (i % 3) * 70 + 'ms" tabindex="0" aria-label="Play ' + esc(ep.fullTitle) + '">' +
         '<div class="ep-thumb">' +
@@ -995,14 +998,15 @@
         '<div class="play-hover"><span><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></div>' +
         "</div>" +
         '<div class="ep-body">' +
-        '<span class="ep-num">' + esc(epNum(ep)) + " · " + esc(ep.releaseDate) + "</span>" +
+        '<span class="ep-num">' + esc(epNum(ep)) + " · " + esc(ep.releaseDate) + (insight ? '<span class="ep-num-spacer"></span>' + insight : "") + "</span>" +
         "<h3>" + esc(ep.title) + "</h3>" +
         '<div class="ep-guest">with <b>' + esc(ep.guest) + "</b>" + (co ? " · " + co : "") + "</div>" +
         "</div></article>"
       );
       function go() { openEpisode(ep); }
-      card.addEventListener("click", go);
-      card.addEventListener("keydown", function (e) { if (e.key === "Enter") go(); });
+      // links inside the card (insights) navigate; everything else opens the player
+      card.addEventListener("click", function (e) { if (!e.target.closest("a")) go(); });
+      card.addEventListener("keydown", function (e) { if (e.key === "Enter" && !e.target.closest("a")) go(); });
       grid.appendChild(card);
     });
     observeReveals(grid);

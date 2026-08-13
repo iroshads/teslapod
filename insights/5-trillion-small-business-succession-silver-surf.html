@@ -91,19 +91,20 @@
         <span>27:51</span>
       </div>
     </div>
+    <div class="in-layout">
     <article class="in-article">
-      <h2>The big idea</h2>
+      <h2 id="big-idea">The big idea</h2>
       <p>While tech chases the same ten SaaS categories, the largest wealth transfer in history is happening in HVAC companies, machine shops, and family distributors. The bottleneck isn't buyers or money — it's that the business *is* the owner. Pricing instincts, vendor relationships, the Tuesday-morning routine: none of it is written down, so none of it survives a sale.</p>
       <p>Silver Surf's move is to treat owner knowledge as an extractable asset: interview it out, turn it into SOPs and AI-assisted operations, and make the business runnable by someone who isn't its founder. Do that, and you don't just save a company — you raise its price, because buyers pay for systems, not heroics.</p>
-      <h2>Why this matters now</h2>
+      <h2 id="why-now">Why this matters now</h2>
       <p>Baby boomers own millions of American small businesses, and the retirement wave is cresting this decade — with most owners having no succession plan. Every year of delay means more profitable businesses quietly shutting down instead of changing hands. AI finally makes knowledge extraction cheap enough to work at small-business prices.</p>
-      <h2>By the numbers</h2>
+      <h2 id="numbers">By the numbers</h2>
       <div class="in-numbers">
         <div class="in-num"><b>$5T</b><span>in businesses that must change hands</span></div>
         <div class="in-num"><b>Millions</b><span>of boomer-owned companies</span></div>
         <div class="in-num"><b>1</b><span>head where the operating knowledge lives</span></div>
       </div>
-      <h2>Key takeaways</h2>
+      <h2 id="takeaways">Key takeaways</h2>
       <ul class="in-takeaways">
         <li><b>The silver tsunami is a market, not a headline.</b> Millions of boomer-owned businesses need to change hands this decade — a $5T flow with almost no modern tooling.</li>
         <li><b>Key-person risk is the valuation killer.</b> Businesses that depend on the owner's head sell at a discount or don't sell at all; documented, systematized ones command multiples.</li>
@@ -111,21 +112,21 @@
         <li><b>Unsexy compounds.</b> The episode is a reminder that the biggest opportunities are in markets tech ignores because the customers don't look like tech customers.</li>
         <li><b>Save the business, then sell it better.</b> Systematization serves both outcomes: the owner exits richer, and the business survives its founder.</li>
       </ul>
-      <h2>Inside the conversation</h2>
+      <h2 id="conversation">Inside the conversation</h2>
       <h3>Why tech missed a $5T market</h3>
       <p>Fragmented customers, offline workflows, and zero glamour — the ride unpacks why the biggest problem list in the economy has the shortest startup list, and why that's precisely the opportunity.</p>
       <h3>From founder-brain to operating system</h3>
       <p>The mechanics of extracting what's in an owner's head: what questions to ask, what to document versus automate, and how AI turns a retiring owner's experience into an asset a buyer can operate.</p>
       <h3>Exits as a product</h3>
       <p>A business that runs without its owner exits for more. The conversation reframes succession prep not as estate planning but as value engineering — with a bigger check as the proof.</p>
-      <h2>Through the autonomy lens</h2>
+      <h2 id="autonomy-lens">Through the autonomy lens</h2>
       <p>A business that only runs when its owner is present is a car that only its owner can drive. Silver Surf is building the autonomy retrofit: record how the expert drives (interview the owner), turn instinct into policy (SOPs and AI-assisted operations), then hand over control with supervision. Succession stops being a cliff and becomes a handoff — and the exit check is the safety report. Buyers pay a premium for a business that demonstrably drives itself, exactly the way trust in autonomy is priced on evidence, not promises.</p>
-      <h2>The counterargument</h2>
+      <h2 id="counterargument">The counterargument</h2>
       <div class="in-counter">“SMB owners are the hardest customers in software — skeptical, busy, and cheap. A retiring 68-year-old HVAC owner is not going to sit through AI interviews about how he prices jobs.”</div>
       <p>Laila's answer is to sell the check, not the software. Owners won't buy 'knowledge management,' but every one of them cares about what their life's work sells for — and the difference between a key-person-dependent business and a systematized one is often the difference between no sale and a real exit. Framed as exit-value engineering, extraction isn't homework; it's the highest-leverage hours of the owner's final years. And AI drops the cost of capturing it from consultant-months to conversations.</p>
-      <h2>About Silver Surf</h2>
+      <h2 id="about">About Silver Surf</h2>
       <p>Silver Surf turns a retiring owner's know-how into SOPs and AI-assisted operations so the business runs — and sells — without them. Founded by Laila Gamaleldin.</p>
-      <h2>Questions this episode answers</h2>
+      <h2 id="faq">Questions this episode answers</h2>
       <h3>What is the silver tsunami in small business?</h3>
       <p>The 'silver tsunami' is the wave of baby-boomer business owners hitting retirement age — millions of profitable small businesses that must be sold, passed down, or shut within the decade, representing trillions in value with no modern tooling to handle the transition.</p>
       <h3>Why do small businesses fail to sell?</h3>
@@ -141,6 +142,20 @@
         <a href="/insights/ai-customer-success-peazy-labs" style="text-align:right">EP 04 · AI Just Ate Customer Success — What Replaces It →</a>
       </nav>
     </article>
+    <aside class="in-toc" aria-label="On this page">
+      <span class="in-toc-label">On this page</span>
+      <a href="#big-idea">The big idea</a>
+      <a href="#why-now">Why this matters now</a>
+      <a href="#numbers">By the numbers</a>
+      <a href="#takeaways">Key takeaways</a>
+      <a href="#conversation">Inside the conversation</a>
+      <a href="#autonomy-lens">Through the autonomy lens</a>
+      <a href="#counterargument">The counterargument</a>
+      <a href="#about">About Silver Surf</a>
+      <a href="#faq">Q&amp;A</a>
+      <a class="in-toc-watch" href="https://www.youtube.com/watch?v=VVFp6FDn5KM" target="_blank" rel="noopener">▶ Watch the episode</a>
+    </aside>
+    </div>
     <section class="in-related">
       <h2>More insights from the pod</h2>
       <div class="insights-grid">
@@ -222,6 +237,23 @@
       burger.setAttribute("aria-expanded", open ? "true" : "false");
     });
     document.getElementById("year").textContent = new Date().getFullYear();
+    // scrollspy for the article table of contents
+    var tocLinks = document.querySelectorAll(".in-toc a[href^='#']");
+    if (tocLinks.length && "IntersectionObserver" in window) {
+      var map = {};
+      tocLinks.forEach(function (a) { map[a.getAttribute("href").slice(1)] = a; });
+      var current = null;
+      var obs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) {
+          if (en.isIntersecting && map[en.target.id]) {
+            if (current) current.classList.remove("on");
+            current = map[en.target.id];
+            current.classList.add("on");
+          }
+        });
+      }, { rootMargin: "-15% 0px -70% 0px" });
+      document.querySelectorAll(".in-article h2[id]").forEach(function (h) { obs.observe(h); });
+    }
   })();
   </script>
 </body>

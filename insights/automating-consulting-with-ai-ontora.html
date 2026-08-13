@@ -91,20 +91,21 @@
         <span>28:30</span>
       </div>
     </div>
+    <div class="in-layout">
     <article class="in-article">
-      <h2>The big idea</h2>
+      <h2 id="big-idea">The big idea</h2>
       <p>The core insight of this ride: the expensive part of consulting was never the recommendations — it was the data collection. Armies of associates interviewing staff, shadowing workflows, and stitching together how an org actually functions. That's precisely the part an AI agent can do at full coverage instead of a sample, in parallel instead of sequentially.</p>
       <p>Interviewing *every* employee changes the product category. A consultant samples twenty people and extrapolates; Ontora talks to everyone and aggregates. The deliverable stops being an opinion and starts being a measurement — an X-ray of the org chart as it really operates, not as it's drawn.</p>
-      <h2>Why this matters now</h2>
+      <h2 id="why-now">Why this matters now</h2>
       <p>Consulting is a trillion-dollar industry whose core deliverable — understanding how an organization actually works — just became automatable. Meanwhile every Fortune 500 is under pressure to restructure around AI, which means demand for org clarity is spiking at the exact moment the cost of producing it is collapsing.</p>
-      <h2>By the numbers</h2>
+      <h2 id="numbers">By the numbers</h2>
       <div class="in-numbers">
         <div class="in-num"><b>$1T</b><span>consulting market being attacked</span></div>
         <div class="in-num"><b>24h</b><span>to map an organization</span></div>
         <div class="in-num"><b>100%</b><span>of employees interviewed, in parallel</span></div>
         <div class="in-num"><b>~20</b><span>interviews a traditional engagement samples</span></div>
       </div>
-      <h2>Key takeaways</h2>
+      <h2 id="takeaways">Key takeaways</h2>
       <ul class="in-takeaways">
         <li><b>Attack the labor, not the logo.</b> Ontora doesn't out-brand McKinsey — it deletes the associate-hours that make consulting cost millions and take months.</li>
         <li><b>Full coverage beats sampling.</b> AI interviews scale to the whole company, converting anecdote-driven org analysis into something closer to instrumentation.</li>
@@ -112,21 +113,21 @@
         <li><b>Employees tell an AI things they won't tell a consultant.</b> The conversation touches on candor: a neutral interviewer at scale surfaces friction that never reaches a partner's slide deck.</li>
         <li><b>$1T markets hide in unglamorous workflows.</b> The founders found their wedge not in strategy advice but in the grunt work everyone assumed had to be human.</li>
       </ul>
-      <h2>Inside the conversation</h2>
+      <h2 id="conversation">Inside the conversation</h2>
       <h3>The anatomy of a disruption wedge</h3>
       <p>The ride walks through why they started with organizational discovery rather than recommendations: it's the highest-cost, lowest-judgment slice of consulting — exactly where AI's parallelism is unbeatable and a brand name matters least.</p>
       <h3>Trust and candor at machine scale</h3>
       <p>What happens when the interviewer is an AI? The founders argue coverage plus consistency produces a more honest picture of a company than prestige interviews ever did — and that the map of "how work actually flows" is a product every executive quietly wants.</p>
       <h3>Three founders, one YC batch, no playbook</h3>
       <p>As a YC P26 company selling into Fortune 500s, Ontora is a live experiment in whether a tiny team with an agent can win deals against firms with fifty-year-old client relationships.</p>
-      <h2>Through the autonomy lens</h2>
+      <h2 id="autonomy-lens">Through the autonomy lens</h2>
       <p>A consultant mapping a company works like a car with two cameras and a guess: sparse observations, heavy extrapolation. Ontora's approach is full-sensor coverage — interview every employee and build the map from complete data, the way an AV fuses lidar, radar, and vision instead of trusting one glimpse. And like the maps under FSD, an org map decays: teams reorganize, workflows drift. A 24-hour, repeatable scan turns org understanding from a one-time survey into a live map that stays current.</p>
-      <h2>The counterargument</h2>
+      <h2 id="counterargument">The counterargument</h2>
       <div class="in-counter">“Fortune 500s don't pay McKinsey for data — they pay for political cover and a brand the board trusts. An AI's org map, however accurate, doesn't give an executive anyone to blame.”</div>
       <p>The founders concede the cover business survives — and argue it's not the business they're taking. The months of associate labor that produce the deck's underlying picture are what's automatable, and firms themselves would rather buy that substrate than staff it. Better: full-coverage candor changes the product. Twenty interviews collected under a partner's letterhead get you the org chart people perform; every employee talking to a neutral AI gets you the org that actually exists. Eventually the cover needs Ontora's map to be credible.</p>
-      <h2>About Ontora</h2>
+      <h2 id="about">About Ontora</h2>
       <p>Ontora (YC P26) deploys AI agents that interview every employee in a company and deliver a map of how work actually gets done — in days, not months. Founded by David Korn, Leon Iwanowitsch, and Max.</p>
-      <h2>Questions this episode answers</h2>
+      <h2 id="faq">Questions this episode answers</h2>
       <h3>Can AI replace management consultants?</h3>
       <p>AI is replacing the data-collection layer of consulting first: interviewing employees, mapping workflows, and assembling the picture of how a company operates. Judgment and change management stay human for now — but the months of associate work behind a McKinsey deck are already automatable.</p>
       <h3>What is Ontora?</h3>
@@ -142,6 +143,20 @@
         <a href="/insights/ai-agent-swarms-security-jason-jin" style="text-align:right">EP 08 · Agent Swarms, Sandboxes, and the Coming Security War for AI agents →</a>
       </nav>
     </article>
+    <aside class="in-toc" aria-label="On this page">
+      <span class="in-toc-label">On this page</span>
+      <a href="#big-idea">The big idea</a>
+      <a href="#why-now">Why this matters now</a>
+      <a href="#numbers">By the numbers</a>
+      <a href="#takeaways">Key takeaways</a>
+      <a href="#conversation">Inside the conversation</a>
+      <a href="#autonomy-lens">Through the autonomy lens</a>
+      <a href="#counterargument">The counterargument</a>
+      <a href="#about">About Ontora</a>
+      <a href="#faq">Q&amp;A</a>
+      <a class="in-toc-watch" href="https://www.youtube.com/watch?v=UkzjHmqDMiY" target="_blank" rel="noopener">▶ Watch the episode</a>
+    </aside>
+    </div>
     <section class="in-related">
       <h2>More insights from the pod</h2>
       <div class="insights-grid">
@@ -223,6 +238,23 @@
       burger.setAttribute("aria-expanded", open ? "true" : "false");
     });
     document.getElementById("year").textContent = new Date().getFullYear();
+    // scrollspy for the article table of contents
+    var tocLinks = document.querySelectorAll(".in-toc a[href^='#']");
+    if (tocLinks.length && "IntersectionObserver" in window) {
+      var map = {};
+      tocLinks.forEach(function (a) { map[a.getAttribute("href").slice(1)] = a; });
+      var current = null;
+      var obs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) {
+          if (en.isIntersecting && map[en.target.id]) {
+            if (current) current.classList.remove("on");
+            current = map[en.target.id];
+            current.classList.add("on");
+          }
+        });
+      }, { rootMargin: "-15% 0px -70% 0px" });
+      document.querySelectorAll(".in-article h2[id]").forEach(function (h) { obs.observe(h); });
+    }
   })();
   </script>
 </body>

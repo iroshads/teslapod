@@ -91,20 +91,21 @@
         <span>45:24</span>
       </div>
     </div>
+    <div class="in-layout">
     <article class="in-article">
-      <h2>The big idea</h2>
+      <h2 id="big-idea">The big idea</h2>
       <p>The conversation lands on a simple inversion: today developers think of an AI agent as a feature you add to an app. Jason's bet is that agents become the workload itself — spun up in swarms, isolated in sandboxes, and orchestrated the way we orchestrate containers today. The unit of compute shifts from "a model call" to "an agent with a job."</p>
       <p>The most striking part of the episode is the live demo: attacker agents trying to socially engineer a guarded agent into wiring money out of an account. It's a preview of a world where both sides of a fraud attempt are automated — and where defense has to be designed into the agent runtime, not bolted on.</p>
-      <h2>Why this matters now</h2>
+      <h2 id="why-now">Why this matters now</h2>
       <p>Every major lab shipped agent frameworks this year, and enterprises are moving from pilots to production fleets. The winners of that shift won't be decided by model quality — every team has the same models — but by who solves orchestration, isolation, and deception-resistance first. That's exactly the layer this conversation maps.</p>
-      <h2>By the numbers</h2>
+      <h2 id="numbers">By the numbers</h2>
       <div class="in-numbers">
         <div class="in-num"><b>1</b><span>API call to launch a swarm</span></div>
         <div class="in-num"><b>100s</b><span>of sandboxed agents per call</span></div>
         <div class="in-num"><b>6</b><span>years inside Google infrastructure</span></div>
         <div class="in-num"><b>1EB+</b><span>of logs processed daily on his last system</span></div>
       </div>
-      <h2>Key takeaways</h2>
+      <h2 id="takeaways">Key takeaways</h2>
       <ul class="in-takeaways">
         <li><b>Swarms beat single agents for real work.</b> One agent hits context and reliability walls; hundreds of narrow agents, each sandboxed with a small job, compose into something dependable.</li>
         <li><b>Isolation is the primitive that matters.</b> Giving every agent its own sandbox does for agents what containers did for services — it makes failure, abuse, and blast radius manageable.</li>
@@ -112,21 +113,21 @@
         <li><b>Big-company scale teaches small-company speed.</b> An exabyte-a-day logs pipeline at Google taught Jason where infrastructure actually breaks — knowledge he now compresses into a single API.</li>
         <li><b>The leap isn't reckless if the foundation is boring.</b> Leaving Google works when what you're building is the plumbing everyone will need, not a feature someone will copy.</li>
       </ul>
-      <h2>Inside the conversation</h2>
+      <h2 id="conversation">Inside the conversation</h2>
       <h3>From model calls to agent fleets</h3>
       <p>The episode frames the shift the way early cloud people framed VMs → containers: the interesting question stops being "how smart is the model" and becomes "how do you launch, watch, and kill ten thousand of them safely." Funky's one-call swarm API is a bet that developers want that abstraction, not another chat wrapper.</p>
       <h3>Security as the defining constraint</h3>
       <p>If agents can move money, file tickets, and touch production systems, then tricking an agent becomes the new phishing. The ride digs into why deception-resistance — not benchmark scores — will decide which agent platforms enterprises trust.</p>
       <h3>The ex-Google founder playbook</h3>
       <p>Six years inside Google's infrastructure taught a specific lesson: the hard problems are operational, not algorithmic. The conversation is a case study in taking scale scars from big tech and turning them into a startup's unfair advantage.</p>
-      <h2>Through the autonomy lens</h2>
+      <h2 id="autonomy-lens">Through the autonomy lens</h2>
       <p>One self-driving car is a demo; a fleet is a business — and everything hard about autonomy shows up at fleet scale: monitoring thousands of independent actors, containing the one that misbehaves, learning from every disengagement. Jason's argument lands the same way for agents. A single agent in a chat window is the demo. Funky is building for the fleet era: launch hundreds, watch them all, and treat every sandbox breach attempt the way an AV company treats an intervention — as the signal that improves the whole system.</p>
-      <h2>The counterargument</h2>
+      <h2 id="counterargument">The counterargument</h2>
       <div class="in-counter">“Swarms are a workaround for weak models. Once frontier models get smart and reliable enough, one capable agent will replace a hundred narrow ones, and the orchestration layer becomes plumbing nobody needs.”</div>
       <p>The ride's rebuttal is that isolation is an operational requirement, not an intelligence gap. Even a superhuman agent needs a blast radius when it's compromised — and the wire-transfer demo shows compromise is an adversarial inevitability, not a capability problem. Companies didn't stop using containers when servers got faster. The smarter agents get, the more they're allowed to touch, and the more the sandbox — not the model — becomes the thing you trust.</p>
-      <h2>About Funky</h2>
+      <h2 id="about">About Funky</h2>
       <p>Funky lets developers spin up hundreds of sandboxed AI agents with a single API call. Jason Jin founded it after six years at Google, where he built logging infrastructure processing over an exabyte of data per day.</p>
-      <h2>Questions this episode answers</h2>
+      <h2 id="faq">Questions this episode answers</h2>
       <h3>What is an AI agent swarm?</h3>
       <p>An AI agent swarm is many narrow, single-purpose AI agents running in parallel on a shared task — instead of one large agent trying to do everything. Each agent gets a small job and its own sandbox, so failures stay contained and the work composes reliably.</p>
       <h3>Why do AI agents need sandboxes?</h3>
@@ -142,6 +143,20 @@
         <a href="/insights/ai-secondhand-clothing-supply-chain-fleek" style="text-align:right">EP 09 · The $25M Bet on What Happens to Your Old Clothes →</a>
       </nav>
     </article>
+    <aside class="in-toc" aria-label="On this page">
+      <span class="in-toc-label">On this page</span>
+      <a href="#big-idea">The big idea</a>
+      <a href="#why-now">Why this matters now</a>
+      <a href="#numbers">By the numbers</a>
+      <a href="#takeaways">Key takeaways</a>
+      <a href="#conversation">Inside the conversation</a>
+      <a href="#autonomy-lens">Through the autonomy lens</a>
+      <a href="#counterargument">The counterargument</a>
+      <a href="#about">About Funky</a>
+      <a href="#faq">Q&amp;A</a>
+      <a class="in-toc-watch" href="https://www.youtube.com/watch?v=4FtPxcSjpF8" target="_blank" rel="noopener">▶ Watch the episode</a>
+    </aside>
+    </div>
     <section class="in-related">
       <h2>More insights from the pod</h2>
       <div class="insights-grid">
@@ -223,6 +238,23 @@
       burger.setAttribute("aria-expanded", open ? "true" : "false");
     });
     document.getElementById("year").textContent = new Date().getFullYear();
+    // scrollspy for the article table of contents
+    var tocLinks = document.querySelectorAll(".in-toc a[href^='#']");
+    if (tocLinks.length && "IntersectionObserver" in window) {
+      var map = {};
+      tocLinks.forEach(function (a) { map[a.getAttribute("href").slice(1)] = a; });
+      var current = null;
+      var obs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) {
+          if (en.isIntersecting && map[en.target.id]) {
+            if (current) current.classList.remove("on");
+            current = map[en.target.id];
+            current.classList.add("on");
+          }
+        });
+      }, { rootMargin: "-15% 0px -70% 0px" });
+      document.querySelectorAll(".in-article h2[id]").forEach(function (h) { obs.observe(h); });
+    }
   })();
   </script>
 </body>

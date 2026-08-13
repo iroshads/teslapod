@@ -91,20 +91,21 @@
         <span>39:14</span>
       </div>
     </div>
+    <div class="in-layout">
     <article class="in-article">
-      <h2>The big idea</h2>
+      <h2 id="big-idea">The big idea</h2>
       <p>Customer success as we know it is a workaround: enterprise software got so complicated that vendors hired humans to apologize for it, one onboarding call at a time. This ride's thesis is that the CSM function gets unbundled — the repetitive guidance moves into the product itself as an AI concierge that meets users at the exact moment of confusion.</p>
       <p>The economics are the quiet star of the conversation. A human CSM covers dozens of accounts and reaches users only after they're stuck enough to complain. An in-app concierge covers every user, in every account, before the ticket exists. Retention work shifts from reactive rescue to ambient guidance.</p>
-      <h2>Why this matters now</h2>
+      <h2 id="why-now">Why this matters now</h2>
       <p>SaaS vendors are under margin pressure and customer success is usually their largest post-sales cost. At the same time, churn is decided in the first weeks of product adoption — exactly where human CS coverage is thinnest. An AI layer that guides every user in-app attacks both problems at once, which is why the category is moving so fast.</p>
-      <h2>By the numbers</h2>
+      <h2 id="numbers">By the numbers</h2>
       <div class="in-numbers">
         <div class="in-num"><b>100%</b><span>of users covered, not just the big accounts</span></div>
         <div class="in-num"><b>0</b><span>the target number of support tickets</span></div>
         <div class="in-num"><b>1</b><span>concierge living inside the app</span></div>
         <div class="in-num"><b>2</b><span>cofounders — CEO + CTO</span></div>
       </div>
-      <h2>Key takeaways</h2>
+      <h2 id="takeaways">Key takeaways</h2>
       <ul class="in-takeaways">
         <li><b>The best support ticket is the one never filed.</b> In-the-moment guidance inside the app removes the confusion → ticket → call loop entirely.</li>
         <li><b>CS doesn't disappear — it gets a promotion.</b> When AI absorbs the how-do-I clicks, human CS moves up-stack to strategy, expansion, and relationships.</li>
@@ -112,21 +113,21 @@
         <li><b>Complex software stops being a moat for incumbents.</b> If AI can guide anyone through anything, "we have an army of implementation consultants" stops being a selling point.</li>
         <li><b>Sell to the metric, not the org chart.</b> Peazy pitches adoption and retention outcomes — numbers a VP already owns — rather than a new tool category.</li>
       </ul>
-      <h2>Inside the conversation</h2>
+      <h2 id="conversation">Inside the conversation</h2>
       <h3>Unbundling the CSM</h3>
       <p>The episode maps which parts of customer success are pattern-matched guidance (automatable now), which are judgment (later), and which are genuinely human (relationships, expansion) — a useful blueprint for any services function facing AI.</p>
       <h3>The concierge pattern for enterprise UX</h3>
       <p>Instead of redesigning bloated enterprise UI, Peazy overlays intelligence on top of it. The conversation explores why 'AI layer over legacy complexity' may be the fastest route into big companies.</p>
       <h3>Two-founder dynamics in a hot category</h3>
       <p>CEO and CTO on how they split conviction: one sells the future of CS, the other builds an agent reliable enough to be allowed inside a Fortune 500's software stack.</p>
-      <h2>Through the autonomy lens</h2>
+      <h2 id="autonomy-lens">Through the autonomy lens</h2>
       <p>Enterprise software today is a manual-transmission truck with no signage: powerful, and hostile to anyone who hasn't driven it for years. Peazy's concierge is driver-assist for that truck. It doesn't redesign the vehicle — it watches the road (where you are in the app), anticipates the turn (what you're trying to do), and nudges before you stall. Escalations to human CS become the disengagement reports: each one marks a moment the assist wasn't enough, and each one trains the system to need fewer.</p>
-      <h2>The counterargument</h2>
+      <h2 id="counterargument">The counterargument</h2>
       <div class="in-counter">“Support chatbots already exist and users despise them. An 'AI concierge' is a chatbot with better marketing — it will deflect users who need help and infuriate the rest.”</div>
       <p>The distinction the episode draws is context and timing. A support chatbot sits outside the product, answering FAQs after frustration has already peaked. Peazy's concierge sees the screen state — which page, which half-completed workflow — and intervenes at the moment of confusion with the specific next step, not a help-center link. Deflection bots exist to absorb complaints; an in-app guide exists to prevent them. The proof metric is the difference: not tickets closed faster, but tickets that never got filed.</p>
-      <h2>About Peazy Labs</h2>
+      <h2 id="about">About Peazy Labs</h2>
       <p>Peazy Labs builds an AI concierge that guides users through complex enterprise software from right inside the app. Founded by Komala Chenna (CEO) and Kushal Murthy (CTO).</p>
-      <h2>Questions this episode answers</h2>
+      <h2 id="faq">Questions this episode answers</h2>
       <h3>Will AI replace customer success?</h3>
       <p>AI is absorbing the repetitive layer of customer success — onboarding walkthroughs, how-do-I questions, in-app guidance. Human CS shifts up-stack to strategy, relationships, and expansion. The function doesn't disappear; it gets unbundled.</p>
       <h3>What is an in-app AI concierge?</h3>
@@ -142,6 +143,20 @@
         <a href="/insights/agentic-browsing-self-driving-browser-retriever-ai" style="text-align:right">EP 05 · Your Browser Is About to Drive Itself →</a>
       </nav>
     </article>
+    <aside class="in-toc" aria-label="On this page">
+      <span class="in-toc-label">On this page</span>
+      <a href="#big-idea">The big idea</a>
+      <a href="#why-now">Why this matters now</a>
+      <a href="#numbers">By the numbers</a>
+      <a href="#takeaways">Key takeaways</a>
+      <a href="#conversation">Inside the conversation</a>
+      <a href="#autonomy-lens">Through the autonomy lens</a>
+      <a href="#counterargument">The counterargument</a>
+      <a href="#about">About Peazy Labs</a>
+      <a href="#faq">Q&amp;A</a>
+      <a class="in-toc-watch" href="https://www.youtube.com/watch?v=p7eUWZtrq-0" target="_blank" rel="noopener">▶ Watch the episode</a>
+    </aside>
+    </div>
     <section class="in-related">
       <h2>More insights from the pod</h2>
       <div class="insights-grid">
@@ -223,6 +238,23 @@
       burger.setAttribute("aria-expanded", open ? "true" : "false");
     });
     document.getElementById("year").textContent = new Date().getFullYear();
+    // scrollspy for the article table of contents
+    var tocLinks = document.querySelectorAll(".in-toc a[href^='#']");
+    if (tocLinks.length && "IntersectionObserver" in window) {
+      var map = {};
+      tocLinks.forEach(function (a) { map[a.getAttribute("href").slice(1)] = a; });
+      var current = null;
+      var obs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) {
+          if (en.isIntersecting && map[en.target.id]) {
+            if (current) current.classList.remove("on");
+            current = map[en.target.id];
+            current.classList.add("on");
+          }
+        });
+      }, { rootMargin: "-15% 0px -70% 0px" });
+      document.querySelectorAll(".in-article h2[id]").forEach(function (h) { obs.observe(h); });
+    }
   })();
   </script>
 </body>

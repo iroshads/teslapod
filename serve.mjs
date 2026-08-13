@@ -29,7 +29,14 @@ createServer(async (req, res) => {
     res.writeHead(200, { "content-type": types[extname(file)] || "application/octet-stream" });
     res.end(body);
   } catch {
-    res.writeHead(404, { "content-type": "text/plain" });
-    res.end("not found");
+    // serve the branded 404 page, like production
+    try {
+      const body = await readFile(join(root, "404.html"));
+      res.writeHead(404, { "content-type": "text/html" });
+      res.end(body);
+    } catch {
+      res.writeHead(404, { "content-type": "text/plain" });
+      res.end("not found");
+    }
   }
 }).listen(port, () => console.log(`teslapod revamp on http://localhost:${port}`));

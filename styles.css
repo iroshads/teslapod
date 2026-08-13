@@ -771,7 +771,15 @@ body.map-full .nav, body.map-full .scroll-progress { display: none; }
 .ep-num {
   font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.2em;
   color: var(--text-faint); text-transform: uppercase;
+  display: flex; align-items: center;
 }
+.ep-num-spacer { flex: 1; }
+.ep-insight {
+  font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.14em;
+  color: var(--accent); text-transform: uppercase; white-space: nowrap;
+  opacity: 0.85; transition: opacity 0.2s;
+}
+.ep-insight:hover { opacity: 1; text-decoration: underline; }
 
 /* ---------- passengers ---------- */
 .passengers { padding: clamp(80px, 10vw, 140px) clamp(20px, 4vw, 56px); }
@@ -1448,4 +1456,32 @@ a.ts-row:hover { border-color: var(--ts-dim); }
   font-family: var(--font-serif); font-style: italic; font-size: 18px; line-height: 1.6;
   color: var(--ink); padding: 4px 0 4px 20px; margin: 0 0 18px;
   border-left: 2px solid var(--accent);
+}
+
+/* insight article: two-column layout with sticky "On this page" TOC */
+.in-toc { display: none; }
+@media (min-width: 1150px) {
+  .in-layout { display: grid; grid-template-columns: 720px 1fr; gap: clamp(40px, 5vw, 90px); align-items: start; }
+  .in-layout .in-article { max-width: 720px; margin-top: 44px; }
+  .in-toc {
+    display: flex; flex-direction: column; gap: 2px;
+    position: sticky; top: calc(var(--nav-h) + 40px);
+    margin-top: 44px; padding-left: 22px;
+    border-left: 1px solid var(--line-soft);
+  }
+  .in-toc-label {
+    font-family: var(--font-mono); font-size: 9.5px; letter-spacing: 0.22em;
+    text-transform: uppercase; color: var(--text-faint); margin-bottom: 10px;
+  }
+  .in-toc a {
+    font-size: 13px; line-height: 1.5; color: var(--text-dim);
+    padding: 4px 0; transition: color 0.15s;
+  }
+  .in-toc a:hover { color: var(--ink); }
+  .in-toc a.on { color: var(--accent); }
+  .in-toc-watch {
+    margin-top: 14px; font-family: var(--font-mono); font-size: 10.5px;
+    letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink) !important;
+  }
+  .in-toc-watch:hover { color: var(--accent) !important; }
 }
