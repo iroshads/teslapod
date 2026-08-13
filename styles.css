@@ -1485,3 +1485,49 @@ a.ts-row:hover { border-color: var(--ts-dim); }
   }
   .in-toc-watch:hover { color: var(--accent) !important; }
 }
+
+/* ---------- follow the ride: main channels ---------- */
+.channels { max-width: 1240px; margin: clamp(46px, 5vw, 70px) auto 0; }
+.channels-kicker {
+  font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.24em;
+  text-transform: uppercase; color: var(--text-faint);
+  display: flex; align-items: center; gap: 12px; margin: 0 0 20px;
+}
+.channels-kicker::after { content: ""; flex: 1; height: 1px; background: var(--line-soft); }
+.channels-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.channel {
+  display: flex; align-items: center; gap: 14px;
+  padding: 18px 20px; border: 1px solid var(--line); border-radius: 12px;
+  background: var(--surface); color: inherit;
+  transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease), border-color 0.25s;
+}
+.channel:hover { transform: translateY(-3px); box-shadow: var(--card-shadow-hover); }
+.channel-mark {
+  flex: none; width: 42px; height: 42px; border-radius: 50%;
+  display: grid; place-items: center;
+  background: var(--bg-2); color: var(--ink);
+  transition: background 0.25s, color 0.25s;
+}
+.channel-txt { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.channel-txt b {
+  font-family: var(--font-display); font-size: 15px; font-weight: 600;
+  letter-spacing: -0.01em; color: var(--ink);
+}
+.channel-txt small {
+  font-family: var(--font-mono); font-size: 9.5px; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--text-faint);
+}
+.channel-go { margin-left: auto; color: var(--text-faint); font-size: 13px; transition: color 0.25s, transform 0.25s var(--ease); }
+.channel:hover .channel-go { transform: translate(2px, -2px); }
+/* each channel takes its own brand colour on hover */
+.channel.yt:hover { border-color: #ff0000; }
+.channel.yt:hover .channel-mark { background: #ff0000; color: #fff; }
+.channel.yt:hover .channel-go { color: #ff0000; }
+.channel.li:hover { border-color: #0a66c2; }
+.channel.li:hover .channel-mark { background: #0a66c2; color: #fff; }
+.channel.li:hover .channel-go { color: #0a66c2; }
+.channel.x:hover { border-color: var(--ink); }
+.channel.x:hover .channel-mark { background: var(--ink); color: var(--bg); }
+.channel.x:hover .channel-go { color: var(--ink); }
+
+@media (max-width: 860px) { .channels-row { grid-template-columns: 1fr; } }
