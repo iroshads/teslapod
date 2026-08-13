@@ -1017,6 +1017,7 @@
   // guests' companies (not the host's Marketrix) → a one-line "about" + a link.
   // episode id → insights article slug (see tools/build-insights.mjs)
   var INSIGHT_SLUGS = {
+    "g57WpguhxXA": "free-mentorship-at-scale-adplist-felix-lee",
     "AR18l-xBY6Q": "ai-secondhand-clothing-supply-chain-fleek",
     "4FtPxcSjpF8": "ai-agent-swarms-security-jason-jin",
     "UkzjHmqDMiY": "automating-consulting-with-ai-ontora",
@@ -1029,6 +1030,7 @@
   };
 
   var COMPANIES = {
+    "ADPList": { about: "The world's largest free mentorship community — 1:1 sessions with 40,000+ verified experts in design, product, engineering, AI and marketing. Backed by Sequoia India's Surge.", url: "https://adplist.org" },
     "Fleek": { about: "The AI infrastructure powering the global secondhand clothing trade — a B2B marketplace plus a vision model that grades and prices used garments from a photo.", url: "https://joinfleek.com" },
     "Funky": { about: "One API call spins up hundreds of sandboxed AI agents. Built by Jason Jin (ex-Google).", url: "https://funky.dev" },
     "Ontora": { about: "AI agents that interview every employee to map how work actually gets done — in days, not months.", url: "https://ontora.com" },
@@ -1177,10 +1179,9 @@
     people.filter(function (p) { return !p.isHost; }).forEach(function (p, i) {
       var ep = episodes.find(function (e) { return e.id === p.episodeId; });
       // a missing/failed photo falls back to initials rather than a broken image
-      var fallback = '<div class=\'person-initials\' aria-hidden=\'true\'>' + esc(initials(p.name)) + "</div>";
+      var fallback = '<div class="person-initials" aria-hidden="true">' + esc(initials(p.name)) + "</div>";
       var photo = p.photo
-        ? '<img loading="lazy" src="' + esc(p.photo) + '" alt="' + esc(p.name) + '"' +
-          " onerror=\"this.parentElement.innerHTML='" + fallback + "'\" />"
+        ? '<img loading="lazy" src="' + esc(p.photo) + '" alt="' + esc(p.name) + '" />'
         : fallback;
       var card = el(
         '<article class="person-card reveal" style="transition-delay:' + (i % 4) * 60 + 'ms" tabindex="0" aria-label="' + esc(p.name) + (ep ? " — play their episode" : "") + '">' +
@@ -1193,6 +1194,8 @@
         card.addEventListener("click", function () { openEpisode(ep); });
         card.addEventListener("keydown", function (e) { if (e.key === "Enter") openEpisode(ep); });
       }
+      var pimg = card.querySelector(".person-photo img");
+      if (pimg) pimg.addEventListener("error", function () { pimg.parentElement.innerHTML = fallback; });
       grid.appendChild(card);
     });
     observeReveals(grid);

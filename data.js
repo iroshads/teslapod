@@ -1,6 +1,18 @@
 // The Tesla Pod — baked content snapshot (auto-generated from live site + YouTube channel, Jul 15 2026)
 const EPISODES = [
   {
+    "id": "g57WpguhxXA",
+    "num": 10,
+    "title": "Sequoia Said Yes. A Million Users Later, It's Still Free",
+    "fullTitle": "Sequoia Said Yes. A Million Users Later, It's Still Free | Riding Through SF in a Self-Driving Tesla",
+    "guest": "Felix Lee",
+    "guestRole": "Cofounder & CEO @ ADPList",
+    "duration": "1:08:34",
+    "releaseDate": "Aug 11, 2026",
+    "thumb": "assets/thumbs/g57WpguhxXA.jpg",
+    "description": "Felix Lee sold his first company in high school, skipped the degree, and built ADPList into the world's largest free mentorship community — nearly 39,000 mentors, 600 million minutes of advice, 140 countries. Sequoia India's Surge backed it in 2021, and five years on he still refuses to charge for a session."
+  },
+  {
     "id": "AR18l-xBY6Q",
     "num": 9,
     "title": "Fleek Raised $25M to Fix What Happens to Your Old Clothes",
@@ -118,6 +130,13 @@ const PEOPLE = [
     "photo": "assets/people/irosha-de-silva.png",
     "episodeId": null,
     "isHost": true
+  },
+  {
+    "name": "Felix Lee",
+    "role": "Cofounder & CEO",
+    "company": "ADPList",
+    "photo": "assets/people/felix-lee.jpg",
+    "episodeId": "g57WpguhxXA"
   },
   {
     "name": "Sanket Agarwal",

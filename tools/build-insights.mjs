@@ -11,6 +11,56 @@ const IMG_HOST = "https://teslapod.vercel.app"; // resolvable today; canonical d
 
 const INSIGHTS = [
   {
+    slug: "free-mentorship-at-scale-adplist-felix-lee",
+    ep: 10, id: "g57WpguhxXA", date: "2026-08-11", dateHuman: "Aug 11, 2026", duration: "1:08:34",
+    guest: "Felix Lee", role: "Cofounder & CEO @ ADPList", company: "ADPList",
+    title: "Sequoia Said Yes. A Million Users Later, It's Still <em>Free</em>",
+    seoTitle: "Why ADPList Keeps Mentorship Free at a Million Users — Felix Lee | The Tesla Pod",
+    seoDesc: "Felix Lee sold a company in high school, skipped the degree, and built ADPList — 39,000 mentors, 600M minutes of advice, backed by Sequoia India's Surge — while refusing to charge for a single session. Insights from The Tesla Pod, the Tesla podcast.",
+    keywords: "ADPList, Felix Lee, free mentorship platform, Sequoia Surge, mentorship at scale, AI interview practice, design mentorship, career mentorship, marketplace monetization, founder without degree",
+    hook: "39,000 mentors, 600 million minutes, 140 countries — and five years of refusing to charge.",
+    sub: "Felix Lee never finished a university degree, sold his first company while still in high school, and went through an IPO before taking two deliberate years off. Then he built ADPList — the largest free mentorship community in the world, backed by Sequoia India's Surge. This ride is about the decision investors keep asking him to justify: a million users later, every session still costs nothing.",
+    bigIdea: [
+      "A marketplace with 39,000 supply-side experts and a million users would normally have monetized years ago — and most boards would have demanded it. The episode circles the decision Felix has defended for five years: keeping every mentorship session free. His argument is that the free network *is* the asset. Charge for sessions and you don't get a smaller business — you get a different, worse network, because the mentors who matter came to give back, not to bill by the half hour.",
+      "The second thread is Felix's own path: no degree, a company sold in high school, an IPO, then a two-year gap taken on purpose. In a conversation about mentorship, the host's chair is occupied by someone the credential system never certified — which is precisely the point. ADPList exists to route the advice that credentials gatekeep to the people the system skips."
+    ],
+    takeaways: [
+      "<b>The free network is the moat.</b> Payment would filter out exactly the mentors who make ADPList valuable — generosity-driven experts — and replace them with consultants. The price isn't a missing feature; it's the product's DNA.",
+      "<b>Monetize around the network, not through it.</b> The conversation explores products like AI Interview Practice as the model: keep human sessions free, build paid value on the data and trust the free layer generates.",
+      "<b>Credentials are a proxy — mentorship is the real transfer.</b> A founder with no degree built the world's largest advice network. What universities bundle badly, 1:1 mentorship unbundles precisely.",
+      "<b>The gap year is a strategy, not a pause.</b> Two years between the IPO and ADPList gave Felix the question worth a decade — most founders never stop long enough to find theirs.",
+      "<b>AI scales mentorship's floor, humans hold its ceiling.</b> Practice and preparation automate well; belief, taste, and 'you can do this' still travel human-to-human.",
+      "<b>Not everything needs to be usable to be valuable.</b> Felix's contrarian design take: some experiences should demand effort — friction can be the point, not the failure."
+    ],
+    themes: [
+      { h: "The cost of staying free", p: "What five years of 'no' to monetization actually costs — in board meetings, in runway pressure, in options foreclosed — and why Felix believes the compounding trust of a million users is the better trade. The episode gets specific about what would break the moment a price tag appears." },
+      { h: "Selling a company before finishing school", p: "Felix's origin story runs backwards: exit first, credentials never. The ride digs into what a teenage acquisition teaches about negotiation, worth, and why he's spent his career building the advice network he didn't have." },
+      { h: "AI Interview Practice and the automation line", p: "ADPList's bet on AI isn't replacing mentors — it's absorbing the rehearsal layer. Interview practice is repetitive, judgment-light, and endlessly demanded: perfect for AI. The mentor's role concentrates into what only humans do — context, conviction, and care." },
+      { h: "Usability isn't the only value", p: "From the man whose backers include usability pioneer Jakob Nielsen, a heresy: not everything needs to be usable to be valuable. Some of the best products make you work — the conversation unpacks when friction teaches and when it just loses users." }
+    ],
+    about: "ADPList is the world's largest free mentorship community: 1:1 sessions with 40,000+ verified experts across design, product, engineering, AI and marketing — nearly 39,000 mentors, 600 million minutes of advice, 140 countries, over a million users. Backed by Sequoia India's Surge in 2021, with angels from Airbnb, Gojek and Zendesk, and usability pioneer Jakob Nielsen. Felix Lee is co-founder and CEO.",
+    whyNow: "AI is commoditizing information — anyone can get a competent answer about their career in seconds. What can't be generated is a person who's done it, looking at your specific situation, telling you what they'd do. That makes human mentorship scarcer and more valuable exactly as advice-as-content collapses to zero — and it makes the network that already organized 39,000 willing experts the right asset at the right moment.",
+    numbers: [
+      { n: "~39,000", l: "verified mentors" },
+      { n: "600M", l: "minutes of advice given" },
+      { n: "140", l: "countries reached" },
+      { n: "1M+", l: "users" },
+      { n: "$0", l: "cost of every session, five years running" },
+      { n: "2021", l: "Sequoia India's Surge said yes" }
+    ],
+    autonomyLens: "Tesla's bet was that the fleet learns fastest when nothing meters the miles — every free mile driven feeds the system that improves every car. ADPList runs the same physics on advice: unmetered sessions maximize the volume of mentorship flowing through the network, and that volume — 600 million minutes of it — is what trains both the community's reputation graph and products like AI Interview Practice. Put a toll on the road and the fleet drives less; charge for sessions and the learning flywheel slows. Felix's refusal to monetize isn't idealism wearing a business costume — it's the same architecture decision the autonomy industry made about data.",
+    counter: {
+      claim: "Free isn't a business model. A Sequoia-backed marketplace that won't charge after five years and a million users isn't patient — it's a charity with a cap table, and eventually the investors' patience becomes the product.",
+      response: "The episode's answer distinguishes the network from the revenue. Marketplaces die when they monetize the wrong side too early — tax the supply of goodwill and the 39,000 mentors who came to give back quietly leave. ADPList's model keeps the trust layer free forever and builds revenue beside it: AI products trained on the network's patterns, enterprise offerings, career tooling — things the free network makes uniquely possible and uniquely credible. Whether that's discipline or delay is the tension the ride leans into; Felix's case is that every year of free compounds an asset no funded competitor can copy, because you can't buy your way to 600 million minutes of generosity."
+    },
+    faq: [
+      { q: "Is ADPList really free?", a: "Yes — every 1:1 mentorship session on ADPList is free, and has been since launch. The platform connects learners with 40,000+ verified experts across design, product, engineering, AI and marketing at no cost. Revenue comes from products built around the network, not from charging for sessions." },
+      { q: "Who backs ADPList?", a: "ADPList was backed by Sequoia India's Surge in 2021, alongside angel investors from Airbnb, Gojek and Zendesk, and usability pioneer Jakob Nielsen. Despite venture backing, the core mentorship product has stayed free." },
+      { q: "Will AI replace human mentorship?", a: "Felix Lee's view on the episode: AI absorbs the rehearsal layer — interview practice, preparation, repetitive Q&A — while human mentors concentrate on what machines can't provide: lived experience applied to your specific situation, conviction, and belief. ADPList builds both: free human sessions and AI Interview Practice." },
+      { q: "Who is Felix Lee?", a: "Felix Lee is the co-founder and CEO of ADPList, the world's largest free mentorship community. He never finished a university degree, sold his first company while still in high school, went through Passpod's IPO, and took a deliberate two-year gap before starting ADPList." }
+    ]
+  },
+  {
     slug: "ai-secondhand-clothing-supply-chain-fleek",
     ep: 9, id: "AR18l-xBY6Q", date: "2026-07-26", dateHuman: "Jul 26, 2026", duration: "59:24",
     guest: "Sanket Agarwal", role: "Cofounder @ Fleek (YC W22)", company: "Fleek",
@@ -562,7 +612,7 @@ function articlePage(it, i) {
     description: it.seoDesc,
     image: img,
     datePublished: it.date,
-    dateModified: "2026-07-30",
+    dateModified: "2026-08-13",
     author: { "@type": "Person", name: "Irosha de Silva", jobTitle: "Host, The Tesla Pod" },
     publisher: { "@type": "Organization", name: "The Tesla Pod", url: `${SITE}/` },
     mainEntityOfPage: url,
