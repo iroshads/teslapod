@@ -129,8 +129,11 @@ section { scroll-margin-top: var(--nav-h); }
 }
 .nav-cta:hover { background: var(--ink); color: var(--bg) !important; border-color: var(--ink); }
 .nav-actions { display: flex; align-items: center; gap: 8px; }
-.nav-yt { color: var(--text-dim); display: grid; place-items: center; padding: 6px; transition: color 0.2s; }
-.nav-yt:hover { color: var(--ink); }
+.nav-soc { color: var(--text-dim); display: grid; place-items: center; padding: 6px; transition: color 0.2s, transform 0.2s var(--ease); }
+.nav-soc:hover { transform: translateY(-1px); }
+.nav-soc.nav-yt:hover { color: #ff0000; }
+.nav-soc.nav-li:hover { color: #0a66c2; }
+.nav-soc.nav-x:hover { color: var(--ink); }
 .theme-toggle {
   width: 34px; height: 34px; border-radius: 50%;
   border: 1px solid var(--line); background: transparent;
@@ -1298,6 +1301,8 @@ a.ts-row:hover { border-color: var(--ts-dim); }
 }
 @media (max-width: 720px) {
   .nav-links { display: none; }
+  /* keep the header uncluttered — LinkedIn + X live in the burger menu on mobile */
+  .nav-soc.nav-li, .nav-soc.nav-x { display: none; }
   .nav-logo { padding: 7px 14px; }
   .nav-word { font-size: 15px; }
   .nav-burger {
