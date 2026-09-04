@@ -1017,6 +1017,7 @@
   // guests' companies (not the host's Marketrix) → a one-line "about" + a link.
   // episode id → insights article slug (see tools/build-insights.mjs)
   var INSIGHT_SLUGS = {
+    "9Ejk8wq14ww": "making-tech-media-entertaining-silicon-mania",
     "g57WpguhxXA": "free-mentorship-at-scale-adplist-felix-lee",
     "AR18l-xBY6Q": "ai-secondhand-clothing-supply-chain-fleek",
     "4FtPxcSjpF8": "ai-agent-swarms-security-jason-jin",
@@ -1030,6 +1031,7 @@
   };
 
   var COMPANIES = {
+    "Silicon Mania": { about: "A tech media company betting that tech is the most exciting story on earth — recap shows, a print magazine, live events and original games. Backed by Offline Ventures and Founders Inc.", url: "https://siliconmania.tv" },
     "ADPList": { about: "The world's largest free mentorship community — 1:1 sessions with 40,000+ verified experts in design, product, engineering, AI and marketing. Backed by Sequoia India's Surge.", url: "https://adplist.org" },
     "Fleek": { about: "The AI infrastructure powering the global secondhand clothing trade — a B2B marketplace plus a vision model that grades and prices used garments from a photo.", url: "https://joinfleek.com" },
     "Funky": { about: "One API call spins up hundreds of sandboxed AI agents. Built by Jason Jin (ex-Google).", url: "https://funky.dev" },

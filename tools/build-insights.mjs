@@ -11,6 +11,55 @@ const IMG_HOST = "https://teslapod.vercel.app"; // resolvable today; canonical d
 
 const INSIGHTS = [
   {
+    slug: "making-tech-media-entertaining-silicon-mania",
+    ep: 11, id: "9Ejk8wq14ww", date: "2026-08-24", dateHuman: "Aug 24, 2026", duration: "1:09:54",
+    guest: "Adil Mania", role: "Cofounder @ Silicon Mania", company: "Silicon Mania",
+    title: "Tech Has Ten Thousand Podcasts and <em>Nothing Worth Watching</em>",
+    seoTitle: "Why Tech Media Is Boring — and How Silicon Mania Wants to Fix It | The Tesla Pod",
+    seoDesc: "Adil Mania thinks tech media is the most boring media on earth: food has shows, sports has shows, tech has founders talking to founders. Silicon Mania's answer is MrBeast meets NBC. Insights from The Tesla Pod, the Tesla podcast.",
+    keywords: "tech media, Silicon Mania, Adil Mania, MrBeast for tech, entertaining tech content, tech podcasts criticism, media startup, Offline Ventures, Founders Inc, creator economy tech",
+    hook: "Food has shows. Sports has shows. Tech has founders talking to founders in cars.",
+    sub: "Adil Mania grew up in Rabat, studied engineering in France, built in Paris, and now runs Silicon Mania out of San Francisco on one claim: tech is the most exciting story on earth and nobody covers it in a way you'd choose on a Saturday night. Five formats in eight months. This ride is the one where the guest's whole thesis is an indictment of the format he's sitting in — and the host asks him about it directly.",
+    bigIdea: [
+      "Every other domain built entertainment around itself. Food has Chef's Table and MasterChef. Fashion has runway spectacle. Sports has an entire industrial complex of highlights, docuseries and personalities. Tech — arguably the most consequential story of the century — produced ten thousand podcasts of founders interviewing founders. Adil's argument is that this isn't a taste problem, it's a format problem: the industry only ever built media for itself, and never for the audience that would find it fascinating if someone bothered to make it fun.",
+      "The uncomfortable turn is that this show is one of those podcasts. A founder interviewing a founder — in a car. The episode's best moment is the host putting that to him directly instead of editing around it, and the answer is more interesting than a dodge: the problem isn't the conversation, it's that the conversation is the <em>only</em> format anyone ships. Silicon Mania's response is range — a recap show, a print magazine, live events, original games — because a healthy media ecosystem for tech looks like five things, not one thing done ten thousand times."
+    ],
+    takeaways: [
+      "<b>Tech media optimized for insiders, not audiences.</b> The genre defaults to founders talking to founders because that's who's making it — which caps its ceiling at the people already inside.",
+      "<b>Format range beats format volume.</b> Five different shapes in eight months — recap, print, live, games — tests what tech entertainment can be, instead of adding podcast ten-thousand-and-one.",
+      "<b>Print in 2026 is a signal, not nostalgia.</b> A physical magazine is the least scalable thing you can ship, which is exactly why it says the brand is real.",
+      "<b>Meaning beat margin.</b> Adil walked away from a profitable AI agency because it felt meaningless — the episode is candid about what that trade actually costs.",
+      "<b>Geography is a constraint founders still fight.</b> The Paris hackerspace that died because no European investor would lead is a concrete story about why builders keep landing in San Francisco.",
+      "<b>\"Chief Vibes Officer\" is a strategy in a joke's clothing.</b> If your thesis is that tech should be fun, the title is a product decision — and a filter for who wants to work with you."
+    ],
+    themes: [
+      { h: "The critique, aimed at the room he's in", p: "The host asks the obvious question — is a founder interviewing a founder in a Tesla exactly the problem you're describing? — and the episode doesn't cut away from the answer. What follows is the most useful part of the ride: a working distinction between formats that inform insiders and formats that recruit outsiders." },
+      { h: "What 'MrBeast meets NBC' actually means", p: "Not stunts for their own sake. It's the pairing of creator-economy production instincts — pacing, stakes, spectacle, a reason to keep watching — with the editorial seriousness of a network. Adil unpacks what that hybrid looks like when the subject is software rather than a game show." },
+      { h: "Rabat → Paris → San Francisco", p: "The route matters to the argument. Watching a Paris hackerspace shut down for want of a lead investor taught him where the energy concentrates, and why the story of technology is still told — and funded — from a few square miles." },
+      { h: "Shipping five formats in eight months", p: "The operational half of the conversation: how a small team tests media formats fast, what they learned killing the ones that didn't land, and why sponsors like Rippling, ElevenLabs, PostHog and Convex bought into a media bet this early." }
+    ],
+    about: "Silicon Mania is a tech media company built on the claim that tech is the most exciting story on earth and nobody is covering it in a way worth watching on a Saturday night. In eight months it has shipped five formats — a recap show, a print magazine, live events, original games and more. Backed by Offline Ventures and Founders Inc, with angels including Guillermo Rauch and Dan Shipper, and sponsored by Rippling, ElevenLabs, PostHog and Convex. Co-founded by Adil Mania, who grew up in Rabat, studied engineering in France, and built in Paris before moving to San Francisco.",
+    whyNow: "AI made producing video, audio and graphics nearly free, which collapsed the cost of <em>making</em> media — and simultaneously flooded every feed, which raised the cost of being <em>worth watching</em>. In that squeeze, production quality stops being the moat and taste becomes it. Meanwhile tech is generating the decade's biggest stories with the smallest entertainment footprint. The gap between how important the subject is and how boring its coverage is has never been wider, which is exactly when someone walks in and fixes it.",
+    numbers: [
+      { n: "5", l: "formats shipped" },
+      { n: "8", l: "months to ship them" },
+      { n: "10,000", l: "tech podcasts he's competing against" },
+      { n: "3", l: "cities: Rabat, Paris, San Francisco" },
+      { n: "4", l: "sponsors backing the bet" }
+    ],
+    autonomyLens: "Autonomy earned mainstream attention the moment it stopped being a spec sheet and became something you could watch — a car handling Lombard Street with nobody's hands on the wheel. The engineering was extraordinary for years before that; what changed was the format. Adil's argument is the same one, generalized: technology doesn't have an interest problem, it has a demonstration problem. And this show is a small proof of his own thesis — the reason these conversations work isn't the questions, it's that a self-driving car is doing something visibly remarkable in the background while two people talk. Put the interesting thing on screen and the audience arrives.",
+    counter: {
+      claim: "Making tech 'entertaining' is how you get hype cycles. Serious technology coverage should be dry, technical and skeptical — the moment you optimize for Saturday-night watchability, you start selling founders' mythology back to them with better lighting.",
+      response: "The episode takes this seriously rather than waving it off, and the answer separates entertainment from flattery. Sports journalism is wildly entertaining and still breaks doping scandals; food media is beautiful and still eviscerates restaurants. Production value isn't what makes coverage credulous — access-dependence is, and that's a failure mode tech's founder-interview format already has in abundance. Adil's bet is that a bigger, non-insider audience is actually harder to flatter, because people outside the bubble have no stake in the mythology. Whether Silicon Mania holds that line as sponsors and access accumulate is the open question, and the ride doesn't pretend it's settled."
+    },
+    faq: [
+      { q: "What is Silicon Mania?", a: "Silicon Mania is a San Francisco tech media company co-founded by Adil Mania, built on the premise that tech is the most exciting story on earth but is covered boringly. In eight months it has shipped five formats — a recap show, a print magazine, live events and original games. It's backed by Offline Ventures and Founders Inc." },
+      { q: "Why is tech media considered boring?", a: "Adil Mania's argument on the episode: tech media was built by insiders for insiders, so it defaults to one format — founders interviewing founders. Food, fashion and sports each developed entertainment formats aimed at general audiences; tech mostly produced podcasts aimed at people already in the industry." },
+      { q: "What does 'MrBeast meets NBC' mean for tech?", a: "It's the pairing of creator-economy production instincts — pacing, stakes, spectacle, a reason to keep watching — with the editorial seriousness of a broadcast network, applied to technology as the subject rather than games or entertainment." },
+      { q: "Who is Adil Mania?", a: "Adil Mania is the co-founder of Silicon Mania. He grew up in Rabat, studied engineering in France, and built in Paris — including a hackerspace that shut down when no European investor would lead — before moving to San Francisco. He left a profitable AI agency because the work felt meaningless." }
+    ]
+  },
+  {
     slug: "free-mentorship-at-scale-adplist-felix-lee",
     ep: 10, id: "g57WpguhxXA", date: "2026-08-11", dateHuman: "Aug 11, 2026", duration: "1:08:34",
     guest: "Felix Lee", role: "Cofounder & CEO @ ADPList", company: "ADPList",
@@ -21,7 +70,7 @@ const INSIGHTS = [
     hook: "39,000 mentors, 600 million minutes, 140 countries — and five years of refusing to charge.",
     sub: "Felix Lee never finished a university degree, sold his first company while still in high school, and went through an IPO before taking two deliberate years off. Then he built ADPList — the largest free mentorship community in the world, backed by Sequoia India's Surge. This ride is about the decision investors keep asking him to justify: a million users later, every session still costs nothing.",
     bigIdea: [
-      "A marketplace with 39,000 supply-side experts and a million users would normally have monetized years ago — and most boards would have demanded it. The episode circles the decision Felix has defended for five years: keeping every mentorship session free. His argument is that the free network *is* the asset. Charge for sessions and you don't get a smaller business — you get a different, worse network, because the mentors who matter came to give back, not to bill by the half hour.",
+      "A marketplace with 39,000 supply-side experts and a million users would normally have monetized years ago — and most boards would have demanded it. The episode circles the decision Felix has defended for five years: keeping every mentorship session free. His argument is that the free network <em>is</em> the asset. Charge for sessions and you don't get a smaller business — you get a different, worse network, because the mentors who matter came to give back, not to bill by the half hour.",
       "The second thread is Felix's own path: no degree, a company sold in high school, an IPO, then a two-year gap taken on purpose. In a conversation about mentorship, the host's chair is occupied by someone the credential system never certified — which is precisely the point. ADPList exists to route the advice that credentials gatekeep to the people the system skips."
     ],
     takeaways: [
@@ -167,7 +216,7 @@ const INSIGHTS = [
     sub: "When a Fortune 500 wants to understand how it actually works, it pays consultants millions and waits months for a slide deck. David, Leon and their cofounder Max built Ontora — an AI agent that interviews every employee, maps how work really gets done, and delivers the answer in 24 hours.",
     bigIdea: [
       "The core insight of this ride: the expensive part of consulting was never the recommendations — it was the data collection. Armies of associates interviewing staff, shadowing workflows, and stitching together how an org actually functions. That's precisely the part an AI agent can do at full coverage instead of a sample, in parallel instead of sequentially.",
-      "Interviewing *every* employee changes the product category. A consultant samples twenty people and extrapolates; Ontora talks to everyone and aggregates. The deliverable stops being an opinion and starts being a measurement — an X-ray of the org chart as it really operates, not as it's drawn."
+      "Interviewing <em>every</em> employee changes the product category. A consultant samples twenty people and extrapolates; Ontora talks to everyone and aggregates. The deliverable stops being an opinion and starts being a measurement — an X-ray of the org chart as it really operates, not as it's drawn."
     ],
     takeaways: [
       "<b>Attack the labor, not the logo.</b> Ontora doesn't out-brand McKinsey — it deletes the associate-hours that make consulting cost millions and take months.",
@@ -345,7 +394,7 @@ const INSIGHTS = [
     hook: "Boomer owners are retiring in waves — and their businesses' know-how retires with them.",
     sub: "Laila Gamaleldin, founder of Silver Surf, on the silver tsunami: millions of profitable small businesses whose owners are aging out, whose operating knowledge lives in one person's head, and whose exits — or quiet shutdowns — add up to a $5 trillion problem tech has ignored.",
     bigIdea: [
-      "While tech chases the same ten SaaS categories, the largest wealth transfer in history is happening in HVAC companies, machine shops, and family distributors. The bottleneck isn't buyers or money — it's that the business *is* the owner. Pricing instincts, vendor relationships, the Tuesday-morning routine: none of it is written down, so none of it survives a sale.",
+      "While tech chases the same ten SaaS categories, the largest wealth transfer in history is happening in HVAC companies, machine shops, and family distributors. The bottleneck isn't buyers or money — it's that the business <em>is</em> the owner. Pricing instincts, vendor relationships, the Tuesday-morning routine: none of it is written down, so none of it survives a sale.",
       "Silver Surf's move is to treat owner knowledge as an extractable asset: interview it out, turn it into SOPs and AI-assisted operations, and make the business runnable by someone who isn't its founder. Do that, and you don't just save a company — you raise its price, because buyers pay for systems, not heroics."
     ],
     takeaways: [
@@ -630,7 +679,7 @@ function articlePage(it, i) {
     description: it.seoDesc,
     image: img,
     datePublished: it.date,
-    dateModified: "2026-08-13",
+    dateModified: "2026-09-04",
     author: { "@type": "Person", name: "Irosha de Silva", jobTitle: "Host, The Tesla Pod" },
     publisher: { "@type": "Organization", name: "The Tesla Pod", url: `${SITE}/` },
     mainEntityOfPage: url,

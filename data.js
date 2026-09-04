@@ -1,6 +1,18 @@
 // The Tesla Pod — baked content snapshot (auto-generated from live site + YouTube channel, Jul 15 2026)
 const EPISODES = [
   {
+    "id": "9Ejk8wq14ww",
+    "num": 11,
+    "title": "MrBeast Meets Silicon Valley: Making Tech Fun Again",
+    "fullTitle": "MrBeast Meets Silicon Valley: Making Tech Fun Again | Riding Through SF in a Self-Driving Tesla",
+    "guest": "Adil Mania",
+    "guestRole": "Cofounder @ Silicon Mania",
+    "duration": "1:09:54",
+    "releaseDate": "Aug 24, 2026",
+    "thumb": "assets/thumbs/9Ejk8wq14ww.jpg",
+    "description": "Adil Mania thinks tech media is the most boring media in the world — food has shows, fashion has shows, sports has shows, and tech has ten thousand podcasts of founders talking to founders. So I asked him whether this show is part of the problem. From Rabat to Paris to San Francisco, he's built Silicon Mania into five formats in eight months."
+  },
+  {
     "id": "g57WpguhxXA",
     "num": 10,
     "title": "Sequoia Said Yes. A Million Users Later, It's Still Free",
@@ -130,6 +142,13 @@ const PEOPLE = [
     "photo": "assets/people/irosha-de-silva.png",
     "episodeId": null,
     "isHost": true
+  },
+  {
+    "name": "Adil Mania",
+    "role": "Cofounder",
+    "company": "Silicon Mania",
+    "photo": "assets/people/adil-mania.jpg",
+    "episodeId": "9Ejk8wq14ww"
   },
   {
     "name": "Felix Lee",
