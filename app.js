@@ -98,6 +98,7 @@
 
   /* ---------- lazy images ease in once they've loaded ---------- */
   function fadeImgs(ctx) {
+    document.documentElement.classList.add("img-fade");
     (ctx || document).querySelectorAll("img[loading='lazy']:not(.loaded)").forEach(function (img) {
       if (img.complete && img.naturalWidth) { img.classList.add("loaded"); return; }
       img.addEventListener("load", function () { img.classList.add("loaded"); }, { once: true });

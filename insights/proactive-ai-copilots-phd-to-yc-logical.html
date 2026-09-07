@@ -280,6 +280,15 @@
     });
     document.getElementById("year").textContent = new Date().getFullYear();
     var reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
+    // lazy images ease in once decoded — opt into the fade only now that JS is running
+    (function fadeImgs() {
+      document.documentElement.classList.add("img-fade");
+      document.querySelectorAll("img[loading='lazy']").forEach(function (img) {
+        if (img.complete && img.naturalWidth) { img.classList.add("loaded"); return; }
+        img.addEventListener("load", function () { img.classList.add("loaded"); }, { once: true });
+        img.addEventListener("error", function () { img.classList.add("loaded"); }, { once: true });
+      });
+    })();
     // reading progress + nav presence on scroll
     var bar = document.getElementById("inProgress"), nav = document.getElementById("nav");
     function onScroll() {

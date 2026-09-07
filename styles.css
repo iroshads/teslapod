@@ -1630,8 +1630,10 @@ html.theming, html.theming *, html.theming *::before, html.theming *::after {
 .section-head.in .eyebrow::before, .section-head:not(.reveal) .eyebrow::before { transform: scaleX(1); }
 
 /* lazy images ease in once decoded (no more pop-in) */
-img[loading="lazy"] { opacity: 0; transition: opacity 0.5s var(--ease); }
-img[loading="lazy"].loaded { opacity: 1; }
+/* Fail-safe: the fade only engages once a script has claimed it (html.img-fade).
+   Without JS — or on any page that doesn't run the loader — images stay visible. */
+html.img-fade img[loading="lazy"] { opacity: 0; transition: opacity 0.5s var(--ease); }
+html.img-fade img[loading="lazy"].loaded { opacity: 1; }
 
 /* back to top */
 .to-top {
