@@ -851,12 +851,15 @@ ${NAV}
     <section class="in-related">
       <h2>More insights from the pod</h2>
       <div class="insights-grid">
-        ${related.map((r) => `<a class="in-card" href="/insights/${r.slug}">
-        <div class="in-card-thumb"><img loading="lazy" src="/assets/thumbs/${r.id}.jpg" alt="${esc(plain(r.title))} — The Tesla Pod episode ${String(r.ep).padStart(2, "0")}" onerror="this.src='https://img.youtube.com/vi/${r.id}/hqdefault.jpg'" /></div>
+        ${related.map((r) => `<a class="in-card in-card-sm" href="/insights/${r.slug}">
+        <div class="in-card-media">
+          <img loading="lazy" src="/assets/thumbs/${r.id}.jpg" alt="${esc(plain(r.title))} — The Tesla Pod episode ${String(r.ep).padStart(2, "0")}" onerror="this.src='https://img.youtube.com/vi/${r.id}/hqdefault.jpg'" />
+        </div>
+        <span class="in-card-ep" aria-hidden="true">${String(r.ep).padStart(2, "0")}</span>
         <div class="in-card-body">
-          <span class="in-card-kicker">EP ${String(r.ep).padStart(2, "0")} · ${esc(r.company)}</span>
+          <span class="in-card-kicker">${esc(r.company)}</span>
           <h3>${r.title.replace(/<\/?em>/g, "")}</h3>
-          <span class="in-card-go">Read the insights →</span>
+          <span class="in-card-go">Read the insights <i aria-hidden="true">→</i></span>
         </div>
       </a>`).join("\n        ")}
       </div>
@@ -926,12 +929,15 @@ ${NAV}
     </div>
     <div class="insights-grid">
       ${INSIGHTS.map((it) => `<a class="in-card" href="/insights/${it.slug}">
-        <div class="in-card-thumb"><img loading="lazy" src="/assets/thumbs/${it.id}.jpg" alt="${esc(plain(it.title))} — The Tesla Pod episode ${String(it.ep).padStart(2, "0")}" onerror="this.src='https://img.youtube.com/vi/${it.id}/hqdefault.jpg'" /></div>
+        <div class="in-card-media">
+          <img loading="lazy" src="/assets/thumbs/${it.id}.jpg" alt="${esc(plain(it.title))} — The Tesla Pod episode ${String(it.ep).padStart(2, "0")}" onerror="this.src='https://img.youtube.com/vi/${it.id}/hqdefault.jpg'" />
+        </div>
+        <span class="in-card-ep" aria-hidden="true">${String(it.ep).padStart(2, "0")}</span>
         <div class="in-card-body">
-          <span class="in-card-kicker">EP ${String(it.ep).padStart(2, "0")} · ${esc(it.company)} · ${esc(it.dateHuman)}</span>
+          <span class="in-card-kicker">${esc(it.company)} · ${esc(it.dateHuman)}</span>
           <h2>${it.title.replace(/<\/?em>/g, "")}</h2>
           <p>${esc(it.hook)}</p>
-          <span class="in-card-go">Read the insights →</span>
+          <span class="in-card-go">Read the insights <i aria-hidden="true">→</i></span>
         </div>
       </a>`).join("\n      ")}
     </div>
