@@ -255,6 +255,31 @@
       burger.setAttribute("aria-expanded", open ? "true" : "false");
     });
     document.getElementById("year").textContent = new Date().getFullYear();
+    var reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
+    // reading progress + nav presence on scroll
+    var bar = document.getElementById("inProgress"), nav = document.getElementById("nav");
+    function onScroll() {
+      var h = document.documentElement, y = h.scrollTop;
+      if (bar) bar.style.width = (y / (h.scrollHeight - h.clientHeight || 1)) * 100 + "%";
+      if (nav) nav.classList.toggle("scrolled", y > 8);
+    }
+    addEventListener("scroll", onScroll, { passive: true }); onScroll();
+    // article blocks rise in as they enter view
+    var blocks = document.querySelectorAll(".in-article > *");
+    if (blocks.length && !reduced && "IntersectionObserver" in window) {
+      var rio = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.remove("in-vis-wait"); en.target.classList.add("in-vis"); rio.unobserve(en.target); } });
+      }, { rootMargin: "0px 0px -6% 0px", threshold: 0.05 });
+      blocks.forEach(function (b) { b.classList.add("in-vis-wait"); rio.observe(b); });
+    }
+    // copy link
+    var copyBtn = document.querySelector(".sh-copy");
+    if (copyBtn) copyBtn.addEventListener("click", function () {
+      var url = copyBtn.getAttribute("data-url"), label = copyBtn.querySelector("span");
+      function done() { copyBtn.classList.add("done"); label.textContent = "Link copied"; setTimeout(function () { copyBtn.classList.remove("done"); label.textContent = "Copy link"; }, 1800); }
+      if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(url).then(done, done);
+      else { var t = document.createElement("textarea"); t.value = url; document.body.appendChild(t); t.select(); try { document.execCommand("copy"); } catch (e) {} t.remove(); done(); }
+    });
     // scrollspy for the article table of contents
     var tocLinks = document.querySelectorAll(".in-toc a[href^='#']");
     if (tocLinks.length && "IntersectionObserver" in window) {

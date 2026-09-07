@@ -48,6 +48,7 @@
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the silver tsunami in small business?","acceptedAnswer":{"@type":"Answer","text":"The 'silver tsunami' is the wave of baby-boomer business owners hitting retirement age — millions of profitable small businesses that must be sold, passed down, or shut within the decade, representing trillions in value with no modern tooling to handle the transition."}},{"@type":"Question","name":"Why do small businesses fail to sell?","acceptedAnswer":{"@type":"Answer","text":"Because the business is the owner: pricing instincts, vendor relationships, and daily operations live in one person's head. Buyers discount or walk away from key-person risk. Businesses with documented systems and processes sell more often and at higher multiples."}},{"@type":"Question","name":"What is Silver Surf?","acceptedAnswer":{"@type":"Answer","text":"Silver Surf, founded by Laila Gamaleldin, turns a retiring owner's know-how into SOPs and AI-assisted operations — so the business can run without its founder, survive the transition, and command a better exit price."}}]}</script>
 </head>
 <body>
+  <div class="in-progress" id="inProgress" aria-hidden="true"></div>
 
   <header class="nav" id="nav">
     <a class="nav-logo" href="/" aria-label="The Tesla Pod — home">
@@ -97,6 +98,7 @@
         <span><b>Silver Surf</b></span>
         <span>MAY 17, 2026</span>
         <span>27:51</span>
+        <span class="in-read">4 MIN READ</span>
       </div>
     </div>
     <div class="in-layout">
@@ -144,6 +146,18 @@
       <div class="in-watch">
         <span>Watch the full ride — Episode 03 of The Tesla Pod, the Tesla podcast recorded in a self-driving Tesla.</span>
         <a class="btn btn-primary" href="https://www.youtube.com/watch?v=VVFp6FDn5KM" target="_blank" rel="noopener">▶ Watch on YouTube</a>
+      </div>
+      <div class="in-share" aria-label="Share this article">
+        <span class="in-share-label">Share</span>
+        <a class="sh-x" href="https://x.com/intent/post?text=The%20%245%20Trillion%20Problem%20Nobody%20in%20Tech%20Is%20Working%20On%20%E2%80%94%20via%20%40theteslapod&url=https%3A%2F%2Fwww.theteslapod.com%2Finsights%2F5-trillion-small-business-succession-silver-surf" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor" aria-hidden="true"><path d="M18.24 2.25h3.31l-7.23 8.26 8.5 11.24h-6.66l-5.21-6.82-5.97 6.82H1.66l7.73-8.84L1.24 2.25h6.83l4.71 6.23zm-1.16 17.52h1.83L7.08 4.13H5.11z"/></svg>Post on X
+        </a>
+        <a class="sh-li" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.theteslapod.com%2Finsights%2F5-trillion-small-business-succession-silver-surf" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05a3.74 3.74 0 0 1 3.37-1.85c3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zm1.78 13.02H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>Share on LinkedIn
+        </a>
+        <button type="button" class="sh-copy" data-url="https://www.theteslapod.com/insights/5-trillion-small-business-succession-silver-surf">
+          <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg><span>Copy link</span>
+        </button>
       </div>
       <nav class="in-prevnext" aria-label="More insights">
         <a href="/insights/raising-yc-at-18-manicule">← EP 02 · They Raised $500K from YC at 18</a>
@@ -255,6 +269,31 @@
       burger.setAttribute("aria-expanded", open ? "true" : "false");
     });
     document.getElementById("year").textContent = new Date().getFullYear();
+    var reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
+    // reading progress + nav presence on scroll
+    var bar = document.getElementById("inProgress"), nav = document.getElementById("nav");
+    function onScroll() {
+      var h = document.documentElement, y = h.scrollTop;
+      if (bar) bar.style.width = (y / (h.scrollHeight - h.clientHeight || 1)) * 100 + "%";
+      if (nav) nav.classList.toggle("scrolled", y > 8);
+    }
+    addEventListener("scroll", onScroll, { passive: true }); onScroll();
+    // article blocks rise in as they enter view
+    var blocks = document.querySelectorAll(".in-article > *");
+    if (blocks.length && !reduced && "IntersectionObserver" in window) {
+      var rio = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.remove("in-vis-wait"); en.target.classList.add("in-vis"); rio.unobserve(en.target); } });
+      }, { rootMargin: "0px 0px -6% 0px", threshold: 0.05 });
+      blocks.forEach(function (b) { b.classList.add("in-vis-wait"); rio.observe(b); });
+    }
+    // copy link
+    var copyBtn = document.querySelector(".sh-copy");
+    if (copyBtn) copyBtn.addEventListener("click", function () {
+      var url = copyBtn.getAttribute("data-url"), label = copyBtn.querySelector("span");
+      function done() { copyBtn.classList.add("done"); label.textContent = "Link copied"; setTimeout(function () { copyBtn.classList.remove("done"); label.textContent = "Copy link"; }, 1800); }
+      if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(url).then(done, done);
+      else { var t = document.createElement("textarea"); t.value = url; document.body.appendChild(t); t.select(); try { document.execCommand("copy"); } catch (e) {} t.remove(); done(); }
+    });
     // scrollspy for the article table of contents
     var tocLinks = document.querySelectorAll(".in-toc a[href^='#']");
     if (tocLinks.length && "IntersectionObserver" in window) {

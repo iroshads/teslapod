@@ -1551,3 +1551,83 @@ a.ts-row:hover { border-color: var(--ts-dim); }
 .social-mini a.sm-x:hover { background: var(--ink); border-color: var(--ink); color: var(--bg); }
 .hero-social { margin-top: 20px; transition-delay: 0.22s; }
 .footer-social { margin-top: 18px; }
+
+/* ================= polish pass: motion + functionality ================= */
+
+/* theme switch cross-fades instead of snapping */
+html.theming, html.theming *, html.theming *::before, html.theming *::after {
+  transition: background-color 0.38s ease, color 0.38s ease, border-color 0.38s ease, fill 0.38s ease !important;
+}
+
+/* nav gains presence once the page is scrolled */
+.nav { transition: box-shadow 0.3s var(--ease), border-color 0.3s; }
+.nav.scrolled { box-shadow: 0 6px 24px rgba(20, 20, 20, 0.06); border-bottom-color: var(--line); }
+[data-theme="dark"] .nav.scrolled { box-shadow: 0 6px 24px rgba(0, 0, 0, 0.35); }
+
+/* active section marker under the nav link */
+.nav-links a { position: relative; }
+.nav-links a::after {
+  content: ""; position: absolute; left: 50%; bottom: -6px;
+  width: 4px; height: 4px; border-radius: 50%; background: var(--accent);
+  transform: translateX(-50%) scale(0); transition: transform 0.25s var(--ease);
+}
+.nav-links a.active::after { transform: translateX(-50%) scale(1); }
+.nav-links a.nav-cta::after { display: none; }
+
+/* section eyebrow rule draws in as the heading reveals */
+.eyebrow::before { transform-origin: left; transform: scaleX(0); transition: transform 0.7s var(--ease) 0.15s; }
+.section-head.in .eyebrow::before, .section-head:not(.reveal) .eyebrow::before { transform: scaleX(1); }
+
+/* lazy images ease in once decoded (no more pop-in) */
+img[loading="lazy"] { opacity: 0; transition: opacity 0.5s var(--ease); }
+img[loading="lazy"].loaded { opacity: 1; }
+
+/* back to top */
+.to-top {
+  position: fixed; right: 22px; bottom: 22px; z-index: 90;
+  width: 42px; height: 42px; border-radius: 50%;
+  border: 1px solid var(--line); background: var(--surface); color: var(--ink);
+  display: grid; place-items: center; cursor: pointer;
+  box-shadow: var(--card-shadow);
+  opacity: 0; transform: translateY(12px) scale(0.92); pointer-events: none;
+  transition: opacity 0.3s var(--ease), transform 0.3s var(--ease), border-color 0.2s, color 0.2s;
+}
+.to-top.show { opacity: 1; transform: none; pointer-events: auto; }
+.to-top:hover { border-color: var(--accent); color: var(--accent); }
+
+/* ---- insights pages ---- */
+.in-progress {
+  position: fixed; top: 0; left: 0; height: 2px; width: 0; z-index: 200;
+  background: var(--accent); transition: width 0.08s linear;
+}
+.in-article h2[id] { scroll-margin-top: calc(var(--nav-h) + 24px); }
+/* article blocks rise in as you read */
+.in-article > .in-vis-wait { opacity: 0; transform: translateY(14px); }
+.in-article > .in-vis { opacity: 1; transform: none; transition: opacity 0.6s var(--ease), transform 0.6s var(--ease); }
+/* share row */
+.in-share {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 10px;
+  margin-top: 22px;
+}
+.in-share-label {
+  font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--text-faint); margin-right: 4px;
+}
+.in-share a, .in-share button {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: var(--font-body); font-size: 13px; font-weight: 500; color: var(--ink);
+  padding: 9px 14px; border-radius: 999px; border: 1px solid var(--line);
+  background: transparent; cursor: pointer;
+  transition: border-color 0.2s, background 0.2s, color 0.2s, transform 0.2s var(--ease);
+}
+.in-share a:hover, .in-share button:hover { transform: translateY(-2px); border-color: var(--ink); }
+.in-share .sh-x:hover { background: var(--ink); color: var(--bg); }
+.in-share .sh-li:hover { background: #0a66c2; border-color: #0a66c2; color: #fff; }
+.in-share .sh-copy.done { background: var(--accent); border-color: var(--accent); color: #fff; }
+.in-meta .in-read { color: var(--text-dim); }
+
+@media (prefers-reduced-motion: reduce) {
+  .in-article > .in-vis-wait { opacity: 1; transform: none; }
+  img[loading="lazy"] { opacity: 1; }
+  .eyebrow::before { transform: scaleX(1); }
+}

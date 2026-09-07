@@ -27,7 +27,12 @@
   var saved = null;
   try { saved = localStorage.getItem("tp-theme"); } catch (e) {}
   if (saved === "light" || saved === "dark") root.setAttribute("data-theme", saved);
+  var themingTimer = null;
   function applyTheme(next) {
+    // brief cross-fade so the whole page eases between palettes instead of snapping
+    root.classList.add("theming");
+    clearTimeout(themingTimer);
+    themingTimer = setTimeout(function () { root.classList.remove("theming"); }, 420);
     root.setAttribute("data-theme", next);
     try { localStorage.setItem("tp-theme", next); } catch (e) {}
     renderHeroVideo();
@@ -50,13 +55,66 @@
     if (e.target.tagName === "A") { menu.classList.remove("open"); burger.setAttribute("aria-expanded", "false"); }
   });
 
-  /* ---------- scroll progress ---------- */
-  var progress = $("#scrollProgress");
-  addEventListener("scroll", function () {
+  /* ---------- scroll progress + nav state + back-to-top ---------- */
+  var progress = $("#scrollProgress"), navEl = $("#nav");
+  var toTop = el('<button type="button" class="to-top" id="toTop" aria-label="Back to top"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button>');
+  document.body.appendChild(toTop);
+  toTop.addEventListener("click", function () { window.scrollTo({ top: 0, behavior: "smooth" }); });
+  function onScroll() {
     var h = document.documentElement;
-    var pct = h.scrollTop / (h.scrollHeight - h.clientHeight || 1);
-    progress.style.width = pct * 100 + "%";
-  }, { passive: true });
+    var y = h.scrollTop;
+    progress.style.width = (y / (h.scrollHeight - h.clientHeight || 1)) * 100 + "%";
+    navEl.classList.toggle("scrolled", y > 8);
+    toTop.classList.toggle("show", y > h.clientHeight * 1.2);
+  }
+  addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+
+  /* ---------- active section → nav link ---------- */
+  (function navSpy() {
+    var links = {};
+    document.querySelectorAll(".nav-links a[href^='#']").forEach(function (a) { links[a.getAttribute("href").slice(1)] = a; });
+    var ids = Object.keys(links);
+    if (!ids.length || !("IntersectionObserver" in window)) return;
+    var current = null;
+    var spy = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (!en.isIntersecting) return;
+        if (current) current.classList.remove("active");
+        current = links[en.target.id] || null;
+        if (current) current.classList.add("active");
+      });
+    }, { rootMargin: "-35% 0px -55% 0px" });
+    ids.forEach(function (id) { var s = document.getElementById(id); if (s) spy.observe(s); });
+    // clear when back at the top (hero)
+    addEventListener("scroll", function () {
+      if (document.documentElement.scrollTop < 200 && current) { current.classList.remove("active"); current = null; }
+    }, { passive: true });
+  })();
+
+  /* ---------- lazy images ease in once they've loaded ---------- */
+  function fadeImgs(ctx) {
+    (ctx || document).querySelectorAll("img[loading='lazy']:not(.loaded)").forEach(function (img) {
+      if (img.complete && img.naturalWidth) { img.classList.add("loaded"); return; }
+      img.addEventListener("load", function () { img.classList.add("loaded"); }, { once: true });
+      img.addEventListener("error", function () { img.classList.add("loaded"); }, { once: true });
+    });
+  }
+
+  /* ---------- count-up for the hero stats ---------- */
+  function countUp(elm, to, decimals, duration) {
+    function fmt(v) { return v.toFixed(decimals).replace(/\.0$/, ""); }
+    if (matchMedia("(prefers-reduced-motion: reduce)").matches) { elm.textContent = fmt(to); return; }
+    var start = null;
+    function step(ts) {
+      if (!start) start = ts;
+      var p = Math.min(1, (ts - start) / duration);
+      var eased = 1 - Math.pow(1 - p, 3);
+      elm.textContent = p < 1 ? (to * eased).toFixed(decimals) : fmt(to);
+      if (p < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
 
   /* ---------- reveal on scroll ---------- */
   var io = new IntersectionObserver(function (entries) {
@@ -957,11 +1015,20 @@
       var p = (e.duration || "0:0").split(":").map(Number);
       return s + (p.length === 3 ? p[0] * 60 + p[1] + p[2] / 60 : p[0] + (p[1] || 0) / 60);
     }, 0));
-    var hours = (totalMin / 60).toFixed(1).replace(/\.0$/, "");
+    var hoursNum = Math.round((totalMin / 60) * 10) / 10;
     $("#heroMeta").innerHTML =
-      "<span><b>" + episodes.length + "</b> rides logged</span><i>/</i>" +
-      "<span><b>" + hours + " hrs</b> of unfiltered conversation</span><i>/</i>" +
+      '<span><b id="statRides">' + episodes.length + "</b> rides logged</span><i>/</i>" +
+      '<span><b><span id="statHours">' + hoursNum + "</span> hrs</b> of unfiltered conversation</span><i>/</i>" +
       "<span>zero interventions</span>";
+    // the numbers tick up as the stats fade in (skipped under reduced motion)
+    if (!$("#heroMeta").dataset.counted) {
+      $("#heroMeta").dataset.counted = "1";
+      setTimeout(function () {
+        countUp($("#statRides"), episodes.length, 0, 900);
+        countUp($("#statHours"), hoursNum, 1, 1100);
+      }, 350);
+    }
+    fadeImgs($("#latestCard"));
   }
 
   /* ---------- render: episodes ---------- */
@@ -1010,6 +1077,8 @@
       grid.appendChild(card);
     });
     observeReveals(grid);
+    fadeImgs($("#episodeFeatured"));
+    fadeImgs(grid);
   }
 
   /* ---------- render: passengers ---------- */
@@ -1201,6 +1270,7 @@
       grid.appendChild(card);
     });
     observeReveals(grid);
+    fadeImgs(grid);
   }
 
   /* ---------- live YouTube sync (/api/episodes) ---------- */
