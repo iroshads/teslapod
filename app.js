@@ -72,24 +72,28 @@
 
   /* ---------- active section → nav link ---------- */
   (function navSpy() {
-    var links = {};
-    document.querySelectorAll(".nav-links a[href^='#']").forEach(function (a) { links[a.getAttribute("href").slice(1)] = a; });
-    var ids = Object.keys(links);
-    if (!ids.length || !("IntersectionObserver" in window)) return;
-    var current = null;
-    var spy = new IntersectionObserver(function (entries) {
-      entries.forEach(function (en) {
-        if (!en.isIntersecting) return;
-        if (current) current.classList.remove("active");
-        current = links[en.target.id] || null;
-        if (current) current.classList.add("active");
-      });
-    }, { rootMargin: "-35% 0px -55% 0px" });
-    ids.forEach(function (id) { var s = document.getElementById(id); if (s) spy.observe(s); });
-    // clear when back at the top (hero)
-    addEventListener("scroll", function () {
-      if (document.documentElement.scrollTop < 200 && current) { current.classList.remove("active"); current = null; }
-    }, { passive: true });
+    var links = {}, sections = [];
+    document.querySelectorAll(".nav-links a[href^='#']").forEach(function (a) {
+      var id = a.getAttribute("href").slice(1), s = document.getElementById(id);
+      if (s) { links[id] = a; sections.push(s); }
+    });
+    if (!sections.length) return;
+    var current = null, ticking = false;
+    function update() {
+      ticking = false;
+      var probe = document.documentElement.scrollTop + innerHeight * 0.38, hit = null;
+      for (var i = 0; i < sections.length; i++) {
+        var s = sections[i];
+        if (probe >= s.offsetTop && probe < s.offsetTop + s.offsetHeight) { hit = links[s.id]; break; }
+      }
+      if (hit === current) return;
+      if (current) current.classList.remove("active");
+      current = hit;
+      if (current) current.classList.add("active");
+    }
+    addEventListener("scroll", function () { if (!ticking) { ticking = true; requestAnimationFrame(update); } }, { passive: true });
+    addEventListener("resize", update, { passive: true });
+    update();
   })();
 
   /* ---------- lazy images ease in once they've loaded ---------- */
