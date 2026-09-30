@@ -22,21 +22,35 @@
     return name.split(/\s+/).slice(0, 2).map(function (w) { return w[0]; }).join("").toUpperCase();
   }
 
+  // live media query — read .matches at call time so a mid-visit OS change is honoured
+  var reduceMQ = matchMedia("(prefers-reduced-motion: reduce)");
+  function smooth() { return reduceMQ.matches ? "auto" : "smooth"; }
+
   /* ---------- theme ---------- */
+  // the saved theme is already applied by the inline <head> script (before first paint);
+  // this re-read keeps app.js correct on its own
   var root = document.documentElement;
   var saved = null;
   try { saved = localStorage.getItem("tp-theme"); } catch (e) {}
   if (saved === "light" || saved === "dark") root.setAttribute("data-theme", saved);
+  // browser toolbar tint follows the site theme, not the OS
+  function syncThemeColor(t) {
+    var m = document.querySelector('meta[name="theme-color"]');
+    if (m) m.setAttribute("content", t === "dark" ? "#101012" : "#fbfaf8");
+  }
+  syncThemeColor(root.getAttribute("data-theme"));
   var themingTimer = null;
   function applyTheme(next) {
     // brief cross-fade so the whole page eases between palettes instead of snapping
-    root.classList.add("theming");
-    clearTimeout(themingTimer);
-    themingTimer = setTimeout(function () { root.classList.remove("theming"); }, 420);
+    if (!reduceMQ.matches) {
+      root.classList.add("theming");
+      clearTimeout(themingTimer);
+      themingTimer = setTimeout(function () { root.classList.remove("theming"); }, 420);
+    }
     root.setAttribute("data-theme", next);
     try { localStorage.setItem("tp-theme", next); } catch (e) {}
+    syncThemeColor(next);
     renderHeroVideo();
-    if (window.__setMapTheme) window.__setMapTheme(next);
     document.querySelectorAll("#tsThemeSeg button").forEach(function (b) {
       b.classList.toggle("on", b.getAttribute("data-theme-set") === next);
     });
@@ -59,7 +73,7 @@
   var progress = $("#scrollProgress"), navEl = $("#nav");
   var toTop = el('<button type="button" class="to-top" id="toTop" aria-label="Back to top"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button>');
   document.body.appendChild(toTop);
-  toTop.addEventListener("click", function () { window.scrollTo({ top: 0, behavior: "smooth" }); });
+  toTop.addEventListener("click", function () { window.scrollTo({ top: 0, behavior: smooth() }); });
   function onScroll() {
     var h = document.documentElement;
     var y = h.scrollTop;
@@ -109,7 +123,7 @@
   /* ---------- count-up for the hero stats ---------- */
   function countUp(elm, to, decimals, duration) {
     function fmt(v) { return v.toFixed(decimals).replace(/\.0$/, ""); }
-    if (matchMedia("(prefers-reduced-motion: reduce)").matches) { elm.textContent = fmt(to); return; }
+    if (reduceMQ.matches) { elm.textContent = fmt(to); return; }
     var start = null;
     function step(ts) {
       if (!start) start = ts;
@@ -134,6 +148,10 @@
       io.observe(n);
     });
   }
+  // observe the static blocks immediately, before any render can throw; tells the <head>
+  // fail-safe that the reveal system is alive (otherwise it adds .no-reveal and shows everything)
+  observeReveals();
+  window.__tpReveal = true;
 
   /* ---------- telemetry ---------- */
   (function speed() {
@@ -155,26 +173,29 @@
     }
   })();
   /* the live map card: a real Leaflet map of San Francisco.
-     The pod navigates a street network between landmarks — click one to send it there. */
-  (function liveMap() {
+     The pod navigates a street network between landmarks — click one to send it there.
+     Leaflet loads async, so this runs whenever the library arrives (see the call after the function). */
+  var mapStarted = false;
+  function liveMap() {
     var mapEl = document.getElementById("liveMap");
     var coordEl = $("#coordVal");
     var cursorEl = $("#mapCursor");
     var passingEl = $("#mapPassing");
-    if (!mapEl || typeof L === "undefined") return;
+    if (mapStarted || !mapEl || typeof L === "undefined") return;
+    mapStarted = true;
 
-    var TILE_LIGHT = "https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png";
-    var TILE_DARK = "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png";
+    // OpenStreetMap raster tiles (keyless, attribution required). The light/dark editorial tone is a
+    // CSS filter on the tile pane (styles.css), so one tile set serves both themes.
+    var TILE_URL = "https://tile.openstreetmap.org/{z}/{x}/{y}.png";
 
-    var map = L.map(mapEl, { scrollWheelZoom: false, zoomSnap: 0.25, attributionControl: true });
+    // on phones, one-finger swipes scroll the page instead of panning the map (pinch still zooms,
+    // taps still dispatch); fullscreen turns dragging back on — see setFull
+    var map = L.map(mapEl, { scrollWheelZoom: false, zoomSnap: 0.25, attributionControl: true, dragging: !L.Browser.mobile });
     map.attributionControl.setPrefix(false);
-    var tiles = L.tileLayer(
-      root.getAttribute("data-theme") === "dark" ? TILE_DARK : TILE_LIGHT,
-      { maxZoom: 18, attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OSM</a> &copy; <a href="https://carto.com/attributions">CARTO</a>' }
-    ).addTo(map);
-    window.__setMapTheme = function (theme) {
-      tiles.setUrl(theme === "dark" ? TILE_DARK : TILE_LIGHT);
-    };
+    L.tileLayer(TILE_URL, {
+      maxZoom: 19,
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
     window.__podMap = map;
 
     /* ---- the street network: nodes at real intersections, edges along streets ---- */
@@ -449,20 +470,42 @@
       target = lm; targetLm = fast ? lm : null;
       fastMode = fast;
     }
-    function pickNextTrip() {
-      var here = nearestNode(carPos);
-      var options = landmarks.filter(function (lm) { return lm.node !== here; });
-      var lm = options[Math.floor(Math.random() * options.length)];
-      planTripTo(lm, false);
-      if (passingEl) passingEl.innerHTML = "<b>EN ROUTE</b> · " + esc(lm.name.replace(/^the /, ""));
+    // reduced motion keeps the pod parked, so trips become instant jumps (a position change,
+    // not motion) and the status line tells the truth instead of promising a drive
+    function publishReduced(html) {
+      var txt = fmtGeo(carPos);
+      if (passingEl) passingEl.innerHTML = html;
+      if (coordEl) coordEl.textContent = txt;
+      if (cursorEl && !hovering) cursorEl.textContent = txt;
+      window.__podState = {
+        status: passingEl ? passingEl.textContent : "", coords: txt, parked: true,
+        profile: profile === "madmax" ? "Mad Max" : profile.charAt(0).toUpperCase() + profile.slice(1)
+      };
     }
-    function goTo(lm) {
+    function parkAt(lm) {
+      clearRoute(); path = []; pathLen = 0; dist = 0; target = null; targetLm = null;
+      carPos = nodeLL[lm.node]; car.setLatLng(carPos);
+      publishReduced("<b>PARKED</b> · " + esc(lmShort(lm)));
+    }
+    function clearTargetMark() {
       landmarks.forEach(function (l) {
         var el = l.marker.getElement();
         if (el) el.classList.remove("lm-target");
       });
+    }
+    function pickNextTrip() {
+      var here = nearestNode(carPos);
+      var options = landmarks.filter(function (lm) { return lm.node !== here; });
+      var lm = options[Math.floor(Math.random() * options.length)];
+      if (reduced) { parkAt(lm); return; }
+      planTripTo(lm, false);
+      if (passingEl) passingEl.innerHTML = "<b>EN ROUTE</b> · " + esc(lm.name.replace(/^the /, ""));
+    }
+    function goTo(lm) {
+      clearTargetMark();
       var el = lm.marker.getElement();
       if (el) el.classList.add("lm-target");
+      if (reduced) { parkAt(lm); return; }
       dwellUntil = 0;
       userTouched = true;
       setParked(false);
@@ -500,6 +543,7 @@
       }
       if (on) {
         clearRoute();
+        clearTargetMark();
         path = []; pathLen = 0; dist = 0;
         target = null; targetLm = null;
         var at = nearestLmName(carPos, 900);
@@ -542,15 +586,21 @@
         followBtn.classList.toggle("on", on);
         followBtn.setAttribute("aria-pressed", on);
       }
-      if (on) map.panTo(carPos);
+      if (on) map.panTo(carPos, { animate: !reduced });
     }
     if (followBtn) followBtn.addEventListener("click", function () { setFollow(!follow); });
     map.on("dragstart", function () { if (follow) setFollow(false); });
     var parkBtn = document.getElementById("ctlPark");
-    if (parkBtn) parkBtn.addEventListener("click", function () { if (!gameOn) setParked(!parked); });
+    if (parkBtn) parkBtn.addEventListener("click", function () {
+      if (gameOn) return;
+      // under reduced motion the pod stays parked; say so rather than silently doing nothing
+      if (reduced) { publishReduced("<b>PARKED</b> · motion paused while Reduce Motion is on"); return; }
+      setParked(!parked);
+    });
     var shuffleBtn = document.getElementById("ctlShuffle");
     if (shuffleBtn) shuffleBtn.addEventListener("click", function () {
       if (gameOn) return;
+      clearTargetMark();
       setParked(false);
       dwellUntil = 0;
       target = null; targetLm = null;
@@ -573,6 +623,8 @@
         maxBtn.setAttribute("aria-label", on ? "Exit fullscreen" : "Maximize map");
         maxBtn.title = on ? "Exit fullscreen (Esc)" : "Maximize";
       }
+      // phones: the inline map lets swipes scroll the page; fullscreen is where you pan
+      if (L.Browser.mobile) map.dragging[on ? "enable" : "disable"]();
       setTimeout(function () {
         map.invalidateSize();
         map.fitBounds(allBounds, { padding: on ? [46, 46] : [24, 24] });
@@ -617,10 +669,11 @@
       locate: function () {
         userTouched = true;
         setFollow(true);
-        map.flyTo(carPos, 14, { duration: 1.6 });
+        map.flyTo(carPos, 14, { duration: 1.6, animate: !reduced });
       },
       shuffle: function () {
         if (gameOn) return;
+        clearTargetMark();
         setParked(false);
         dwellUntil = 0;
         target = null; targetLm = null;
@@ -652,6 +705,19 @@
     var gameBtn = document.getElementById("ctlGame");
 
     function lmShort(lm) { return lm.name.replace(/^the /, ""); }
+    // the HUD (top) and control console (bottom) sit over the map, so game framing pads for them
+    var consoleEl = document.getElementById("mapConsole");
+    function overlayPad() {
+      return {
+        paddingTopLeft: [24, (hudEl && !hudEl.hidden ? hudEl.offsetHeight : 0) + 12],
+        paddingBottomRight: [24, (consoleEl ? consoleEl.offsetHeight : 0) + 20]
+      };
+    }
+    // later fares may sit off-screen after the player has panned or zoomed — bring them into the clear
+    function revealLm(lm) {
+      if (follow || !lm) return;
+      map.panInside(lm.ll, overlayPad());
+    }
     function fmtClock(ms) {
       var s = Math.max(0, Math.ceil(ms / 1000));
       return Math.floor(s / 60) + ":" + String(s % 60).padStart(2, "0");
@@ -704,6 +770,7 @@
         gFareStart = now;
         markFare();
         if (ghFare) ghFare.innerHTML = "Recording with <b>" + esc(gFare.guest) + "</b> — wrap the episode at <b>" + esc(lmShort(gFare.to)) + "</b> (red)";
+        revealLm(gFare.to);
       } else if (gFare.stage === "drop" && lm === gFare.to) {
         var secs = (now - gFareStart) / 1000;
         var km = gFare.from.ll.distanceTo(gFare.to.ll) / 1000;
@@ -717,7 +784,9 @@
         if (ghFare) ghFare.innerHTML = "<b>" + esc(gFare.guest) + "</b>'s episode wrapped · +" + pts + " pts" + (tip > 60 ? " · streak up" : " · slow record, streak reset");
         gFare = null;
         clearFareMarks();
-        setTimeout(function () { if (gameOn && !gFare) spawnFare(performance.now()); }, 1200);
+        setTimeout(function () {
+          if (gameOn && !gFare) { spawnFare(performance.now()); revealLm(gFare && gFare.from); }
+        }, 1200);
       } else {
         var want = gFare.stage === "pickup" ? gFare.from : gFare.to;
         var verb = gFare.stage === "pickup" ? "board them" : "wrap the episode";
@@ -726,7 +795,13 @@
       updateHud(now);
     }
     function startGame() {
-      if (gameOn || reduced) return;
+      if (gameOn) return;
+      if (reduced) {
+        // the game needs a moving pod; explain instead of silently ignoring the click
+        if (passingEl) passingEl.innerHTML = "<b>PICKUP RUN</b> · paused while Reduce Motion is on";
+        return;
+      }
+      clearTargetMark();
       gameOn = true;
       gScore = 0; gStreak = 0; gBatt = 100; gDelivered = 0; gFare = null;
       userTouched = true;
@@ -742,15 +817,18 @@
       if (mapEl.parentElement) mapEl.parentElement.classList.add("playing");
       if (gameBtn) { gameBtn.textContent = "End Run"; gameBtn.classList.add("on"); }
       if (passingEl) passingEl.innerHTML = "<b>PICKUP RUN</b> · click landmarks to dispatch the pod";
-      map.fitBounds(allBounds, { padding: [24, 24] });
+      // spawn first so the HUD has its final height, then frame every landmark in the clear area
       spawnFare(performance.now());
       updateHud(performance.now());
+      var gameBounds = L.latLngBounds(landmarks.map(function (l) { return l.ll; })).extend(allBounds);
+      map.fitBounds(gameBounds, overlayPad());
     }
     function endGame(reason) {
       if (!gameOn) return;
       gameOn = false;
       gFare = null;
       clearFareMarks();
+      clearTargetMark();
       if (hudEl) hudEl.hidden = true;
       if (mapEl.parentElement) mapEl.parentElement.classList.remove("playing");
       if (gameBtn) { gameBtn.textContent = "▶ Pickup Run"; gameBtn.classList.remove("on"); }
@@ -782,11 +860,13 @@
     if (goAgain) goAgain.addEventListener("click", function () { if (overEl) overEl.hidden = true; startGame(); });
     if (goExit) goExit.addEventListener("click", function () { if (overEl) overEl.hidden = true; });
     if (goSeat) goSeat.addEventListener("click", function () {
+      // a maximized run must drop back to the page first, or the form stays hidden behind it
+      if (document.body.classList.contains("map-full")) setFull(false);
       if (overEl) overEl.hidden = true;
       var mic = document.querySelector('.ts-dock-icon[data-app="boarding"]');
       if (mic) mic.click();
       var screen = document.querySelector(".tesla-screen");
-      if (screen) screen.scrollIntoView({ behavior: "smooth", block: "center" });
+      if (screen) screen.scrollIntoView({ behavior: smooth(), block: "center" });
     });
     window.__startPodGame = startGame;
 
@@ -902,7 +982,10 @@
     if (coordEl) coordEl.textContent = fmtGeo(carPos);
     if (cursorEl) cursorEl.textContent = fmtGeo(carPos);
     if (reduced) {
-      if (passingEl) passingEl.innerHTML = "<b>PARKED</b> · the Ferry Building";
+      // pod stays parked (intentional); controls report honestly, and the game button stays
+      // focusable but announces that it's paused
+      publishReduced("<b>PARKED</b> · the Ferry Building");
+      if (gameBtn) gameBtn.setAttribute("aria-disabled", "true");
       return;
     }
     pickNextTrip();
@@ -917,12 +1000,22 @@
 
     // Leaflet needs a size recalc once the reveal animation settles
     setTimeout(function () { map.invalidateSize(); }, 900);
-  })();
+  }
+  // Leaflet is loaded async: start now if it's already here, otherwise when it arrives
+  if (window.L) liveMap();
+  else {
+    var leafletJs = document.getElementById("leafletJs");
+    if (leafletJs) leafletJs.addEventListener("load", liveMap, { once: true });
+  }
 
   /* ---------- modal player with prev/next navigation ---------- */
   var modal = $("#modal"), modalVideo = $("#modalVideo"), modalMeta = $("#modalMeta");
-  var modalIndex = -1;
+  var modalIndex = -1, lastFocus = null;
   function openEpisode(ep) {
+    // remember where focus came from (first open only) and which nav button, if any, was pressed —
+    // the rebuild below destroys it
+    if (modal.hidden) lastFocus = document.activeElement;
+    var focusedId = document.activeElement && document.activeElement.id;
     modalIndex = episodes.findIndex(function (e) { return e.id === ep.id; });
     var prev = episodes[modalIndex + 1]; // older ride
     var next = episodes[modalIndex - 1]; // newer ride
@@ -947,35 +1040,92 @@
     if (next) $("#modalNext").onclick = function () { openEpisode(next); };
     modal.hidden = false;
     document.body.style.overflow = "hidden";
+    // focus lives inside the dialog: back on the re-rendered prev/next if that's what was pressed,
+    // otherwise the close button
+    var t = (focusedId === "modalPrev" || focusedId === "modalNext") ? document.getElementById(focusedId) : null;
+    if (t && !t.disabled) t.focus();
+    else if (!modal.contains(document.activeElement)) { var c = $(".modal-close", modal); if (c) c.focus(); }
   }
   function closeModal() {
     modal.hidden = true;
     modalVideo.innerHTML = "";
     modalIndex = -1;
     document.body.style.overflow = "";
+    if (lastFocus && document.contains(lastFocus) && lastFocus.focus) lastFocus.focus();
+    lastFocus = null;
   }
-  modal.addEventListener("click", function (e) { if (e.target.hasAttribute("data-close")) closeModal(); });
+  // the ✕, the backdrop, or (now that the dialog scrolls on short screens) its gutter closes it
+  modal.addEventListener("click", function (e) { if (e.target === modal || e.target.hasAttribute("data-close")) closeModal(); });
   addEventListener("keydown", function (e) {
     if (modal.hidden) return;
-    if (e.key === "Escape") closeModal();
+    if (e.key === "Escape") { closeModal(); return; }
+    if (e.key === "Tab") {
+      // trap: close button → video → meta controls, wrapping at both ends
+      var f = [].slice.call(modal.querySelectorAll(".modal-close, iframe, #modalMeta a[href], #modalMeta button:not([disabled])"));
+      if (!f.length) return;
+      var first = f[0], last = f[f.length - 1];
+      if (!modal.contains(document.activeElement)) { e.preventDefault(); first.focus(); }
+      else if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+      return;
+    }
     if (e.key === "ArrowLeft" && episodes[modalIndex + 1]) openEpisode(episodes[modalIndex + 1]);
     if (e.key === "ArrowRight" && modalIndex > 0) openEpisode(episodes[modalIndex - 1]);
   });
 
+  /* ---------- responsive thumbnails ---------- */
+  // local thumbs have WebP variants (tools/build-thumbs.mjs); live-synced YouTube thumbs keep a
+  // plain src. On error, drop the srcset too — otherwise the browser keeps using it — and fall
+  // back to YouTube's own image.
+  function thumbImg(ep, sizes, attrs) {
+    var local = /^\/?assets\/thumbs\/[\w-]+\.jpg$/.test(ep.thumb || "");
+    var srcset = local
+      ? [320, 640, 960, 1280].map(function (w) { return ep.thumb.replace(/\.jpg$/, "-" + w + ".webp") + " " + w + "w"; }).join(", ")
+      : "";
+    return '<img src="' + esc(ep.thumb) + '"' +
+      (srcset ? ' srcset="' + esc(srcset) + '" sizes="' + esc(sizes) + '"' : "") + " " + (attrs || "") +
+      " onerror=\"this.onerror=null;this.removeAttribute('srcset');this.src='https://img.youtube.com/vi/" + esc(ep.id) + "/hqdefault.jpg'\" />";
+  }
+
   /* ---------- render: hero ---------- */
-  // ambient background video (muted loop of the latest ride) — dark theme only,
-  // so the light theme stays clean and we never load a hidden iframe
+  // ambient background video (muted loop of the latest ride): dark theme only, never under
+  // reduced motion or Save-Data, inserted only after load + fonts (no contention, no layout shift),
+  // and paused whenever the hero is off-screen or the tab is hidden.
+  var heroVisible = true, heroVideoReady = false;
+  function heroVideoWanted() {
+    return root.getAttribute("data-theme") === "dark" && !reduceMQ.matches &&
+      !(navigator.connection && navigator.connection.saveData);
+  }
+  function heroVideoCmd(func) {
+    var f = $("#heroVideoWrap iframe");
+    if (f && f.contentWindow) {
+      f.contentWindow.postMessage(JSON.stringify({ event: "command", func: func, args: [] }), "https://www.youtube.com");
+    }
+  }
+  function heroVideoSync() { heroVideoCmd(heroVisible && !document.hidden ? "playVideo" : "pauseVideo"); }
   function renderHeroVideo() {
     var wrap = $("#heroVideoWrap");
-    if (root.getAttribute("data-theme") !== "dark") { wrap.innerHTML = ""; return; }
+    if (!wrap) return;
+    // clear the marker too, so a dark → light → dark round-trip can re-insert the video
+    if (!heroVideoWanted()) { wrap.innerHTML = ""; wrap.removeAttribute("data-vid"); return; }
+    if (!heroVideoReady) return;
     var latest = episodes[0];
     if (wrap.getAttribute("data-vid") === latest.id) return;
     wrap.setAttribute("data-vid", latest.id);
     wrap.innerHTML =
       '<iframe src="https://www.youtube.com/embed/' + esc(latest.id) +
       "?autoplay=1&mute=1&controls=0&loop=1&playlist=" + esc(latest.id) +
-      '&showinfo=0&rel=0&modestbranding=1" title="" tabindex="-1" aria-hidden="true" ' +
+      '&rel=0&modestbranding=1&playsinline=1&enablejsapi=1" title="" tabindex="-1" aria-hidden="true" ' +
       'allow="autoplay; encrypted-media"></iframe>';
+  }
+  addEventListener("load", function () {
+    function go() { heroVideoReady = true; renderHeroVideo(); }
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(go, go); else go();
+  });
+  if (reduceMQ.addEventListener) reduceMQ.addEventListener("change", renderHeroVideo);
+  document.addEventListener("visibilitychange", heroVideoSync);
+  if ($("#home") && "IntersectionObserver" in window) {
+    new IntersectionObserver(function (en) { heroVisible = en[0].isIntersecting; heroVideoSync(); }).observe($("#home"));
   }
 
   function renderHero() {
@@ -985,8 +1135,7 @@
     var card = $("#latestCard");
     var upNextRows = episodes.slice(1, 3).map(function (ep) {
       return '<div class="up-next-row" role="button" tabindex="0" data-ep="' + esc(ep.id) + '" aria-label="Play ' + esc(ep.fullTitle) + '">' +
-        '<img loading="lazy" src="' + esc(ep.thumb) + '" alt="" ' +
-        "onerror=\"this.src='https://img.youtube.com/vi/" + esc(ep.id) + "/hqdefault.jpg'\" />" +
+        thumbImg(ep, "68px", 'loading="lazy" alt=""') +
         '<div class="un-body"><div class="un-meta">' + esc(epNum(ep)) + " · " + esc(ep.duration) + '</div>' +
         '<div class="un-title">' + esc(ep.title) + "</div></div>" +
         '<span class="un-go" aria-hidden="true">→</span>' +
@@ -994,8 +1143,9 @@
     }).join("");
     card.innerHTML =
       '<div class="latest-thumb" role="button" tabindex="0" aria-label="Play latest episode">' +
-      '<img src="' + esc(latest.thumb) + '" alt="' + esc(latest.fullTitle) + '" ' +
-      "onerror=\"this.src='https://img.youtube.com/vi/" + esc(latest.id) + "/hqdefault.jpg'\" />" +
+      // the page's LCP image: eager, high priority
+      thumbImg(latest, "(max-width: 720px) 100vw, (max-width: 1020px) 560px, 460px",
+        'fetchpriority="high" alt="' + esc(latest.fullTitle) + '"') +
       '<span class="dur">' + esc(latest.duration) + "</span>" +
       '<div class="play-badge"><span><svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></div>' +
       "</div>" +
@@ -1040,19 +1190,30 @@
   function renderEpisodes() {
     var latest = episodes[0];
     $("#episodeFeatured").innerHTML = "";
+    var featInsight = INSIGHT_SLUGS[latest.id]
+      ? '<span class="ep-num-spacer"></span><a class="ep-insight" href="/insights/' + INSIGHT_SLUGS[latest.id] +
+        '" aria-label="Read the insights from ' + esc(latest.title) + '">Insights →</a>'
+      : "";
     $("#episodeFeatured").appendChild(el(
       '<article class="feat-card" tabindex="0" aria-label="Play ' + esc(latest.fullTitle) + '">' +
-      '<div class="feat-thumb"><img src="' + esc(latest.thumb) + '" alt="' + esc(latest.fullTitle) + ' — The Tesla Pod episode thumbnail" ' +
-      "onerror=\"this.src='https://img.youtube.com/vi/" + esc(latest.id) + "/hqdefault.jpg'\" /></div>" +
+      '<div class="feat-thumb">' +
+      thumbImg(latest, "(max-width: 1020px) 100vw, 720px", 'alt="' + esc(latest.fullTitle) + ' — The Tesla Pod episode thumbnail"') +
+      "</div>" +
       '<div class="feat-body">' +
       '<div class="ep-meta"><span class="ep-chip hot">Latest · ' + esc(epNum(latest)) + "</span>" +
-      '<span class="ep-chip">' + esc(latest.releaseDate) + '</span><span class="ep-chip">' + esc(latest.duration) + "</span></div>" +
+      '<span class="ep-chip">' + esc(latest.releaseDate) + '</span><span class="ep-chip">' + esc(latest.duration) + "</span>" +
+      featInsight + "</div>" +
       "<h3>" + esc(latest.title) + "</h3>" +
       '<p class="ep-desc">' + esc(latest.description) + "</p>" +
       '<div class="ep-guest">with <b>' + esc(latest.guest) + "</b> · " + roleHTML(latest.guestRole) + "</div>" +
       "</div></article>"
     ));
-    $(".feat-card").addEventListener("click", function () { openEpisode(latest); });
+    // links and "i" buttons inside the card do their own thing; the rest of the card plays
+    var fc = $(".feat-card");
+    fc.addEventListener("click", function (e) { if (!e.target.closest("a,button")) openEpisode(latest); });
+    fc.addEventListener("keydown", function (e) {
+      if ((e.key === "Enter" || e.key === " ") && !e.target.closest("a,button")) { e.preventDefault(); openEpisode(latest); }
+    });
 
     var grid = $("#episodeGrid");
     grid.innerHTML = "";
@@ -1064,8 +1225,8 @@
       var card = el(
         '<article class="ep-card reveal" style="transition-delay:' + (i % 3) * 70 + 'ms" tabindex="0" aria-label="Play ' + esc(ep.fullTitle) + '">' +
         '<div class="ep-thumb">' +
-        '<img loading="lazy" src="' + esc(ep.thumb) + '" alt="' + esc(ep.fullTitle) + ' — The Tesla Pod episode thumbnail" ' +
-        "onerror=\"this.src='https://img.youtube.com/vi/" + esc(ep.id) + "/hqdefault.jpg'\" />" +
+        thumbImg(ep, "(max-width: 700px) 100vw, (max-width: 1020px) 50vw, 400px",
+          'loading="lazy" alt="' + esc(ep.fullTitle) + ' — The Tesla Pod episode thumbnail"') +
         '<span class="dur">' + esc(ep.duration) + "</span>" +
         '<div class="play-hover"><span><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></div>' +
         "</div>" +
@@ -1078,7 +1239,9 @@
       function go() { openEpisode(ep); }
       // links inside the card (insights) navigate; everything else opens the player
       card.addEventListener("click", function (e) { if (!e.target.closest("a")) go(); });
-      card.addEventListener("keydown", function (e) { if (e.key === "Enter" && !e.target.closest("a")) go(); });
+      card.addEventListener("keydown", function (e) {
+        if ((e.key === "Enter" || e.key === " ") && !e.target.closest("a,button")) { e.preventDefault(); go(); }
+      });
       grid.appendChild(card);
     });
     observeReveals(grid);
@@ -1106,15 +1269,15 @@
 
   var COMPANIES = {
     "Silicon Mania": { about: "A tech media company betting that tech is the most exciting story on earth — recap shows, a print magazine, live events and original games. Backed by Offline Ventures and Founders Inc.", url: "https://siliconmania.tv" },
-    "ADPList": { about: "The world's largest free mentorship community — 1:1 sessions with 40,000+ verified experts in design, product, engineering, AI and marketing. Backed by Sequoia India's Surge.", url: "https://adplist.org" },
+    "ADPList": { about: "The world's largest free mentorship community — free 1:1 sessions with nearly 39,000 mentors across design, product, engineering, AI and marketing. Backed by Sequoia India's Surge.", url: "https://adplist.org" },
     "Fleek": { about: "The AI infrastructure powering the global secondhand clothing trade — a B2B marketplace plus a vision model that grades and prices used garments from a photo.", url: "https://joinfleek.com" },
     "Funky": { about: "One API call spins up hundreds of sandboxed AI agents. Built by Jason Jin (ex-Google).", url: "https://funky.dev" },
-    "Ontora": { about: "AI agents that interview every employee to map how work actually gets done — in days, not months.", url: "https://ontora.com" },
-    "Logical": { about: "A proactive desktop copilot — Clippy, but actually good — that helps before you ask.", url: "https://trylogical.ai" },
+    "Ontora": { about: "AI agents that interview every employee to map how work actually gets done — in about 24 hours, not months.", url: "https://ontora.com" },
+    "Logical": { about: "A proactive desktop copilot — Clippy, but actually good — that helps before you ask.", url: "https://logical.io" },
     "Retriever AI": { about: "Agentic browsing: an AI that navigates and acts on the web for you.", url: "https://rtrvr.ai" },
     "Peazy Labs": { about: "An AI concierge that guides users through complex enterprise software, right inside the app.", url: "https://peazylabs.com" },
-    "Silver Surf": { about: "Turns an owner's know-how into SOPs and AI so the business runs without them — and exits for more.", url: "https://silversurf.co" },
-    "Manicule": { about: "AI-native technical documentation for developer tools — “DevRel for agents.”", url: "https://manicule.dev" },
+    "Silver Surf": { about: "On the pod: software to help small-business owners sell faster and at better valuations. It has since pivoted to AI occupancy optimization for skilled nursing.", url: "https://www.silversurf.co" },
+    "Manicule": { about: "AI-native technical documentation for developer tools — “DevRel for agents.”", url: "https://manicule.com" },
     "Marketrix AI": { about: "The user simulation platform — AI-simulated users that test and validate your product before real ones ever do.", url: "https://marketrix.ai" }
   };
   function baseCompany(name) { return String(name || "").replace(/\s*\([^)]*\)\s*$/, "").trim(); }
@@ -1169,8 +1332,15 @@
       if (!c) return;
       nameEl.textContent = btn.getAttribute("data-co");
       aboutEl.textContent = c.about;
-      linkEl.textContent = c.url.replace(/^https?:\/\//, "").replace(/\/$/, "") + " ↗";
-      linkEl.href = c.url;
+      // a company without a url shows no link (rather than throwing on c.url.replace)
+      if (c.url) {
+        linkEl.textContent = c.url.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "") + " ↗";
+        linkEl.href = c.url;
+        linkEl.hidden = false;
+      } else {
+        linkEl.hidden = true;
+        linkEl.removeAttribute("href");
+      }
       if (currentBtn && currentBtn !== btn) currentBtn.classList.remove("on");
       currentBtn = btn;
       if (pin) pinned = true;
@@ -1268,7 +1438,9 @@
       );
       if (ep) {
         card.addEventListener("click", function () { openEpisode(ep); });
-        card.addEventListener("keydown", function (e) { if (e.key === "Enter") openEpisode(ep); });
+        card.addEventListener("keydown", function (e) {
+          if ((e.key === "Enter" || e.key === " ") && !e.target.closest("a,button")) { e.preventDefault(); openEpisode(ep); }
+        });
       }
       var pimg = card.querySelector(".person-photo img");
       if (pimg) pimg.addEventListener("error", function () { pimg.parentElement.innerHTML = fallback; });
@@ -1354,8 +1526,7 @@
     if (np && episodes.length) {
       var latest = episodes[0];
       np.innerHTML =
-        '<div class="ts-np-cover"><img src="' + esc(latest.thumb) + '" alt="" ' +
-        "onerror=\"this.src='https://img.youtube.com/vi/" + esc(latest.id) + "/hqdefault.jpg'\" /></div>" +
+        '<div class="ts-np-cover">' + thumbImg(latest, "240px", 'loading="lazy" alt=""') + "</div>" +
         '<div><div class="ts-np-meta">' + esc(epNum(latest)) + " · " + esc(latest.duration) + " · " + esc(latest.releaseDate) + "</div>" +
         '<div class="ts-np-title">' + esc(latest.fullTitle) + "</div></div>" +
         '<div class="ts-np-actions">' +
@@ -1395,7 +1566,7 @@
     var locBtn = document.getElementById("tscLocate"), sumBtn = document.getElementById("tscSummon");
     if (locBtn) locBtn.addEventListener("click", function () {
       if (window.__podCam) window.__podCam.locate();
-      document.getElementById("about").scrollIntoView({ behavior: "smooth", block: "center" });
+      document.getElementById("about").scrollIntoView({ behavior: smooth(), block: "center" });
     });
     if (sumBtn) sumBtn.addEventListener("click", function () {
       if (window.__podCam) window.__podCam.shuffle();
@@ -1423,17 +1594,22 @@
   var guestForm = $("#guestForm");
   guestForm.addEventListener("submit", function (e) {
     e.preventDefault();
+    // one pitch per click: Enter while "Sending…" must not fire a second POST
+    if (guestForm.classList.contains("sending")) return;
     var btn = $("#formSubmitBtn");
     var oldError = guestForm.querySelector(".form-error");
     if (oldError) oldError.remove();
     guestForm.classList.add("sending");
+    btn.disabled = true;
     btn.textContent = "Sending…";
+    var honey = guestForm.elements._honey;
     var payload = {
       name: $("#f-name").value,
       email: $("#f-email").value,
       link: $("#f-link").value,
       pitch: $("#f-pitch").value,
-      _subject: "Tesla Pod — Guest Pitch"
+      _subject: "Tesla Pod — Guest Pitch",
+      _honey: honey ? honey.value : ""   // FormSubmit drops submissions where the honeypot is filled
     };
     fetch("https://formsubmit.co/ajax/irosha@marketrix.ai", {
       method: "POST",
@@ -1441,45 +1617,38 @@
       body: JSON.stringify(payload)
     })
       .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
-      .then(function () {
+      .then(function (data) {
+        // FormSubmit reports some failures (e.g. an unactivated form) as HTTP 200 + success:"false"
+        if (!data || String(data.success) !== "true") throw new Error((data && data.message) || "not sent");
         guestForm.innerHTML =
-          '<div class="form-success">' +
+          '<div class="form-success" role="status">' +
           '<span class="fs-mark">✓</span>' +
           "<h3>Seat requested.</h3>" +
           "<p>We read every pitch. If it's a fit, we'll send pickup coordinates to your inbox.</p>" +
           "</div>";
+        // the submit button is gone — give focus somewhere meaningful so it isn't lost to <body>
+        var h = guestForm.querySelector(".form-success h3");
+        if (h) { h.tabIndex = -1; h.focus({ preventScroll: true }); }
       })
       .catch(function () {
         guestForm.classList.remove("sending");
+        btn.disabled = false;
         btn.textContent = "Request a Seat";
         var err = document.createElement("p");
         err.className = "form-error";
+        err.setAttribute("role", "alert");
         err.textContent = "Couldn't send just now — please try again, or email irosha@marketrix.ai directly.";
         guestForm.insertBefore(err, $("#formFineprint"));
       });
   });
 
   /* ---------- init ---------- */
-  renderHero();
-  renderEpisodes();
-  renderPeople();
+  // each render is isolated: one bad record can't take the rest of the page (or the reveals) with it
+  [renderHero, renderEpisodes, renderPeople].forEach(function (fn) {
+    try { fn(); } catch (err) { if (window.console) console.error("[teslapod] " + fn.name + " failed", err); }
+  });
   observeReveals();
   liveSync();
   $("#year").textContent = new Date().getFullYear();
-
-  /* active nav link */
-  var sections = ["episodes", "passengers", "about", "apply"];
-  var navA = document.querySelectorAll(".nav-links a");
-  var secIO = new IntersectionObserver(function (entries) {
-    entries.forEach(function (en) {
-      if (!en.isIntersecting) return;
-      navA.forEach(function (a) {
-        a.classList.toggle("active", a.getAttribute("href") === "#" + en.target.id);
-      });
-    });
-  }, { rootMargin: "-40% 0px -55% 0px" });
-  sections.forEach(function (id) {
-    var s = document.getElementById(id);
-    if (s) secIO.observe(s);
-  });
+  // (the active nav link is handled by navSpy near the top)
 })();

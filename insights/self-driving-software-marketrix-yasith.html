@@ -20,8 +20,16 @@
 
   <meta name="author" content="Irosha de Silva" />
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
-  <meta name="theme-color" content="#fbfaf8" media="(prefers-color-scheme: light)" />
-  <meta name="theme-color" content="#101012" media="(prefers-color-scheme: dark)" />
+  <meta name="theme-color" content="#fbfaf8" />
+  <script>
+    (function () {
+      var d = document.documentElement, t = null;
+      try { t = localStorage.getItem("tp-theme"); } catch (e) {}
+      if (t === "dark" || t === "light") d.setAttribute("data-theme", t);
+      var m = document.querySelector('meta[name="theme-color"]');
+      if (m) m.setAttribute("content", d.getAttribute("data-theme") === "dark" ? "#101012" : "#fbfaf8");
+    })();
+  </script>
   <link rel="icon" type="image/svg+xml" href="/assets/brand/favicon.svg" />
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/brand/favicon-32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="/assets/brand/favicon-16.png" />
@@ -181,20 +189,9 @@
     <section class="in-related">
       <h2>More insights from the pod</h2>
       <div class="insights-grid">
-        <a class="in-card in-card-sm" href="/insights/making-tech-media-entertaining-silicon-mania">
-        <div class="in-card-media">
-          <img loading="lazy" src="/assets/thumbs/9Ejk8wq14ww.jpg" alt="Tech Has Ten Thousand Podcasts and Nothing Worth Watching — The Tesla Pod episode 11" onerror="this.src='https://img.youtube.com/vi/9Ejk8wq14ww/hqdefault.jpg'" />
-        </div>
-        <span class="in-card-ep" aria-hidden="true">11</span>
-        <div class="in-card-body">
-          <span class="in-card-kicker">Silicon Mania</span>
-          <h3>Tech Has Ten Thousand Podcasts and Nothing Worth Watching</h3>
-          <span class="in-card-go">Read the insights <i aria-hidden="true">→</i></span>
-        </div>
-      </a>
         <a class="in-card in-card-sm" href="/insights/free-mentorship-at-scale-adplist-felix-lee">
         <div class="in-card-media">
-          <img loading="lazy" src="/assets/thumbs/g57WpguhxXA.jpg" alt="Sequoia Said Yes. A Million Users Later, It's Still Free — The Tesla Pod episode 10" onerror="this.src='https://img.youtube.com/vi/g57WpguhxXA/hqdefault.jpg'" />
+          <img loading="lazy" src="/assets/thumbs/g57WpguhxXA.jpg" srcset="/assets/thumbs/g57WpguhxXA-320.webp 320w, /assets/thumbs/g57WpguhxXA-640.webp 640w, /assets/thumbs/g57WpguhxXA-960.webp 960w, /assets/thumbs/g57WpguhxXA-1280.webp 1280w" sizes="(max-width: 640px) 220vw, (max-width: 1020px) 110vw, 800px" alt="Sequoia Said Yes. A Million Users Later, It's Still Free — The Tesla Pod episode 10" onerror="this.onerror=null;this.removeAttribute('srcset');this.src='https://img.youtube.com/vi/g57WpguhxXA/hqdefault.jpg'" />
         </div>
         <span class="in-card-ep" aria-hidden="true">10</span>
         <div class="in-card-body">
@@ -203,9 +200,20 @@
           <span class="in-card-go">Read the insights <i aria-hidden="true">→</i></span>
         </div>
       </a>
+        <a class="in-card in-card-sm" href="/insights/5-trillion-small-business-succession-silver-surf">
+        <div class="in-card-media">
+          <img loading="lazy" src="/assets/thumbs/VVFp6FDn5KM.jpg" srcset="/assets/thumbs/VVFp6FDn5KM-320.webp 320w, /assets/thumbs/VVFp6FDn5KM-640.webp 640w, /assets/thumbs/VVFp6FDn5KM-960.webp 960w, /assets/thumbs/VVFp6FDn5KM-1280.webp 1280w" sizes="(max-width: 640px) 220vw, (max-width: 1020px) 110vw, 800px" alt="The $5 Trillion Problem Nobody in Tech Is Working On — The Tesla Pod episode 03" onerror="this.onerror=null;this.removeAttribute('srcset');this.src='https://img.youtube.com/vi/VVFp6FDn5KM/hqdefault.jpg'" />
+        </div>
+        <span class="in-card-ep" aria-hidden="true">03</span>
+        <div class="in-card-body">
+          <span class="in-card-kicker">Silver Surf</span>
+          <h3>The $5 Trillion Problem Nobody in Tech Is Working On</h3>
+          <span class="in-card-go">Read the insights <i aria-hidden="true">→</i></span>
+        </div>
+      </a>
         <a class="in-card in-card-sm" href="/insights/ai-secondhand-clothing-supply-chain-fleek">
         <div class="in-card-media">
-          <img loading="lazy" src="/assets/thumbs/AR18l-xBY6Q.jpg" alt="The $25M Bet on What Happens to Your Old Clothes — The Tesla Pod episode 09" onerror="this.src='https://img.youtube.com/vi/AR18l-xBY6Q/hqdefault.jpg'" />
+          <img loading="lazy" src="/assets/thumbs/AR18l-xBY6Q.jpg" srcset="/assets/thumbs/AR18l-xBY6Q-320.webp 320w, /assets/thumbs/AR18l-xBY6Q-640.webp 640w, /assets/thumbs/AR18l-xBY6Q-960.webp 960w, /assets/thumbs/AR18l-xBY6Q-1280.webp 1280w" sizes="(max-width: 640px) 220vw, (max-width: 1020px) 110vw, 800px" alt="The $25M Bet on What Happens to Your Old Clothes — The Tesla Pod episode 09" onerror="this.onerror=null;this.removeAttribute('srcset');this.src='https://img.youtube.com/vi/AR18l-xBY6Q/hqdefault.jpg'" />
         </div>
         <span class="in-card-ep" aria-hidden="true">09</span>
         <div class="in-card-body">
@@ -264,12 +272,23 @@
 
   <script>
   (function () {
-    var root = document.documentElement, saved = null;
+    var root = document.documentElement, saved = null, themingTimer = null;
+    var reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
     try { saved = localStorage.getItem("tp-theme"); } catch (e) {}
     if (saved === "light" || saved === "dark") root.setAttribute("data-theme", saved);
+    function syncThemeColor(t) {
+      var m = document.querySelector('meta[name="theme-color"]');
+      if (m) m.setAttribute("content", t === "dark" ? "#101012" : "#fbfaf8");
+    }
     document.getElementById("themeToggle").addEventListener("click", function () {
       var next = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
+      if (!reduced) {
+        root.classList.add("theming");
+        clearTimeout(themingTimer);
+        themingTimer = setTimeout(function () { root.classList.remove("theming"); }, 420);
+      }
       root.setAttribute("data-theme", next);
+      syncThemeColor(next);
       try { localStorage.setItem("tp-theme", next); } catch (e) {}
     });
     var burger = document.getElementById("navBurger"), menu = document.getElementById("mobileMenu");
@@ -278,7 +297,6 @@
       burger.setAttribute("aria-expanded", open ? "true" : "false");
     });
     document.getElementById("year").textContent = new Date().getFullYear();
-    var reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
     // lazy images ease in once decoded — opt into the fade only now that JS is running
     (function fadeImgs() {
       document.documentElement.classList.add("img-fade");
@@ -308,26 +326,46 @@
     var copyBtn = document.querySelector(".sh-copy");
     if (copyBtn) copyBtn.addEventListener("click", function () {
       var url = copyBtn.getAttribute("data-url"), label = copyBtn.querySelector("span");
-      function done() { copyBtn.classList.add("done"); label.textContent = "Link copied"; setTimeout(function () { copyBtn.classList.remove("done"); label.textContent = "Copy link"; }, 1800); }
-      if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(url).then(done, done);
-      else { var t = document.createElement("textarea"); t.value = url; document.body.appendChild(t); t.select(); try { document.execCommand("copy"); } catch (e) {} t.remove(); done(); }
+      function flash(text, cls) {
+        if (cls) copyBtn.classList.add(cls);
+        label.textContent = text;
+        setTimeout(function () { copyBtn.classList.remove("done"); label.textContent = "Copy link"; }, 1800);
+      }
+      function done() { flash("Link copied", "done"); }
+      function fail() { flash("Couldn’t copy"); }
+      function legacy() {
+        var t = document.createElement("textarea"), ok = false;
+        t.value = url; t.setAttribute("readonly", ""); t.style.cssText = "position:fixed;top:0;left:0;opacity:0;font-size:16px";
+        document.body.appendChild(t); t.select(); t.setSelectionRange(0, url.length);
+        try { ok = document.execCommand("copy"); } catch (e) {}
+        t.remove();
+        ok ? done() : fail();
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(url).then(done, legacy);
+      else legacy();
     });
     // scrollspy for the article table of contents
     var tocLinks = document.querySelectorAll(".in-toc a[href^='#']");
-    if (tocLinks.length && "IntersectionObserver" in window) {
-      var map = {};
+    if (tocLinks.length) {
+      var map = {}, current = null, spyQueued = false;
       tocLinks.forEach(function (a) { map[a.getAttribute("href").slice(1)] = a; });
-      var current = null;
-      var obs = new IntersectionObserver(function (entries) {
-        entries.forEach(function (en) {
-          if (en.isIntersecting && map[en.target.id]) {
-            if (current) current.classList.remove("on");
-            current = map[en.target.id];
-            current.classList.add("on");
-          }
-        });
-      }, { rootMargin: "-15% 0px -70% 0px" });
-      document.querySelectorAll(".in-article h2[id]").forEach(function (h) { obs.observe(h); });
+      var heads = Array.prototype.filter.call(document.querySelectorAll(".in-article h2[id]"), function (h) { return map[h.id]; });
+      function spy() {
+        spyQueued = false;
+        var h = document.documentElement, navH = parseFloat(getComputedStyle(h).getPropertyValue("--nav-h")) || 64;
+        var line = navH + 40, active = null;
+        heads.forEach(function (el) { if (el.getBoundingClientRect().top <= line) active = el; });
+        // bottom of the page: the final (often short) section is the one being read
+        if (h.scrollTop + h.clientHeight >= h.scrollHeight - 4 && heads.length) active = heads[heads.length - 1];
+        var link = active ? map[active.id] : null;
+        if (link === current) return;
+        if (current) current.classList.remove("on");
+        current = link;
+        if (current) current.classList.add("on");
+      }
+      addEventListener("scroll", function () { if (!spyQueued) { spyQueued = true; requestAnimationFrame(spy); } }, { passive: true });
+      addEventListener("resize", spy);
+      spy();
     }
   })();
   </script>

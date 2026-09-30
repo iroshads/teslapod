@@ -53,7 +53,7 @@ const INSIGHTS = [
       response: "The episode takes this seriously rather than waving it off, and the answer separates entertainment from flattery. Sports journalism is wildly entertaining and still breaks doping scandals; food media is beautiful and still eviscerates restaurants. Production value isn't what makes coverage credulous — access-dependence is, and that's a failure mode tech's founder-interview format already has in abundance. Adil's bet is that a bigger, non-insider audience is actually harder to flatter, because people outside the bubble have no stake in the mythology. Whether Silicon Mania holds that line as sponsors and access accumulate is the open question, and the ride doesn't pretend it's settled."
     },
     faq: [
-      { q: "What is Silicon Mania?", a: "Silicon Mania is a San Francisco tech media company co-founded by Adil Mania, built on the premise that tech is the most exciting story on earth but is covered boringly. In eight months it has shipped five formats — a recap show, a print magazine, live events and original games. It's backed by Offline Ventures and Founders Inc." },
+      { q: "What is Silicon Mania?", a: "Silicon Mania is a San Francisco tech media company co-founded by Adil Mania, built on the premise that tech is the most exciting story on earth but is covered boringly. In eight months it has shipped five formats — a recap show, a print magazine, live events, original games and more. It's backed by Offline Ventures and Founders Inc." },
       { q: "Why is tech media considered boring?", a: "Adil Mania's argument on the episode: tech media was built by insiders for insiders, so it defaults to one format — founders interviewing founders. Food, fashion and sports each developed entertainment formats aimed at general audiences; tech mostly produced podcasts aimed at people already in the industry." },
       { q: "What does 'MrBeast meets NBC' mean for tech?", a: "It's the pairing of creator-economy production instincts — pacing, stakes, spectacle, a reason to keep watching — with the editorial seriousness of a broadcast network, applied to technology as the subject rather than games or entertainment." },
       { q: "Who is Adil Mania?", a: "Adil Mania is the co-founder of Silicon Mania. He grew up in Rabat, studied engineering in France, and built in Paris — including a hackerspace that shut down when no European investor would lead — before moving to San Francisco. He left a profitable AI agency because the work felt meaningless." }
@@ -87,7 +87,7 @@ const INSIGHTS = [
       { h: "AI Interview Practice and the automation line", p: "ADPList's bet on AI isn't replacing mentors — it's absorbing the rehearsal layer. Interview practice is repetitive, judgment-light, and endlessly demanded: perfect for AI. The mentor's role concentrates into what only humans do — context, conviction, and care." },
       { h: "Usability isn't the only value", p: "From the man whose backers include usability pioneer Jakob Nielsen, a heresy: not everything needs to be usable to be valuable. Some of the best products make you work — the conversation unpacks when friction teaches and when it just loses users." }
     ],
-    about: "ADPList is the world's largest free mentorship community: 1:1 sessions with 40,000+ verified experts across design, product, engineering, AI and marketing — nearly 39,000 mentors, 600 million minutes of advice, 140 countries, over a million users. Backed by Sequoia India's Surge in 2021, with angels from Airbnb, Gojek and Zendesk, and usability pioneer Jakob Nielsen. Felix Lee is co-founder and CEO.",
+    about: "ADPList is the world's largest free mentorship community: 1:1 sessions with ~39,000 verified mentors across design, product, engineering, AI and marketing — 600 million minutes of advice, 140 countries, over a million users. Backed by Sequoia India's Surge in 2021, with angels from Airbnb, Gojek and Zendesk, and usability pioneer Jakob Nielsen. Felix Lee is co-founder and CEO.",
     whyNow: "AI is commoditizing information — anyone can get a competent answer about their career in seconds. What can't be generated is a person who's done it, looking at your specific situation, telling you what they'd do. That makes human mentorship scarcer and more valuable exactly as advice-as-content collapses to zero — and it makes the network that already organized 39,000 willing experts the right asset at the right moment.",
     numbers: [
       { n: "~39,000", l: "verified mentors" },
@@ -103,7 +103,7 @@ const INSIGHTS = [
       response: "The episode's answer distinguishes the network from the revenue. Marketplaces die when they monetize the wrong side too early — tax the supply of goodwill and the 39,000 mentors who came to give back quietly leave. ADPList's model keeps the trust layer free forever and builds revenue beside it: AI products trained on the network's patterns, enterprise offerings, career tooling — things the free network makes uniquely possible and uniquely credible. Whether that's discipline or delay is the tension the ride leans into; Felix's case is that every year of free compounds an asset no funded competitor can copy, because you can't buy your way to 600 million minutes of generosity."
     },
     faq: [
-      { q: "Is ADPList really free?", a: "Yes — every 1:1 mentorship session on ADPList is free, and has been since launch. The platform connects learners with 40,000+ verified experts across design, product, engineering, AI and marketing at no cost. Revenue comes from products built around the network, not from charging for sessions." },
+      { q: "Is ADPList really free?", a: "Yes — every 1:1 mentorship session on ADPList is free, and has been since launch. The platform connects learners with ~39,000 verified mentors across design, product, engineering, AI and marketing at no cost. Revenue comes from products built around the network, not from charging for sessions." },
       { q: "Who backs ADPList?", a: "ADPList was backed by Sequoia India's Surge in 2021, alongside angel investors from Airbnb, Gojek and Zendesk, and usability pioneer Jakob Nielsen. Despite venture backing, the core mentorship product has stayed free." },
       { q: "Will AI replace human mentorship?", a: "Felix Lee's view on the episode: AI absorbs the rehearsal layer — interview practice, preparation, repetitive Q&A — while human mentors concentrate on what machines can't provide: lived experience applied to your specific situation, conviction, and belief. ADPList builds both: free human sessions and AI Interview Practice." },
       { q: "Who is Felix Lee?", a: "Felix Lee is the co-founder and CEO of ADPList, the world's largest free mentorship community. He never finished a university degree, sold his first company while still in high school, went through Passpod's IPO, and took a deliberate two-year gap before starting ADPList." }
@@ -230,7 +230,7 @@ const INSIGHTS = [
       { h: "Trust and candor at machine scale", p: "What happens when the interviewer is an AI? The founders argue coverage plus consistency produces a more honest picture of a company than prestige interviews ever did — and that the map of \"how work actually flows\" is a product every executive quietly wants." },
       { h: "Three founders, one YC batch, no playbook", p: "As a YC P26 company selling into Fortune 500s, Ontora is a live experiment in whether a tiny team with an agent can win deals against firms with fifty-year-old client relationships." }
     ],
-    about: "Ontora (YC P26) deploys AI agents that interview every employee in a company and deliver a map of how work actually gets done — in days, not months. Founded by David Korn, Leon Iwanowitsch, and Max.",
+    about: "Ontora (YC P26) deploys AI agents that interview every employee in a company and deliver a map of how work actually gets done — in about 24 hours, not months. Founded by David Korn, Leon Iwanowitsch, and Max.",
     whyNow: "Consulting is a trillion-dollar industry whose core deliverable — understanding how an organization actually works — just became automatable. Meanwhile every Fortune 500 is under pressure to restructure around AI, which means demand for org clarity is spiking at the exact moment the cost of producing it is collapsing.",
     numbers: [
       { n: "$1T", l: "consulting market being attacked" },
@@ -389,42 +389,43 @@ const INSIGHTS = [
     guest: "Laila Gamaleldin", role: "Founder @ Silver Surf", company: "Silver Surf",
     title: "The $5 Trillion Problem <em>Nobody in Tech</em> Is Working On",
     seoTitle: "The $5 Trillion Small Business Succession Problem — Silver Surf | The Tesla Pod",
-    seoDesc: "Millions of baby-boomer business owners are retiring with no succession plan. Laila Gamaleldin's Silver Surf turns owner know-how into SOPs and AI so businesses outlive their founders — and exit for more. The Tesla Pod insights.",
-    keywords: "small business succession, silver tsunami, baby boomer business exits, Silver Surf, Laila Gamaleldin, SOP automation AI, business exit value, SMB acquisition",
-    hook: "Boomer owners are retiring in waves — and their businesses' know-how retires with them.",
-    sub: "Laila Gamaleldin, founder of Silver Surf, on the silver tsunami: millions of profitable small businesses whose owners are aging out, whose operating knowledge lives in one person's head, and whose exits — or quiet shutdowns — add up to a $5 trillion problem tech has ignored.",
+    seoDesc: "10,000 Baby Boomers retire every day and 80% of small businesses fail to sell. Laila Gamaleldin left Google and TikTok to build Silver Surf — software that helps owners sell faster, for more, including to their employees through ESOPs. The Tesla Pod insights.",
+    keywords: "small business succession, silver tsunami, baby boomer business exits, Silver Surf, Laila Gamaleldin, ESOP, employee ownership, selling a small business, business exit value, leaving big tech",
+    hook: "10,000 Boomers retire every day — and 80% of their businesses never sell.",
+    sub: "Laila Gamaleldin left Google, then TikTok, to build software for people who own dry cleaners in Michigan. Silver Surf helps small-business owners sell faster, at a better valuation and with a higher success rate — because when most small businesses never find a buyer, a generation of plumbers, mechanics and restaurant owners watches its life's work disappear on retirement day.",
     bigIdea: [
-      "While tech chases the same ten SaaS categories, the largest wealth transfer in history is happening in HVAC companies, machine shops, and family distributors. The bottleneck isn't buyers or money — it's that the business <em>is</em> the owner. Pricing instincts, vendor relationships, the Tuesday-morning routine: none of it is written down, so none of it survives a sale.",
-      "Silver Surf's move is to treat owner knowledge as an extractable asset: interview it out, turn it into SOPs and AI-assisted operations, and make the business runnable by someone who isn't its founder. Do that, and you don't just save a company — you raise its price, because buyers pay for systems, not heroics."
+      "While tech chases the same ten SaaS categories, one of the largest wealth transfers in American history is happening on Main Street — in dry cleaners, plumbing outfits, restaurants and repair shops. Ten thousand Baby Boomers retire every day, and roughly 80% of small businesses never sell. The problem usually isn't that these are bad businesses. It's that selling one is a slow, opaque, broker-driven process built for people who have never needed a data room.",
+      "Silver Surf's move is to make the exit itself the product: software that helps an owner sell faster, at a better valuation, with a higher chance the deal actually closes. The episode's sharpest thread is ESOPs — selling the company to the people who already run it. Employee ownership is a buyer that already exists inside most of these businesses, and almost nobody on Main Street knows how to use it."
     ],
     takeaways: [
-      "<b>The silver tsunami is a market, not a headline.</b> Millions of boomer-owned businesses need to change hands this decade — a $5T flow with almost no modern tooling.",
-      "<b>Key-person risk is the valuation killer.</b> Businesses that depend on the owner's head sell at a discount or don't sell at all; documented, systematized ones command multiples.",
-      "<b>AI makes knowledge extraction scalable.</b> What a consultant would bill months for — interviewing the owner and writing the ops manual — an AI-assisted process does continuously.",
-      "<b>Unsexy compounds.</b> The episode is a reminder that the biggest opportunities are in markets tech ignores because the customers don't look like tech customers.",
-      "<b>Save the business, then sell it better.</b> Systematization serves both outcomes: the owner exits richer, and the business survives its founder."
+      "<b>The silver tsunami is a market, not a headline.</b> 10,000 Boomers retire every day and most small businesses never sell — a multi-trillion-dollar handoff with almost no modern tooling.",
+      "<b>The buyer might already be on payroll.</b> An ESOP turns employees into owners — a succession path that pays the founder and keeps the business local, yet is rarely explained to the owners it fits best.",
+      "<b>Build for people who've never opened a Notion doc.</b> Silver Surf is building five tools at once for owners who don't live in software, so every screen has to earn its place in a busy day.",
+      "<b>Unsexy compounds.</b> The biggest opportunities hide in markets tech ignores because the customers don't look like tech customers.",
+      "<b>Leaving big tech is a decision about time.</b> Laila's case against big tech isn't about pay. It's about what your hours are spent on, and whose life's work they protect."
     ],
     themes: [
-      { h: "Why tech missed a $5T market", p: "Fragmented customers, offline workflows, and zero glamour — the ride unpacks why the biggest problem list in the economy has the shortest startup list, and why that's precisely the opportunity." },
-      { h: "From founder-brain to operating system", p: "The mechanics of extracting what's in an owner's head: what questions to ask, what to document versus automate, and how AI turns a retiring owner's experience into an asset a buyer can operate." },
-      { h: "Exits as a product", p: "A business that runs without its owner exits for more. The conversation reframes succession prep not as estate planning but as value engineering — with a bigger check as the proof." }
+      { h: "Why tech missed a $5T market", p: "Fragmented customers, offline workflows and zero glamour — the ride unpacks why the biggest problem on Main Street has the shortest startup list, and why that's exactly the opportunity." },
+      { h: "ESOPs: the exit hiding in plain sight", p: "Employee ownership lets an owner sell to the team that already runs the place. The conversation gets into why it's so rarely used on Main Street and why it might be the answer everyone is missing." },
+      { h: "From Google and TikTok to dry cleaners in Michigan", p: "Why Laila walked away from big tech, what she thinks it gets fundamentally wrong about how time should be spent, and the night she told her Egyptian parents she was quitting." }
     ],
-    about: "Silver Surf turns a retiring owner's know-how into SOPs and AI-assisted operations so the business runs — and sells — without them. Founded by Laila Gamaleldin.",
-    whyNow: "Baby boomers own millions of American small businesses, and the retirement wave is cresting this decade — with most owners having no succession plan. Every year of delay means more profitable businesses quietly shutting down instead of changing hands. AI finally makes knowledge extraction cheap enough to work at small-business prices.",
+    about: "Silver Surf builds software that helps small-business owners sell their business faster, at a better valuation and with a higher success rate — including exits to employees through ESOPs. Founded by Laila Gamaleldin, who left Google and TikTok to build it. Since the episode was recorded, silversurf.co has shifted its focus to occupancy optimization for skilled-nursing facilities.",
+    whyNow: "Ten thousand Baby Boomers retire every day, and they own a large share of America's profitable small businesses — most with no succession plan. Every year of delay means more of those businesses closing instead of changing hands. Software finally makes it cheap to do the preparation, valuation and buyer-matching work that used to take brokers, lawyers and months of back-and-forth.",
     numbers: [
-      { n: "$5T", l: "in businesses that must change hands" },
-      { n: "Millions", l: "of boomer-owned companies" },
-      { n: "1", l: "head where the operating knowledge lives" }
+      { n: "10,000", l: "Baby Boomers retiring every day" },
+      { n: "80%", l: "of small businesses fail to sell" },
+      { n: "$5T", l: "in Main Street value facing a handoff" }
     ],
-    autonomyLens: "A business that only runs when its owner is present is a car that only its owner can drive. Silver Surf is building the autonomy retrofit: record how the expert drives (interview the owner), turn instinct into policy (SOPs and AI-assisted operations), then hand over control with supervision. Succession stops being a cliff and becomes a handoff — and the exit check is the safety report. Buyers pay a premium for a business that demonstrably drives itself, exactly the way trust in autonomy is priced on evidence, not promises.",
+    autonomyLens: "A small business that only runs when its owner is behind the wheel is a car only one person can drive — and when that driver retires, most of these cars simply park for good. Silver Surf works on the handover: get the business ready for someone else to take the wheel, then find that someone — sometimes the crew that's been riding along all along, through an ESOP. Autonomy earns trust on evidence, not promises, and a business sells the same way: the owner who can show clean numbers, working systems and a ready successor gets the better check.",
     counter: {
-      claim: "SMB owners are the hardest customers in software — skeptical, busy, and cheap. A retiring 68-year-old HVAC owner is not going to sit through AI interviews about how he prices jobs.",
-      response: "Laila's answer is to sell the check, not the software. Owners won't buy 'knowledge management,' but every one of them cares about what their life's work sells for — and the difference between a key-person-dependent business and a systematized one is often the difference between no sale and a real exit. Framed as exit-value engineering, extraction isn't homework; it's the highest-leverage hours of the owner's final years. And AI drops the cost of capturing it from consultant-months to conversations."
+      claim: "Small-business owners are the hardest customers in software — skeptical, busy and wary of new tools. A 68-year-old dry-cleaner owner in Michigan is not going to adopt a startup's platform to plan an exit.",
+      response: "Laila's answer is to sell the outcome, not the software. Owners won't buy 'succession tooling', but every one of them cares about what their life's work sells for — and whether it sells at all. That's also why the team builds for people who have never opened a Notion doc: the product has to feel like help, not homework. And when most listed businesses never sell, the alternative to trying something new isn't the status quo. It's closing the doors."
     },
     faq: [
-      { q: "What is the silver tsunami in small business?", a: "The 'silver tsunami' is the wave of baby-boomer business owners hitting retirement age — millions of profitable small businesses that must be sold, passed down, or shut within the decade, representing trillions in value with no modern tooling to handle the transition." },
-      { q: "Why do small businesses fail to sell?", a: "Because the business is the owner: pricing instincts, vendor relationships, and daily operations live in one person's head. Buyers discount or walk away from key-person risk. Businesses with documented systems and processes sell more often and at higher multiples." },
-      { q: "What is Silver Surf?", a: "Silver Surf, founded by Laila Gamaleldin, turns a retiring owner's know-how into SOPs and AI-assisted operations — so the business can run without its founder, survive the transition, and command a better exit price." }
+      { q: "What is the silver tsunami in small business?", a: "The 'silver tsunami' is the wave of Baby Boomer business owners reaching retirement. About 10,000 Boomers retire every day, and many own profitable small businesses that must be sold, passed down or closed — trillions of dollars in value with little modern tooling for the transition." },
+      { q: "Why do small businesses fail to sell?", a: "Roughly 80% of small businesses never sell. Common reasons: the business depends on the owner, the financials aren't buyer-ready, the process runs through slow broker networks, and owners start too late. Preparing early, and considering buyers like employees through an ESOP, improves the odds." },
+      { q: "What is an ESOP?", a: "An ESOP (employee stock ownership plan) lets an owner sell part or all of a company to its employees through a trust. On the episode, Laila argues it's one of the most overlooked exit paths for retiring small-business owners, because it pays the founder and keeps the business running and local." },
+      { q: "What is Silver Surf?", a: "Silver Surf, founded by Laila Gamaleldin, builds software that helps small-business owners sell their business faster, at a better valuation and with a higher success rate — including exits to employees through ESOPs. Laila joined The Tesla Pod on episode 03." }
     ]
   },
   {
@@ -532,8 +533,16 @@ const GA = `
 const HEAD_COMMON = `
   <meta name="author" content="Irosha de Silva" />
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
-  <meta name="theme-color" content="#fbfaf8" media="(prefers-color-scheme: light)" />
-  <meta name="theme-color" content="#101012" media="(prefers-color-scheme: dark)" />
+  <meta name="theme-color" content="#fbfaf8" />
+  <script>
+    (function () {
+      var d = document.documentElement, t = null;
+      try { t = localStorage.getItem("tp-theme"); } catch (e) {}
+      if (t === "dark" || t === "light") d.setAttribute("data-theme", t);
+      var m = document.querySelector('meta[name="theme-color"]');
+      if (m) m.setAttribute("content", d.getAttribute("data-theme") === "dark" ? "#101012" : "#fbfaf8");
+    })();
+  </script>
   <link rel="icon" type="image/svg+xml" href="/assets/brand/favicon.svg" />
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/brand/favicon-32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="/assets/brand/favicon-16.png" />
@@ -630,12 +639,23 @@ const FOOTER = `
 const PAGE_JS = `
   <script>
   (function () {
-    var root = document.documentElement, saved = null;
+    var root = document.documentElement, saved = null, themingTimer = null;
+    var reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
     try { saved = localStorage.getItem("tp-theme"); } catch (e) {}
     if (saved === "light" || saved === "dark") root.setAttribute("data-theme", saved);
+    function syncThemeColor(t) {
+      var m = document.querySelector('meta[name="theme-color"]');
+      if (m) m.setAttribute("content", t === "dark" ? "#101012" : "#fbfaf8");
+    }
     document.getElementById("themeToggle").addEventListener("click", function () {
       var next = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
+      if (!reduced) {
+        root.classList.add("theming");
+        clearTimeout(themingTimer);
+        themingTimer = setTimeout(function () { root.classList.remove("theming"); }, 420);
+      }
       root.setAttribute("data-theme", next);
+      syncThemeColor(next);
       try { localStorage.setItem("tp-theme", next); } catch (e) {}
     });
     var burger = document.getElementById("navBurger"), menu = document.getElementById("mobileMenu");
@@ -644,7 +664,6 @@ const PAGE_JS = `
       burger.setAttribute("aria-expanded", open ? "true" : "false");
     });
     document.getElementById("year").textContent = new Date().getFullYear();
-    var reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
     // lazy images ease in once decoded — opt into the fade only now that JS is running
     (function fadeImgs() {
       document.documentElement.classList.add("img-fade");
@@ -674,32 +693,55 @@ const PAGE_JS = `
     var copyBtn = document.querySelector(".sh-copy");
     if (copyBtn) copyBtn.addEventListener("click", function () {
       var url = copyBtn.getAttribute("data-url"), label = copyBtn.querySelector("span");
-      function done() { copyBtn.classList.add("done"); label.textContent = "Link copied"; setTimeout(function () { copyBtn.classList.remove("done"); label.textContent = "Copy link"; }, 1800); }
-      if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(url).then(done, done);
-      else { var t = document.createElement("textarea"); t.value = url; document.body.appendChild(t); t.select(); try { document.execCommand("copy"); } catch (e) {} t.remove(); done(); }
+      function flash(text, cls) {
+        if (cls) copyBtn.classList.add(cls);
+        label.textContent = text;
+        setTimeout(function () { copyBtn.classList.remove("done"); label.textContent = "Copy link"; }, 1800);
+      }
+      function done() { flash("Link copied", "done"); }
+      function fail() { flash("Couldn\u2019t copy"); }
+      function legacy() {
+        var t = document.createElement("textarea"), ok = false;
+        t.value = url; t.setAttribute("readonly", ""); t.style.cssText = "position:fixed;top:0;left:0;opacity:0;font-size:16px";
+        document.body.appendChild(t); t.select(); t.setSelectionRange(0, url.length);
+        try { ok = document.execCommand("copy"); } catch (e) {}
+        t.remove();
+        ok ? done() : fail();
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(url).then(done, legacy);
+      else legacy();
     });
     // scrollspy for the article table of contents
     var tocLinks = document.querySelectorAll(".in-toc a[href^='#']");
-    if (tocLinks.length && "IntersectionObserver" in window) {
-      var map = {};
+    if (tocLinks.length) {
+      var map = {}, current = null, spyQueued = false;
       tocLinks.forEach(function (a) { map[a.getAttribute("href").slice(1)] = a; });
-      var current = null;
-      var obs = new IntersectionObserver(function (entries) {
-        entries.forEach(function (en) {
-          if (en.isIntersecting && map[en.target.id]) {
-            if (current) current.classList.remove("on");
-            current = map[en.target.id];
-            current.classList.add("on");
-          }
-        });
-      }, { rootMargin: "-15% 0px -70% 0px" });
-      document.querySelectorAll(".in-article h2[id]").forEach(function (h) { obs.observe(h); });
+      var heads = Array.prototype.filter.call(document.querySelectorAll(".in-article h2[id]"), function (h) { return map[h.id]; });
+      function spy() {
+        spyQueued = false;
+        var h = document.documentElement, navH = parseFloat(getComputedStyle(h).getPropertyValue("--nav-h")) || 64;
+        var line = navH + 40, active = null;
+        heads.forEach(function (el) { if (el.getBoundingClientRect().top <= line) active = el; });
+        // bottom of the page: the final (often short) section is the one being read
+        if (h.scrollTop + h.clientHeight >= h.scrollHeight - 4 && heads.length) active = heads[heads.length - 1];
+        var link = active ? map[active.id] : null;
+        if (link === current) return;
+        if (current) current.classList.remove("on");
+        current = link;
+        if (current) current.classList.add("on");
+      }
+      addEventListener("scroll", function () { if (!spyQueued) { spyQueued = true; requestAnimationFrame(spy); } }, { passive: true });
+      addEventListener("resize", spy);
+      spy();
     }
   })();
   </script>`;
 
 const esc = (s) => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 const plain = (s) => String(s).replace(/<[^>]+>/g, "");
+// WebP variants come from tools/build-thumbs.mjs; on any failure fall back to the YouTube still
+const thumbSet = (id) => [320, 640, 960, 1280].map((w) => `/assets/thumbs/${id}-${w}.webp ${w}w`).join(", ");
+const thumbErr = (id) => `this.onerror=null;this.removeAttribute('srcset');this.src='https://img.youtube.com/vi/${id}/hqdefault.jpg'`;
 // reading time from every prose field on the page (220 wpm)
 function readingTime(it) {
   const text = [it.sub, ...it.bigIdea, it.whyNow, ...it.takeaways, ...it.themes.map((t) => t.h + " " + t.p),
@@ -751,7 +793,9 @@ function articlePage(it, i) {
       acceptedAnswer: { "@type": "Answer", text: f.a }
     }))
   };
-  const related = INSIGHTS.filter((x) => x.slug !== it.slug).slice(0, 3);
+  const n = INSIGHTS.length, skip = new Set([it.slug, prev && prev.slug, next && next.slug]);
+  const related = [2, -2, 3, -3, 4, -4].map((d) => INSIGHTS[(i + d + n) % n])
+    .filter((x, k, a) => !skip.has(x.slug) && a.indexOf(x) === k).slice(0, 3);
   return `<!doctype html>
 <html lang="en" data-theme="light">
 <head>
@@ -862,7 +906,7 @@ ${NAV}
       <div class="insights-grid">
         ${related.map((r) => `<a class="in-card in-card-sm" href="/insights/${r.slug}">
         <div class="in-card-media">
-          <img loading="lazy" src="/assets/thumbs/${r.id}.jpg" alt="${esc(plain(r.title))} — The Tesla Pod episode ${String(r.ep).padStart(2, "0")}" onerror="this.src='https://img.youtube.com/vi/${r.id}/hqdefault.jpg'" />
+          <img loading="lazy" src="/assets/thumbs/${r.id}.jpg" srcset="${thumbSet(r.id)}" sizes="(max-width: 640px) 220vw, (max-width: 1020px) 110vw, 800px" alt="${esc(plain(r.title))} — The Tesla Pod episode ${String(r.ep).padStart(2, "0")}" onerror="${thumbErr(r.id)}" />
         </div>
         <span class="in-card-ep" aria-hidden="true">${String(r.ep).padStart(2, "0")}</span>
         <div class="in-card-body">
@@ -939,7 +983,7 @@ ${NAV}
     <div class="insights-grid">
       ${INSIGHTS.map((it) => `<a class="in-card" href="/insights/${it.slug}">
         <div class="in-card-media">
-          <img loading="lazy" src="/assets/thumbs/${it.id}.jpg" alt="${esc(plain(it.title))} — The Tesla Pod episode ${String(it.ep).padStart(2, "0")}" onerror="this.src='https://img.youtube.com/vi/${it.id}/hqdefault.jpg'" />
+          <img loading="lazy" src="/assets/thumbs/${it.id}.jpg" srcset="${thumbSet(it.id)}" sizes="(max-width: 640px) 230vw, (max-width: 1020px) 115vw, 860px" alt="${esc(plain(it.title))} — The Tesla Pod episode ${String(it.ep).padStart(2, "0")}" onerror="${thumbErr(it.id)}" />
         </div>
         <span class="in-card-ep" aria-hidden="true">${String(it.ep).padStart(2, "0")}</span>
         <div class="in-card-body">

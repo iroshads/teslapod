@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script>try{if(localStorage.getItem('tp-theme')==='dark')document.documentElement.setAttribute('data-theme','dark')}catch(e){}</script>
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-FM2TFSZ32V"></script>
@@ -30,7 +31,7 @@
     }
     .kicker {
       font-family: "IBM Plex Mono", monospace; font-size: 11px;
-      letter-spacing: 0.24em; text-transform: uppercase; color: #98948b;
+      letter-spacing: 0.24em; text-transform: uppercase; color: #736f67;
       display: inline-flex; align-items: center; gap: 10px; margin-bottom: 20px;
     }
     .dot { width: 6px; height: 6px; border-radius: 50%; background: #c8102e; }
@@ -41,6 +42,7 @@
     }
     h1 em { font-family: "Instrument Serif", serif; font-style: italic; font-weight: 400; }
     p { color: #57544e; font-size: 15.5px; max-width: 44ch; margin: 0 auto 30px; }
+    .ctas { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
     a.btn {
       display: inline-block; background: #141414; color: #fbfaf8;
       text-decoration: none; font-weight: 500; font-size: 14px;
@@ -50,14 +52,23 @@
       display: inline-block; background: none; color: #57544e;
       text-decoration: none; font-weight: 500; font-size: 14px;
       padding: 13px 26px; border-radius: 999px; border: 1px solid #e4e1db;
-      margin-left: 8px;
     }
     a.ghost:hover { border-color: #141414; color: #141414; }
     .coords {
       margin-top: 40px;
       font-family: "IBM Plex Mono", monospace; font-size: 10.5px;
-      letter-spacing: 0.14em; color: #98948b;
+      letter-spacing: 0.14em; color: #736f67;
     }
+    a:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+    /* follows the theme the visitor picked on the main site */
+    html[data-theme="dark"] { color-scheme: dark; }
+    html[data-theme="dark"] body { background: #101012; color: #ecebe6; }
+    html[data-theme="dark"] h1 { color: #f4f2ed; }
+    html[data-theme="dark"] p { color: #a3a099; }
+    html[data-theme="dark"] .kicker, html[data-theme="dark"] .coords { color: #8c8981; }
+    html[data-theme="dark"] a.btn { background: #f4f2ed; color: #101012; }
+    html[data-theme="dark"] a.ghost { color: #a3a099; border-color: rgba(250, 250, 245, 0.14); }
+    html[data-theme="dark"] a.ghost:hover { border-color: #f4f2ed; color: #f4f2ed; }
   </style>
 </head>
 <body>
@@ -65,7 +76,7 @@
     <p class="kicker"><span class="dot"></span> Route not found</p>
     <h1>The pod took a <em>wrong</em> turn.</h1>
     <p>This street doesn't exist on our map. The car is rerouting — or you can head straight back to the show.</p>
-    <a class="btn" href="/">← Back to The Tesla Pod</a><a class="ghost" href="/insights">Browse the insights</a>
+    <div class="ctas"><a class="btn" href="/">← Back to The Tesla Pod</a><a class="ghost" href="/insights">Browse the insights</a></div>
     <p class="coords">404 · 37.7749° N · 122.4194° W</p>
   </main>
 </body>

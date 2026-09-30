@@ -3,12 +3,28 @@
    Ink on ivory. Hairlines, not glows. Red is a trace, not a theme.
    ============================================================ */
 
+/* Metric-matched stand-ins for the web fonts, so text keeps its line breaks when the real fonts
+   swap in (the hero title used to jump from 3 lines to 2). Ratios measured in Chrome against the
+   Google Fonts files; the bold faces cover the 600-weight display type. */
+@font-face { font-family: "Inter Tight Fallback"; src: local("Arial"), local("ArialMT"); font-weight: 100 549;
+  size-adjust: 98.6%; ascent-override: 98.38%; descent-override: 24.34%; line-gap-override: 0%; }
+@font-face { font-family: "Inter Tight Fallback"; src: local("Arial Bold"), local("Arial-BoldMT"); font-weight: 550 900;
+  size-adjust: 94.06%; ascent-override: 103.13%; descent-override: 25.52%; line-gap-override: 0%; }
+@font-face { font-family: "Inter Fallback"; src: local("Arial"), local("ArialMT"); font-weight: 100 549;
+  size-adjust: 106.64%; ascent-override: 90.96%; descent-override: 22.51%; line-gap-override: 0%; }
+@font-face { font-family: "Inter Fallback"; src: local("Arial Bold"), local("Arial-BoldMT"); font-weight: 550 900;
+  size-adjust: 101.43%; ascent-override: 95.64%; descent-override: 23.66%; line-gap-override: 0%; }
+@font-face { font-family: "Instrument Serif Fallback"; src: local("Georgia Italic"), local("Georgia-Italic"); font-style: italic;
+  size-adjust: 78.47%; ascent-override: 126.16%; descent-override: 39.5%; line-gap-override: 0%; }
+@font-face { font-family: "IBM Plex Mono Fallback"; src: local("Courier New"), local("CourierNewPSMT");
+  size-adjust: 99.98%; ascent-override: 102.02%; descent-override: 27%; line-gap-override: 0%; }
+
 :root {
   --accent: #c8102e;              /* used sparingly: rec dot, micro-markers */
-  --font-display: "Inter Tight", "Inter", system-ui, sans-serif;
-  --font-body: "Inter", system-ui, sans-serif;
-  --font-serif: "Instrument Serif", Georgia, serif;
-  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+  --font-display: "Inter Tight", "Inter Tight Fallback", "Inter", system-ui, sans-serif;
+  --font-body: "Inter", "Inter Fallback", system-ui, sans-serif;
+  --font-serif: "Instrument Serif", "Instrument Serif Fallback", Georgia, serif;
+  --font-mono: "IBM Plex Mono", "IBM Plex Mono Fallback", ui-monospace, monospace;
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
   --nav-h: 64px;
   --radius: 6px;
@@ -24,7 +40,7 @@
   --ink: #141414;
   --text: #1a1a1a;
   --text-dim: #57544e;
-  --text-faint: #98948b;
+  --text-faint: #736f67;          /* ≥4.5:1 on bg, bg-2 and white (WCAG AA for small meta text) */
   --glass: rgba(251, 250, 248, 0.85);
   --card-shadow: 0 1px 2px rgba(20, 20, 20, 0.04);
   --card-shadow-hover: 0 10px 30px rgba(20, 20, 20, 0.08);
@@ -42,7 +58,8 @@
   --ink: #f4f2ed;
   --text: #ecebe6;
   --text-dim: #a3a099;
-  --text-faint: #6b6963;
+  --text-faint: #8c8981;          /* ≥4.5:1 on bg, surface and surface-2 */
+  --red-soft: #ff4d52;            /* accent for red TEXT on dark: #c8102e is only ~3:1 there */
   --glass: rgba(16, 16, 18, 0.85);
   --card-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
   --card-shadow-hover: 0 14px 40px rgba(0, 0, 0, 0.5);
@@ -66,6 +83,8 @@ body {
 a { color: inherit; text-decoration: none; }
 img { max-width: 100%; display: block; }
 section { scroll-margin-top: var(--nav-h); }
+/* "The Map" targets the map card (a div, not a section): clear the nav plus the reveal's 18px offset */
+#about { scroll-margin-top: calc(var(--nav-h) + 32px); }
 
 /* ---------- scroll progress ---------- */
 .scroll-progress {
@@ -229,8 +248,10 @@ section { scroll-margin-top: var(--nav-h); }
   cursor: crosshair;
   z-index: 0; position: relative;
 }
-/* floating control console on the map */
-.map-stage { position: relative; }
+/* floating control console on the map.
+   isolation keeps the console/HUD/game-over z-indexes (900–1100) local to the map, so they can
+   never paint over the fixed nav (100), mobile menu or player modal while scrolling past. */
+.map-stage { position: relative; isolation: isolate; }
 .map-console {
   position: absolute; left: 10px; bottom: 10px; z-index: 1000;
   display: flex; flex-direction: column; gap: 6px;
@@ -347,6 +368,17 @@ body.map-full .nav, body.map-full .scroll-progress { display: none; }
   font-family: var(--font-body);
   color: #141414 !important;
 }
+/* OpenStreetMap tiles, toned to the editorial palette. Only the tile pane is filtered —
+   the pod, route and landmark markers live in other panes and keep their true colours. */
+.sf-map .leaflet-tile-pane { filter: saturate(0.35) contrast(0.94) brightness(1.03); }
+[data-theme="dark"] .sf-map .leaflet-tile-pane {
+  filter: invert(1) hue-rotate(180deg) saturate(0.3) brightness(0.86) contrast(0.92);
+}
+/* dark theme: the zoom control and attribution stop glaring white on the dark map */
+[data-theme="dark"] .leaflet-bar { border-color: var(--line); }
+[data-theme="dark"] .leaflet-bar a { background: var(--surface); color: var(--ink) !important; border-bottom-color: var(--line); }
+[data-theme="dark"] .leaflet-bar a:hover, [data-theme="dark"] .leaflet-bar a:focus { background: var(--bg-2); }
+[data-theme="dark"] .leaflet-bar a.leaflet-disabled { background: var(--surface); color: var(--text-faint) !important; }
 
 /* landmark markers */
 .lm-marker-wrap { pointer-events: auto; }
@@ -402,6 +434,11 @@ body.map-full .nav, body.map-full .scroll-progress { display: none; }
 .ctl-game { color: var(--accent); border-color: rgba(200, 16, 46, 0.4); }
 .ctl-game:hover { color: #fff; background: var(--accent); border-color: var(--accent); }
 .ctl-game.on { color: #fff; background: var(--accent); border-color: var(--accent); }
+[data-theme="dark"] .ctl-game:not(:hover):not(.on) { color: var(--red-soft); }
+/* reduced motion: the game is paused — still focusable (it explains itself on click), visibly inert */
+.ctl-game[aria-disabled="true"], .ctl-game[aria-disabled="true"]:hover {
+  color: var(--text-faint); background: var(--surface); border-color: var(--line); cursor: not-allowed;
+}
 
 .game-hud {
   position: absolute; top: 0; left: 0; right: 0; z-index: 900;
@@ -495,6 +532,13 @@ body.map-full .nav, body.map-full .scroll-progress { display: none; }
   text-shadow: 0 1px 0 #101012, 0 -1px 0 #101012, 1px 0 0 #101012, -1px 0 0 #101012, 0 0 6px #101012;
 }
 [data-theme="dark"] .lm-marker:hover .lmm-dot, [data-theme="dark"] .lm-target .lmm-dot { background: var(--red-soft, #ff4d52); }
+/* dark map labels: the light-theme pickup green and accent red drop to ~3:1 on the dark halo */
+[data-theme="dark"] .lm-fare .lmm-txt { color: #4cc991 !important; }
+[data-theme="dark"] .lm-dest .lmm-txt { color: var(--red-soft) !important; }
+/* no !important here: must lose to .lm-fare so a pickup label stays green on hover/click */
+[data-theme="dark"] .lm-marker:hover .lmm-txt,
+[data-theme="dark"] .lm-marker:focus-visible .lmm-txt,
+[data-theme="dark"] .lm-target .lmm-txt { color: var(--red-soft); }
 [data-theme="dark"] .leaflet-container .leaflet-control-attribution { background: rgba(16, 16, 18, 0.75); color: #8a877f; }
 [data-theme="dark"] .leaflet-container .leaflet-control-attribution a { color: #a3a099; }
 
@@ -665,7 +709,17 @@ body.map-full .nav, body.map-full .scroll-progress { display: none; }
 }
 
 /* ---------- global focus + interaction cues ---------- */
-:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; border-radius: 2px; }
+/* no border-radius override here: outlines follow each element's own radius, so pills and round
+   buttons stay pills and circles when focused */
+:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+/* the Tesla screen is always light: in dark theme --ink is near-white and the ring vanished */
+.tesla-screen :focus-visible { outline-color: var(--ts-text); }
+/* segmented toggles clip overflow — draw their rings inside so they aren't cut to a sliver */
+.seg button:focus-visible, .ts-fan button:focus-visible, .ts-seg button:focus-visible { outline-offset: -3px; }
+.seg button.on:focus-visible { outline-color: var(--bg); }
+.ts-fan button.on:focus-visible, .ts-seg button.on:focus-visible { outline-color: var(--ts-bg); }
+/* the player's close button always sits over video */
+.modal-close:focus-visible { outline-color: #fff; }
 .ep-card, .person-card, .feat-card { position: relative; }
 .ep-card::after, .feat-card::after {
   content: ""; position: absolute; inset: auto 0 0 0; height: 2px;
@@ -780,9 +834,10 @@ body.map-full .nav, body.map-full .scroll-progress { display: none; }
 .ep-insight {
   font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.14em;
   color: var(--accent); text-transform: uppercase; white-space: nowrap;
-  opacity: 0.85; transition: opacity 0.2s;
 }
-.ep-insight:hover { opacity: 1; text-decoration: underline; }
+.ep-insight:hover { text-decoration: underline; }
+/* red TEXT on dark backgrounds uses the brighter red (≥5:1); dots and fills keep the accent */
+[data-theme="dark"] :is(.ep-insight, .co-pop-link, .in-toc a.on, .go-kicker, .mc-passing b, .gh-fare b) { color: var(--red-soft); }
 
 /* ---------- passengers ---------- */
 .passengers { padding: clamp(80px, 10vw, 140px) clamp(20px, 4vw, 56px); }
@@ -857,6 +912,11 @@ body.map-full .nav, body.map-full .scroll-progress { display: none; }
 
 /* company info tooltip — a tiny "i" next to a guest's company */
 .co { white-space: nowrap; }
+/* touch: an invisible ~40px hit area around the 14px "i", so a thumb aimed at it doesn't land on
+   the card and launch the autoplaying player. Mouse targeting is unchanged. */
+@media (pointer: coarse) {
+  .co-i::after { content: ""; position: absolute; inset: -13px; border-radius: 50%; }
+}
 .co-i {
   display: inline-grid; place-items: center;
   width: 14px; height: 14px; margin-left: 5px; padding: 0;
@@ -1082,20 +1142,21 @@ a.ts-row:hover { border-color: var(--ts-dim); }
 
 /* the form inside the screen */
 .tesla-screen .apply-form { display: flex; flex-direction: column; gap: 16px; }
-.tesla-screen .field label { color: var(--ts-faint); }
+.tesla-screen .field label { color: var(--ts-dim); }
 .tesla-screen .field input, .tesla-screen .field textarea {
   background: var(--ts-surface); color: var(--ts-text);
   border: 1px solid var(--ts-line); border-radius: 8px;
 }
-.tesla-screen .field input::placeholder, .tesla-screen .field textarea::placeholder { color: var(--ts-faint); }
+.tesla-screen .field input::placeholder, .tesla-screen .field textarea::placeholder { color: #6b7380; }
 .tesla-screen .field input:focus, .tesla-screen .field textarea:focus {
-  border-color: var(--ts-dim); box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.06);
+  border-color: var(--ts-dim); box-shadow: 0 0 0 3px rgba(23, 26, 31, 0.12);
 }
 .tesla-screen .ts-submit { background: var(--accent); color: #fff; }
 .tesla-screen .ts-submit:hover { opacity: 0.9; }
-.tesla-screen .form-fineprint { color: var(--ts-faint); }
+.tesla-screen .form-fineprint { color: var(--ts-dim); }
 .tesla-screen .form-success .fs-mark { border-color: var(--ts-text); color: var(--ts-text); }
 .tesla-screen .form-success h3 { color: var(--ts-text); }
+.tesla-screen .form-success h3:focus { outline: none; }
 .tesla-screen .form-success p { color: var(--ts-dim); }
 .tesla-screen .form-error { color: var(--accent); }
 
@@ -1119,6 +1180,10 @@ a.ts-row:hover { border-color: var(--ts-dim); }
   border-color: var(--ink); box-shadow: 0 0 0 3px var(--line-soft);
 }
 .form-fineprint { font-size: 12px; color: var(--text-faint); text-align: center; }
+/* 16px stops iOS Safari zooming the page when a field gets focus */
+@media (max-width: 720px), (pointer: coarse) {
+  .field input, .field textarea { font-size: 16px; }
+}
 
 /* ---------- footer ---------- */
 .footer { border-top: 1px solid var(--line-soft); background: var(--bg); }
@@ -1208,11 +1273,17 @@ a.ts-row:hover { border-color: var(--ts-dim); }
 .footer-heart { font-size: 9.5px; letter-spacing: 0; vertical-align: 1px; }
 
 /* ---------- modal ---------- */
-.modal { position: fixed; inset: 0; z-index: 300; display: grid; place-items: center; padding: 20px; }
+/* the dialog scrolls when it's taller than the screen (phones in landscape), and the card's auto
+   margin lets it start at the top instead of centring its ✕ off-screen. The backdrop ignores
+   pointers so gutter taps land on .modal itself, which closes the player (app.js). */
+.modal { position: fixed; inset: 0; z-index: 300; display: grid; place-items: center; padding: 20px; overflow-y: auto; overscroll-behavior: contain; }
 .modal[hidden] { display: none; }
-.modal-backdrop { position: absolute; inset: 0; background: rgba(12, 12, 12, 0.8); backdrop-filter: blur(6px); }
+.modal-backdrop { position: fixed; inset: 0; background: rgba(12, 12, 12, 0.8); backdrop-filter: blur(6px); pointer-events: none; }
 .modal-card {
-  position: relative; width: min(960px, 100%);
+  position: relative; margin: auto;
+  width: min(960px, 100%);
+  /* keep the 16:9 video within the viewport height (browsers without svh keep the line above) */
+  width: min(960px, 100%, calc((100svh - 40px) * 16 / 9));
   background: var(--surface); border: 1px solid var(--line);
   border-radius: 12px; overflow: hidden;
   box-shadow: 0 40px 120px rgba(0,0,0,0.5);
@@ -1235,12 +1306,15 @@ a.ts-row:hover { border-color: var(--ts-dim); }
   line-height: 1.3; letter-spacing: -0.015em; color: var(--ink);
 }
 .modal-meta .ep-desc { color: var(--text-dim); font-size: 14px; }
-.modal-links { display: flex; align-items: center; gap: 18px; }
+.modal-links { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 18px; }
+/* guest lines flow as text (so the company chip wraps with them) instead of splitting into columns */
+.feat-card .ep-guest, .modal-links .ep-guest { display: block; line-height: 1.5; }
 .modal-yt {
   font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.18em;
   text-transform: uppercase; color: var(--text-dim);
   border-bottom: 1px solid var(--line);
   padding-bottom: 1px;
+  white-space: nowrap;
   transition: color 0.2s, border-color 0.2s;
 }
 .modal-yt:hover { color: var(--ink); border-color: var(--ink); }
@@ -1286,6 +1360,8 @@ a.ts-row:hover { border-color: var(--ts-dim); }
 /* ---------- reveal on scroll ---------- */
 .reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.7s var(--ease), transform 0.7s var(--ease); }
 .reveal.in { opacity: 1; transform: none; }
+/* fail-safe: if app.js never armed the reveal observer, show everything */
+.no-reveal .reveal { opacity: 1; transform: none; }
 
 /* ---------- responsive ---------- */
 @media (max-width: 1020px) {
@@ -1357,12 +1433,18 @@ a.ts-row:hover { border-color: var(--ts-dim); }
   /* full-width, easy-to-tap CTAs */
   .hero-ctas { flex-direction: column; align-items: stretch; gap: 10px; }
   .hero-ctas .btn { width: 100%; justify-content: center; }
+  /* passengers: two portraits per row instead of one 6,900px column (same cards, same order) */
+  .people-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+  .person-body { padding: 12px 13px 14px; }
+  .person-body h3 { font-size: 14.5px; }
+  .person-body .co { white-space: normal; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
   .reveal { opacity: 1; transform: none; }
   .hero-title .line span { transform: none; }
+  .cm-halo { animation: none; opacity: 0; }
 }
 
 /* ---------- insights pages ---------- */
@@ -1683,4 +1765,17 @@ html.img-fade img[loading="lazy"].loaded { opacity: 1; }
   .in-article > .in-vis-wait { opacity: 1; transform: none; }
   img[loading="lazy"] { opacity: 1; }
   .eyebrow::before { transform: scaleX(1); }
+}
+
+/* ---------- print ---------- */
+@media print {
+  .in-article > .in-vis-wait, html.img-fade img[loading="lazy"], .reveal { opacity: 1 !important; transform: none !important; }
+  .nav, .in-progress, .in-toc, .in-share, .in-related, .footer, .to-top { display: none !important; }
+  .in-main { padding-top: 0; }
+  html[data-theme] {
+    --bg: #fff; --bg-2: #fff; --surface: #fff; --surface-2: #f4f3f0;
+    --line: rgba(20, 20, 20, 0.12); --line-soft: rgba(20, 20, 20, 0.07);
+    --ink: #141414; --text: #1a1a1a; --text-dim: #57544e; --text-faint: #6b6860;
+    --btn-bg: #141414; --btn-fg: #fff; --card-shadow: none; --card-shadow-hover: none;
+  }
 }

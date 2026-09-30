@@ -10,7 +10,7 @@ const EPISODES = [
     "duration": "1:09:54",
     "releaseDate": "Aug 24, 2026",
     "thumb": "assets/thumbs/9Ejk8wq14ww.jpg",
-    "description": "Adil Mania thinks tech media is the most boring media in the world — food has shows, fashion has shows, sports has shows, and tech has ten thousand podcasts of founders talking to founders. So I asked him whether this show is part of the problem. From Rabat to Paris to San Francisco, he's built Silicon Mania into five formats in eight months."
+    "description": "Adil Mania thinks tech media is the most boring media in the world — food has shows, fashion has shows, sports has shows, and tech has ten thousand podcasts of founders talking to founders. So the host asked him whether this show is part of the problem. From Rabat to Paris to San Francisco, he's built Silicon Mania into five formats in eight months."
   },
   {
     "id": "g57WpguhxXA",
@@ -229,21 +229,21 @@ const PEOPLE = [
   },
   {
     "name": "Shreyans Jain",
-    "role": "Co-founder",
+    "role": "Cofounder",
     "company": "Manicule (YC P26)",
     "photo": "assets/people/shreyans-jain.jpg",
     "episodeId": "EMmH7ECJ-IQ"
   },
   {
     "name": "Naman Bansal",
-    "role": "Co-founder",
+    "role": "Cofounder",
     "company": "Manicule (YC P26)",
     "photo": "assets/people/naman-bansal.jpg",
     "episodeId": "EMmH7ECJ-IQ"
   },
   {
     "name": "Yasith Jayawardana",
-    "role": "Co-founder & CTO",
+    "role": "Cofounder & CTO",
     "company": "Marketrix AI",
     "photo": "assets/people/yasith-jayawardana.jpg",
     "episodeId": "kl8JXv2KIfc"
