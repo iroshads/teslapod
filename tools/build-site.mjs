@@ -1071,7 +1071,13 @@ async function loadTranscript(id) {
 }
 // auto-captions: drop sound tags and fillers, collapse stutters, fix names the recogniser mangles
 const TX_FIXES = [
-  [/\bTesla pod\b/g, "Tesla Pod"], [/\bsilicon mania\b/gi, "Silicon Mania"], [/\bSiliconia\b/g, "Silicon Mania"],
+  [/\bTesla (?:pod|plot|part)\b/g, "Tesla Pod"], [/\bYosha\b/g, "Irosha"], [/\bYasid\b/g, "Yasith"],
+  [/\bShrians\b/g, "Shreyans"], [/\bNammon\b/g, "Naman"], [/\bManicure\b/g, "Manicule"], [/\bMintify\b/g, "Mintlify"],
+  [/\b(?:Entara|Antara)\b/g, "Ontora"], [/\b(?:Bavani|Banani|Bwani)\b/g, "Bhavani"], [/\bCodeex\b/g, "Codex"],
+  [/\b(?:Komaala|Kumala)\b/g, "Komala"], [/\bPZ Labs\b/g, "Peazy Labs"], [/\b(?:Zenesk|Zenes|Zendex)\b/g, "Zendesk"],
+  [/\bSankit\b/g, "Sanket"], [/\bFlake\b/g, "Fleek"], [/\bLaya\b/g, "Laila"], [/\bAla\b/g, "Laila"],
+  [/\bSilver Sururf\b/g, "Silver Surf"], [/\bJacob Neielson\b/g, "Jakob Nielsen"], [/\bGary Tan\b/g, "Garry Tan"],
+  [/\bBuild Space\b/g, "Buildspace"], [/\bSwelt Kit\b/g, "SvelteKit"], [/\bSwelt\b/g, "Svelte"], [/\bDoor Dash\b/g, "DoorDash"], [/\binto IC\b/g, "into YC"], [/\bsilicon mania\b/gi, "Silicon Mania"], [/\bSiliconia\b/g, "Silicon Mania"],
   [/\bSilicon Money\b/g, "Silicon Mania"], [/\bMr\.? ?Beast\b/g, "MrBeast"], [/\bTik Tok\b/g, "TikTok"],
   [/\bWhimos\b/g, "Waymos"], [/\bWhimo\b/g, "Waymo"], [/\bFounders Fen\b/g, "Founders Fund"], [/\bA6Z\b/g, "a16z"]
 ];
