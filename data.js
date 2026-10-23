@@ -2,6 +2,7 @@
 const EPISODES = [
   {
     "id": "9Ejk8wq14ww",
+    "slug": "adil-mania-silicon-mania",
     "num": 11,
     "title": "MrBeast Meets Silicon Valley: Making Tech Fun Again",
     "fullTitle": "MrBeast Meets Silicon Valley: Making Tech Fun Again | Riding Through SF in a Self-Driving Tesla",
@@ -14,6 +15,7 @@ const EPISODES = [
   },
   {
     "id": "g57WpguhxXA",
+    "slug": "felix-lee-adplist",
     "num": 10,
     "title": "Sequoia Said Yes. A Million Users Later, It's Still Free",
     "fullTitle": "Sequoia Said Yes. A Million Users Later, It's Still Free | Riding Through SF in a Self-Driving Tesla",
@@ -26,6 +28,7 @@ const EPISODES = [
   },
   {
     "id": "AR18l-xBY6Q",
+    "slug": "sanket-agarwal-fleek",
     "num": 9,
     "title": "Fleek Raised $25M to Fix What Happens to Your Old Clothes",
     "fullTitle": "Fleek Raised $25M to Fix What Happens to Your Old Clothes | A Self-Driving Tesla Podcast",
@@ -38,6 +41,7 @@ const EPISODES = [
   },
   {
     "id": "4FtPxcSjpF8",
+    "slug": "jason-jin-funky",
     "num": 8,
     "title": "He Left Google to Build Agent Swarms",
     "fullTitle": "He Left Google to Build Agent Swarms | Riding Through SF in a Self-Driving Tesla",
@@ -50,6 +54,7 @@ const EPISODES = [
   },
   {
     "id": "UkzjHmqDMiY",
+    "slug": "david-korn-leon-iwanowitsch-ontora",
     "num": 7,
     "title": "They're automating the $1 trillion consulting industry",
     "fullTitle": "They're automating the $1 trillion consulting industry | Riding Through SF in a Self-Driving Tesla",
@@ -62,6 +67,7 @@ const EPISODES = [
   },
   {
     "id": "7_k8UR_5aDc",
+    "slug": "anushka-idamekorala-logical",
     "num": 6,
     "title": "He Dropped Out of His PhD to Get Into YC",
     "fullTitle": "He Dropped Out of His PhD to Get Into YC | Riding Through SF in a Self-Driving Tesla",
@@ -74,6 +80,7 @@ const EPISODES = [
   },
   {
     "id": "ChwI4UyEGqM",
+    "slug": "arjun-chintapalli-bhavani-kalisetty-rtrvr-ai",
     "num": 5,
     "title": "Your Browser Is About to Drive Itself",
     "fullTitle": "Your Browser Is About to Drive Itself | Riding Through SF in a Self-Driving Tesla",
@@ -86,6 +93,7 @@ const EPISODES = [
   },
   {
     "id": "p7eUWZtrq-0",
+    "slug": "komala-chenna-kushal-murthy-peazy-labs",
     "num": 4,
     "title": "AI Just Ate Customer Success",
     "fullTitle": "AI Just Ate Customer Success | Riding Through SF in a Self-Driving Tesla",
@@ -98,6 +106,7 @@ const EPISODES = [
   },
   {
     "id": "VVFp6FDn5KM",
+    "slug": "laila-gamaleldin-silver-surf",
     "num": 3,
     "title": "The $5 Trillion Problem Nobody in Tech is Working On",
     "fullTitle": "The $5 Trillion Problem Nobody in Tech is Working On | Riding Through SF in a Self-Driving Tesla",
@@ -110,6 +119,7 @@ const EPISODES = [
   },
   {
     "id": "EMmH7ECJ-IQ",
+    "slug": "shreyans-jain-naman-bansal-manicule",
     "num": 2,
     "title": "They Raised $500K from YC at 18",
     "fullTitle": "They Raised $500K from YC at 18 | Riding Through SF in a Self-Driving Tesla",
@@ -122,6 +132,7 @@ const EPISODES = [
   },
   {
     "id": "kl8JXv2KIfc",
+    "slug": "yasith-jayawardana-marketrix-ai",
     "num": 1,
     "title": "Self Driving Cars and Self Driving software",
     "fullTitle": "Self Driving Cars and Self Driving software",

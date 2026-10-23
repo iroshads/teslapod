@@ -1,81 +1,252 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
     <loc>https://www.theteslapod.com/</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-10-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://www.theteslapod.com/insights</loc>
-    <lastmod>2026-09-04</lastmod>
+    <loc>https://www.theteslapod.com/episodes</loc>
+    <lastmod>2026-10-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.theteslapod.com/insights/making-tech-media-entertaining-silicon-mania</loc>
-    <lastmod>2026-09-04</lastmod>
+    <loc>https://www.theteslapod.com/episodes/adil-mania-silicon-mania</loc>
+    <lastmod>2026-10-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <video:video>
+      <video:thumbnail_loc>https://www.theteslapod.com/assets/thumbs/9Ejk8wq14ww.jpg</video:thumbnail_loc>
+      <video:title>MrBeast Meets Silicon Valley: Making Tech Fun Again | Riding Through SF in a Self-Driving Tesla</video:title>
+      <video:description>Silicon Mania cofounder Adil Mania on why tech media is boring, what “MrBeast meets NBC” means for tech, and five formats in eight months. The Tesla Pod EP 11.</video:description>
+      <video:player_loc>https://www.youtube.com/embed/9Ejk8wq14ww</video:player_loc>
+      <video:duration>4194</video:duration>
+      <video:publication_date>2026-08-24</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.theteslapod.com/episodes/felix-lee-adplist</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <video:video>
+      <video:thumbnail_loc>https://www.theteslapod.com/assets/thumbs/g57WpguhxXA.jpg</video:thumbnail_loc>
+      <video:title>Sequoia Said Yes. A Million Users Later, It&apos;s Still Free | Riding Through SF in a Self-Driving Tesla</video:title>
+      <video:description>ADPList CEO Felix Lee on keeping mentorship free at a million users, Sequoia&apos;s backing, AI interview practice and skipping the degree. The Tesla Pod EP 10.</video:description>
+      <video:player_loc>https://www.youtube.com/embed/g57WpguhxXA</video:player_loc>
+      <video:duration>4114</video:duration>
+      <video:publication_date>2026-08-11</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.theteslapod.com/episodes/sanket-agarwal-fleek</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <video:video>
+      <video:thumbnail_loc>https://www.theteslapod.com/assets/thumbs/AR18l-xBY6Q.jpg</video:thumbnail_loc>
+      <video:title>Fleek Raised $25M to Fix What Happens to Your Old Clothes | A Self-Driving Tesla Podcast</video:title>
+      <video:description>Fleek cofounder Sanket Agarwal on where donated clothes really go, AI that grades used garments from one photo, and Fleek&apos;s $25M Series B. The Tesla Pod EP 09.</video:description>
+      <video:player_loc>https://www.youtube.com/embed/AR18l-xBY6Q</video:player_loc>
+      <video:duration>3564</video:duration>
+      <video:publication_date>2026-07-26</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.theteslapod.com/episodes/jason-jin-funky</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <video:video>
+      <video:thumbnail_loc>https://www.theteslapod.com/assets/thumbs/4FtPxcSjpF8.jpg</video:thumbnail_loc>
+      <video:title>He Left Google to Build Agent Swarms | Riding Through SF in a Self-Driving Tesla</video:title>
+      <video:description>Ex-Google engineer Jason Jin on Funky: one API call, hundreds of sandboxed AI agents, why swarms beat one smarter agent, and a live demo. The Tesla Pod EP 08.</video:description>
+      <video:player_loc>https://www.youtube.com/embed/4FtPxcSjpF8</video:player_loc>
+      <video:duration>2724</video:duration>
+      <video:publication_date>2026-07-06</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.theteslapod.com/episodes/david-korn-leon-iwanowitsch-ontora</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <video:video>
+      <video:thumbnail_loc>https://www.theteslapod.com/assets/thumbs/UkzjHmqDMiY.jpg</video:thumbnail_loc>
+      <video:title>They&apos;re automating the $1 trillion consulting industry | Riding Through SF in a Self-Driving Tesla</video:title>
+      <video:description>Ontora cofounders David Korn and Leon Iwanowitsch on an AI agent that interviews every employee and maps how work gets done in 24 hours. The Tesla Pod EP 07.</video:description>
+      <video:player_loc>https://www.youtube.com/embed/UkzjHmqDMiY</video:player_loc>
+      <video:duration>1710</video:duration>
+      <video:publication_date>2026-06-14</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.theteslapod.com/episodes/anushka-idamekorala-logical</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <video:video>
+      <video:thumbnail_loc>https://www.theteslapod.com/assets/thumbs/7_k8UR_5aDc.jpg</video:thumbnail_loc>
+      <video:title>He Dropped Out of His PhD to Get Into YC | Riding Through SF in a Self-Driving Tesla</video:title>
+      <video:description>Logical (YC F25) cofounder Anushka Idamekorala on leaving his PhD, building a proactive desktop copilot, and the Sri Lankan founder wave in SF. The Tesla Pod EP 06.</video:description>
+      <video:player_loc>https://www.youtube.com/embed/7_k8UR_5aDc</video:player_loc>
+      <video:duration>1910</video:duration>
+      <video:publication_date>2026-06-08</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.theteslapod.com/episodes/arjun-chintapalli-bhavani-kalisetty-rtrvr-ai</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <video:video>
+      <video:thumbnail_loc>https://www.theteslapod.com/assets/thumbs/ChwI4UyEGqM.jpg</video:thumbnail_loc>
+      <video:title>Your Browser Is About to Drive Itself | Riding Through SF in a Self-Driving Tesla</video:title>
+      <video:description>Arjun Chintapalli and Bhavani Kalisetty of rtrvr.ai on DOM-native web agents, 81.4% task completion on WebBench, Rover and the agentic web. The Tesla Pod EP 05.</video:description>
+      <video:player_loc>https://www.youtube.com/embed/ChwI4UyEGqM</video:player_loc>
+      <video:duration>2515</video:duration>
+      <video:publication_date>2026-05-31</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.theteslapod.com/episodes/komala-chenna-kushal-murthy-peazy-labs</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <video:video>
+      <video:thumbnail_loc>https://www.theteslapod.com/assets/thumbs/p7eUWZtrq-0.jpg</video:thumbnail_loc>
+      <video:title>AI Just Ate Customer Success | Riding Through SF in a Self-Driving Tesla</video:title>
+      <video:description>Komala Chenna and Kushal Murthy of Peazy Labs on an AI concierge inside your product: 94% onboarding and 41% less reactive support. The Tesla Pod EP 04.</video:description>
+      <video:player_loc>https://www.youtube.com/embed/p7eUWZtrq-0</video:player_loc>
+      <video:duration>2354</video:duration>
+      <video:publication_date>2026-05-23</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.theteslapod.com/episodes/laila-gamaleldin-silver-surf</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <video:video>
+      <video:thumbnail_loc>https://www.theteslapod.com/assets/thumbs/VVFp6FDn5KM.jpg</video:thumbnail_loc>
+      <video:title>The $5 Trillion Problem Nobody in Tech is Working On | Riding Through SF in a Self-Driving Tesla</video:title>
+      <video:description>Silver Surf founder Laila Gamaleldin left Google and TikTok to help small-business owners sell: the silver tsunami, ESOPs and big tech. The Tesla Pod EP 03.</video:description>
+      <video:player_loc>https://www.youtube.com/embed/VVFp6FDn5KM</video:player_loc>
+      <video:duration>1671</video:duration>
+      <video:publication_date>2026-05-17</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.theteslapod.com/episodes/shreyans-jain-naman-bansal-manicule</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <video:video>
+      <video:thumbnail_loc>https://www.theteslapod.com/assets/thumbs/EMmH7ECJ-IQ.jpg</video:thumbnail_loc>
+      <video:title>They Raised $500K from YC at 18 | Riding Through SF in a Self-Driving Tesla</video:title>
+      <video:description>Shreyans Jain and Naman Bansal started building at 14, were rejected by YC at 15 and raised $500K from YC at 18. The Manicule story on The Tesla Pod EP 02.</video:description>
+      <video:player_loc>https://www.youtube.com/embed/EMmH7ECJ-IQ</video:player_loc>
+      <video:duration>2790</video:duration>
+      <video:publication_date>2026-05-11</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.theteslapod.com/episodes/yasith-jayawardana-marketrix-ai</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <video:video>
+      <video:thumbnail_loc>https://www.theteslapod.com/assets/thumbs/kl8JXv2KIfc.jpg</video:thumbnail_loc>
+      <video:title>Self Driving Cars and Self Driving software</video:title>
+      <video:description>Marketrix AI cofounders Irosha de Silva and Yasith Jayawardana on why software should be tested in simulation the way self-driving cars are. The Tesla Pod EP 01.</video:description>
+      <video:player_loc>https://www.youtube.com/embed/kl8JXv2KIfc</video:player_loc>
+      <video:duration>416</video:duration>
+      <video:publication_date>2026-05-03</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.theteslapod.com/insights</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.theteslapod.com/insights/making-tech-media-entertaining-silicon-mania</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.theteslapod.com/insights/free-mentorship-at-scale-adplist-felix-lee</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-10-23</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.theteslapod.com/insights/ai-secondhand-clothing-supply-chain-fleek</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-10-23</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.theteslapod.com/insights/ai-agent-swarms-security-jason-jin</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-10-23</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.theteslapod.com/insights/automating-consulting-with-ai-ontora</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-10-23</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.theteslapod.com/insights/proactive-ai-copilots-phd-to-yc-logical</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-10-23</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.theteslapod.com/insights/agentic-browsing-self-driving-browser-retriever-ai</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-10-23</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.theteslapod.com/insights/ai-customer-success-peazy-labs</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-10-23</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.theteslapod.com/insights/5-trillion-small-business-succession-silver-surf</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-10-23</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.theteslapod.com/insights/raising-yc-at-18-manicule</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-10-23</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.theteslapod.com/insights/self-driving-software-marketrix-yasith</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-10-23</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
 </urlset>

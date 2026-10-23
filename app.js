@@ -18,6 +18,11 @@
     });
   }
   function epNum(ep) { return "EP " + String(ep.num).padStart(2, "0"); }
+  // title → the episode's show-notes page (built by tools/build-site.mjs). Live-synced
+  // episodes that don't have a page yet stay plain text.
+  function epLink(ep, text) {
+    return ep.slug ? '<a class="ep-link" href="/episodes/' + esc(ep.slug) + '">' + esc(text) + "</a>" : esc(text);
+  }
   function initials(name) {
     return name.split(/\s+/).slice(0, 2).map(function (w) { return w[0]; }).join("").toUpperCase();
   }
@@ -1029,6 +1034,7 @@
       "<h3>" + esc(ep.fullTitle) + "</h3>" +
       '<p class="ep-desc">' + esc(ep.description) + "</p>" +
       '<div class="modal-links"><div class="ep-guest">with <b>' + esc(ep.guest) + "</b> · " + roleHTML(ep.guestRole) + "</div>" +
+      (ep.slug ? '<a class="modal-yt" href="/episodes/' + esc(ep.slug) + '">Show notes →</a>' : "") +
       (INSIGHT_SLUGS[ep.id] ? '<a class="modal-yt" href="/insights/' + INSIGHT_SLUGS[ep.id] + '">Read the insights →</a>' : "") +
       '<a class="modal-yt" href="https://www.youtube.com/watch?v=' + esc(ep.id) + '" target="_blank" rel="noopener">Open on YouTube ↗</a></div>' +
       '<div class="modal-nav">' +
@@ -1151,7 +1157,7 @@
       "</div>" +
       '<div class="latest-body">' +
       '<p class="latest-tag">Latest Ride · ' + esc(latest.releaseDate) + "</p>" +
-      "<h3>" + esc(latest.fullTitle) + "</h3>" +
+      "<h3>" + epLink(latest, latest.fullTitle) + "</h3>" +
       "<p>with " + esc(latest.guest) + " — " + roleHTML(latest.guestRole) + "</p>" +
       "</div>" +
       (upNextRows ? '<div class="up-next"><div class="up-next-label">Up next</div>' + upNextRows + "</div>" : "");
@@ -1203,7 +1209,7 @@
       '<div class="ep-meta"><span class="ep-chip hot">Latest · ' + esc(epNum(latest)) + "</span>" +
       '<span class="ep-chip">' + esc(latest.releaseDate) + '</span><span class="ep-chip">' + esc(latest.duration) + "</span>" +
       featInsight + "</div>" +
-      "<h3>" + esc(latest.title) + "</h3>" +
+      "<h3>" + epLink(latest, latest.title) + "</h3>" +
       '<p class="ep-desc">' + esc(latest.description) + "</p>" +
       '<div class="ep-guest">with <b>' + esc(latest.guest) + "</b> · " + roleHTML(latest.guestRole) + "</div>" +
       "</div></article>"
@@ -1232,7 +1238,7 @@
         "</div>" +
         '<div class="ep-body">' +
         '<span class="ep-num">' + esc(epNum(ep)) + " · " + esc(ep.releaseDate) + (insight ? '<span class="ep-num-spacer"></span>' + insight : "") + "</span>" +
-        "<h3>" + esc(ep.title) + "</h3>" +
+        "<h3>" + epLink(ep, ep.title) + "</h3>" +
         '<div class="ep-guest">with <b>' + esc(ep.guest) + "</b>" + (co ? " · " + co : "") + "</div>" +
         "</div></article>"
       );
@@ -1433,11 +1439,11 @@
         '<article class="person-card reveal" style="transition-delay:' + (i % 4) * 60 + 'ms" tabindex="0" aria-label="' + esc(p.name) + (ep ? " — play their episode" : "") + '">' +
         '<div class="person-photo">' + photo + "</div>" +
         (ep ? '<span class="person-play">▶ ' + esc(epNum(ep)) + "</span>" : "") +
-        '<div class="person-body"><h3>' + esc(p.name) + "</h3><p>" + esc(p.role) + " · " + companyHTML(p.company) + "</p></div>" +
+        '<div class="person-body"><h3>' + (ep ? epLink(ep, p.name) : esc(p.name)) + "</h3><p>" + esc(p.role) + " · " + companyHTML(p.company) + "</p></div>" +
         "</article>"
       );
       if (ep) {
-        card.addEventListener("click", function () { openEpisode(ep); });
+        card.addEventListener("click", function (e) { if (!e.target.closest("a,button")) openEpisode(ep); });
         card.addEventListener("keydown", function (e) {
           if ((e.key === "Enter" || e.key === " ") && !e.target.closest("a,button")) { e.preventDefault(); openEpisode(ep); }
         });

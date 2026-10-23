@@ -28,3 +28,28 @@ app.js       rendering, episode modal, map/pod logic, Tesla-screen apps
 data.js      baked episode + guest data (fallback when the live API is unavailable)
 assets/      portraits, thumbnails, brand assets
 ```
+tools/       build scripts (below)
+content/     optional per-episode transcripts (content/transcripts/<videoId>.json|.srt|.vtt)
+```
+
+## Building
+
+Everything generated comes from one script. Run it after any content change:
+
+```
+node tools/build-thumbs.mjs   # WebP variants for new thumbnails (needs cwebp)
+node tools/build-site.mjs     # insights/, episodes/, index.html pre-render, sitemap.xml, feed.xml, llms.txt
+```
+
+Never hand-edit `insights/*.html`, `episodes/*.html`, `sitemap.xml`, `feed.xml`, `llms.txt`
+or the `<!-- build:… -->` blocks in `index.html` — the next build overwrites them.
+
+## Adding an episode
+
+1. `data.js`: new EPISODES entry at the top (with a `slug`) and a PEOPLE entry per guest.
+2. `assets/thumbs/<videoId>.jpg` (from `i.ytimg.com/vi/<id>/maxresdefault.jpg`) and guest photos in `assets/people/`.
+3. `app.js`: `COMPANIES` entry for a new company, `INSIGHT_SLUGS` entry once the article exists.
+4. `tools/episodes-content.mjs`: show notes (SEO title, description, summary, topics).
+5. `tools/build-site.mjs`: INSIGHTS entry for the article.
+6. Optional: the episode's captions as `content/transcripts/<videoId>.srt` (YouTube Studio → Subtitles → Download).
+7. Run both build scripts, commit, deploy.

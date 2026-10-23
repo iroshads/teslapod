@@ -1767,6 +1767,68 @@ html.img-fade img[loading="lazy"].loaded { opacity: 1; }
   .eyebrow::before { transform: scaleX(1); }
 }
 
+/* ---------- episode titles link to their show-notes pages ---------- */
+.ep-link { color: inherit; text-decoration: none; }
+.ep-link:hover { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+a.ep-card { color: inherit; text-decoration: none; }
+a.ep-card:focus-visible { outline-offset: 3px; }
+
+/* ---------- episode pages (/episodes/<slug>) ---------- */
+.ep-video {
+  position: relative; aspect-ratio: 16 / 9; max-width: 1040px; margin-top: 34px;
+  border-radius: 12px; overflow: hidden; background: #0b0b0c; border: 1px solid var(--line);
+  box-shadow: var(--card-shadow);
+}
+.ep-video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.ep-audience {
+  font-family: var(--font-serif); font-style: italic; font-size: 18.5px; line-height: 1.55;
+  color: var(--ink); margin: 22px 0 0;
+}
+.ep-people { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 12px; margin: 0 0 8px; }
+.ep-person {
+  display: flex; gap: 14px; align-items: center; padding: 14px 16px;
+  border: 1px solid var(--line); border-radius: 10px; background: var(--surface);
+}
+.ep-person img { width: 64px; height: 64px; border-radius: 50%; object-fit: cover; filter: grayscale(1); flex: none; }
+.in-article .ep-person h3 { margin: 0 0 3px; font-size: 16px; }
+.ep-person p { margin: 0; font-size: 13.5px; line-height: 1.45; color: var(--text-dim); }
+.ep-person .ep-person-links {
+  display: flex; flex-wrap: wrap; gap: 4px 14px; margin-top: 7px;
+  font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.1em; text-transform: uppercase;
+}
+.ep-person-links a, .ep-company-link a { color: var(--text-dim); }
+.ep-person-links a:hover, .ep-company-link a:hover { color: var(--accent); }
+.in-article > .ep-company-link { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.06em; margin-top: -8px; }
+.in-article > .ep-tx-note { font-size: 13.5px; color: var(--text-faint); margin-bottom: 14px; }
+.ep-transcript { border: 1px solid var(--line); border-radius: 10px; background: var(--surface); }
+.ep-transcript summary {
+  display: flex; align-items: center; gap: 12px; padding: 16px 18px; cursor: pointer; list-style: none;
+  font-family: var(--font-display); font-weight: 600; font-size: 15.5px; color: var(--ink);
+}
+.ep-transcript summary::-webkit-details-marker { display: none; }
+.ep-transcript summary span {
+  font-family: var(--font-mono); font-weight: 400; font-size: 10.5px; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--text-faint);
+}
+.ep-transcript summary::after { content: "+"; margin-left: auto; font-family: var(--font-mono); font-size: 18px; color: var(--text-dim); }
+.ep-transcript[open] summary::after { content: "−"; }
+.ep-transcript[open] summary { border-bottom: 1px solid var(--line-soft); }
+.ep-tx-body { padding: 18px 18px 6px; }
+.ep-tx-body p { font-size: 15px; line-height: 1.75; color: var(--text-dim); margin: 0 0 16px; }
+.tx-t {
+  font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.06em; color: var(--text-faint);
+  margin-right: 8px; white-space: nowrap;
+}
+.tx-t:hover { color: var(--accent); }
+.in-related .episode-grid, .ep-index .episode-grid { max-width: none; margin-top: 24px; }
+.ep-index .episode-grid { margin-top: 44px; }
+.ep-index .ep-body h2 {
+  font-family: var(--font-display); font-weight: 600; font-size: 16px;
+  line-height: 1.35; letter-spacing: -0.01em; color: var(--ink); flex: 1;
+}
+.in-watch .btn-ghost { white-space: nowrap; }
+[data-theme="dark"] .tx-t:hover, [data-theme="dark"] .ep-person-links a:hover, [data-theme="dark"] .ep-company-link a:hover { color: var(--red-soft); }
+
 /* ---------- print ---------- */
 @media print {
   .in-article > .in-vis-wait, html.img-fade img[loading="lazy"], .reveal { opacity: 1 !important; transform: none !important; }

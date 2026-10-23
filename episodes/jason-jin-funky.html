@@ -1,0 +1,366 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FM2TFSZ32V"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-FM2TFSZ32V');
+  </script>
+  <title>Jason Jin on Funky and AI Agent Swarms | The Tesla Pod</title>
+  <meta name="description" content="Ex-Google engineer Jason Jin on Funky: one API call, hundreds of sandboxed AI agents, why swarms beat one smarter agent, and a live demo. The Tesla Pod EP 08." />
+  <link rel="canonical" href="https://www.theteslapod.com/episodes/jason-jin-funky" />
+
+  <meta name="author" content="Irosha de Silva" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+  <meta name="theme-color" content="#fbfaf8" />
+  <script>
+    (function () {
+      var d = document.documentElement, t = null;
+      try { t = localStorage.getItem("tp-theme"); } catch (e) {}
+      if (t === "dark" || t === "light") d.setAttribute("data-theme", t);
+      var m = document.querySelector('meta[name="theme-color"]');
+      if (m) m.setAttribute("content", d.getAttribute("data-theme") === "dark" ? "#101012" : "#fbfaf8");
+    })();
+  </script>
+  <link rel="icon" type="image/svg+xml" href="/assets/brand/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/brand/favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/brand/favicon-16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/brand/apple-touch-icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700&family=Inter:wght@400;500;600&family=Instrument+Serif:ital@1&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css" />
+  <link rel="alternate" type="application/rss+xml" title="The Tesla Pod — new episodes" href="/feed.xml" />
+  <meta property="og:type" content="video.episode" />
+  <meta property="og:site_name" content="The Tesla Pod" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:url" content="https://www.theteslapod.com/episodes/jason-jin-funky" />
+  <meta property="og:title" content="He Left Google to Build Agent Swarms — Jason Jin on The Tesla Pod" />
+  <meta property="og:description" content="Ex-Google engineer Jason Jin on Funky: one API call, hundreds of sandboxed AI agents, why swarms beat one smarter agent, and a live demo. The Tesla Pod EP 08." />
+  <meta property="og:image" content="https://www.theteslapod.com/assets/thumbs/4FtPxcSjpF8.jpg" />
+  <meta property="og:image:width" content="1280" />
+  <meta property="og:image:height" content="720" />
+  <meta property="og:image:alt" content="He Left Google to Build Agent Swarms | Riding Through SF in a Self-Driving Tesla" />
+  <meta property="og:video" content="https://www.youtube.com/embed/4FtPxcSjpF8" />
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:title" content="He Left Google to Build Agent Swarms — Jason Jin on The Tesla Pod" />
+  <meta property="twitter:description" content="Ex-Google engineer Jason Jin on Funky: one API call, hundreds of sandboxed AI agents, why swarms beat one smarter agent, and a live demo. The Tesla Pod EP 08." />
+  <meta property="twitter:image" content="https://www.theteslapod.com/assets/thumbs/4FtPxcSjpF8.jpg" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"PodcastEpisode","name":"He Left Google to Build Agent Swarms","episodeNumber":8,"url":"https://www.theteslapod.com/episodes/jason-jin-funky","sameAs":"https://www.youtube.com/watch?v=4FtPxcSjpF8","datePublished":"2026-07-06","description":"Jason Jin spent six years at Google, where he was a founding engineer on Google Analytics Mobile and built a logs system processing over an exabyte of data per day. Then he left to start Funky.","timeRequired":"PT45M24S","image":"https://www.theteslapod.com/assets/thumbs/4FtPxcSjpF8.jpg","inLanguage":"en","partOfSeries":{"@type":"PodcastSeries","name":"The Tesla Pod","url":"https://www.theteslapod.com/"},"author":{"@type":"Person","name":"Irosha de Silva","url":"https://www.irosha.com","sameAs":["https://www.irosha.com","https://www.linkedin.com/in/iroshads/","https://x.com/iroshads"]},"actor":[{"@type":"Person","name":"Jason Jin","jobTitle":"Founder","worksFor":{"@type":"Organization","name":"Funky","url":"https://funky.dev"},"image":"https://www.theteslapod.com/assets/people/jason-jin.jpg"}],"associatedMedia":{"@type":"VideoObject","name":"He Left Google to Build Agent Swarms | Riding Through SF in a Self-Driving Tesla","embedUrl":"https://www.youtube.com/embed/4FtPxcSjpF8","url":"https://www.youtube.com/watch?v=4FtPxcSjpF8"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"VideoObject","name":"He Left Google to Build Agent Swarms | Riding Through SF in a Self-Driving Tesla","description":"Ex-Google engineer Jason Jin on Funky: one API call, hundreds of sandboxed AI agents, why swarms beat one smarter agent, and a live demo. The Tesla Pod EP 08.","thumbnailUrl":["https://www.theteslapod.com/assets/thumbs/4FtPxcSjpF8.jpg","https://i.ytimg.com/vi/4FtPxcSjpF8/maxresdefault.jpg"],"uploadDate":"2026-07-06","duration":"PT45M24S","embedUrl":"https://www.youtube.com/embed/4FtPxcSjpF8","url":"https://www.theteslapod.com/episodes/jason-jin-funky","publisher":{"@type":"Organization","name":"The Tesla Pod","url":"https://www.theteslapod.com/","logo":{"@type":"ImageObject","url":"https://www.theteslapod.com/assets/brand/icon-192.png"}}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"The Tesla Pod","item":"https://www.theteslapod.com/"},{"@type":"ListItem","position":2,"name":"Episodes","item":"https://www.theteslapod.com/episodes"},{"@type":"ListItem","position":3,"name":"EP 08: He Left Google to Build Agent Swarms","item":"https://www.theteslapod.com/episodes/jason-jin-funky"}]}</script>
+</head>
+<body>
+  <div class="in-progress" id="inProgress" aria-hidden="true"></div>
+
+  <header class="nav" id="nav">
+    <a class="nav-logo" href="/" aria-label="The Tesla Pod — home">
+      <span class="nav-word"><em>The</em> Tesla Pod</span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="/episodes">Episodes</a>
+      <a href="/insights">Insights</a>
+      <a href="/#passengers">Passengers</a>
+      <a href="/#apply" class="nav-cta">Be a Guest</a>
+    </nav>
+    <div class="nav-actions">
+      <a class="nav-soc nav-yt" href="https://www.youtube.com/@TeslaPod" target="_blank" rel="noopener" aria-label="The Tesla Pod on YouTube">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31.3 31.3 0 0 0 0 12a31.3 31.3 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31.3 31.3 0 0 0 24 12a31.3 31.3 0 0 0-.5-5.8zM9.6 15.6V8.4L15.8 12l-6.2 3.6z"/></svg>
+      </a>
+      <a class="nav-soc nav-li" href="https://www.linkedin.com/company/teslapod" target="_blank" rel="noopener" aria-label="The Tesla Pod on LinkedIn">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05a3.74 3.74 0 0 1 3.37-1.85c3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zm1.78 13.02H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+      </a>
+      <a class="nav-soc nav-x" href="https://x.com/theteslapod" target="_blank" rel="noopener" aria-label="The Tesla Pod on X">
+        <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M18.24 2.25h3.31l-7.23 8.26 8.5 11.24h-6.66l-5.21-6.82-5.97 6.82H1.66l7.73-8.84L1.24 2.25h6.83l4.71 6.23zm-1.16 17.52h1.83L7.08 4.13H5.11z"/></svg>
+      </a>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle light / dark theme">
+        <span class="theme-icon" aria-hidden="true"></span>
+      </button>
+      <button class="nav-burger" id="navBurger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="/episodes">Episodes</a>
+    <a href="/insights">Insights</a>
+    <a href="/#passengers">Passengers</a>
+    <a href="/#apply">Be a Guest</a>
+    <a href="https://www.youtube.com/@TeslaPod" target="_blank" rel="noopener">YouTube ↗</a>
+    <a href="https://www.linkedin.com/company/teslapod" target="_blank" rel="noopener">LinkedIn ↗</a>
+    <a href="https://x.com/theteslapod" target="_blank" rel="noopener">X ↗</a>
+  </div>
+  <main class="in-main ep-page">
+    <nav class="in-crumbs" aria-label="Breadcrumb"><a href="/">The Tesla Pod</a><span>/</span><a href="/episodes">Episodes</a><span>/</span><span>EP 08</span></nav>
+    <div class="in-hero">
+      <h1>He Left Google to Build Agent Swarms</h1>
+      <p class="in-sub">Jason Jin of Funky (ex-Google), riding through San Francisco in a self-driving Tesla with host Irosha de Silva.</p>
+      <div class="in-meta">
+        <span>EPISODE <b>08</b></span>
+        <span>JUL 6, 2026</span>
+        <span><b>45:24</b></span>
+        <span><b>Funky (ex-Google)</b></span>
+        
+      </div>
+    </div>
+    <div class="ep-video">
+      <iframe src="https://www.youtube.com/embed/4FtPxcSjpF8?rel=0" title="He Left Google to Build Agent Swarms | Riding Through SF in a Self-Driving Tesla" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+    <div class="in-layout">
+    <article class="in-article">
+      <h2 id="about-episode">About this episode</h2>
+      <p>Jason Jin spent six years at Google, where he was a founding engineer on Google Analytics Mobile and built a logs system processing over an exabyte of data per day. Then he left to start Funky.</p>
+      <p>Funky is infrastructure that lets developers spin up hundreds of AI agents in parallel without wrestling with the cost, scaling and reliability problems that usually break multi-agent systems. One API call, hundreds of sub-agents, each in its own sandbox. The ride ends with a live demo: a swarm of attacker agents trying to trick a guarded agent into wiring money out.</p>
+      <h2 id="topics">What they get into</h2>
+      <ul class="in-takeaways">
+        <li>Why he walked away from Google to build agent infrastructure</li>
+        <li>Where the name “Funky” actually comes from</li>
+        <li>Why running many agents in parallel beats making one agent smarter</li>
+        <li>How he keeps agent swarms from becoming a runaway cost problem</li>
+        <li>A live demo: a swarm of attacker agents trying to trick a guarded agent into wiring money out</li>
+      </ul>
+      <p class="ep-audience">For anyone who builds with AI agents or cares about the infrastructure layer underneath them.</p>
+      <h2 id="passengers">The passenger</h2>
+      <div class="ep-people">
+        <div class="ep-person">
+          <img loading="lazy" src="/assets/people/jason-jin.jpg" alt="Jason Jin" width="64" height="64" />
+          <div>
+            <h3>Jason Jin</h3>
+            <p>Founder · Funky</p>
+            
+          </div>
+        </div>
+      </div>
+      <h2 id="company">About Funky</h2>
+      <p>One API call spins up hundreds of sandboxed AI agents. Built by Jason Jin (ex-Google).</p>
+      <p class="ep-company-link"><a href="https://funky.dev" target="_blank" rel="noopener">funky.dev ↗</a></p>
+      <h2 id="insights">The insights</h2>
+      <p>Hundreds of agents from one API call — and attacker agents already probing them. The write-up pulls out the big idea, the numbers, the counterargument and what it means for the autonomous future.</p>
+      <div class="in-watch">
+        <span>Agent Swarms, Sandboxes, and the Coming Security War for AI agents</span>
+        <a class="btn btn-primary" href="/insights/ai-agent-swarms-security-jason-jin">Read the insights →</a>
+      </div>
+      
+      <div class="in-watch">
+        <span>Watch EP 08 of The Tesla Pod on YouTube — 45:24, recorded on Tesla FSD in San Francisco.</span>
+        <a class="btn btn-primary" href="https://www.youtube.com/watch?v=4FtPxcSjpF8" target="_blank" rel="noopener">▶ Watch on YouTube</a>
+      </div>
+      <div class="in-share" aria-label="Share this episode">
+        <span class="in-share-label">Share</span>
+        <a class="sh-x" href="https://x.com/intent/post?text=He%20Left%20Google%20to%20Build%20Agent%20Swarms%20%E2%80%94%20Jason%20Jin%20on%20%40theteslapod&url=https%3A%2F%2Fwww.theteslapod.com%2Fepisodes%2Fjason-jin-funky" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor" aria-hidden="true"><path d="M18.24 2.25h3.31l-7.23 8.26 8.5 11.24h-6.66l-5.21-6.82-5.97 6.82H1.66l7.73-8.84L1.24 2.25h6.83l4.71 6.23zm-1.16 17.52h1.83L7.08 4.13H5.11z"/></svg>Post on X
+        </a>
+        <a class="sh-li" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.theteslapod.com%2Fepisodes%2Fjason-jin-funky" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05a3.74 3.74 0 0 1 3.37-1.85c3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zm1.78 13.02H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>Share on LinkedIn
+        </a>
+        <button type="button" class="sh-copy" data-url="https://www.theteslapod.com/episodes/jason-jin-funky">
+          <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg><span>Copy link</span>
+        </button>
+      </div>
+      <nav class="in-prevnext" aria-label="More episodes">
+        <a href="/episodes/david-korn-leon-iwanowitsch-ontora">← EP 07 · They're automating the $1 trillion consulting industry</a>
+        <a href="/episodes/sanket-agarwal-fleek" style="text-align:right">EP 09 · Fleek Raised $25M to Fix What Happens to Your Old Clothes →</a>
+      </nav>
+    </article>
+    <aside class="in-toc" aria-label="On this page">
+      <span class="in-toc-label">On this page</span>
+      <a href="#about-episode">About this episode</a>
+      <a href="#topics">What they get into</a>
+      <a href="#passengers">The passenger</a>
+      <a href="#company">About Funky</a>
+      <a href="#insights">The insights</a>
+      <a class="in-toc-watch" href="https://www.youtube.com/watch?v=4FtPxcSjpF8" target="_blank" rel="noopener">▶ Watch on YouTube</a>
+    </aside>
+    </div>
+    <section class="in-related">
+      <h2>More rides</h2>
+      <div class="episode-grid">
+      <a class="ep-card" href="/episodes/anushka-idamekorala-logical">
+        <div class="ep-thumb">
+          <img loading="lazy" src="/assets/thumbs/7_k8UR_5aDc.jpg" srcset="/assets/thumbs/7_k8UR_5aDc-320.webp 320w, /assets/thumbs/7_k8UR_5aDc-640.webp 640w, /assets/thumbs/7_k8UR_5aDc-960.webp 960w, /assets/thumbs/7_k8UR_5aDc-1280.webp 1280w" sizes="(max-width: 700px) 100vw, (max-width: 1020px) 50vw, 400px" alt="He Dropped Out of His PhD to Get Into YC | Riding Through SF in a Self-Driving Tesla — The Tesla Pod EP 06" onerror="this.onerror=null;this.removeAttribute('srcset');this.src='https://img.youtube.com/vi/7_k8UR_5aDc/hqdefault.jpg'" />
+          <span class="dur">31:50</span>
+        </div>
+        <div class="ep-body">
+          <span class="ep-num">EP 06 · Jun 8, 2026</span>
+          <h3>He Dropped Out of His PhD to Get Into YC</h3>
+          <div class="ep-guest">with <b>Anushka Idamekorala</b> · Logical (YC F25)</div>
+        </div>
+      </a>
+      <a class="ep-card" href="/episodes/felix-lee-adplist">
+        <div class="ep-thumb">
+          <img loading="lazy" src="/assets/thumbs/g57WpguhxXA.jpg" srcset="/assets/thumbs/g57WpguhxXA-320.webp 320w, /assets/thumbs/g57WpguhxXA-640.webp 640w, /assets/thumbs/g57WpguhxXA-960.webp 960w, /assets/thumbs/g57WpguhxXA-1280.webp 1280w" sizes="(max-width: 700px) 100vw, (max-width: 1020px) 50vw, 400px" alt="Sequoia Said Yes. A Million Users Later, It's Still Free | Riding Through SF in a Self-Driving Tesla — The Tesla Pod EP 10" onerror="this.onerror=null;this.removeAttribute('srcset');this.src='https://img.youtube.com/vi/g57WpguhxXA/hqdefault.jpg'" />
+          <span class="dur">1:08:34</span>
+        </div>
+        <div class="ep-body">
+          <span class="ep-num">EP 10 · Aug 11, 2026</span>
+          <h3>Sequoia Said Yes. A Million Users Later, It's Still Free</h3>
+          <div class="ep-guest">with <b>Felix Lee</b> · ADPList</div>
+        </div>
+      </a>
+      <a class="ep-card" href="/episodes/arjun-chintapalli-bhavani-kalisetty-rtrvr-ai">
+        <div class="ep-thumb">
+          <img loading="lazy" src="/assets/thumbs/ChwI4UyEGqM.jpg" srcset="/assets/thumbs/ChwI4UyEGqM-320.webp 320w, /assets/thumbs/ChwI4UyEGqM-640.webp 640w, /assets/thumbs/ChwI4UyEGqM-960.webp 960w, /assets/thumbs/ChwI4UyEGqM-1280.webp 1280w" sizes="(max-width: 700px) 100vw, (max-width: 1020px) 50vw, 400px" alt="Your Browser Is About to Drive Itself | Riding Through SF in a Self-Driving Tesla — The Tesla Pod EP 05" onerror="this.onerror=null;this.removeAttribute('srcset');this.src='https://img.youtube.com/vi/ChwI4UyEGqM/hqdefault.jpg'" />
+          <span class="dur">41:55</span>
+        </div>
+        <div class="ep-body">
+          <span class="ep-num">EP 05 · May 31, 2026</span>
+          <h3>Your Browser Is About to Drive Itself</h3>
+          <div class="ep-guest">with <b>Arjun &amp; Bhavani</b> · Retriever AI</div>
+        </div>
+      </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a class="nav-logo" href="/" aria-label="The Tesla Pod — home">
+          <span class="nav-word"><em>The</em> Tesla Pod</span>
+        </a>
+        <p>The Tesla podcast — conversations from the autonomous future.<br />Recorded on the move, somewhere in the Bay Area.</p>
+        <div class="social-mini footer-social" aria-label="The Tesla Pod on social">
+          <a class="sm-yt" href="https://www.youtube.com/@TeslaPod" target="_blank" rel="noopener" aria-label="The Tesla Pod on YouTube">
+            <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31.3 31.3 0 0 0 0 12a31.3 31.3 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31.3 31.3 0 0 0 24 12a31.3 31.3 0 0 0-.5-5.8zM9.6 15.6V8.4L15.8 12l-6.2 3.6z"/></svg>
+          </a>
+          <a class="sm-li" href="https://www.linkedin.com/company/teslapod" target="_blank" rel="noopener" aria-label="The Tesla Pod on LinkedIn">
+            <svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05a3.74 3.74 0 0 1 3.37-1.85c3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zm1.78 13.02H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+          </a>
+          <a class="sm-x" href="https://x.com/theteslapod" target="_blank" rel="noopener" aria-label="The Tesla Pod on X">
+            <svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor" aria-hidden="true"><path d="M18.24 2.25h3.31l-7.23 8.26 8.5 11.24h-6.66l-5.21-6.82-5.97 6.82H1.66l7.73-8.84L1.24 2.25h6.83l4.71 6.23zm-1.16 17.52h1.83L7.08 4.13H5.11z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Ride along</h4>
+        <a href="/episodes">Episodes</a>
+        <a href="/insights">Insights</a>
+        <a href="/#passengers">Passengers</a>
+        <a href="/#apply">Be a guest</a>
+      </div>
+      <div class="footer-col">
+        <h4>Get in touch</h4>
+        <a href="mailto:irosha@marketrix.ai?subject=Tesla%20Pod%20Sponsorship">Sponsorships</a>
+        <a href="mailto:irosha@marketrix.ai">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>On the road</h4>
+        <span class="footer-road">San Francisco → Bay Area</span>
+        <span class="footer-road">37.7749° N · 122.4194° W</span>
+      </div>
+    </div>
+    <div class="footer-bar">
+      <span>© <span id="year"></span> The Tesla Pod. All rides supervised.</span>
+      <span class="footer-made">Made with <span class="footer-heart">❤️</span> by <a href="https://www.irosha.com" target="_blank" rel="noopener">Irosha de Silva</a> in San Francisco</span>
+      <span class="footer-tel">Not affiliated with Tesla, Inc. (Yet)</span>
+    </div>
+  </footer>
+
+  <script>
+  (function () {
+    var root = document.documentElement, saved = null, themingTimer = null;
+    var reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
+    try { saved = localStorage.getItem("tp-theme"); } catch (e) {}
+    if (saved === "light" || saved === "dark") root.setAttribute("data-theme", saved);
+    function syncThemeColor(t) {
+      var m = document.querySelector('meta[name="theme-color"]');
+      if (m) m.setAttribute("content", t === "dark" ? "#101012" : "#fbfaf8");
+    }
+    document.getElementById("themeToggle").addEventListener("click", function () {
+      var next = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
+      if (!reduced) {
+        root.classList.add("theming");
+        clearTimeout(themingTimer);
+        themingTimer = setTimeout(function () { root.classList.remove("theming"); }, 420);
+      }
+      root.setAttribute("data-theme", next);
+      syncThemeColor(next);
+      try { localStorage.setItem("tp-theme", next); } catch (e) {}
+    });
+    var burger = document.getElementById("navBurger"), menu = document.getElementById("mobileMenu");
+    burger.addEventListener("click", function () {
+      var open = menu.classList.toggle("open");
+      burger.setAttribute("aria-expanded", open ? "true" : "false");
+    });
+    document.getElementById("year").textContent = new Date().getFullYear();
+    // lazy images ease in once decoded — opt into the fade only now that JS is running
+    (function fadeImgs() {
+      document.documentElement.classList.add("img-fade");
+      document.querySelectorAll("img[loading='lazy']").forEach(function (img) {
+        if (img.complete && img.naturalWidth) { img.classList.add("loaded"); return; }
+        img.addEventListener("load", function () { img.classList.add("loaded"); }, { once: true });
+        img.addEventListener("error", function () { img.classList.add("loaded"); }, { once: true });
+      });
+    })();
+    // reading progress + nav presence on scroll
+    var bar = document.getElementById("inProgress"), nav = document.getElementById("nav");
+    function onScroll() {
+      var h = document.documentElement, y = h.scrollTop;
+      if (bar) bar.style.width = (y / (h.scrollHeight - h.clientHeight || 1)) * 100 + "%";
+      if (nav) nav.classList.toggle("scrolled", y > 8);
+    }
+    addEventListener("scroll", onScroll, { passive: true }); onScroll();
+    // article blocks rise in as they enter view
+    var blocks = document.querySelectorAll(".in-article > *");
+    if (blocks.length && !reduced && "IntersectionObserver" in window) {
+      var rio = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.remove("in-vis-wait"); en.target.classList.add("in-vis"); rio.unobserve(en.target); } });
+      }, { rootMargin: "0px 0px -6% 0px", threshold: 0 });
+      blocks.forEach(function (b) { b.classList.add("in-vis-wait"); rio.observe(b); });
+    }
+    // copy link
+    var copyBtn = document.querySelector(".sh-copy");
+    if (copyBtn) copyBtn.addEventListener("click", function () {
+      var url = copyBtn.getAttribute("data-url"), label = copyBtn.querySelector("span");
+      function flash(text, cls) {
+        if (cls) copyBtn.classList.add(cls);
+        label.textContent = text;
+        setTimeout(function () { copyBtn.classList.remove("done"); label.textContent = "Copy link"; }, 1800);
+      }
+      function done() { flash("Link copied", "done"); }
+      function fail() { flash("Couldn’t copy"); }
+      function legacy() {
+        var t = document.createElement("textarea"), ok = false;
+        t.value = url; t.setAttribute("readonly", ""); t.style.cssText = "position:fixed;top:0;left:0;opacity:0;font-size:16px";
+        document.body.appendChild(t); t.select(); t.setSelectionRange(0, url.length);
+        try { ok = document.execCommand("copy"); } catch (e) {}
+        t.remove();
+        ok ? done() : fail();
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(url).then(done, legacy);
+      else legacy();
+    });
+    // scrollspy for the article table of contents
+    var tocLinks = document.querySelectorAll(".in-toc a[href^='#']");
+    if (tocLinks.length) {
+      var map = {}, current = null, spyQueued = false;
+      tocLinks.forEach(function (a) { map[a.getAttribute("href").slice(1)] = a; });
+      var heads = Array.prototype.filter.call(document.querySelectorAll(".in-article h2[id]"), function (h) { return map[h.id]; });
+      function spy() {
+        spyQueued = false;
+        var h = document.documentElement, navH = parseFloat(getComputedStyle(h).getPropertyValue("--nav-h")) || 64;
+        var line = navH + 40, active = null;
+        heads.forEach(function (el) { if (el.getBoundingClientRect().top <= line) active = el; });
+        // bottom of the page: the final (often short) section is the one being read
+        if (h.scrollTop + h.clientHeight >= h.scrollHeight - 4 && heads.length) active = heads[heads.length - 1];
+        var link = active ? map[active.id] : null;
+        if (link === current) return;
+        if (current) current.classList.remove("on");
+        current = link;
+        if (current) current.classList.add("on");
+      }
+      addEventListener("scroll", function () { if (!spyQueued) { spyQueued = true; requestAnimationFrame(spy); } }, { passive: true });
+      addEventListener("resize", spy);
+      spy();
+    }
+  })();
+  </script>
+</body>
+</html>

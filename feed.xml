@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/">
+  <channel>
+    <title>The Tesla Pod</title>
+    <link>https://www.theteslapod.com/</link>
+    <atom:link href="https://www.theteslapod.com/feed.xml" rel="self" type="application/rss+xml" />
+    <description>The Tesla podcast recorded inside a self-driving Tesla. Host Irosha de Silva rides through San Francisco with startup founders.</description>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 24 Aug 2026 12:00:00 GMT</lastBuildDate>
+    <image><url>https://www.theteslapod.com/assets/brand/icon-192.png</url><title>The Tesla Pod</title><link>https://www.theteslapod.com/</link></image>
+    <item>
+      <title>EP 11: MrBeast Meets Silicon Valley: Making Tech Fun Again — Adil Mania</title>
+      <link>https://www.theteslapod.com/episodes/adil-mania-silicon-mania</link>
+      <guid isPermaLink="true">https://www.theteslapod.com/episodes/adil-mania-silicon-mania</guid>
+      <pubDate>Mon, 24 Aug 2026 12:00:00 GMT</pubDate>
+      <description>Adil Mania thinks tech media is the most boring media in the world. Food has shows. Fashion has shows. Sports has shows. Tech has ten thousand podcasts of founders talking to founders. On episode 11 of The Tesla Pod, host Irosha de Silva asks him whether this show is part of the problem. Adil grew up in Rabat, studied engineering in France, built in Paris, and now runs Silicon Mania out of San Francisco. In eight months the company has shipped five formats: a recap show, a print magazine, live events, original games and more. It is backed by Offline Ventures and Founders Inc, with angels including Guillermo Rauch and Dan Shipper, and sponsored by Rippling, ElevenLabs, PostHog and Convex. Insights: https://www.theteslapod.com/insights/making-tech-media-entertaining-silicon-mania Watch: https://www.youtube.com/watch?v=9Ejk8wq14ww</description>
+      <media:thumbnail url="https://www.theteslapod.com/assets/thumbs/9Ejk8wq14ww.jpg" />
+    </item>
+    <item>
+      <title>EP 10: Sequoia Said Yes. A Million Users Later, It&apos;s Still Free — Felix Lee</title>
+      <link>https://www.theteslapod.com/episodes/felix-lee-adplist</link>
+      <guid isPermaLink="true">https://www.theteslapod.com/episodes/felix-lee-adplist</guid>
+      <pubDate>Tue, 11 Aug 2026 12:00:00 GMT</pubDate>
+      <description>Sequoia said yes in 2021. A million users later, a mentorship session on ADPList still costs nothing. Nearly 39,000 mentors, 600 million minutes of advice, 140 countries: a marketplace that size would normally have monetised years ago, and most investors would have pushed hard for it. Felix Lee has been asked to justify that decision for five years, and he still won&apos;t move on it. Felix is the cofounder and CEO of ADPList, the largest free mentorship community in the world. He never finished a university degree, sold his first company while still in high school, and went through Passpod&apos;s IPO before taking a deliberate two-year gap to work out what he actually wanted to build. ADPList was backed by Sequoia India&apos;s Surge in 2021, alongside angels from Airbnb, Gojek and Zendesk, and usability pioneer Jakob Nielsen. Insights: https://www.theteslapod.com/insights/free-mentorship-at-scale-adplist-felix-lee Watch: https://www.youtube.com/watch?v=g57WpguhxXA</description>
+      <media:thumbnail url="https://www.theteslapod.com/assets/thumbs/g57WpguhxXA.jpg" />
+    </item>
+    <item>
+      <title>EP 09: Fleek Raised $25M to Fix What Happens to Your Old Clothes — Sanket Agarwal</title>
+      <link>https://www.theteslapod.com/episodes/sanket-agarwal-fleek</link>
+      <guid isPermaLink="true">https://www.theteslapod.com/episodes/sanket-agarwal-fleek</guid>
+      <pubDate>Sun, 26 Jul 2026 12:00:00 GMT</pubDate>
+      <description>Most people have no idea where their donated clothes actually go. A t-shirt dropped in a donation bin in London can travel thousands of miles, get sorted by hand in a warehouse in Karachi or Dubai, and end up on a rack in a vintage store in New York, if it&apos;s lucky. The system moving billions of garments a year is enormous, and almost entirely offline. Sanket Agarwal spent his early career at Google before cofounding Fleek, the company building the AI infrastructure behind the global secondhand clothing trade. Fleek runs a B2B marketplace connecting used-clothing wholesalers and graders with vintage stores and resellers, and its vision-language model, Fleek Sort, can identify, grade and price a used garment from a single photo. Fleek closed a $25M Series B led by Burda, with eBay, FJ Labs, Andreessen Horowitz and Y Combinator backing it, bringing total funding to $45M. It connects more than 2,000 suppliers with over 50,000 buyers across 100-plus countries. Insights: https://www.theteslapod.com/insights/ai-secondhand-clothing-supply-chain-fleek Watch: https://www.youtube.com/watch?v=AR18l-xBY6Q</description>
+      <media:thumbnail url="https://www.theteslapod.com/assets/thumbs/AR18l-xBY6Q.jpg" />
+    </item>
+    <item>
+      <title>EP 08: He Left Google to Build Agent Swarms — Jason Jin</title>
+      <link>https://www.theteslapod.com/episodes/jason-jin-funky</link>
+      <guid isPermaLink="true">https://www.theteslapod.com/episodes/jason-jin-funky</guid>
+      <pubDate>Mon, 06 Jul 2026 12:00:00 GMT</pubDate>
+      <description>Jason Jin spent six years at Google, where he was a founding engineer on Google Analytics Mobile and built a logs system processing over an exabyte of data per day. Then he left to start Funky. Funky is infrastructure that lets developers spin up hundreds of AI agents in parallel without wrestling with the cost, scaling and reliability problems that usually break multi-agent systems. One API call, hundreds of sub-agents, each in its own sandbox. The ride ends with a live demo: a swarm of attacker agents trying to trick a guarded agent into wiring money out. Insights: https://www.theteslapod.com/insights/ai-agent-swarms-security-jason-jin Watch: https://www.youtube.com/watch?v=4FtPxcSjpF8</description>
+      <media:thumbnail url="https://www.theteslapod.com/assets/thumbs/4FtPxcSjpF8.jpg" />
+    </item>
+    <item>
+      <title>EP 07: They&apos;re automating the $1 trillion consulting industry — David Korn &amp; Leon Iwanowitsch</title>
+      <link>https://www.theteslapod.com/episodes/david-korn-leon-iwanowitsch-ontora</link>
+      <guid isPermaLink="true">https://www.theteslapod.com/episodes/david-korn-leon-iwanowitsch-ontora</guid>
+      <pubDate>Sun, 14 Jun 2026 12:00:00 GMT</pubDate>
+      <description>When a Fortune 500 company wants to understand how it actually works, it hires McKinsey or Bain, pays millions and waits months for a deck. David Korn and his cofounders think that entire model is about to collapse. David, Max and Leon left Germany to build Ontora (YC P26), an AI agent that interviews every employee in a company and maps how work actually gets done. Not a survey: a real one-on-one conversation that asks sharp follow-ups, digs into the workarounds nobody documents, and surfaces the bottlenecks leadership can&apos;t see. What used to take a team of consultants months, Ontora delivers in 24 hours: themed insights, process maps and an automation roadmap with ROI attached. Their thesis: models are commoditized, and context is the moat. The most valuable thing in any company is the operational knowledge locked in people&apos;s heads, and right now it&apos;s invisible to both decision-makers and the AI tools they&apos;re buying. Insights: https://www.theteslapod.com/insights/automating-consulting-with-ai-ontora Watch: https://www.youtube.com/watch?v=UkzjHmqDMiY</description>
+      <media:thumbnail url="https://www.theteslapod.com/assets/thumbs/UkzjHmqDMiY.jpg" />
+    </item>
+    <item>
+      <title>EP 06: He Dropped Out of His PhD to Get Into YC — Anushka Idamekorala</title>
+      <link>https://www.theteslapod.com/episodes/anushka-idamekorala-logical</link>
+      <guid isPermaLink="true">https://www.theteslapod.com/episodes/anushka-idamekorala-logical</guid>
+      <pubDate>Mon, 08 Jun 2026 12:00:00 GMT</pubDate>
+      <description>Anushka Idamekorala grew up in Sri Lanka watching his parents work government jobs: fixed salary, hard work, no ceiling. Down the road, a man sold durian from a table. The table became a cart, the cart became a vehicle, the vehicle became a fleet. That lesson stayed with him through engineering school, through leading B2B SaaS teams, and all the way to a PhD at the University of Virginia. Then his childhood friend Sam called with an idea, and he dropped out. Anushka and Sam are building Logical (YC F25), a proactive desktop copilot. Think Clippy, but actually good. Instead of waiting for the perfect prompt, Logical watches how you work, learns your patterns and helps before you ask: it drafts emails, captures meeting insights, tracks to-dos and takes action across the apps you already use. Their bet is that prompt-first AI is fundamentally flawed, and that a truly helpful AI has to live where you work, on the desktop. The two have known each other since they were six years old. Sam is the best-performing Sri Lankan in the history of both the International Physics Olympiad and the Asian Physics Olympiad. Now they&apos;re cofounders in San Francisco, part of a growing wave of Sri Lankan founders building there. Insights: https://www.theteslapod.com/insights/proactive-ai-copilots-phd-to-yc-logical Watch: https://www.youtube.com/watch?v=7_k8UR_5aDc</description>
+      <media:thumbnail url="https://www.theteslapod.com/assets/thumbs/7_k8UR_5aDc.jpg" />
+    </item>
+    <item>
+      <title>EP 05: Your Browser Is About to Drive Itself — Arjun &amp; Bhavani</title>
+      <link>https://www.theteslapod.com/episodes/arjun-chintapalli-bhavani-kalisetty-rtrvr-ai</link>
+      <guid isPermaLink="true">https://www.theteslapod.com/episodes/arjun-chintapalli-bhavani-kalisetty-rtrvr-ai</guid>
+      <pubDate>Sun, 31 May 2026 12:00:00 GMT</pubDate>
+      <description>For thirty years the web was built for humans. We click, we scroll, we fill out forms, we navigate. Arjun Chintapalli and Bhavani Kalisetty think that era is ending. They left Google to build rtrvr.ai (Retriever AI), an AI agent that actually does things on the web. Not a chatbot that hands you a link: an agent that reads the live page, understands it and takes real action, clicking, filling forms, navigating and finishing the task. While most teams build vision-based agents that browse by screenshot, they went DOM-native. The result is 1.5 million automation workflows running and 81.4% task completion on WebBench. Their newest launch, Rover, turns any website into an agentic experience with one script tag. A user says “help me check out,” and Rover fills the fields, clicks the buttons and completes the purchase, right inside the site. Insights: https://www.theteslapod.com/insights/agentic-browsing-self-driving-browser-retriever-ai Watch: https://www.youtube.com/watch?v=ChwI4UyEGqM</description>
+      <media:thumbnail url="https://www.theteslapod.com/assets/thumbs/ChwI4UyEGqM.jpg" />
+    </item>
+    <item>
+      <title>EP 04: AI Just Ate Customer Success — Komala &amp; Kushal</title>
+      <link>https://www.theteslapod.com/episodes/komala-chenna-kushal-murthy-peazy-labs</link>
+      <guid isPermaLink="true">https://www.theteslapod.com/episodes/komala-chenna-kushal-murthy-peazy-labs</guid>
+      <pubDate>Sat, 23 May 2026 12:00:00 GMT</pubDate>
+      <description>For years the customer success playbook was the same. Hire a CSM. Buy Pendo. Send onboarding emails. Watch customers churn anyway. Komala Chenna and Kushal (Kush) Murthy are building the thing that ends that. Peazy is an AI concierge that lives inside your product. It watches users in real time, spots when they&apos;re stuck and guides them through the moment: not in another dashboard, not in a help doc, but on the screen where the work is happening. Peazy reports a 94% onboarding rate and 41% less reactive support, with customers reaching value faster and CSMs no longer drowning in tickets. Insights: https://www.theteslapod.com/insights/ai-customer-success-peazy-labs Watch: https://www.youtube.com/watch?v=p7eUWZtrq-0</description>
+      <media:thumbnail url="https://www.theteslapod.com/assets/thumbs/p7eUWZtrq-0.jpg" />
+    </item>
+    <item>
+      <title>EP 03: The $5 Trillion Problem Nobody in Tech is Working On — Laila Gamaleldin</title>
+      <link>https://www.theteslapod.com/episodes/laila-gamaleldin-silver-surf</link>
+      <guid isPermaLink="true">https://www.theteslapod.com/episodes/laila-gamaleldin-silver-surf</guid>
+      <pubDate>Sun, 17 May 2026 12:00:00 GMT</pubDate>
+      <description>She left Google. She left TikTok. To build software for people who own dry cleaners in Michigan. Ten thousand Baby Boomers retire every day, and 80% of small businesses fail to sell: a generation of plumbers, dry cleaners, restaurant owners and mechanics whose life&apos;s work can disappear the day they retire. Laila Gamaleldin founded Silver Surf to fix that, with software to help small-business owners sell their business faster, at a better valuation and with a higher success rate. Riding through San Francisco on Full Self-Driving, she and host Irosha de Silva talk about one of the biggest economic shifts in America that almost nobody is paying attention to. Insights: https://www.theteslapod.com/insights/5-trillion-small-business-succession-silver-surf Watch: https://www.youtube.com/watch?v=VVFp6FDn5KM</description>
+      <media:thumbnail url="https://www.theteslapod.com/assets/thumbs/VVFp6FDn5KM.jpg" />
+    </item>
+    <item>
+      <title>EP 02: They Raised $500K from YC at 18 — Shreyans &amp; Naman</title>
+      <link>https://www.theteslapod.com/episodes/shreyans-jain-naman-bansal-manicule</link>
+      <guid isPermaLink="true">https://www.theteslapod.com/episodes/shreyans-jain-naman-bansal-manicule</guid>
+      <pubDate>Mon, 11 May 2026 12:00:00 GMT</pubDate>
+      <description>Two teenagers from Agra started building startups at 14. At 15 they were rejected by Y Combinator. At 18 they raised a $500K check from YC. Shreyans Jain and Naman Bansal are the cofounders of Manicule, which builds AI-native technical documentation for developer tools. Riding through San Francisco in a self-driving Tesla, they talk through the years of failed experiments, late-night coding sessions and curiosity that eventually compounded into something real. Insights: https://www.theteslapod.com/insights/raising-yc-at-18-manicule Watch: https://www.youtube.com/watch?v=EMmH7ECJ-IQ</description>
+      <media:thumbnail url="https://www.theteslapod.com/assets/thumbs/EMmH7ECJ-IQ.jpg" />
+    </item>
+    <item>
+      <title>EP 01: Self Driving Cars and Self Driving software — Yasith Jayawardana</title>
+      <link>https://www.theteslapod.com/episodes/yasith-jayawardana-marketrix-ai</link>
+      <guid isPermaLink="true">https://www.theteslapod.com/episodes/yasith-jayawardana-marketrix-ai</guid>
+      <pubDate>Sun, 03 May 2026 12:00:00 GMT</pubDate>
+      <description>Self-driving cars are trained in simulation before they touch a real road. They crash safely, learn and iterate until they&apos;re ready. Software doesn&apos;t get that: we ship it, users break it, and then we patch it. In the first episode of The Tesla Pod, host Irosha de Silva rides with Marketrix AI cofounder and CTO Yasith Jayawardana on the way to Founders, Inc., in a Tesla Model Y on Full Self-Driving through San Francisco. That&apos;s the format of the show: founders talking while the car drives itself. No studio, no script. The conversation is about what changes when software can simulate itself first. Insights: https://www.theteslapod.com/insights/self-driving-software-marketrix-yasith Watch: https://www.youtube.com/watch?v=kl8JXv2KIfc</description>
+      <media:thumbnail url="https://www.theteslapod.com/assets/thumbs/kl8JXv2KIfc.jpg" />
+    </item>
+  </channel>
+</rss>
