@@ -54,6 +54,17 @@
   ],
   "redirects": [
     {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "teslapod.vercel.app"
+        }
+      ],
+      "destination": "https://www.theteslapod.com/",
+      "permanent": true
+    },
+    {
       "source": "/:path*",
       "has": [
         {
