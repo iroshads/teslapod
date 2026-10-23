@@ -1,5 +1,6 @@
 // Show notes for every episode page (/episodes/<slug>), keyed by YouTube video id.
 // Source: each episode's official YouTube description, rewritten in the third person.
+// publishedAt: the video's publish time on YouTube (watch page → "publishDate"), with timezone.
 // Facts only — nothing here that the episode or its description doesn't state.
 //
 // New episode: add an entry (slug must match the "slug" in data.js), then run
@@ -9,6 +10,7 @@
 
 export const EPISODE_CONTENT = {
   "9Ejk8wq14ww": {
+    publishedAt: "2026-08-24T11:01:36-07:00", // YouTube publish time — VideoObject.uploadDate
     seoTitle: "Adil Mania on Making Tech Media Fun | The Tesla Pod",
     seoDesc: "Silicon Mania cofounder Adil Mania on why tech media is boring, what “MrBeast meets NBC” means for tech, and five formats in eight months. The Tesla Pod EP 11.",
     summary: [
@@ -26,6 +28,7 @@ export const EPISODE_CONTENT = {
     audience: "For anyone who makes things, watches things, or thinks tech deserves better stories."
   },
   "g57WpguhxXA": {
+    publishedAt: "2026-08-11T04:31:03-07:00", // YouTube publish time — VideoObject.uploadDate
     seoTitle: "Felix Lee on Why ADPList Is Still Free | The Tesla Pod",
     seoDesc: "ADPList CEO Felix Lee on keeping mentorship free at a million users, Sequoia's backing, AI interview practice and skipping the degree. The Tesla Pod EP 10.",
     summary: [
@@ -50,6 +53,7 @@ export const EPISODE_CONTENT = {
     }
   },
   "AR18l-xBY6Q": {
+    publishedAt: "2026-07-26T19:35:49-07:00", // YouTube publish time — VideoObject.uploadDate
     seoTitle: "Sanket Agarwal on Fleek's AI for Used Clothing | The Tesla Pod",
     seoDesc: "Fleek cofounder Sanket Agarwal on where donated clothes really go, AI that grades used garments from one photo, and Fleek's $25M Series B. The Tesla Pod EP 09.",
     summary: [
@@ -67,6 +71,7 @@ export const EPISODE_CONTENT = {
     audience: "For anyone who cares about AI, marketplaces, sustainability, or the hidden supply chains that move the physical world."
   },
   "4FtPxcSjpF8": {
+    publishedAt: "2026-07-05T19:21:23-07:00", // YouTube publish time — VideoObject.uploadDate
     seoTitle: "Jason Jin on Funky and AI Agent Swarms | The Tesla Pod",
     seoDesc: "Ex-Google engineer Jason Jin on Funky: one API call, hundreds of sandboxed AI agents, why swarms beat one smarter agent, and a live demo. The Tesla Pod EP 08.",
     summary: [
@@ -83,6 +88,7 @@ export const EPISODE_CONTENT = {
     audience: "For anyone who builds with AI agents or cares about the infrastructure layer underneath them."
   },
   "UkzjHmqDMiY": {
+    publishedAt: "2026-06-14T11:02:38-07:00", // YouTube publish time — VideoObject.uploadDate
     seoTitle: "Ontora (YC P26) on Automating Consulting with AI | The Tesla Pod",
     seoDesc: "Ontora cofounders David Korn and Leon Iwanowitsch on an AI agent that interviews every employee and maps how work gets done in 24 hours. The Tesla Pod EP 07.",
     summary: [
@@ -101,6 +107,7 @@ export const EPISODE_CONTENT = {
     audience: "For anyone who runs operations, works in consulting, or cares about what AI is about to disrupt."
   },
   "7_k8UR_5aDc": {
+    publishedAt: "2026-06-07T20:56:58-07:00", // YouTube publish time — VideoObject.uploadDate
     seoTitle: "Anushka Idamekorala: From PhD Dropout to YC | The Tesla Pod",
     seoDesc: "Logical (YC F25) cofounder Anushka Idamekorala on leaving his PhD, building a proactive desktop copilot, and the Sri Lankan founder wave in SF. The Tesla Pod EP 06.",
     summary: [
@@ -119,6 +126,7 @@ export const EPISODE_CONTENT = {
     audience: "For anyone who builds with AI, is thinking about leaving academia, or comes from a place that feels far from Silicon Valley."
   },
   "ChwI4UyEGqM": {
+    publishedAt: "2026-05-30T23:59:45-07:00", // YouTube publish time — VideoObject.uploadDate
     seoTitle: "rtrvr.ai Founders on AI Agents That Browse the Web | The Tesla Pod",
     seoDesc: "Arjun Chintapalli and Bhavani Kalisetty of rtrvr.ai on DOM-native web agents, 81.4% task completion on WebBench, Rover and the agentic web. The Tesla Pod EP 05.",
     summary: [
@@ -137,6 +145,7 @@ export const EPISODE_CONTENT = {
     audience: "For anyone who builds on the web, works in AI, or wants to understand what's coming for the internet."
   },
   "p7eUWZtrq-0": {
+    publishedAt: "2026-05-23T16:51:13-07:00", // YouTube publish time — VideoObject.uploadDate
     seoTitle: "Peazy Labs on AI That Replaces Customer Success | The Tesla Pod",
     seoDesc: "Komala Chenna and Kushal Murthy of Peazy Labs on an AI concierge inside your product: 94% onboarding and 41% less reactive support. The Tesla Pod EP 04.",
     summary: [
@@ -154,6 +163,7 @@ export const EPISODE_CONTENT = {
     audience: "For customer success leaders, founders shipping software, and anyone curious about what AI is replacing right now."
   },
   "VVFp6FDn5KM": {
+    publishedAt: "2026-05-17T00:28:04-07:00", // YouTube publish time — VideoObject.uploadDate
     seoTitle: "Laila Gamaleldin on Selling Small Businesses | The Tesla Pod",
     seoDesc: "Silver Surf founder Laila Gamaleldin left Google and TikTok to help small-business owners sell: the silver tsunami, ESOPs and big tech. The Tesla Pod EP 03.",
     summary: [
@@ -171,6 +181,7 @@ export const EPISODE_CONTENT = {
     audience: "For anyone inside big tech who is quietly thinking about leaving."
   },
   "EMmH7ECJ-IQ": {
+    publishedAt: "2026-05-11T15:15:33-07:00", // YouTube publish time — VideoObject.uploadDate
     seoTitle: "Manicule's Founders Raised $500K from YC at 18 | The Tesla Pod",
     seoDesc: "Shreyans Jain and Naman Bansal started building at 14, were rejected by YC at 15 and raised $500K from YC at 18. The Manicule story on The Tesla Pod EP 02.",
     summary: [
@@ -190,6 +201,7 @@ export const EPISODE_CONTENT = {
     audience: "For young founders, YC hopefuls, and anyone building developer tools."
   },
   "kl8JXv2KIfc": {
+    publishedAt: "2026-05-03T10:39:55-07:00", // YouTube publish time — VideoObject.uploadDate
     seoTitle: "Self-Driving Cars and Self-Driving Software | The Tesla Pod EP 01",
     seoDesc: "Marketrix AI cofounders Irosha de Silva and Yasith Jayawardana on why software should be tested in simulation the way self-driving cars are. The Tesla Pod EP 01.",
     summary: [

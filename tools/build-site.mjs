@@ -1144,10 +1144,11 @@ function episodePage(ep, i, transcript) {
   const videoLd = {
     "@context": "https://schema.org",
     "@type": "VideoObject",
+    "@id": url + "#video",
     name: ep.fullTitle,
     description: c.seoDesc,
     thumbnailUrl: [img, `https://i.ytimg.com/vi/${ep.id}/maxresdefault.jpg`],
-    uploadDate: date,
+    uploadDate: c.publishedAt || date,
     duration: isoDuration(ep.duration),
     embedUrl: `https://www.youtube.com/embed/${ep.id}`,
     url,
@@ -1168,7 +1169,7 @@ function episodePage(ep, i, transcript) {
     partOfSeries: { "@type": "PodcastSeries", name: "The Tesla Pod", url: `${SITE}/` },
     author: { "@type": "Person", name: HOST.name, url: HOST_SAME_AS[0], sameAs: HOST_SAME_AS },
     actor: guests.map(personLd),
-    associatedMedia: { "@type": "VideoObject", name: ep.fullTitle, embedUrl: `https://www.youtube.com/embed/${ep.id}`, url: watch }
+    associatedMedia: { "@id": url + "#video" }
   };
   const crumbs = {
     "@context": "https://schema.org",
@@ -1528,7 +1529,7 @@ const videoEntry = (ep) => `
       <video:description>${xmlEsc(EPISODE_CONTENT[ep.id].seoDesc)}</video:description>
       <video:player_loc>https://www.youtube.com/embed/${ep.id}</video:player_loc>
       <video:duration>${durationSeconds(ep.duration)}</video:duration>
-      <video:publication_date>${isoDate(ep)}</video:publication_date>
+      <video:publication_date>${EPISODE_CONTENT[ep.id].publishedAt || isoDate(ep)}</video:publication_date>
       <video:family_friendly>yes</video:family_friendly>
     </video:video>`;
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
