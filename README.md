@@ -27,7 +27,6 @@ styles.css   design system (editorial, ink-on-ivory, red as accent)
 app.js       rendering, episode modal, map/pod logic, Tesla-screen apps
 data.js      baked episode + guest data (fallback when the live API is unavailable)
 assets/      portraits, thumbnails, brand assets
-```
 tools/       build scripts (below)
 content/     optional per-episode transcripts (content/transcripts/<videoId>.json|.srt|.vtt)
 ```
