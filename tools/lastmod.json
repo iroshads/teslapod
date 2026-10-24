@@ -1,15 +1,15 @@
 {
   "/insights": {
-    "hash": "306bb62447cdda57",
-    "date": "2026-10-23"
+    "hash": "1ef780895099ff7c",
+    "date": "2026-10-24"
   },
   "/insights/making-tech-media-entertaining-silicon-mania": {
-    "hash": "e30a1cb7b076a5fb",
-    "date": "2026-10-23"
+    "hash": "95168ea30ff5c092",
+    "date": "2026-10-24"
   },
   "/insights/free-mentorship-at-scale-adplist-felix-lee": {
-    "hash": "1144ed652e5fb11c",
-    "date": "2026-10-23"
+    "hash": "2009a111d7b6cc53",
+    "date": "2026-10-24"
   },
   "/insights/ai-secondhand-clothing-supply-chain-fleek": {
     "hash": "7acc921f2e0ea5f8",
@@ -36,28 +36,28 @@
     "date": "2026-10-23"
   },
   "/insights/5-trillion-small-business-succession-silver-surf": {
-    "hash": "8c9b7501f1fc32bf",
-    "date": "2026-10-23"
+    "hash": "4523ee3a3b264762",
+    "date": "2026-10-24"
   },
   "/insights/raising-yc-at-18-manicule": {
-    "hash": "aa59c0c27007e7af",
-    "date": "2026-10-23"
+    "hash": "85228bcc87ecfb99",
+    "date": "2026-10-24"
   },
   "/insights/self-driving-software-marketrix-yasith": {
-    "hash": "33fcf7551cf42195",
-    "date": "2026-10-23"
+    "hash": "59adb5d7c2d64608",
+    "date": "2026-10-24"
   },
   "/episodes": {
-    "hash": "c19c71870694452e",
-    "date": "2026-10-23"
+    "hash": "3e8b825bbcf51006",
+    "date": "2026-10-24"
   },
   "/episodes/adil-mania-silicon-mania": {
-    "hash": "1a89273fed0cfc6d",
-    "date": "2026-10-23"
+    "hash": "c8bf57cf28aa994a",
+    "date": "2026-10-24"
   },
   "/episodes/felix-lee-adplist": {
-    "hash": "c3cc01de16443167",
-    "date": "2026-10-23"
+    "hash": "cb9b8b8328e9fdce",
+    "date": "2026-10-24"
   },
   "/episodes/sanket-agarwal-fleek": {
     "hash": "187f9a6c47406f8b",
@@ -84,19 +84,27 @@
     "date": "2026-10-23"
   },
   "/episodes/laila-gamaleldin-silver-surf": {
-    "hash": "8744ff469f6ad046",
-    "date": "2026-10-23"
+    "hash": "6f9ce5a03d908394",
+    "date": "2026-10-24"
   },
   "/episodes/shreyans-jain-naman-bansal-manicule": {
-    "hash": "883b9f988bed9768",
-    "date": "2026-10-23"
+    "hash": "e9120e5beadbbb99",
+    "date": "2026-10-24"
   },
   "/episodes/yasith-jayawardana-marketrix-ai": {
-    "hash": "1c3faaf788d08b3a",
-    "date": "2026-10-23"
+    "hash": "69f543f6a87fc1f2",
+    "date": "2026-10-24"
   },
   "/": {
-    "hash": "7cb2764e1aa0c565",
-    "date": "2026-10-23"
+    "hash": "a398eeeabac93d1d",
+    "date": "2026-10-24"
+  },
+  "/insights/stock-warrants-suppliers-partners-wrnt": {
+    "hash": "75f499ce5640582f",
+    "date": "2026-10-24"
+  },
+  "/episodes/duane-good-wrnt": {
+    "hash": "8c59c2454c2af771",
+    "date": "2026-10-24"
   }
 }

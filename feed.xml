@@ -6,8 +6,16 @@
     <atom:link href="https://www.theteslapod.com/feed.xml" rel="self" type="application/rss+xml" />
     <description>The Tesla podcast recorded inside a self-driving Tesla. Host Irosha de Silva rides through San Francisco with startup founders.</description>
     <language>en-us</language>
-    <lastBuildDate>Mon, 24 Aug 2026 12:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 24 Oct 2026 12:00:00 GMT</lastBuildDate>
     <image><url>https://www.theteslapod.com/assets/brand/icon-192.png</url><title>The Tesla Pod</title><link>https://www.theteslapod.com/</link></image>
+    <item>
+      <title>EP 12: Why Your Supplier Should Own a Piece of Your Company — Duane Good</title>
+      <link>https://www.theteslapod.com/episodes/duane-good-wrnt</link>
+      <guid isPermaLink="true">https://www.theteslapod.com/episodes/duane-good-wrnt</guid>
+      <pubDate>Sat, 24 Oct 2026 12:00:00 GMT</pubDate>
+      <description>What if the partners and suppliers who help a company grow could share in its upside? On episode 12 of The Tesla Pod, host Irosha de Silva rides through San Francisco on Full Self-Driving with Duane Good, cofounder and CEO of Wrnt. Wrnt is building the operating system for stock warrants: issuing them, tracking them and managing them over their whole life. Warrants show up in venture debt, strategic partnerships and commercial deals, yet many companies still track them in spreadsheets and piece them back together at audit time. Duane spent a long career in financial services before founding Wrnt in January 2025, and he makes the case that warrants could become the standard way a strategic partner gets rewarded for helping a company grow. Insights: https://www.theteslapod.com/insights/stock-warrants-suppliers-partners-wrnt Watch: https://www.youtube.com/watch?v=qZEn0M27lIs</description>
+      <media:thumbnail url="https://www.theteslapod.com/assets/thumbs/qZEn0M27lIs.jpg" />
+    </item>
     <item>
       <title>EP 11: MrBeast Meets Silicon Valley: Making Tech Fun Again — Adil Mania</title>
       <link>https://www.theteslapod.com/episodes/adil-mania-silicon-mania</link>

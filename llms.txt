@@ -1,6 +1,6 @@
 # The Tesla Pod
 
-> The Tesla Pod is a video podcast recorded inside a self-driving Tesla (Full Self-Driving, supervised) in San Francisco. Host Irosha de Silva, cofounder and CEO of Marketrix AI, interviews startup founders while the car drives. 11 episodes so far, published on YouTube.
+> The Tesla Pod is a video podcast recorded inside a self-driving Tesla (Full Self-Driving, supervised) in San Francisco. Host Irosha de Silva, cofounder and CEO of Marketrix AI, interviews startup founders while the car drives. 12 episodes so far, published on YouTube.
 
 - Host: Irosha de Silva (https://www.irosha.com)
 - Format: unscripted founder conversations, recorded in the car on Tesla FSD through San Francisco
@@ -13,6 +13,7 @@
 
 ## Episodes
 
+- [EP 12: Why Your Supplier Should Own a Piece of Your Company](https://www.theteslapod.com/episodes/duane-good-wrnt): Duane Good (Cofounder & CEO, Wrnt). Oct 24, 2026, 52:17.
 - [EP 11: MrBeast Meets Silicon Valley: Making Tech Fun Again](https://www.theteslapod.com/episodes/adil-mania-silicon-mania): Adil Mania (Cofounder, Silicon Mania). Aug 24, 2026, 1:09:54.
 - [EP 10: Sequoia Said Yes. A Million Users Later, It's Still Free](https://www.theteslapod.com/episodes/felix-lee-adplist): Felix Lee (Cofounder & CEO, ADPList). Aug 11, 2026, 1:08:34.
 - [EP 09: Fleek Raised $25M to Fix What Happens to Your Old Clothes](https://www.theteslapod.com/episodes/sanket-agarwal-fleek): Sanket Agarwal (Cofounder, Fleek (YC W22)). Jul 26, 2026, 59:24.
@@ -27,6 +28,7 @@
 
 ## Insights
 
+- [Why Your Supplier Should Own a Piece of Your Company](https://www.theteslapod.com/insights/stock-warrants-suppliers-partners-wrnt): Employees get stock options. The partners who help you grow usually get only cash.
 - [Tech Has Ten Thousand Podcasts and Nothing Worth Watching](https://www.theteslapod.com/insights/making-tech-media-entertaining-silicon-mania): Food has shows. Sports has shows. Tech has founders talking to founders in cars.
 - [Sequoia Said Yes. A Million Users Later, It's Still Free](https://www.theteslapod.com/insights/free-mentorship-at-scale-adplist-felix-lee): 39,000 mentors, 600 million minutes, 140 countries — and five years of refusing to charge.
 - [The $25M Bet on What Happens to Your Old Clothes](https://www.theteslapod.com/insights/ai-secondhand-clothing-supply-chain-fleek): A donated t-shirt crosses continents by hand. Fleek is teaching AI to grade it.

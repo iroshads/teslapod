@@ -1260,6 +1260,7 @@
   // guests' companies (not the host's Marketrix) → a one-line "about" + a link.
   // episode id → insights article slug (see tools/build-insights.mjs)
   var INSIGHT_SLUGS = {
+    "qZEn0M27lIs": "stock-warrants-suppliers-partners-wrnt",
     "9Ejk8wq14ww": "making-tech-media-entertaining-silicon-mania",
     "g57WpguhxXA": "free-mentorship-at-scale-adplist-felix-lee",
     "AR18l-xBY6Q": "ai-secondhand-clothing-supply-chain-fleek",
@@ -1274,6 +1275,7 @@
   };
 
   var COMPANIES = {
+    "Wrnt": { about: "The operating system for stock warrants: set up, issue and manage warrants so the partners and suppliers who help a company grow can share in its upside.", url: "https://www.wrnt.co" },
     "Silicon Mania": { about: "A tech media company betting that tech is the most exciting story on earth — recap shows, a print magazine, live events and original games. Backed by Offline Ventures and Founders Inc.", url: "https://siliconmania.tv" },
     "ADPList": { about: "The world's largest free mentorship community — free 1:1 sessions with nearly 39,000 mentors across design, product, engineering, AI and marketing. Backed by Sequoia India's Surge.", url: "https://adplist.org" },
     "Fleek": { about: "The AI infrastructure powering the global secondhand clothing trade — a B2B marketplace plus a vision model that grades and prices used garments from a photo.", url: "https://joinfleek.com" },

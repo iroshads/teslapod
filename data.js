@@ -1,6 +1,19 @@
 // The Tesla Pod — baked content snapshot (auto-generated from live site + YouTube channel, Jul 15 2026)
 const EPISODES = [
   {
+    "id": "qZEn0M27lIs",
+    "slug": "duane-good-wrnt",
+    "num": 12,
+    "title": "Why Your Supplier Should Own a Piece of Your Company",
+    "fullTitle": "Why Your Supplier Should Own a Piece of Your Company | Duane Good, Wrnt",
+    "guest": "Duane Good",
+    "guestRole": "Cofounder & CEO @ Wrnt",
+    "duration": "52:17",
+    "releaseDate": "Oct 24, 2026",
+    "thumb": "assets/thumbs/qZEn0M27lIs.jpg",
+    "description": "Startups give employees stock options but pay the partners who help them grow only in cash. Duane Good, cofounder and CEO of Wrnt, makes the case that stock warrants should change that, and explains why most companies still track them in spreadsheets."
+  },
+  {
     "id": "9Ejk8wq14ww",
     "slug": "adil-mania-silicon-mania",
     "num": 11,
@@ -153,6 +166,13 @@ const PEOPLE = [
     "photo": "assets/people/irosha-de-silva.png",
     "episodeId": null,
     "isHost": true
+  },
+  {
+    "name": "Duane Good",
+    "role": "Cofounder & CEO",
+    "company": "Wrnt",
+    "photo": "assets/people/duane-good.jpg",
+    "episodeId": "qZEn0M27lIs"
   },
   {
     "name": "Adil Mania",

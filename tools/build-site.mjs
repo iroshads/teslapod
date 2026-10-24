@@ -30,6 +30,51 @@ const episodeUrl = (ep) => `${SITE}/episodes/${ep.slug}`;
 
 const INSIGHTS = [
   {
+    slug: "stock-warrants-suppliers-partners-wrnt",
+    ep: 12, id: "qZEn0M27lIs", date: "2026-10-24", dateHuman: "Oct 24, 2026", duration: "52:17",
+    guest: "Duane Good", role: "Cofounder & CEO @ Wrnt", company: "Wrnt",
+    title: "Why Your Supplier Should Own a <em>Piece of Your Company</em>",
+    seoTitle: "Stock Warrants for Suppliers and Partners | The Tesla Pod",
+    seoDesc: "Startups give employees options but pay partners only in cash. Duane Good of Wrnt on why stock warrants should reward the suppliers who help you grow.",
+    keywords: "stock warrants, what is a stock warrant, warrants for suppliers, strategic partner warrants, warrant management software, Wrnt, Duane Good, venture debt warrants, dilution, cap table",
+    hook: "Employees get stock options. The partners who help you grow usually get only cash.",
+    sub: "Duane Good spent a long career in financial services, including platforms at SVB and HSBC, before founding Wrnt in January 2025 to build the operating system for stock warrants. Warrants already appear in venture debt and in some of the biggest commercial deals in tech, yet most companies still track them in spreadsheets. This ride is about why that should change, and why the right supplier might deserve a stake in what you build.",
+    bigIdea: [
+      "Founders know that cash alone doesn't hire and keep great people; stock options do. Yet almost every startup still pays the rest of its ecosystem (cloud providers, manufacturers, distribution partners, early customers) only in cash. The episode's core argument is that this is a mismatch. A partner whose work changes a company's trajectory has the same reason to want upside as an early employee, and a cash-constrained startup has every reason to offer it.",
+      "A stock warrant is the tool for that: the right to buy shares at a set price, often tied to milestones. It already appears in venture debt and, at the top of the market, in commercial partnerships such as AMD's 2025 agreement giving OpenAI warrants on AMD shares. What has kept it from spreading is plumbing. Issuing, tracking and valuing warrants is manual work, which is why programs end up rebuilt from spreadsheets at audit time. Wrnt's bet is that proper infrastructure turns warrants from a big-company tool into a normal way partners get paid."
+    ],
+    takeaways: [
+      "<b>Options for employees, warrants for partners.</b> The logic that made equity standard in hiring applies just as well to the suppliers and partners a startup depends on.",
+      "<b>A warrant is a right, not a share.</b> It lets the holder buy stock at a set price later, so the company keeps its cash today and the partner gains only if the company grows.",
+      "<b>Spreadsheets break at audit.</b> Warrants issued across venture debt and commercial deals get tracked by hand, then pieced back together when auditors or acquirers ask for them.",
+      "<b>Each side values it differently.</b> What a warrant is worth to the company and to the partner can look very different, so both sides need a clear view of the terms.",
+      "<b>Dilution is a trade.</b> Founders already give up equity to hire and to raise. The question is whether a partner's contribution earns its share."
+    ],
+    themes: [
+      { h: "Warrants, in plain English", p: "What a stock warrant is, how it differs from an option or a share, and where founders already meet them, most often in venture debt, without thinking of them as a growth tool." },
+      { h: "Why warrant programs get rebuilt at audit", p: "Warrants tend to be issued deal by deal and tracked in spreadsheets. The conversation covers what goes wrong when those records are needed later, and what a proper system of record looks like across a warrant's whole life." },
+      { h: "From financial services to founder", p: "Duane's long career in financial services, building platforms at SVB, HSBC, Tribal and Angel.ai, and why he started Wrnt in January 2025 to bring warrants within reach of every company, not just the largest ones." }
+    ],
+    about: "Wrnt is building the operating system for stock warrants: setting them up, issuing them and managing them over their whole life, with agreements, partners and records in one place. It launched its platform in October 2025. Duane Good is cofounder and CEO. The team includes alumni of Silicon Valley Bank, HSBC and BCG, and says it helped design and manage the largest warrant portfolio ever built in the innovation economy, over more than 20 years.",
+    whyNow: "Startups run leaner than ever and lean on a few big partners for compute, AI, manufacturing and distribution, often before they have the cash to pay full price. Duane has written that the innovation economy is getting smaller while its partnerships matter more. Headline deals like AMD and OpenAI's have shown the market that warrants can anchor a partnership; software that makes them cheap to set up and easy to track brings the same tool to early-stage companies.",
+    numbers: [
+      { n: "Jan 2025", l: "Wrnt founded" },
+      { n: "Oct 2025", l: "Wrnt platform launch" },
+      { n: "20+ yrs", l: "the team's history running a warrant portfolio" }
+    ],
+    autonomyLens: "A self-driving fleet improves because every mile driven feeds a system that makes every car better, and the people contributing those miles benefit as it improves. Warrants apply the same idea to a company's partners: the supplier whose work helps the business grow gets a stake in the growth it helped create. And like autonomy, the idea only scales once the infrastructure is reliable. Nobody trusts a system that has to be rebuilt by hand every time someone checks it, which is where most warrant programs are today.",
+    counter: {
+      claim: "Founders should guard their cap table. Handing equity to vendors adds dilution and complexity to relationships that could simply be paid in cash.",
+      response: "The episode treats dilution as a trade, not a taboo. Startups already give up equity to hire people and raise capital; a warrant is only worth issuing if the partner's contribution is worth the stake. The complexity objection is real, and it's the problem Wrnt exists to remove: when warrants start from benchmarked terms and live in one record, they stop being an audit-time headache. And because a warrant pays off only if the company grows, the partner's incentive is to help it grow."
+    },
+    faq: [
+      { q: "What is a stock warrant?", a: "A stock warrant gives its holder the right to buy a company's shares at a set price, usually within a set period and sometimes only after milestones are met. Unlike an employee stock option, it's typically issued to an outside party such as a lender, supplier or strategic partner." },
+      { q: "Why would a startup give warrants to a supplier or partner?", a: "To preserve cash and align incentives. A partner that receives warrants is paid partly in potential upside, so it benefits most if the startup grows. On the episode, Duane Good argues this could become the standard way strategic partners are rewarded." },
+      { q: "Do warrants dilute existing shareholders?", a: "Yes. If warrants are exercised, new shares are issued and existing holders own a smaller percentage. The episode discusses how founders should weigh that dilution against what a partner contributes." },
+      { q: "What is Wrnt?", a: "Wrnt is a platform for setting up, issuing and managing stock warrants over their whole life. It was founded in January 2025 by Duane Good, its CEO, and launched its platform in October 2025." }
+    ]
+  },
+  {
     slug: "making-tech-media-entertaining-silicon-mania",
     ep: 11, id: "9Ejk8wq14ww", date: "2026-08-24", dateHuman: "Aug 24, 2026", duration: "1:09:54",
     guest: "Adil Mania", role: "Cofounder @ Silicon Mania", company: "Silicon Mania",

@@ -9,6 +9,31 @@
 // (YouTube Studio → Subtitles → ⋮ → Download) and the page picks it up on the next build.
 
 export const EPISODE_CONTENT = {
+  "qZEn0M27lIs": {
+    publishedAt: "2026-10-24T11:55:56-07:00", // YouTube publish time — VideoObject.uploadDate
+    seoTitle: "Duane Good on Stock Warrants for Partners | The Tesla Pod",
+    seoDesc: "Wrnt cofounder and CEO Duane Good on stock warrants: what they are, why companies track them in spreadsheets, and why suppliers should share the upside. EP 12.",
+    summary: [
+      "What if the partners and suppliers who help a company grow could share in its upside? On episode 12 of The Tesla Pod, host Irosha de Silva rides through San Francisco on Full Self-Driving with Duane Good, cofounder and CEO of Wrnt.",
+      "Wrnt is building the operating system for stock warrants: issuing them, tracking them and managing them over their whole life. Warrants show up in venture debt, strategic partnerships and commercial deals, yet many companies still track them in spreadsheets and piece them back together at audit time. Duane spent a long career in financial services before founding Wrnt in January 2025, and he makes the case that warrants could become the standard way a strategic partner gets rewarded for helping a company grow."
+    ],
+    topics: [
+      "What a stock warrant is, in plain English",
+      "Why warrant programs end up rebuilt at audit",
+      "Warrants as the way partners and suppliers share in the upside",
+      "What a warrant is actually worth to each side",
+      "Dilution, and how founders should think about it",
+      "Lessons from a long career in financial services",
+      "Building Wrnt and what comes next"
+    ],
+    audience: "For founders weighing a big partnership, finance teams who inherit warrant spreadsheets, and anyone curious how a supplier can share in a startup's upside.",
+    guestLinks: {
+      "Duane Good": [
+        { label: "LinkedIn", url: "https://www.linkedin.com/in/duanegood" },
+        { label: "X", url: "https://x.com/duane_wrnt" }
+      ]
+    }
+  },
   "9Ejk8wq14ww": {
     publishedAt: "2026-08-24T11:01:36-07:00", // YouTube publish time — VideoObject.uploadDate
     seoTitle: "Adil Mania on Making Tech Media Fun | The Tesla Pod",
