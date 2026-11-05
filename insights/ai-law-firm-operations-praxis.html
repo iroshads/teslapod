@@ -1,0 +1,378 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FM2TFSZ32V"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-FM2TFSZ32V');
+  </script>
+  <title>Why Law Firms Lose Clients, and the AI Fixing It | The Tesla Pod</title>
+  <meta name="description" content="Clients judge law firms on how fast they reply. Praxis (YC F26) CEO Diana Khramina on AI agents that run intake to invoicing with a lawyer approving each step." />
+  <meta name="keywords" content="AI for law firms, legal tech, law firm client intake, law firm response time, practice management software, Clio alternative, billable hour, AI native law firm, Praxis, Diana Khramina, YC F26" />
+  <link rel="canonical" href="https://www.theteslapod.com/insights/ai-law-firm-operations-praxis" />
+
+  <meta name="author" content="Irosha de Silva" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+  <meta name="theme-color" content="#fbfaf8" />
+  <script>
+    (function () {
+      var d = document.documentElement, t = null;
+      try { t = localStorage.getItem("tp-theme"); } catch (e) {}
+      if (t === "dark" || t === "light") d.setAttribute("data-theme", t);
+      var m = document.querySelector('meta[name="theme-color"]');
+      if (m) m.setAttribute("content", d.getAttribute("data-theme") === "dark" ? "#101012" : "#fbfaf8");
+    })();
+  </script>
+  <link rel="icon" type="image/svg+xml" href="/assets/brand/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/brand/favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/brand/favicon-16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/brand/apple-touch-icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700&family=Inter:wght@400;500;600&family=Instrument+Serif:ital@1&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css" />
+  <link rel="alternate" type="application/rss+xml" title="The Tesla Pod — new episodes" href="/feed.xml" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="The Tesla Pod" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:url" content="https://www.theteslapod.com/insights/ai-law-firm-operations-praxis" />
+  <meta property="og:title" content="Law Firms Don't Lose Clients on Legal Work — The Tesla Pod Insights" />
+  <meta property="og:description" content="Clients can't judge the legal work. They can judge how long you take to reply." />
+  <meta property="og:image" content="https://www.theteslapod.com/assets/thumbs/KXQJtHMHoh4.jpg" />
+  <meta property="og:image:alt" content="Episode 13 of The Tesla Pod — Law Firms Don't Lose Clients on Legal Work" />
+  <meta property="article:published_time" content="2026-10-31" />
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:title" content="Law Firms Don't Lose Clients on Legal Work — The Tesla Pod Insights" />
+  <meta property="twitter:description" content="Clients can't judge the legal work. They can judge how long you take to reply." />
+  <meta property="twitter:image" content="https://www.theteslapod.com/assets/thumbs/KXQJtHMHoh4.jpg" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Law Firms Don't Lose Clients on Legal Work","description":"Clients judge law firms on how fast they reply. Praxis (YC F26) CEO Diana Khramina on AI agents that run intake to invoicing with a lawyer approving each step.","image":"https://www.theteslapod.com/assets/thumbs/KXQJtHMHoh4.jpg","datePublished":"2026-10-31","dateModified":"2026-11-05","author":{"@type":"Person","name":"Irosha de Silva","jobTitle":"Host, The Tesla Pod","url":"https://www.irosha.com","sameAs":["https://www.irosha.com","https://www.linkedin.com/in/iroshads/","https://x.com/iroshads"]},"publisher":{"@type":"Organization","name":"The Tesla Pod","url":"https://www.theteslapod.com/"},"mainEntityOfPage":"https://www.theteslapod.com/insights/ai-law-firm-operations-praxis","keywords":"AI for law firms, legal tech, law firm client intake, law firm response time, practice management software, Clio alternative, billable hour, AI native law firm, Praxis, Diana Khramina, YC F26","about":{"@type":"PodcastEpisode","episodeNumber":13,"name":"Law Firms Don't Lose Clients on Legal Work","url":"https://www.theteslapod.com/episodes/diana-khramina-praxis","sameAs":"https://www.youtube.com/watch?v=KXQJtHMHoh4","partOfSeries":{"@type":"PodcastSeries","name":"The Tesla Pod","url":"https://www.theteslapod.com/"}}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"The Tesla Pod","item":"https://www.theteslapod.com/"},{"@type":"ListItem","position":2,"name":"Insights","item":"https://www.theteslapod.com/insights"},{"@type":"ListItem","position":3,"name":"Law Firms Don't Lose Clients on Legal Work","item":"https://www.theteslapod.com/insights/ai-law-firm-operations-praxis"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is Praxis?","acceptedAnswer":{"@type":"Answer","text":"Praxis (YC Fall 2026) is AI that runs a law firm's operations, from first inquiry to paid invoice. Agents handle intake, conflict checks, onboarding, client updates and billing, and a lawyer approves every step. It was founded by Diana Khramina (CEO) and Maxence Guegnolle (CTO)."}},{"@type":"Question","name":"Does Praxis give legal advice?","acceptedAnswer":{"@type":"Answer","text":"No. Praxis focuses on the operational side of a firm, such as intake, documents and invoicing. Legal advice stays with the lawyers, who review and approve what the agents prepare."}},{"@type":"Question","name":"How is Praxis different from Harvey or Legora?","acceptedAnswer":{"@type":"Answer","text":"Harvey and Legora focus on legal work itself, such as contract review and drafting. Praxis focuses on the operations around that work: the client journey, the data and the billing that let a firm respond quickly and run smoothly."}},{"@type":"Question","name":"Is the billable hour going away?","acceptedAnswer":{"@type":"Answer","text":"Diana Khramina expects it to shrink rather than vanish. Her estimate on the episode: hourly billing is 60 to 70 percent of the market today and could fall to 10 to 20 percent within ten years, with flat fees and subscriptions making up most of the rest."}}]}</script>
+</head>
+<body>
+  <div class="in-progress" id="inProgress" aria-hidden="true"></div>
+
+  <header class="nav" id="nav">
+    <a class="nav-logo" href="/" aria-label="The Tesla Pod — home">
+      <span class="nav-word"><em>The</em> Tesla Pod</span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="/episodes">Episodes</a>
+      <a href="/insights">Insights</a>
+      <a href="/#passengers">Passengers</a>
+      <a href="/#apply" class="nav-cta">Be a Guest</a>
+    </nav>
+    <div class="nav-actions">
+      <a class="nav-soc nav-yt" href="https://www.youtube.com/@TeslaPod" target="_blank" rel="noopener" aria-label="The Tesla Pod on YouTube">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31.3 31.3 0 0 0 0 12a31.3 31.3 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31.3 31.3 0 0 0 24 12a31.3 31.3 0 0 0-.5-5.8zM9.6 15.6V8.4L15.8 12l-6.2 3.6z"/></svg>
+      </a>
+      <a class="nav-soc nav-li" href="https://www.linkedin.com/company/teslapod" target="_blank" rel="noopener" aria-label="The Tesla Pod on LinkedIn">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05a3.74 3.74 0 0 1 3.37-1.85c3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zm1.78 13.02H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+      </a>
+      <a class="nav-soc nav-x" href="https://x.com/theteslapod" target="_blank" rel="noopener" aria-label="The Tesla Pod on X">
+        <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M18.24 2.25h3.31l-7.23 8.26 8.5 11.24h-6.66l-5.21-6.82-5.97 6.82H1.66l7.73-8.84L1.24 2.25h6.83l4.71 6.23zm-1.16 17.52h1.83L7.08 4.13H5.11z"/></svg>
+      </a>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle light / dark theme">
+        <span class="theme-icon" aria-hidden="true"></span>
+      </button>
+      <button class="nav-burger" id="navBurger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="/episodes">Episodes</a>
+    <a href="/insights">Insights</a>
+    <a href="/#passengers">Passengers</a>
+    <a href="/#apply">Be a Guest</a>
+    <a href="https://www.youtube.com/@TeslaPod" target="_blank" rel="noopener">YouTube ↗</a>
+    <a href="https://www.linkedin.com/company/teslapod" target="_blank" rel="noopener">LinkedIn ↗</a>
+    <a href="https://x.com/theteslapod" target="_blank" rel="noopener">X ↗</a>
+  </div>
+  <main class="in-main">
+    <nav class="in-crumbs" aria-label="Breadcrumb"><a href="/">The Tesla Pod</a><span>/</span><a href="/insights">Insights</a><span>/</span><span>EP 13</span></nav>
+    <div class="in-hero">
+      <h1>Law Firms Don't Lose Clients on <em>Legal Work</em></h1>
+      <p class="in-sub">Diana Khramina studied law, worked with law firms at McKinsey in Paris, then led Gorgias's AI Agent product from zero to 1,000 customers. Now she's building Praxis (YC Fall 2026), AI agents that run a law firm's operations from first inquiry to paid invoice. This ride is about why firms lose clients long before the legal work starts, and why the lawyer stays in the loop on every step.</p>
+      <div class="in-meta">
+        <span>EPISODE <b>13</b></span>
+        <span>WITH <b>Diana Khramina</b></span>
+        <span><b>Praxis</b></span>
+        <span>OCT 31, 2026</span>
+        <span>59:00</span>
+        <span class="in-read">5 MIN READ</span>
+      </div>
+    </div>
+    <div class="in-layout">
+    <article class="in-article">
+      <h2 id="big-idea">The big idea</h2>
+      <p>Most of the attention in legal AI goes to drafting and contract review: Harvey, Legora and the like. Diana calls that the tip of the iceberg. Underneath, a typical firm runs on old practice-management systems where leads, client files and invoices live in separate places, and staff copy and paste data between them. Creating a single lead from an email can take ten or fifteen minutes. That admin load is why firms are slow to reply, and the slowness is what clients notice.</p>
+      <p>Her point about clients is simple: most can't judge a lawyer's expertise, but they can judge responsiveness. A first reply that takes two to five days, two to three weeks of document back-and-forth to onboard, a hundred-email thread, and the client either leaves or never refers anyone. In a referral business that's the growth channel. Praxis's answer is a system of record with agents on top that do the admin end to end, while the lawyer reviews and approves every step.</p>
+      <h2 id="why-now">Why this matters now</h2>
+      <p>Clients now ask Claude or ChatGPT before they ever call a lawyer, so a firm that takes days to reply has to justify the wait. The billable hour is under pressure from clients asking for transparency, and AI-native firms are competing on speed and fixed pricing. Diana says firms that moved slowly for years are now actively shopping for tools.</p>
+      <h2 id="numbers">By the numbers</h2>
+      <div class="in-numbers">
+        <div class="in-num"><b>67%</b><span>of potential clients say response speed decides who they hire (figure Praxis cites)</span></div>
+        <div class="in-num"><b>60–70%</b><span>of legal billing that's hourly today (Diana's estimate)</span></div>
+        <div class="in-num"><b>0 → 1,000</b><span>customers for the Gorgias AI Agent product Diana led</span></div>
+      </div>
+      <h2 id="takeaways">Key takeaways</h2>
+      <ul class="in-takeaways">
+        <li><b>Responsiveness is what clients can judge.</b> Expertise is invisible to most clients; how quickly a firm answers is not. Praxis cites a figure that 67% of potential clients say their choice of firm comes down to how fast it responds.</li>
+        <li><b>The admin is the bottleneck.</b> Disconnected systems mean re-entering the same client data for the lead, the client file, the documents and the invoice.</li>
+        <li><b>Lawyers move from doing to approving.</b> Diana drafted her own company's contracts with Claude and still wanted a lawyer to check them. That review, plus advice, negotiation and trust, is where firms keep their value.</li>
+        <li><b>Agents draft, lawyers send.</b> Nothing goes to a client without a lawyer's approval, and Praxis stays out of legal advice.</li>
+        <li><b>The billable hour is losing share.</b> Diana's estimate: hourly billing is 60 to 70% of the market today and could fall to 10 to 20% within ten years, with flat fees and subscriptions taking most of the rest.</li>
+      </ul>
+      <h2 id="conversation">Inside the conversation</h2>
+      <h3>From Friday 11 p.m. to signed by Monday</h3>
+      <p>Diana walks through the client journey: a lead arrives late on Friday, a reply is drafted for the lawyer to approve, qualification and a conflict check run, a consultation is booked for Monday, and the engagement letter and invoice are drafted from the call. Documents are collected and verified the same day, a client portal keeps the client updated, and invoices are prefilled and chased. Praxis calls it win, onboard, run, get paid.</p>
+      <h3>Why the incumbents haven't fixed it</h3>
+      <p>Practice-management tools like Clio have been around for about 20 years. Diana's view is that many grew by acquisition, so their parts don't share data, and their intake forms are hard to change. Praxis started from a new codebase and aims to ship a firm's feedback the same day.</p>
+      <h3>AI-native firms versus traditional firms</h3>
+      <p>New AI-native firms such as Crosby and Alma charge per outcome or by subscription. Diana expects the market to redistribute rather than flip: venture-backed firms pushing into the enterprise market, traditional firms holding smaller clients, and Praxis giving those firms the engine to compete.</p>
+      <h2 id="autonomy-lens">Through the autonomy lens</h2>
+      <p>Diana pushed back on the comparison at the start of the ride: the car runs smoothly because it has an engine, and law firms are missing theirs. Every reply is a scramble because the admin sits on top of the lawyer. Praxis is meant to be that engine, the system that moves the data and drafts the next step automatically. The supervision model maps too: as with FSD (Supervised), the agents act while the lawyer watches and approves, so speed goes up without handing judgment to the machine.</p>
+      <h2 id="counterargument">The counterargument</h2>
+      <div class="in-counter">“Law is built on trust and confidentiality. Clients won't want an AI handling their first contact with a firm, and lawyers won't trust agents with their clients.”</div>
+      <p>That's why Praxis keeps a lawyer in the loop on every step. Agents draft the reply, run the conflict check and prepare the engagement letter, but nothing reaches the client without the lawyer's approval, and the product doesn't give legal advice. Diana argues the bigger trust risk is the status quo: a client who waits days for an answer or gets lost in a hundred-email thread doesn't come back or refer anyone. Faster, approved replies build trust rather than spend it.</p>
+      <h2 id="about">About Praxis</h2>
+      <p>Praxis (YC Fall 2026) is the AI that runs a law firm, from first inquiry to paid invoice: a system of record for client and matter data, with agents on top that answer and qualify leads, run conflict checks, draft engagement letters, collect and verify documents, keep clients updated and send and chase invoices, with a lawyer approving every step. It is starting with immigration and corporate law firms. Diana Khramina is cofounder and CEO; Maxence Guegnolle, who built data and AI systems at Uber and BlaBlaCar, is cofounder and CTO.</p>
+      <h2 id="faq">Questions this episode answers</h2>
+      <h3>What is Praxis?</h3>
+      <p>Praxis (YC Fall 2026) is AI that runs a law firm's operations, from first inquiry to paid invoice. Agents handle intake, conflict checks, onboarding, client updates and billing, and a lawyer approves every step. It was founded by Diana Khramina (CEO) and Maxence Guegnolle (CTO).</p>
+      <h3>Does Praxis give legal advice?</h3>
+      <p>No. Praxis focuses on the operational side of a firm, such as intake, documents and invoicing. Legal advice stays with the lawyers, who review and approve what the agents prepare.</p>
+      <h3>How is Praxis different from Harvey or Legora?</h3>
+      <p>Harvey and Legora focus on legal work itself, such as contract review and drafting. Praxis focuses on the operations around that work: the client journey, the data and the billing that let a firm respond quickly and run smoothly.</p>
+      <h3>Is the billable hour going away?</h3>
+      <p>Diana Khramina expects it to shrink rather than vanish. Her estimate on the episode: hourly billing is 60 to 70 percent of the market today and could fall to 10 to 20 percent within ten years, with flat fees and subscriptions making up most of the rest.</p>
+      <div class="in-watch">
+        <span>Watch the full ride — Episode 13 of The Tesla Pod, the Tesla podcast recorded in a self-driving Tesla.</span>
+        <a class="btn btn-primary" href="https://www.youtube.com/watch?v=KXQJtHMHoh4" target="_blank" rel="noopener">▶ Watch on YouTube</a>
+        <a class="btn btn-ghost" href="/episodes/diana-khramina-praxis">Episode page &amp; show notes</a>
+      </div>
+      <div class="in-share" aria-label="Share this article">
+        <span class="in-share-label">Share</span>
+        <a class="sh-x" href="https://x.com/intent/post?text=Law%20Firms%20Don't%20Lose%20Clients%20on%20Legal%20Work%20%E2%80%94%20via%20%40theteslapod&url=https%3A%2F%2Fwww.theteslapod.com%2Finsights%2Fai-law-firm-operations-praxis" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor" aria-hidden="true"><path d="M18.24 2.25h3.31l-7.23 8.26 8.5 11.24h-6.66l-5.21-6.82-5.97 6.82H1.66l7.73-8.84L1.24 2.25h6.83l4.71 6.23zm-1.16 17.52h1.83L7.08 4.13H5.11z"/></svg>Post on X
+        </a>
+        <a class="sh-li" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.theteslapod.com%2Finsights%2Fai-law-firm-operations-praxis" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05a3.74 3.74 0 0 1 3.37-1.85c3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zm1.78 13.02H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>Share on LinkedIn
+        </a>
+        <button type="button" class="sh-copy" data-url="https://www.theteslapod.com/insights/ai-law-firm-operations-praxis">
+          <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg><span>Copy link</span>
+        </button>
+      </div>
+      <nav class="in-prevnext" aria-label="More insights">
+        <a href="/insights/stock-warrants-suppliers-partners-wrnt">← EP 12 · Why Your Supplier Should Own a Piece of Your Company</a>
+        <span></span>
+      </nav>
+    </article>
+    <aside class="in-toc" aria-label="On this page">
+      <span class="in-toc-label">On this page</span>
+      <a href="#big-idea">The big idea</a>
+      <a href="#why-now">Why this matters now</a>
+      <a href="#numbers">By the numbers</a>
+      <a href="#takeaways">Key takeaways</a>
+      <a href="#conversation">Inside the conversation</a>
+      <a href="#autonomy-lens">Through the autonomy lens</a>
+      <a href="#counterargument">The counterargument</a>
+      <a href="#about">About Praxis</a>
+      <a href="#faq">Q&amp;A</a>
+      <a href="/episodes/diana-khramina-praxis">Episode page &amp; show notes</a>
+      <a class="in-toc-watch" href="https://www.youtube.com/watch?v=KXQJtHMHoh4" target="_blank" rel="noopener">▶ Watch the episode</a>
+    </aside>
+    </div>
+    <section class="in-related">
+      <h2>More insights from the pod</h2>
+      <div class="insights-grid">
+        <a class="in-card in-card-sm" href="/insights/making-tech-media-entertaining-silicon-mania">
+        <div class="in-card-media">
+          <img loading="lazy" src="/assets/thumbs/9Ejk8wq14ww.jpg" srcset="/assets/thumbs/9Ejk8wq14ww-320.webp 320w, /assets/thumbs/9Ejk8wq14ww-640.webp 640w, /assets/thumbs/9Ejk8wq14ww-960.webp 960w, /assets/thumbs/9Ejk8wq14ww-1280.webp 1280w" sizes="(max-width: 640px) 220vw, (max-width: 1020px) 110vw, 800px" alt="Tech Has Ten Thousand Podcasts and Nothing Worth Watching — The Tesla Pod episode 11" onerror="this.onerror=null;this.removeAttribute('srcset');this.src='https://img.youtube.com/vi/9Ejk8wq14ww/hqdefault.jpg'" />
+        </div>
+        <span class="in-card-ep" aria-hidden="true">11</span>
+        <div class="in-card-body">
+          <span class="in-card-kicker">Silicon Mania</span>
+          <h3>Tech Has Ten Thousand Podcasts and Nothing Worth Watching</h3>
+          <span class="in-card-go">Read the insights <i aria-hidden="true">→</i></span>
+        </div>
+      </a>
+        <a class="in-card in-card-sm" href="/insights/raising-yc-at-18-manicule">
+        <div class="in-card-media">
+          <img loading="lazy" src="/assets/thumbs/EMmH7ECJ-IQ.jpg" srcset="/assets/thumbs/EMmH7ECJ-IQ-320.webp 320w, /assets/thumbs/EMmH7ECJ-IQ-640.webp 640w, /assets/thumbs/EMmH7ECJ-IQ-960.webp 960w, /assets/thumbs/EMmH7ECJ-IQ-1280.webp 1280w" sizes="(max-width: 640px) 220vw, (max-width: 1020px) 110vw, 800px" alt="They Raised $500K from YC at 18 — The Tesla Pod episode 02" onerror="this.onerror=null;this.removeAttribute('srcset');this.src='https://img.youtube.com/vi/EMmH7ECJ-IQ/hqdefault.jpg'" />
+        </div>
+        <span class="in-card-ep" aria-hidden="true">02</span>
+        <div class="in-card-body">
+          <span class="in-card-kicker">Manicule</span>
+          <h3>They Raised $500K from YC at 18</h3>
+          <span class="in-card-go">Read the insights <i aria-hidden="true">→</i></span>
+        </div>
+      </a>
+        <a class="in-card in-card-sm" href="/insights/free-mentorship-at-scale-adplist-felix-lee">
+        <div class="in-card-media">
+          <img loading="lazy" src="/assets/thumbs/g57WpguhxXA.jpg" srcset="/assets/thumbs/g57WpguhxXA-320.webp 320w, /assets/thumbs/g57WpguhxXA-640.webp 640w, /assets/thumbs/g57WpguhxXA-960.webp 960w, /assets/thumbs/g57WpguhxXA-1280.webp 1280w" sizes="(max-width: 640px) 220vw, (max-width: 1020px) 110vw, 800px" alt="Sequoia Said Yes. A Million Users Later, It's Still Free — The Tesla Pod episode 10" onerror="this.onerror=null;this.removeAttribute('srcset');this.src='https://img.youtube.com/vi/g57WpguhxXA/hqdefault.jpg'" />
+        </div>
+        <span class="in-card-ep" aria-hidden="true">10</span>
+        <div class="in-card-body">
+          <span class="in-card-kicker">ADPList</span>
+          <h3>Sequoia Said Yes. A Million Users Later, It's Still Free</h3>
+          <span class="in-card-go">Read the insights <i aria-hidden="true">→</i></span>
+        </div>
+      </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a class="nav-logo" href="/" aria-label="The Tesla Pod — home">
+          <span class="nav-word"><em>The</em> Tesla Pod</span>
+        </a>
+        <p>The Tesla podcast — conversations from the autonomous future.<br />Recorded on the move, somewhere in the Bay Area.</p>
+        <div class="social-mini footer-social" aria-label="The Tesla Pod on social">
+          <a class="sm-yt" href="https://www.youtube.com/@TeslaPod" target="_blank" rel="noopener" aria-label="The Tesla Pod on YouTube">
+            <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31.3 31.3 0 0 0 0 12a31.3 31.3 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31.3 31.3 0 0 0 24 12a31.3 31.3 0 0 0-.5-5.8zM9.6 15.6V8.4L15.8 12l-6.2 3.6z"/></svg>
+          </a>
+          <a class="sm-li" href="https://www.linkedin.com/company/teslapod" target="_blank" rel="noopener" aria-label="The Tesla Pod on LinkedIn">
+            <svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05a3.74 3.74 0 0 1 3.37-1.85c3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zm1.78 13.02H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+          </a>
+          <a class="sm-x" href="https://x.com/theteslapod" target="_blank" rel="noopener" aria-label="The Tesla Pod on X">
+            <svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor" aria-hidden="true"><path d="M18.24 2.25h3.31l-7.23 8.26 8.5 11.24h-6.66l-5.21-6.82-5.97 6.82H1.66l7.73-8.84L1.24 2.25h6.83l4.71 6.23zm-1.16 17.52h1.83L7.08 4.13H5.11z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Ride along</h4>
+        <a href="/episodes">Episodes</a>
+        <a href="/insights">Insights</a>
+        <a href="/#passengers">Passengers</a>
+        <a href="/#apply">Be a guest</a>
+      </div>
+      <div class="footer-col">
+        <h4>Get in touch</h4>
+        <a href="mailto:irosha@marketrix.ai?subject=Tesla%20Pod%20Sponsorship">Sponsorships</a>
+        <a href="mailto:irosha@marketrix.ai">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>On the road</h4>
+        <span class="footer-road">San Francisco → Bay Area</span>
+        <span class="footer-road">37.7749° N · 122.4194° W</span>
+      </div>
+    </div>
+    <div class="footer-bar">
+      <span>© <span id="year"></span> The Tesla Pod. All rides supervised.</span>
+      <span class="footer-made">Made with <span class="footer-heart">❤️</span> by <a href="https://www.irosha.com" target="_blank" rel="noopener">Irosha de Silva</a> in San Francisco</span>
+      <span class="footer-tel">Not affiliated with Tesla, Inc. (Yet)</span>
+    </div>
+  </footer>
+
+  <script>
+  (function () {
+    var root = document.documentElement, saved = null, themingTimer = null;
+    var reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
+    try { saved = localStorage.getItem("tp-theme"); } catch (e) {}
+    if (saved === "light" || saved === "dark") root.setAttribute("data-theme", saved);
+    function syncThemeColor(t) {
+      var m = document.querySelector('meta[name="theme-color"]');
+      if (m) m.setAttribute("content", t === "dark" ? "#101012" : "#fbfaf8");
+    }
+    document.getElementById("themeToggle").addEventListener("click", function () {
+      var next = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
+      if (!reduced) {
+        root.classList.add("theming");
+        clearTimeout(themingTimer);
+        themingTimer = setTimeout(function () { root.classList.remove("theming"); }, 420);
+      }
+      root.setAttribute("data-theme", next);
+      syncThemeColor(next);
+      try { localStorage.setItem("tp-theme", next); } catch (e) {}
+    });
+    var burger = document.getElementById("navBurger"), menu = document.getElementById("mobileMenu");
+    burger.addEventListener("click", function () {
+      var open = menu.classList.toggle("open");
+      burger.setAttribute("aria-expanded", open ? "true" : "false");
+    });
+    document.getElementById("year").textContent = new Date().getFullYear();
+    // lazy images ease in once decoded — opt into the fade only now that JS is running
+    (function fadeImgs() {
+      document.documentElement.classList.add("img-fade");
+      document.querySelectorAll("img[loading='lazy']").forEach(function (img) {
+        if (img.complete && img.naturalWidth) { img.classList.add("loaded"); return; }
+        img.addEventListener("load", function () { img.classList.add("loaded"); }, { once: true });
+        img.addEventListener("error", function () { img.classList.add("loaded"); }, { once: true });
+      });
+    })();
+    // reading progress + nav presence on scroll
+    var bar = document.getElementById("inProgress"), nav = document.getElementById("nav");
+    function onScroll() {
+      var h = document.documentElement, y = h.scrollTop;
+      if (bar) bar.style.width = (y / (h.scrollHeight - h.clientHeight || 1)) * 100 + "%";
+      if (nav) nav.classList.toggle("scrolled", y > 8);
+    }
+    addEventListener("scroll", onScroll, { passive: true }); onScroll();
+    // article blocks rise in as they enter view
+    var blocks = document.querySelectorAll(".in-article > *");
+    if (blocks.length && !reduced && "IntersectionObserver" in window) {
+      var rio = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.remove("in-vis-wait"); en.target.classList.add("in-vis"); rio.unobserve(en.target); } });
+      }, { rootMargin: "0px 0px -6% 0px", threshold: 0 });
+      blocks.forEach(function (b) { b.classList.add("in-vis-wait"); rio.observe(b); });
+    }
+    // copy link
+    var copyBtn = document.querySelector(".sh-copy");
+    if (copyBtn) copyBtn.addEventListener("click", function () {
+      var url = copyBtn.getAttribute("data-url"), label = copyBtn.querySelector("span");
+      function flash(text, cls) {
+        if (cls) copyBtn.classList.add(cls);
+        label.textContent = text;
+        setTimeout(function () { copyBtn.classList.remove("done"); label.textContent = "Copy link"; }, 1800);
+      }
+      function done() { flash("Link copied", "done"); }
+      function fail() { flash("Couldn’t copy"); }
+      function legacy() {
+        var t = document.createElement("textarea"), ok = false;
+        t.value = url; t.setAttribute("readonly", ""); t.style.cssText = "position:fixed;top:0;left:0;opacity:0;font-size:16px";
+        document.body.appendChild(t); t.select(); t.setSelectionRange(0, url.length);
+        try { ok = document.execCommand("copy"); } catch (e) {}
+        t.remove();
+        ok ? done() : fail();
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(url).then(done, legacy);
+      else legacy();
+    });
+    // scrollspy for the article table of contents
+    var tocLinks = document.querySelectorAll(".in-toc a[href^='#']");
+    if (tocLinks.length) {
+      var map = {}, current = null, spyQueued = false;
+      tocLinks.forEach(function (a) { map[a.getAttribute("href").slice(1)] = a; });
+      var heads = Array.prototype.filter.call(document.querySelectorAll(".in-article h2[id]"), function (h) { return map[h.id]; });
+      function spy() {
+        spyQueued = false;
+        var h = document.documentElement, navH = parseFloat(getComputedStyle(h).getPropertyValue("--nav-h")) || 64;
+        var line = navH + 40, active = null;
+        heads.forEach(function (el) { if (el.getBoundingClientRect().top <= line) active = el; });
+        // bottom of the page: the final (often short) section is the one being read
+        if (h.scrollTop + h.clientHeight >= h.scrollHeight - 4 && heads.length) active = heads[heads.length - 1];
+        var link = active ? map[active.id] : null;
+        if (link === current) return;
+        if (current) current.classList.remove("on");
+        current = link;
+        if (current) current.classList.add("on");
+      }
+      addEventListener("scroll", function () { if (!spyQueued) { spyQueued = true; requestAnimationFrame(spy); } }, { passive: true });
+      addEventListener("resize", spy);
+      spy();
+    }
+  })();
+  </script>
+</body>
+</html>

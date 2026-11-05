@@ -9,6 +9,38 @@
 // (YouTube Studio → Subtitles → ⋮ → Download) and the page picks it up on the next build.
 
 export const EPISODE_CONTENT = {
+  "KXQJtHMHoh4": {
+    publishedAt: "2026-10-31T17:16:02-07:00", // YouTube publish time — VideoObject.uploadDate
+    seoTitle: "Diana Khramina on AI That Runs Law Firms | The Tesla Pod",
+    seoDesc: "Praxis (YC F26) CEO Diana Khramina on why law firms lose clients on response time, agents that run intake to invoicing, and the end of the billable hour. EP 13.",
+    summary: [
+      "Why would a client wait three days for a law firm's reply when Claude answers in seconds? On episode 13 of The Tesla Pod, host Irosha de Silva rides through San Francisco on Full Self-Driving with Diana Khramina, cofounder and CEO of Praxis (YC Fall 2026).",
+      "Praxis is a system of record for law firms with AI agents on top that run the firm's operations by its own rules: intake, internal checks, onboarding, invoicing and billing, with a lawyer in the loop on every step. Diana's argument is that firms rarely lose clients on legal work. They lose them on the experience: days before a first reply, weeks of back and forth to onboard, and a hundred-email thread nobody can follow. In a business that runs on referrals, that costs them their best growth channel.",
+      "Before Praxis, Diana was at McKinsey in Paris, then spent four years at Gorgias, starting as chief of staff and going on to lead its AI Agent product from zero to 1,000 customers. Her cofounder, Maxence Guegnolle, is an AI engineer who built data and AI systems at Uber and BlaBlaCar, and comes from a family of lawyers."
+    ],
+    topics: [
+      "Why law firms are missing the “engine” this car has",
+      "What a law firm is still worth when clients can ask Claude",
+      "Why lawyers are shifting from doing the work to reviewing and approving it",
+      "The moment a client walks away",
+      "Why response speed decides which firm a client hires",
+      "What really happens between a client's first message and a signed engagement letter",
+      "Keeping a lawyer in the loop on every step",
+      "Confidentiality and trust when AI handles the first contact",
+      "Building AI agents at Gorgias, and what carries over to legal",
+      "Exploring 12 startup ideas and picking one for the next 10 years",
+      "Meeting her cofounder Maxence, an AI engineer from a family of lawyers",
+      "Growing up across Russia, Belgium, Spain, France and China",
+      "Crossing the Alps self-supported and climbing Half Dome without the cables"
+    ],
+    audience: "For anyone who runs or works in a law firm, founders building AI for professional services, and anyone weighing the jump from consulting or a chief-of-staff role to founder.",
+    guestLinks: {
+      "Diana Khramina": [
+        { label: "LinkedIn", url: "https://www.linkedin.com/in/diana-khramina" },
+        { label: "X", url: "https://x.com/KhraminaDianka" }
+      ]
+    }
+  },
   "qZEn0M27lIs": {
     publishedAt: "2026-10-24T11:55:56-07:00", // YouTube publish time — VideoObject.uploadDate
     seoTitle: "Duane Good on Stock Warrants for Partners | The Tesla Pod",

@@ -30,6 +30,51 @@ const episodeUrl = (ep) => `${SITE}/episodes/${ep.slug}`;
 
 const INSIGHTS = [
   {
+    slug: "ai-law-firm-operations-praxis",
+    ep: 13, id: "KXQJtHMHoh4", date: "2026-10-31", dateHuman: "Oct 31, 2026", duration: "59:00",
+    guest: "Diana Khramina", role: "Cofounder & CEO @ Praxis (YC F26)", company: "Praxis",
+    title: "Law Firms Don't Lose Clients on <em>Legal Work</em>",
+    seoTitle: "Why Law Firms Lose Clients, and the AI Fixing It | The Tesla Pod",
+    seoDesc: "Clients judge law firms on how fast they reply. Praxis (YC F26) CEO Diana Khramina on AI agents that run intake to invoicing with a lawyer approving each step.",
+    keywords: "AI for law firms, legal tech, law firm client intake, law firm response time, practice management software, Clio alternative, billable hour, AI native law firm, Praxis, Diana Khramina, YC F26",
+    hook: "Clients can't judge the legal work. They can judge how long you take to reply.",
+    sub: "Diana Khramina studied law, worked with law firms at McKinsey in Paris, then led Gorgias's AI Agent product from zero to 1,000 customers. Now she's building Praxis (YC Fall 2026), AI agents that run a law firm's operations from first inquiry to paid invoice. This ride is about why firms lose clients long before the legal work starts, and why the lawyer stays in the loop on every step.",
+    bigIdea: [
+      "Most of the attention in legal AI goes to drafting and contract review: Harvey, Legora and the like. Diana calls that the tip of the iceberg. Underneath, a typical firm runs on old practice-management systems where leads, client files and invoices live in separate places, and staff copy and paste data between them. Creating a single lead from an email can take ten or fifteen minutes. That admin load is why firms are slow to reply, and the slowness is what clients notice.",
+      "Her point about clients is simple: most can't judge a lawyer's expertise, but they can judge responsiveness. A first reply that takes two to five days, two to three weeks of document back-and-forth to onboard, a hundred-email thread, and the client either leaves or never refers anyone. In a referral business that's the growth channel. Praxis's answer is a system of record with agents on top that do the admin end to end, while the lawyer reviews and approves every step."
+    ],
+    takeaways: [
+      "<b>Responsiveness is what clients can judge.</b> Expertise is invisible to most clients; how quickly a firm answers is not. Praxis cites a figure that 67% of potential clients say their choice of firm comes down to how fast it responds.",
+      "<b>The admin is the bottleneck.</b> Disconnected systems mean re-entering the same client data for the lead, the client file, the documents and the invoice.",
+      "<b>Lawyers move from doing to approving.</b> Diana drafted her own company's contracts with Claude and still wanted a lawyer to check them. That review, plus advice, negotiation and trust, is where firms keep their value.",
+      "<b>Agents draft, lawyers send.</b> Nothing goes to a client without a lawyer's approval, and Praxis stays out of legal advice.",
+      "<b>The billable hour is losing share.</b> Diana's estimate: hourly billing is 60 to 70% of the market today and could fall to 10 to 20% within ten years, with flat fees and subscriptions taking most of the rest."
+    ],
+    themes: [
+      { h: "From Friday 11 p.m. to signed by Monday", p: "Diana walks through the client journey: a lead arrives late on Friday, a reply is drafted for the lawyer to approve, qualification and a conflict check run, a consultation is booked for Monday, and the engagement letter and invoice are drafted from the call. Documents are collected and verified the same day, a client portal keeps the client updated, and invoices are prefilled and chased. Praxis calls it win, onboard, run, get paid." },
+      { h: "Why the incumbents haven't fixed it", p: "Practice-management tools like Clio have been around for about 20 years. Diana's view is that many grew by acquisition, so their parts don't share data, and their intake forms are hard to change. Praxis started from a new codebase and aims to ship a firm's feedback the same day." },
+      { h: "AI-native firms versus traditional firms", p: "New AI-native firms such as Crosby and Alma charge per outcome or by subscription. Diana expects the market to redistribute rather than flip: venture-backed firms pushing into the enterprise market, traditional firms holding smaller clients, and Praxis giving those firms the engine to compete." }
+    ],
+    about: "Praxis (YC Fall 2026) is the AI that runs a law firm, from first inquiry to paid invoice: a system of record for client and matter data, with agents on top that answer and qualify leads, run conflict checks, draft engagement letters, collect and verify documents, keep clients updated and send and chase invoices, with a lawyer approving every step. It is starting with immigration and corporate law firms. Diana Khramina is cofounder and CEO; Maxence Guegnolle, who built data and AI systems at Uber and BlaBlaCar, is cofounder and CTO.",
+    whyNow: "Clients now ask Claude or ChatGPT before they ever call a lawyer, so a firm that takes days to reply has to justify the wait. The billable hour is under pressure from clients asking for transparency, and AI-native firms are competing on speed and fixed pricing. Diana says firms that moved slowly for years are now actively shopping for tools.",
+    numbers: [
+      { n: "67%", l: "of potential clients say response speed decides who they hire (figure Praxis cites)" },
+      { n: "60–70%", l: "of legal billing that's hourly today (Diana's estimate)" },
+      { n: "0 → 1,000", l: "customers for the Gorgias AI Agent product Diana led" }
+    ],
+    autonomyLens: "Diana pushed back on the comparison at the start of the ride: the car runs smoothly because it has an engine, and law firms are missing theirs. Every reply is a scramble because the admin sits on top of the lawyer. Praxis is meant to be that engine, the system that moves the data and drafts the next step automatically. The supervision model maps too: as with FSD (Supervised), the agents act while the lawyer watches and approves, so speed goes up without handing judgment to the machine.",
+    counter: {
+      claim: "Law is built on trust and confidentiality. Clients won't want an AI handling their first contact with a firm, and lawyers won't trust agents with their clients.",
+      response: "That's why Praxis keeps a lawyer in the loop on every step. Agents draft the reply, run the conflict check and prepare the engagement letter, but nothing reaches the client without the lawyer's approval, and the product doesn't give legal advice. Diana argues the bigger trust risk is the status quo: a client who waits days for an answer or gets lost in a hundred-email thread doesn't come back or refer anyone. Faster, approved replies build trust rather than spend it."
+    },
+    faq: [
+      { q: "What is Praxis?", a: "Praxis (YC Fall 2026) is AI that runs a law firm's operations, from first inquiry to paid invoice. Agents handle intake, conflict checks, onboarding, client updates and billing, and a lawyer approves every step. It was founded by Diana Khramina (CEO) and Maxence Guegnolle (CTO)." },
+      { q: "Does Praxis give legal advice?", a: "No. Praxis focuses on the operational side of a firm, such as intake, documents and invoicing. Legal advice stays with the lawyers, who review and approve what the agents prepare." },
+      { q: "How is Praxis different from Harvey or Legora?", a: "Harvey and Legora focus on legal work itself, such as contract review and drafting. Praxis focuses on the operations around that work: the client journey, the data and the billing that let a firm respond quickly and run smoothly." },
+      { q: "Is the billable hour going away?", a: "Diana Khramina expects it to shrink rather than vanish. Her estimate on the episode: hourly billing is 60 to 70 percent of the market today and could fall to 10 to 20 percent within ten years, with flat fees and subscriptions making up most of the rest." }
+    ]
+  },
+  {
     slug: "stock-warrants-suppliers-partners-wrnt",
     ep: 12, id: "qZEn0M27lIs", date: "2026-10-24", dateHuman: "Oct 24, 2026", duration: "52:17",
     guest: "Duane Good", role: "Cofounder & CEO @ Wrnt", company: "Wrnt",
@@ -1126,20 +1171,30 @@ const TX_FIXES = [
   [/\bSilicon Money\b/g, "Silicon Mania"], [/\bMr\.? ?Beast\b/g, "MrBeast"], [/\bTik Tok\b/g, "TikTok"],
   [/\bWhimos\b/g, "Waymos"], [/\bWhimo\b/g, "Waymo"], [/\bFounders Fen\b/g, "Founders Fund"], [/\bA6Z\b/g, "a16z"]
 ];
-function cleanTranscriptText(text) {
+// fixes that are only safe for one episode (a common word elsewhere, a company name here)
+const TX_FIXES_BY_ID = {
+  qZEn0M27lIs: [[/\bDwayne\b/g, "Duane"], [/\bMarvel\b/g, "Marvell"]],
+  KXQJtHMHoh4: [
+    [/\b(?:Joas|Goas|Gorgeous|Georgia)\b/g, "Gorgias"], [/\bCleo\b/g, "Clio"], [/\bLora\b/g, "Legora"],
+    [/\bMcKenzie\b/g, "McKinsey"], [/\bPractice Panter\b/g, "PracticePanther"], [/\bUCSS\b/g, "USCIS"],
+    [/\bpractis\b/gi, "Praxis"], [/\bapply to AC\b/g, "apply to YC"], [/\bMaxons\b/g, "Maxence"],
+    [/\ba genic\b/g, "agentic"], [/\bEI agent\b/g, "AI agent"], [/\blow (firms?|space)\b/g, "law $1"]
+  ]
+};
+function cleanTranscriptText(text, id) {
   let s = " " + text + " ";
   s = s.replace(/\[[^\]]*\]/g, " ");
   s = s.replace(/\b(?:uh|um|uhm|erm)\b[,.]?\s*/gi, "");
   for (let i = 0; i < 3; i++) s = s.replace(/\b([\w']+)(?:,?\s+\1\b)+/gi, "$1");
-  for (const [re, to] of TX_FIXES) s = s.replace(re, to);
+  for (const [re, to] of TX_FIXES.concat(TX_FIXES_BY_ID[id] || [])) s = s.replace(re, to);
   return s.replace(/\s+([,.?!])/g, "$1").replace(/\s{2,}/g, " ").trim();
 }
 // ~40-second paragraphs, preferring to break at the end of a sentence
-function transcriptParagraphs(segs) {
+function transcriptParagraphs(segs, id) {
   const out = [];
   let cur = null;
   for (const seg of segs) {
-    const text = cleanTranscriptText(seg.text);
+    const text = cleanTranscriptText(seg.text, id);
     if (!text) continue;
     if (!cur) cur = { t: seg.t, parts: [] };
     cur.parts.push(text);
@@ -1184,7 +1239,7 @@ function episodePage(ep, i, transcript) {
   const coLabel = companyLabel(ep.guestRole), coKey = companyKey(coLabel), co = COMPANIES[coKey];
   const guests = guestsOf(ep);
   const date = isoDate(ep);
-  const paras = transcript && transcript.length ? transcriptParagraphs(transcript) : null;
+  const paras = transcript && transcript.length ? transcriptParagraphs(transcript, ep.id) : null;
   const txWords = paras ? paras.reduce((n, p) => n + p.text.split(/\s+/).length, 0) : 0;
   const personLd = (p) => ({
     "@type": "Person", name: p.name, jobTitle: p.role,

@@ -1,6 +1,19 @@
 // The Tesla Pod — baked content snapshot (auto-generated from live site + YouTube channel, Jul 15 2026)
 const EPISODES = [
   {
+    "id": "KXQJtHMHoh4",
+    "slug": "diana-khramina-praxis",
+    "num": 13,
+    "title": "Why Wait for Your Lawyer When You Have Claude?",
+    "fullTitle": "Why Wait for Your Lawyer When You Have Claude? | Diana Khramina, Praxis (YC F26)",
+    "guest": "Diana Khramina",
+    "guestRole": "Cofounder & CEO @ Praxis (YC F26)",
+    "duration": "59:00",
+    "releaseDate": "Oct 31, 2026",
+    "thumb": "assets/thumbs/KXQJtHMHoh4.jpg",
+    "description": "Why would a client wait three days for a law firm's reply when Claude answers in seconds? Diana Khramina, cofounder and CEO of Praxis (YC F26), on why law firms lose clients on experience, not legal work, and the AI agents that run a firm with a lawyer approving every step."
+  },
+  {
     "id": "qZEn0M27lIs",
     "slug": "duane-good-wrnt",
     "num": 12,
@@ -166,6 +179,13 @@ const PEOPLE = [
     "photo": "assets/people/irosha-de-silva.png",
     "episodeId": null,
     "isHost": true
+  },
+  {
+    "name": "Diana Khramina",
+    "role": "Cofounder & CEO",
+    "company": "Praxis (YC F26)",
+    "photo": "assets/people/diana-khramina.jpg",
+    "episodeId": "KXQJtHMHoh4"
   },
   {
     "name": "Duane Good",

@@ -1260,6 +1260,7 @@
   // guests' companies (not the host's Marketrix) → a one-line "about" + a link.
   // episode id → insights article slug (see tools/build-insights.mjs)
   var INSIGHT_SLUGS = {
+    "KXQJtHMHoh4": "ai-law-firm-operations-praxis",
     "qZEn0M27lIs": "stock-warrants-suppliers-partners-wrnt",
     "9Ejk8wq14ww": "making-tech-media-entertaining-silicon-mania",
     "g57WpguhxXA": "free-mentorship-at-scale-adplist-felix-lee",
@@ -1275,6 +1276,7 @@
   };
 
   var COMPANIES = {
+    "Praxis": { about: "AI agents that run a law firm's operations, from first inquiry to paid invoice: intake, conflict checks, onboarding and billing, with a lawyer approving every step.", url: "https://runpraxis.ai" },
     "Wrnt": { about: "The operating system for stock warrants: set up, issue and manage warrants so the partners and suppliers who help a company grow can share in its upside.", url: "https://www.wrnt.co" },
     "Silicon Mania": { about: "A tech media company betting that tech is the most exciting story on earth — recap shows, a print magazine, live events and original games. Backed by Offline Ventures and Founders Inc.", url: "https://siliconmania.tv" },
     "ADPList": { about: "The world's largest free mentorship community — free 1:1 sessions with nearly 39,000 mentors across design, product, engineering, AI and marketing. Backed by Sequoia India's Surge.", url: "https://adplist.org" },

@@ -1,11 +1,11 @@
 {
   "/insights": {
-    "hash": "1ef780895099ff7c",
-    "date": "2026-10-24"
+    "hash": "2a7069ca10f19196",
+    "date": "2026-11-05"
   },
   "/insights/making-tech-media-entertaining-silicon-mania": {
-    "hash": "95168ea30ff5c092",
-    "date": "2026-10-24"
+    "hash": "14ef6111be962e3a",
+    "date": "2026-11-05"
   },
   "/insights/free-mentorship-at-scale-adplist-felix-lee": {
     "hash": "2009a111d7b6cc53",
@@ -36,24 +36,24 @@
     "date": "2026-10-23"
   },
   "/insights/5-trillion-small-business-succession-silver-surf": {
-    "hash": "4523ee3a3b264762",
-    "date": "2026-10-24"
+    "hash": "5ad849c0ae93c238",
+    "date": "2026-11-05"
   },
   "/insights/raising-yc-at-18-manicule": {
-    "hash": "85228bcc87ecfb99",
-    "date": "2026-10-24"
+    "hash": "502e0fbe0aae13af",
+    "date": "2026-11-05"
   },
   "/insights/self-driving-software-marketrix-yasith": {
-    "hash": "59adb5d7c2d64608",
-    "date": "2026-10-24"
+    "hash": "cc645d86e533c38f",
+    "date": "2026-11-05"
   },
   "/episodes": {
-    "hash": "3e8b825bbcf51006",
-    "date": "2026-10-24"
+    "hash": "70086a2c66f0eb5c",
+    "date": "2026-11-05"
   },
   "/episodes/adil-mania-silicon-mania": {
-    "hash": "c8bf57cf28aa994a",
-    "date": "2026-10-24"
+    "hash": "2e9585fa5f953590",
+    "date": "2026-11-05"
   },
   "/episodes/felix-lee-adplist": {
     "hash": "cb9b8b8328e9fdce",
@@ -84,27 +84,35 @@
     "date": "2026-10-23"
   },
   "/episodes/laila-gamaleldin-silver-surf": {
-    "hash": "6f9ce5a03d908394",
-    "date": "2026-10-24"
+    "hash": "1be2e09ecafdcc3d",
+    "date": "2026-11-05"
   },
   "/episodes/shreyans-jain-naman-bansal-manicule": {
-    "hash": "e9120e5beadbbb99",
-    "date": "2026-10-24"
+    "hash": "9dd778fe942f3322",
+    "date": "2026-11-05"
   },
   "/episodes/yasith-jayawardana-marketrix-ai": {
-    "hash": "69f543f6a87fc1f2",
-    "date": "2026-10-24"
+    "hash": "f71f9fed810dc8f6",
+    "date": "2026-11-05"
   },
   "/": {
-    "hash": "a398eeeabac93d1d",
-    "date": "2026-10-24"
+    "hash": "a55453755565090f",
+    "date": "2026-11-05"
   },
   "/insights/stock-warrants-suppliers-partners-wrnt": {
-    "hash": "75f499ce5640582f",
-    "date": "2026-10-24"
+    "hash": "165dbd6508077abd",
+    "date": "2026-11-05"
   },
   "/episodes/duane-good-wrnt": {
-    "hash": "8c59c2454c2af771",
-    "date": "2026-10-24"
+    "hash": "937befb47fbee53b",
+    "date": "2026-11-05"
+  },
+  "/insights/ai-law-firm-operations-praxis": {
+    "hash": "40395dfd800ace2e",
+    "date": "2026-11-05"
+  },
+  "/episodes/diana-khramina-praxis": {
+    "hash": "1863a7d8259d2dac",
+    "date": "2026-11-05"
   }
 }

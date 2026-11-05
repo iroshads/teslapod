@@ -6,8 +6,16 @@
     <atom:link href="https://www.theteslapod.com/feed.xml" rel="self" type="application/rss+xml" />
     <description>The Tesla podcast recorded inside a self-driving Tesla. Host Irosha de Silva rides through San Francisco with startup founders.</description>
     <language>en-us</language>
-    <lastBuildDate>Sat, 24 Oct 2026 12:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 31 Oct 2026 12:00:00 GMT</lastBuildDate>
     <image><url>https://www.theteslapod.com/assets/brand/icon-192.png</url><title>The Tesla Pod</title><link>https://www.theteslapod.com/</link></image>
+    <item>
+      <title>EP 13: Why Wait for Your Lawyer When You Have Claude? — Diana Khramina</title>
+      <link>https://www.theteslapod.com/episodes/diana-khramina-praxis</link>
+      <guid isPermaLink="true">https://www.theteslapod.com/episodes/diana-khramina-praxis</guid>
+      <pubDate>Sat, 31 Oct 2026 12:00:00 GMT</pubDate>
+      <description>Why would a client wait three days for a law firm&apos;s reply when Claude answers in seconds? On episode 13 of The Tesla Pod, host Irosha de Silva rides through San Francisco on Full Self-Driving with Diana Khramina, cofounder and CEO of Praxis (YC Fall 2026). Praxis is a system of record for law firms with AI agents on top that run the firm&apos;s operations by its own rules: intake, internal checks, onboarding, invoicing and billing, with a lawyer in the loop on every step. Diana&apos;s argument is that firms rarely lose clients on legal work. They lose them on the experience: days before a first reply, weeks of back and forth to onboard, and a hundred-email thread nobody can follow. In a business that runs on referrals, that costs them their best growth channel. Before Praxis, Diana was at McKinsey in Paris, then spent four years at Gorgias, starting as chief of staff and going on to lead its AI Agent product from zero to 1,000 customers. Her cofounder, Maxence Guegnolle, is an AI engineer who built data and AI systems at Uber and BlaBlaCar, and comes from a family of lawyers. Insights: https://www.theteslapod.com/insights/ai-law-firm-operations-praxis Watch: https://www.youtube.com/watch?v=KXQJtHMHoh4</description>
+      <media:thumbnail url="https://www.theteslapod.com/assets/thumbs/KXQJtHMHoh4.jpg" />
+    </item>
     <item>
       <title>EP 12: Why Your Supplier Should Own a Piece of Your Company — Duane Good</title>
       <link>https://www.theteslapod.com/episodes/duane-good-wrnt</link>
